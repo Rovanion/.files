@@ -112,3 +112,6 @@ alias "atp-get"="apt-get"
 
 # Fix so that sudo <alias of choice> works.
 alias sudo="sudo "
+
+# Console emacs
+alias en="emacs -nw" 
