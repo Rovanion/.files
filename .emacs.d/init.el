@@ -20,7 +20,7 @@
 ;;(setq ac-ignore-case nil)
 ;; Start showing completions with no delay.
 (setq ac-delay 0)
+(setq ac-auto-start 1)
 ;; Try to use spell correction if there are no matches.
 ;; TODO: This does not work, fix it.
 (setq ac-use-fuzzy 1)
-(ac-fuzzy-complete)
