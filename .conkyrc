@@ -32,10 +32,10 @@ TEXT
 ${voffset 10}${color EAEAEA}${font GE Inspira:pixelsize=120}${time %H:%M}\
 ${font}${voffset -84}${offset 8}${color FFA300}${font GE Inspira:pixelsize=42}${time %d}\
 ${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${offset 10}${time %B} ${time %Y}\
-${voffset 34}${font GE Inspira:pixelsize=58}${offset -166}${time %A}${font}
+${voffset 34}${font GE Inspira:pixelsize=58}${offset -146}${time %A}${font}
 \
-${voffset 2}${font Ubuntu:pixelsize=11}\
-${offset 14}${color FFA300}TEMP ${offset 4}$color ${execi 8 sensors | grep temp3 | cut -c16-17} °C\
+${voffset 5}${font Ubuntu:pixelsize=11}\
+${offset 14}${color FFA300}TEMP ${offset 6}$color ${execi 8 sensors | grep id\ 0 | cut -c18-24}\
 ${offset 26}${color FFA300}HD ${offset 4}$color${fs_free /} / ${fs_size /}\
 ${offset 26}${color FFA300}RAM ${offset 4}$color$mem / $memmax\
 ${offset 26}${color FFA300}CPU ${offset 4}$color${cpu cpu0}%\
