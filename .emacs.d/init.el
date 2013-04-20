@@ -1,3 +1,14 @@
+;; Put scroll bar on the right in graphical mode.
+(set-scroll-bar-mode 'right)
+;; Hide the menu- and tool-bar in graphical mode.
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+
+;; Make scrolling by mouse linear
+(setq mouse-wheel-progressive-speed nil)
+;; And then scroll only one line per scroll event. 
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+
 ;; Each level of indention in JS is 2 spaces.
 (setq js-indent-level 2)
 
