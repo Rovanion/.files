@@ -49,3 +49,6 @@
                 (font-lock-mode 1))))
 ;; Turn on autocomplete-mode when octave-mode is running
 (add-to-list 'ac-modes 'octave-mode)
+
+;; Run tex-mode when a .latex-file is opened
+(add-to-list 'auto-mode-alist '("\\.latex\\'" . tex-mode))
