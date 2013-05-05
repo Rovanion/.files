@@ -52,3 +52,7 @@
 
 ;; Run tex-mode when a .latex-file is opened
 (add-to-list 'auto-mode-alist '("\\.latex\\'" . tex-mode))
+
+;; Automatically open the buffers last opened on emacs start
+(desktop-save-mode 1)
+
