@@ -56,3 +56,5 @@
 ;; Automatically open the buffers last opened on emacs start
 (desktop-save-mode 1)
 
+;; Surpress emacs init screen
+(setq inhibit-startup-screen t)
