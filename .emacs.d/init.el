@@ -35,3 +35,24 @@
 ;; Try to use spell correction if there are no matches.
 ;; TODO: This does not work, fix it.
 (setq ac-use-fuzzy 1)
+
+;; Start octave-mode when opening a file labeled .octave or .m
+(autoload 'octave-mode "octave-mode" "Loding octave-mode" t)
+(add-to-list 'auto-mode-alist '("\\.octave\\'" . octave-mode))
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+;; Turn on abbrevs, auto-fill and font-lock.
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (abbrev-mode 1)
+            (auto-fill-mode 1)
+            (if (eq window-system 'x)
+                (font-lock-mode 1))))
+;; Turn on autocomplete-mode when octave-mode is running
+(add-to-list 'ac-modes 'octave-mode)
+
+;; Run tex-mode when a .latex-file is opened
+(add-to-list 'auto-mode-alist '("\\.latex\\'" . tex-mode))
+
+;; Automatically open the buffers last opened on emacs start
+(desktop-save-mode 1)
+
