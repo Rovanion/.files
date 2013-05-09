@@ -9,7 +9,7 @@ own_window_transparent true
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 double_buffer true
 minimum_size 250 5
-maximum_width 500
+maximum_width 600
 draw_shades no
 draw_outline no
 draw_borders no
@@ -18,8 +18,8 @@ default_color white
 default_shade_color red
 default_outline_color green
 alignment top_left
-gap_x 1310
-gap_y 840
+gap_x 1080
+gap_y 790
 no_buffers false
 uppercase no
 cpu_avg_samples 1
@@ -35,7 +35,7 @@ ${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${offset 10}${time %
 ${voffset 34}${font GE Inspira:pixelsize=58}${offset -146}${time %A}${font}
 \
 ${voffset 5}${font Ubuntu:pixelsize=11}\
-${offset 14}${color FFA300}TEMP ${offset 6}$color ${execi 8 sensors | grep id\ 0 | cut -c18-24}\
+${offset 14}${color FFA300}TEMP ${offset 6}$color ${execi 8 sensors | grep temp1: | grep 127 | cut -c16-22}\
 ${offset 26}${color FFA300}HD ${offset 4}$color${fs_free /} / ${fs_size /}\
 ${offset 26}${color FFA300}RAM ${offset 4}$color$mem / $memmax\
 ${offset 26}${color FFA300}CPU ${offset 4}$color${cpu cpu0}%\
