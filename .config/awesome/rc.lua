@@ -213,21 +213,26 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "m", function () mymainmenu:show({keygrabber=true}) end),
 
-    -- Layout manipulation
+    -- Move window in the stack
     awful.key({ modkey,		}, "aring", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey,    	}, "odiaeresis", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, 	}, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, 	}, "k", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
+    -- Resizing windows
+    awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.01)    end),
+    awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.01)    end),
+    awful.key({ modkey,		  }, "adiaeresis", function () awful.client.incwfact(-0.05) end),
+    awful.key({ modkey,		  }, "o", function () awful.client.incwfact( 0.05) end),
+    -- Increase number of windows in row
+    awful.key({ modkey, "Shift"   }, "a",     function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey, "Shift"   }, "e",     function () awful.tag.incnmaster(-1)      end),
+    -- Increase number of rows
+    awful.key({ modkey, "Control" }, "a",     function () awful.tag.incncol( 1)         end),
+    awful.key({ modkey, "Control" }, "e",     function () awful.tag.incncol(-1)         end),
+    -- Switch layout
+    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
+    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,           }, "Tab",   function () awful.client.focus.history.previous() if client.focus then client.focus:raise() end end),
 
-    -- Standard programs
+    -- Launching programs
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Shift"   }, "f", function () run_or_raise("firefox", {name = "Firefox"}) end),
     awful.key({ modkey, "Shift"   }, "t", function () run_or_raise("thunar", {name = "File Manager"} ) end),
@@ -235,14 +240,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
     -- Window controls
-    awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.05)    end),
-    awful.key({ modkey, "Shift"   }, "a",     function () awful.tag.incnmaster( 1)      end),
-    awful.key({ modkey, "Shift"   }, "e",     function () awful.tag.incnmaster(-1)      end),
-    awful.key({ modkey, "Control" }, "a",     function () awful.tag.incncol( 1)         end),
-    awful.key({ modkey, "Control" }, "e",     function () awful.tag.incncol(-1)         end),
-    awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
-    awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -259,11 +257,11 @@ globalkeys = awful.util.table.join(
 )
 
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "adiaeresis",      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey,           }, "j",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,		  }, "q",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "l",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "s",
