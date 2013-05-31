@@ -116,3 +116,5 @@ alias sudo="sudo "
 # Console emacs
 alias ew="emacs -nw"
 alias en="emacs -nw" 
+
+export BOOST_ROOT=/home/rovanion/usr/
