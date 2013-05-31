@@ -36,6 +36,7 @@
 ;; TODO: This does not work, fix it.
 (setq ac-use-fuzzy 1)
 
+
 ;; Start octave-mode when opening a file labeled .octave or .m
 (autoload 'octave-mode "octave-mode" "Loding octave-mode" t)
 (add-to-list 'auto-mode-alist '("\\.octave\\'" . octave-mode))
@@ -55,3 +56,22 @@
 
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
+
+
+;; Defines a mode which automatically runs recompile after save
+(defun compile-on-save-start ()
+  (let ((buffer (compilation-find-buffer)))
+    (unless (get-buffer-process buffer) 
+      (recompile))))
+
+(define-minor-mode compile-on-save-mode
+  "Minor mode to automatically call `recompile' whenever the
+current buffer is saved. When there is ongoing compilation,
+nothing happens."
+  :lighter " CoS"
+    (if compile-on-save-mode
+    (progn  (make-local-variable 'after-save-hook)
+        (add-hook 'after-save-hook 'compile-on-save-start nil t))
+      (kill-local-variable 'after-save-hook)))
+
+
