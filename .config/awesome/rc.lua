@@ -236,6 +236,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Shift"   }, "f", function () run_or_raise("firefox", {name = "Firefox"}) end),
     awful.key({ modkey, "Shift"   }, "t", function () run_or_raise("thunar", {name = "File Manager"} ) end),
+    awful.key({ modkey, "Shift"   }, "e", function () run_or_raise("emacs", {name = "emacs@ThinkUbuntu"} ) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
@@ -257,7 +258,7 @@ globalkeys = awful.util.table.join(
 )
 
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "j",      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey,           }, ".",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,		  }, "q",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
