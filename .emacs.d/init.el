@@ -6,7 +6,7 @@
 
 ;; Make scrolling by mouse linear
 (setq mouse-wheel-progressive-speed nil)
-;; And then scroll only one line per scroll event. 
+;; And then scroll only one line per scroll event. Great for laptops.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 ;; Each level of indention in JS is 2 spaces.
@@ -56,40 +56,6 @@
 
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
-
-
-;; Defines a mode which automatically runs recompile after save
-(defun compile-on-save-start ()
-  (let ((buffer (compilation-find-buffer)))
-    (unless (get-buffer-process buffer) 
-      (recompile))))
-
-(define-minor-mode compile-on-save-mode
-  "Minor mode to automatically call `recompile' whenever the
-current buffer is saved. When there is ongoing compilation,
-nothing happens."
-  :lighter " CoS"
-    (if compile-on-save-mode
-    (progn  (make-local-variable 'after-save-hook)
-        (add-hook 'after-save-hook 'compile-on-save-start nil t))
-      (kill-local-variable 'after-save-hook)))
-
-
-
-;; Helper for compilation. Close the compilation window if
-;; there was no error at all. (emacs wiki)
-(defun compilation-exit-autoclose (status code msg)
-  ;; If M-x compile exists with a 0
-  (when (and (eq status 'exit) (zerop code))
-    ;; then bury the *compilation* buffer, so that C-x b doesn't go there
-    (bury-buffer)
-    ;; and delete the *compilation* window
-    (delete-window (get-buffer-window (get-buffer "*compilation*"))))
-  ;; Always return the anticipated result of compilation-exit-message-function
-  (cons msg code))
-;; Specify my function (maybe I should have done a lambda function)
-(setq compilation-exit-message-function 'compilation-exit-autoclose)
-
  
 
 (custom-set-variables
@@ -104,3 +70,6 @@ nothing happens."
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  )
+
+;; Provides the minor mode which runs the compile comand on save
+(require 'compile-on-save)
