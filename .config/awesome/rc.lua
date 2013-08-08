@@ -433,3 +433,14 @@ function match (table1, table2)
    end
    return true
 end
+
+-- Battery
+require("battery")
+
+batterywidget = widget({type = "textbox", name = "batterywidget", align = "right" })
+
+bat_clo = battery.batclosure("BAT0")
+batterywidget.text = bat_clo()
+battimer = timer({ timeout = 30 })
+battimer:add_signal("timeout", function() batterywidget.text = bat_clo() end)
+battimer:start()
