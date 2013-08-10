@@ -15,11 +15,9 @@ draw_outline no
 draw_borders no
 draw_graph_borders no
 default_color white
-default_shade_color red
+default_shade_color grey
 default_outline_color green
 alignment top_left
-gap_x 1080
-gap_y 810
 no_buffers false
 uppercase no
 cpu_avg_samples 1
@@ -27,18 +25,21 @@ net_avg_samples 1
 override_utf8_locale true
 use_spacer left
 
+# Adjust the distance from the screen edge
+gap_x 1080
+gap_y 710
 
 TEXT
-${voffset 10}${color EAEAEA}${font GE Inspira:pixelsize=120}${time %H:%M}\
-${font}${voffset -84}${offset 8}${color FFA300}${font GE Inspira:pixelsize=42}${time %d}\
-${voffset -15}${color EAEAEA}${font GE Inspira:pixelsize=22}${offset 10}${time %B} ${time %Y}\
-${voffset 34}${font GE Inspira:pixelsize=58}${offset -146}${time %A}${font}
+${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=120}${time %H:%M}\
+${voffset -56}${offset 10}${color FFA300}${font GE Inspira:pixelsize=42}${time %d} \
+${voffset -16}${offset 0}${color EAEAEA}${font GE Inspira:pixelsize=22}${time %B} ${time %Y}\
+${voffset 36}${offset -176}${font GE Inspira:pixelsize=58}${time %A}
 \
-${voffset 5}${font Ubuntu:pixelsize=11}\
-${offset 14}${color FFA300}TEMP ${offset 6}$color ${execi 8 sensors | grep temp1: | grep 127 | cut -c16-22}\
-${offset 26}${color FFA300}HD ${offset 4}$color${fs_free /} / ${fs_size /}\
-${offset 26}${color FFA300}RAM ${offset 4}$color$mem / $memmax\
-${offset 26}${color FFA300}CPU ${offset 4}$color${cpu cpu0}%\
+${voffset -50}${font Ubuntu:pixelsize=11}\
+${offset 12}${color FFA300}TEMP $color ${execi 8 sensors | grep temp1: | cut -c16-21}\
+${offset 28}${color FFA300}HD $color${fs_free /} / ${fs_size /}\
+${offset 28}${color FFA300}RAM $color$mem / $memmax\
+${offset 28}${color FFA300}CPU $color${cpu cpu0}%\
 
 
 
