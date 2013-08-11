@@ -18,7 +18,7 @@ default_color white
 default_shade_color grey
 default_outline_color green
 alignment top_left
-no_buffers false
+no_buffers true
 uppercase no
 cpu_avg_samples 1
 net_avg_samples 1
