@@ -74,7 +74,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[2])
 end
 -- }}}
 
@@ -213,33 +213,35 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "m", function () mymainmenu:show({keygrabber=true}) end),
 
-    -- Layout manipulation
+    -- Move window in the stack
     awful.key({ modkey,		}, "aring", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey,    	}, "odiaeresis", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, 	}, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, 	}, "k", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
-        function ()
-            awful.client.focus.history.previous()
-            if client.focus then
-                client.focus:raise()
-            end
-        end),
-
-    -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Control"   }, "q", awesome.quit),
-
-    awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.05)    end),
-    awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.05)    end),
+    -- Resizing windows
+    awful.key({ modkey,           }, "e",     function () awful.tag.incmwfact( 0.01)    end),
+    awful.key({ modkey,           }, "a",     function () awful.tag.incmwfact(-0.01)    end),
+    awful.key({ modkey,		  }, "adiaeresis", function () awful.client.incwfact(-0.05) end),
+    awful.key({ modkey,		  }, "o", function () awful.client.incwfact( 0.05) end),
+    -- Increase number of windows in row
     awful.key({ modkey, "Shift"   }, "a",     function () awful.tag.incnmaster( 1)      end),
     awful.key({ modkey, "Shift"   }, "e",     function () awful.tag.incnmaster(-1)      end),
+    -- Increase number of rows
     awful.key({ modkey, "Control" }, "a",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "e",     function () awful.tag.incncol(-1)         end),
+    -- Switch layout
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
+    awful.key({ modkey,           }, "Tab",   function () awful.client.focus.history.previous() if client.focus then client.focus:raise() end end),
+
+    -- Launching programs
+    awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
+    awful.key({ modkey, "Shift"   }, "f", function () run_or_raise("firefox", {name = "Firefox"}) end),
+    awful.key({ modkey, "Shift"   }, "t", function () run_or_raise("thunar", {name = "File Manager"} ) end),
+    awful.key({ modkey, "Shift"   }, "odiaeresis", function () run_or_raise("emacs", {name = "emacs@ThinkUbuntu"} ) end),
+    awful.key({ modkey, "Control" }, "r", awesome.restart),
+    awful.key({ modkey, "Control" }, "q", awesome.quit),
+
+    -- Window controls
+
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
@@ -256,11 +258,11 @@ globalkeys = awful.util.table.join(
 )
 
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "adiaeresis",      function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey,           }, ".",      function (c) c.fullscreen = not c.fullscreen  end),
     awful.key({ modkey,		  }, "q",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "l",      awful.client.movetoscreen                        ),
     awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "s",
@@ -375,3 +377,59 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+
+
+
+--- Spawns cmd if no client can be found matching properties
+-- If such a client can be found, pop to first tag where it is visible, and give it focus
+-- @param cmd the command to execute
+-- @param properties a table of properties to match against clients.  Possible entries: any properties of the client object
+function run_or_raise(cmd, properties)
+   local clients = client.get()
+   local focused = awful.client.next(0)
+   local findex = 0
+   local matched_clients = {}
+   local n = 0
+   for i, c in pairs(clients) do
+      --make an array of matched clients
+      if match(properties, c) then
+         n = n + 1
+         matched_clients[n] = c
+         if c == focused then
+            findex = n
+         end
+      end
+   end
+   if n > 0 then
+      local c = matched_clients[1]
+      -- if the focused window matched switch focus to next in list
+      if 0 < findex and findex < n then
+         c = matched_clients[findex+1]
+      end
+      local ctags = c:tags()
+      if #ctags == 0 then
+         -- ctags is empty, show client on current tag
+         local curtag = awful.tag.selected()
+         awful.client.movetotag(curtag, c)
+      else
+         -- Otherwise, pop to first tag client is visible on
+         awful.tag.viewonly(ctags[1])
+      end
+      -- And then focus the client
+      client.focus = c
+      c:raise()
+      return
+   end
+   awful.util.spawn(cmd)
+end
+
+-- Returns true if all pairs in table1 are present in table2
+function match (table1, table2)
+   for k, v in pairs(table1) do
+      if table2[k] ~= v and not table2[k]:find(v) then
+         return false
+      end
+   end
+   return true
+end

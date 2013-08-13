@@ -6,7 +6,7 @@
 
 ;; Make scrolling by mouse linear
 (setq mouse-wheel-progressive-speed nil)
-;; And then scroll only one line per scroll event. 
+;; And then scroll only one line per scroll event. Great for laptops.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 ;; Each level of indention in JS is 2 spaces.
@@ -36,6 +36,7 @@
 ;; TODO: This does not work, fix it.
 (setq ac-use-fuzzy 1)
 
+
 ;; Start octave-mode when opening a file labeled .octave or .m
 (autoload 'octave-mode "octave-mode" "Loding octave-mode" t)
 (add-to-list 'auto-mode-alist '("\\.octave\\'" . octave-mode))
@@ -55,3 +56,20 @@
 
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
+ 
+
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((eval compile-on-save-mode)))))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
+
+;; Provides the minor mode which runs the compile comand on save
+(require 'compile-on-save)
