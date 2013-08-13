@@ -115,4 +115,7 @@ alias sudo="sudo "
 
 # Console emacs
 alias ew="emacs -nw"
-alias en="emacs -nw" 
+alias en="emacs -nw"
+
+# Alias my usual ls command
+alias lh="ls -lhAB"
