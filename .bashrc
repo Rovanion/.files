@@ -106,6 +106,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# I want my visudos and git commits to be in emacs
+export EDITOR="emacs -nw"
+export VISUAL="emacs -nw"
 
 # Fix my constant mistyping.
 alias "atp-get"="apt-get"
