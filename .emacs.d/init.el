@@ -73,3 +73,6 @@
 
 ;; Provides the minor mode which runs the compile comand on save
 (require 'compile-on-save)
+
+;; Code which tries to make *compile* on errorcodes != 0
+(require 'only-display-compile-on-error)
