@@ -84,3 +84,15 @@
 ;; Code which tries to make *compile* on errorcodes != 0
 (require 'only-display-compile-on-error)
 
+;; Tell emacs to use hunspell as it spell correcting program
+(if (file-exists-p "/usr/bin/hunspell")
+    (progn
+      (setq ispell-program-name "hunspell")
+      (eval-after-load "ispell"
+        '(progn (defun ispell-get-coding-system () 'utf-8)))))
+
+
+;;;; This snippet enables lua-mode.
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
