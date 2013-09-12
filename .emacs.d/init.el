@@ -56,7 +56,7 @@
 
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
- 
+
 
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
@@ -73,3 +73,26 @@
 
 ;; Provides the minor mode which runs the compile comand on save
 (require 'compile-on-save)
+
+;; The indention depth for script files is 2 spaces
+(setq sh-basic-offset 2)
+(setq sh-indentation 2)
+
+;; Remove trailing whitespaces before saving
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; Code which tries to make *compile* on errorcodes != 0
+(require 'only-display-compile-on-error)
+
+;; Tell emacs to use hunspell as it spell correcting program
+(if (file-exists-p "/usr/bin/hunspell")
+    (progn
+      (setq ispell-program-name "hunspell")
+      (eval-after-load "ispell"
+        '(progn (defun ispell-get-coding-system () 'utf-8)))))
+
+
+;;;; This snippet enables lua-mode.
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))

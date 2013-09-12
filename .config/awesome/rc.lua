@@ -10,6 +10,11 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
+-- Run my autostart script
+dofile(awful.util.getdir("config") .. "/" .. "autostart.lua")
+-- Set up the run_or_raise function
+dofile(awful.util.getdir("config") .. "/" .. "run-or-raise.lua")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -241,13 +246,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
     -- Window controls
-
-
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
+
+    -- Power management
+    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend') end),
+    awful.key({ }, "XF86Launch1", function () awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend') end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -341,9 +347,11 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
+    -- Make the Subsonic Firefox window always map to tag 4
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
+    { rule = { title = "Audacious" },
+      properties = { tag = tags[4] } },
 }
 -- }}}
 
@@ -378,58 +386,3 @@ client.add_signal("focus", function(c) c.border_color = beautiful.border_focus e
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-
-
-
---- Spawns cmd if no client can be found matching properties
--- If such a client can be found, pop to first tag where it is visible, and give it focus
--- @param cmd the command to execute
--- @param properties a table of properties to match against clients.  Possible entries: any properties of the client object
-function run_or_raise(cmd, properties)
-   local clients = client.get()
-   local focused = awful.client.next(0)
-   local findex = 0
-   local matched_clients = {}
-   local n = 0
-   for i, c in pairs(clients) do
-      --make an array of matched clients
-      if match(properties, c) then
-         n = n + 1
-         matched_clients[n] = c
-         if c == focused then
-            findex = n
-         end
-      end
-   end
-   if n > 0 then
-      local c = matched_clients[1]
-      -- if the focused window matched switch focus to next in list
-      if 0 < findex and findex < n then
-         c = matched_clients[findex+1]
-      end
-      local ctags = c:tags()
-      if #ctags == 0 then
-         -- ctags is empty, show client on current tag
-         local curtag = awful.tag.selected()
-         awful.client.movetotag(curtag, c)
-      else
-         -- Otherwise, pop to first tag client is visible on
-         awful.tag.viewonly(ctags[1])
-      end
-      -- And then focus the client
-      client.focus = c
-      c:raise()
-      return
-   end
-   awful.util.spawn(cmd)
-end
-
--- Returns true if all pairs in table1 are present in table2
-function match (table1, table2)
-   for k, v in pairs(table1) do
-      if table2[k] ~= v and not table2[k]:find(v) then
-         return false
-      end
-   end
-   return true
-end
