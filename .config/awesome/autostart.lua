@@ -17,7 +17,6 @@ function run_once(prg,arg_string,pname,screen)
 end
 
 run_once("volumeicon")
-run_once("nm-applet")
 run_once("conky")
 run_once("setxkbmap qq dvorak")
 
