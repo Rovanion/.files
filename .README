@@ -1,7 +1,7 @@
 My own config files.
 
 Debian dependency list:
-$ sudo apt-get install awesome feh conky firefox emacs lxterminal audacious thunar
+$ sudo apt-get install awesome feh conky firefox emacs lxterminal audacious thunar hunspell
 
 
 In order to add emerge as mergetool run:
