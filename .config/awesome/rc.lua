@@ -246,13 +246,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "q", awesome.quit),
 
     -- Window controls
-
-
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
+
+    -- Power management
+    awful.key({ modkey, "Control" }, "s", function () awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend') end),
+    awful.key({ }, "XF86Launch1", function () awful.util.spawn('dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend') end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -346,9 +347,11 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
+    -- Make the Subsonic Firefox window always map to tag 4
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
+    { rule = { title = "Audacious" },
+      properties = { tag = tags[4] } },
 }
 -- }}}
 
