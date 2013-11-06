@@ -355,6 +355,10 @@ awful.rules.rules = {
     --   properties = { tag = tags[1][2] } },
     { rule = { title = "Audacious" },
       properties = { tag = tags[4] } },
+    -- Fullscreen flash
+    { rule = { instance = "plugin-container" },
+     properties = { floating = true } },
+
 }
 -- }}}
 
