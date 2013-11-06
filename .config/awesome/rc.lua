@@ -241,6 +241,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Shift"   }, "f", function () run_or_raise("firefox", {name = "Firefox"}) end),
     awful.key({ modkey, "Shift"   }, "t", function () run_or_raise("thunar", {name = "File Manager"} ) end),
+    awful.key({ modkey, "Shift"   }, "n", function () run_or_raise("nautilus", {name = "Nautilus"} ) end),
     awful.key({ modkey, "Shift"   }, "odiaeresis", function () run_or_raise("emacs", {name = "emacs@ThinkUbuntu"} ) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
