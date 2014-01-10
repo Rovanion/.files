@@ -22,4 +22,5 @@ run_once("setxkbmap qq dvorak")
 run_once("xscreensaver -no-splash &")
 run_once("nice -n 19 conky &")
 run_once("nice -n 19 dropbox start &")
+run_once("redshift")
 --}}}
