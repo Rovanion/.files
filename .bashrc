@@ -38,8 +38,31 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
+# Are we on a ssh connection?
+[ -n "$SSH_CLIENT" ] && ps1_informer=" [${blue}ssh${NC}]"
 
-PS1="┌${green}[\u]${NC}[\h]$ps1_informer:\[\e[0;32;49m\]\w\[\e[0m \n└>"
+function newPrompt {
+  # Look for Git status
+  if result=$(git diff-files 2>/dev/null) ; then
+    branch=$(git branch --color=never | sed -ne 's/* //p')
+    if echo $result | grep -q M ; then
+      branch=[$red$branch$NC]
+    else
+      branch=[$blue$branch$NC]
+    fi
+  else
+    unset branch
+  fi
+
+  #Are we root? Set the prompt either way.
+  if (( $(id -u) == 0 )); then
+    PS1="┌[${debian_chroot:+($debian_chroot)}${red}\u${NC}][\h]${branch:+$branch}$ps1_informer:\[\e[0;32;49m\]\w\[\e[0m \n└$ "
+  else
+    PS1="┌[${debian_chroot:+($debian_chroot)}${green}\u${NC}][\h]${branch:+$branch}$ps1_informer:\[\e[0;32;49m\]\w\[\e[0m \n└$ "
+  fi
+}
+
+newPrompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -96,3 +119,9 @@ alias lh="ls -lhAB"
 
 # Always show the diffs at the bottom of the commits
 alias gc="git commit -v"
+
+if [[ -z "$PROMPT_COMMAND" ]]; then
+    PROMPT_COMMAND=newPrompt
+else
+    PROMPT_COMMAND="$PROMPT_COMMAND ; newPrompt"
+fi
