@@ -104,7 +104,8 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock({ align = "right" }, " %y-%m-%d  %H:%M ", 1)
+
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -241,6 +242,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Shift"   }, "f", function () run_or_raise("firefox", {name = "Firefox"}) end),
     awful.key({ modkey, "Shift"   }, "t", function () run_or_raise("thunar", {name = "File Manager"} ) end),
+    awful.key({ modkey, "Shift"   }, "n", function () run_or_raise("nautilus", {name = "Nautilus"} ) end),
     awful.key({ modkey, "Shift"   }, "odiaeresis", function () run_or_raise("emacs", {name = "emacs@ThinkUbuntu"} ) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Control" }, "q", awesome.quit),
@@ -254,6 +256,7 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -352,6 +355,10 @@ awful.rules.rules = {
     --   properties = { tag = tags[1][2] } },
     { rule = { title = "Audacious" },
       properties = { tag = tags[4] } },
+    -- Fullscreen flash
+    { rule = { instance = "plugin-container" },
+     properties = { floating = true } },
+
 }
 -- }}}
 
