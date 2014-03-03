@@ -39,7 +39,7 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # Are we on a ssh connection?
-[ -n "$SSH_CLIENT" ] && ps1_informer=" [${blue}ssh${NC}]"
+[ -n "$SSH_CLIENT" ] && ps1_informer="[${cyan}ssh${NC}]"
 
 function newPrompt {
   # Look for Git status
