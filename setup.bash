@@ -1,15 +1,20 @@
 #!/bin/bash
 
-# Install my own keymap
-sudo cp ~/.config/egenSkit/qq /usr/share/X11/xkb/symbols/
+# First symlink in all the config
+./symlinker.bash
 
-# Make nautilus not search through all files when you type anything
-gsettings set org.gnome.nautilus.preferences enable-interactive-search true
+if [[ ! $1 == nox ]]; then
+    # Install my own keymap
+    sudo cp ~/.config/egenSkit/qq /usr/share/X11/xkb/symbols/
 
+    # Make nautilus not search through all files when you type anything
+    gsettings set org.gnome.nautilus.preferences enable-interactive-search true
 
-# Debian dependency list:
-sudo apt-get install awesome feh conky firefox emacs audacious nautilus hunspell eog redshift
-
+    # Debian dependency list:
+    sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift
+else
+    sudo apt-get install git emacs-nox
+fi
 
 # In order to add emerge as mergetool run:
 git config --global merge.tool emerge
