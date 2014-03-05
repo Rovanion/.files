@@ -102,7 +102,7 @@ fi
 
 # I want my visudos and git commits to be in emacs
 export EDITOR="emacs -nw"
-export VISUAL="emacs"
+export VISUAL="emacs -nw"
 
 # Fix my constant mistyping.
 alias "atp-get"="apt-get"
