@@ -26,8 +26,8 @@ override_utf8_locale true
 use_spacer left
 
 # Adjust the distance from the screen edge
-gap_x 1080
-gap_y 710
+gap_x 1310
+gap_y 850
 
 TEXT
 ${voffset 0}${color EAEAEA}${font GE Inspira:pixelsize=120}${time %H:%M}\
