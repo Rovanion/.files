@@ -5,10 +5,8 @@ function run_once(command, class, tag)
    local callback
    callback = function(c)
       if c.class == class then
-	 if c.instance != "Dialog" then
-	    awful.client.movetotag(tag, c)
-	    client.remove_signal("manage", callback)
-	 end
+	 awful.client.movetotag(tag, c)
+	 client.remove_signal("manage", callback)
       end
    end
    client.add_signal("manage", callback)
