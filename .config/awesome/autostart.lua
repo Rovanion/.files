@@ -21,14 +21,14 @@ function run_once(command, class, tag)
 end
 
 run_once("bash ~/.config/egenSkit/mouseAndKeyboard.bash")
+run_once("firefox", "Firefox", tags[1][4])
 run_once("volumeicon")
 run_once("nm-applet")
 run_once("xscreensaver -no-splash")
---run_once("nice -n 19 conky")
-run_once("nice -n 19 dropbox start")
 run_once("nice -n 19 redshift")
 run_once("audacious", "Audacious", tags[1][4])
 run_once("evolution", "Evolution", tags[1][3])
-run_once("firefox", "Firefox", tags[1][4])
-run_once(terminal , "Firefox", tags[1][1])
+run_once("x-terminal-emulator -e mosh --ssh=\"ssh -p 9001\" rovanion.se -- screen -rd weechat\"\"" , "Firefox", tags[1][1])
+run_once("sleep 1 && nice -n 19 conky")
+run_once("sleep 10 &&nice -n 19 dropbox start")
 --}}}
