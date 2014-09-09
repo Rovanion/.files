@@ -13,7 +13,7 @@ if [[ ! $1 == nox ]]; then
     # Debian dependency list:
     sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer
 else
-    sudo apt-get install git emacs24-nox hunspell htop ttf-mscorefonts-installer
+    sudo apt-get install git emacs24-nox hunspell htop screen
 fi
 
 # In order to add emerge as mergetool run:
