@@ -33,3 +33,6 @@ git config --global user.email "rovanion.luckey@gmail.com"
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=3600'
 git config --global push.default simple
+
+# Set emacs as the default editor
+sudo update-alternatives --set editor /usr/bin/emacs
