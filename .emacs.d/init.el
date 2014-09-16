@@ -9,8 +9,12 @@
 ;; And then scroll only one line per scroll event. Great for laptops.
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
-;; Each level of indention in JS is 2 spaces.
-(setq js-indent-level 2)
+;; Indentation galore!
+(setq-default tab-width 2)
+(setq-default js-indent-level tab-width)
+(setq-default js2-basic-offset tab-width)
+(setq-default sh-basic-offset tab-width)
+(setq-default sh-indentation tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 ;; Requires the fallowing plugin http://www.emacswiki.org/emacs/RainbowDelimiters
@@ -74,10 +78,6 @@
 ;; Provides the minor mode which runs the compile comand on save
 (require 'compile-on-save)
 
-;; The indention depth for script files is 2 spaces
-(setq sh-basic-offset 2)
-(setq sh-indentation 2)
-
 ;; Remove trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -108,6 +108,6 @@
 (add-hook 'css-mode-hook 'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
 
-;; And js2-mode
+;; Make js2-mode the mode for javascript files
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
