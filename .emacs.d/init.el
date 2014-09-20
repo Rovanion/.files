@@ -15,6 +15,7 @@
 (setq-default js2-basic-offset tab-width)
 (setq-default sh-basic-offset tab-width)
 (setq-default sh-indentation tab-width)
+(setq-default sgml-basic-offset tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 ;; Requires the fallowing plugin http://www.emacswiki.org/emacs/RainbowDelimiters
