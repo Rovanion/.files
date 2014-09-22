@@ -10,9 +10,12 @@ if [[ ! $1 == nox ]]; then
     # Make nautilus not search through all files when you type anything
     gsettings set org.gnome.nautilus.preferences enable-interactive-search true
 
+		# Set the gtk controls to behave like emacs
+		gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+
     # Debian dependency list:
     sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode
-    
+
     # Select default x tools on debian
     sudo update-alternatives --set /usr/bin/urxvt x-terminal-emulator
     sudo update-alternatives --set /usr/bin/firefox x-www-browser
