@@ -12,6 +12,8 @@ if [[ ! $1 == nox ]]; then
 
 		# Set the gtk controls to behave like emacs
 		gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+		gconftool-2 --type=string --set /desktop/gnome/interface/gtk_key_theme Emacs
+
 
     # Debian dependency list:
     sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode
