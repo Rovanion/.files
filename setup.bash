@@ -19,8 +19,8 @@ if [[ ! $1 == nox ]]; then
     sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus rxvt-unicode
 
     # Select default x tools on debian
-    sudo update-alternatives --set /usr/bin/urxvt x-terminal-emulator
-    sudo update-alternatives --set /usr/bin/firefox x-www-browser
+    sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
+    sudo update-alternatives --set x-www-browser /usr/bin/firefox
 else
     sudo apt-get install git emacs24-nox hunspell htop screen
 fi
@@ -40,4 +40,4 @@ git config --global credential.helper 'cache --timeout=3600'
 git config --global push.default simple
 
 # Set emacs as the default editor
-sudo update-alternatives --set editor /usr/bin/emacs
+sudo update-alternatives --set editor /usr/bin/emacs24
