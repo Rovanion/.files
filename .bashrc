@@ -125,3 +125,6 @@ if [[ -z "$PROMPT_COMMAND" ]]; then
 else
     PROMPT_COMMAND="$PROMPT_COMMAND ; newPrompt"
 fi
+
+# The nodejs cli is named nodejs on Debian of name collision reasons, though everyone expects it to be named node.
+alias node=nodejs
