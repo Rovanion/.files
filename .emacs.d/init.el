@@ -58,7 +58,9 @@
 (add-to-list 'ac-modes 'octave-mode)
 
 ;; Run tex-mode when a .latex-file is opened
-(add-to-list 'auto-mode-alist '("\\.latex\\'" . tex-mode))
+(add-to-list 'auto-mode-alist '("\\.latex\\'" . LaTeX-mode))
+;; Use visual-line-mode in latex-mode
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
 
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
@@ -122,6 +124,7 @@
 
 ;; And normal spell checking for latex documents
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+
 
 (provide 'init)
 ;;; init.el ends here
