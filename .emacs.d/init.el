@@ -40,6 +40,7 @@
 ;; Try to use spell correction if there are no matches.
 ;; TODO: This does not work, fix it.
 (setq ac-use-fuzzy 1)
+(setq ac-use-quick-help 1)
 
 
 ;; Start octave-mode when opening a file labeled .octave or .m
@@ -98,12 +99,6 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
-;; Add melpa to the package repository list
-(require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-
 ;; Lets try out skewer mode.
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'css-mode-hook 'skewer-css-mode)
@@ -112,3 +107,12 @@
 ;; Make js2-mode the mode for javascript files
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;; Should be a fix for <dead-acute> is undefined.
+(require 'iso-transl)
+
+;; Automatically download packages requiered for this conf
+(require 'fetch-packages)
+
+(provide 'init)
+;;; init.el ends here
