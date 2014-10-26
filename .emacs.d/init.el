@@ -111,8 +111,17 @@
 ;; Should be a fix for <dead-acute> is undefined.
 (require 'iso-transl)
 
-;; Automatically download packages requiered for this conf
+;; Automatically download packages requiered for this conf.
 (require 'fetch-packages)
+
+;; Turn on "on the fly" spellchecking for comments and strings.
+(add-hook 'js2-mode-hook 'flyspell-prog-mode)
+(add-hook 'css-mode-hook 'flyspell-prog-mode)
+(add-hook 'html-mode-hook 'flyspell-prog-mode)
+(add-hook 'octave-mode-hook 'flyspell-prog-mode)
+
+;; And normal spell checking for latex documents
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
 (provide 'init)
 ;;; init.el ends here
