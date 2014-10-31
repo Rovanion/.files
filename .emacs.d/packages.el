@@ -3,6 +3,7 @@
 ;;;;
 ;; list the packages you want
 (setq package-list '(js2-mode
+										 auto-complete
 										 ac-js2
 										 ac-math
 										 ac-octave
@@ -26,5 +27,5 @@
 	(unless (package-installed-p package)
 		(package-install package)))
 
-(provide 'fetch-packages)
-;;; fetch-packages.el ends here
+(provide 'packages)
+;;; packages.el ends here
