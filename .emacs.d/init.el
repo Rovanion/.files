@@ -26,14 +26,6 @@
 ;; And then highlight the parenthesis
 (show-paren-mode 1)
 
-;; Auto complete mode. Fetched from the fallowing URL:
-;; http://cx4a.org/software/auto-complete/
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d//ac-dict")
-;; Load the default config
-(ac-config-default)
-;; Say with a stern voice that capital letters matter.
-;;(setq ac-ignore-case nil)
 ;; Start showing completions with no delay.
 (setq ac-delay 0)
 (setq ac-auto-start 1)
@@ -54,8 +46,6 @@
             (auto-fill-mode 1)
             (if (eq window-system 'x)
                 (font-lock-mode 1))))
-;; Turn on autocomplete-mode when octave-mode is running
-(add-to-list 'ac-modes 'octave-mode)
 
 ;; Run tex-mode when a .latex-file is opened
 (add-to-list 'auto-mode-alist '("\\.latex\\'" . LaTeX-mode))
@@ -114,7 +104,7 @@
 (require 'iso-transl)
 
 ;; Automatically download packages requiered for this conf.
-(require 'fetch-packages)
+(require 'packages)
 
 ;; Turn on "on the fly" spellchecking for comments and strings.
 (add-hook 'js2-mode-hook 'flyspell-prog-mode)
@@ -125,6 +115,15 @@
 ;; And normal spell checking for latex documents
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
+
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.emacs.d/saves"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)       ; use versioned backups
 
 (provide 'init)
 ;;; init.el ends here
