@@ -1,9 +1,10 @@
-#!/bin/bash 
+#!/bin/bash
 
 ###
 # Script which symlinks the contents of it's folder into the parent folder.
 ###
 
+currentDir=$(pwd)
 dest="$HOME"
 if [[ $1 != "" ]]; then
     dest=$1
@@ -20,5 +21,5 @@ for file in $(ls -a); do
 	echo $file already exists, moving existing to $file.old
 	mv $dest/$file $dest/$file.old
     fi
-    ln -s .files/$file $dest/$file
+    ln -s $currentDir/$file $dest/$file
 done

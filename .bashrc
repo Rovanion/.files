@@ -67,7 +67,7 @@ newPrompt
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto -h'
     alias dir='dir --color=auto'
 
     alias grep='grep --color=auto'
@@ -76,9 +76,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alFh'
+alias la='ls -Ah'
+alias l='ls -CFh'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -101,8 +101,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # I want my visudos and git commits to be in emacs
-export EDITOR="emacs -nw"
-export VISUAL="emacs -nw"
+export EDITOR="emacsclient -t"
+export VISUAL="emacsclient -c -a emacs"
 
 # Fix my constant mistyping.
 alias "atp-get"="apt-get"
@@ -111,8 +111,9 @@ alias "atp-get"="apt-get"
 alias sudo="sudo "
 
 # Console emacs
-alias ew="emacs -nw"
-alias en="emacs -nw"
+alias ew="emacsclient -t"
+alias en="emacsclient -t"
+alias ec="emacsclient -c"
 
 # Alias my usual ls command
 alias lh="ls -lhAB"
@@ -125,3 +126,9 @@ if [[ -z "$PROMPT_COMMAND" ]]; then
 else
     PROMPT_COMMAND="$PROMPT_COMMAND ; newPrompt"
 fi
+
+# The nodejs cli is named nodejs on Debian of name collision reasons, though everyone expects it to be named node.
+alias node=nodejs
+
+# Fixing not being able to type dead keys in emacs
+XMODIFIERS="emacs"
