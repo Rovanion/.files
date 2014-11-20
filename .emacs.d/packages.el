@@ -9,7 +9,9 @@
 										 ac-octave
 										 skewer-mode
 										 flycheck
-										 pos-tip))
+										 pos-tip
+										 auto-complete-clang-async
+										 iy-go-to-char))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa" . "http://melpa.milkbox.net/packages/")
