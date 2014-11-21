@@ -134,6 +134,8 @@
 ;; Bind keys for moving to the next char of some type.
 (global-set-key (kbd "M-n") 'iy-go-up-to-char)
 (global-set-key (kbd "M-p") 'iy-go-to-char-backward)
+(setq iy-go-to-char-key-forward '¨)
+(setq iy-go-to-char-key-backward '^)
 
 (provide 'init)
 ;;; init.el ends here
