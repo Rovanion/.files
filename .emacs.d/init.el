@@ -79,6 +79,7 @@
 
 ;; Provides the minor mode which runs the compile comand on save
 (require 'compile-on-save)
+(add-hook 'LaTeX-mode-hook 'compile-on-save-mode)
 
 ;; Remove trailing whitespaces before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -116,9 +117,13 @@
 (add-hook 'css-mode-hook 'flyspell-prog-mode)
 (add-hook 'html-mode-hook 'flyspell-prog-mode)
 (add-hook 'octave-mode-hook 'flyspell-prog-mode)
+(add-hook 'c++-mode-hook 'flyspell-prog-mode)
 
 ;; And normal spell checking for latex documents
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+
+;; Fix bug in terminal flycheck with company-mode
+(setq flycheck-indication-mode nil)
 
 
 ;; Don't litter the fs with temporary files but put them in a central folder.
