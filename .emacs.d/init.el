@@ -123,8 +123,9 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
 ;; Fix bug in terminal flycheck with company-mode
-(setq flycheck-indication-mode nil)
-
+(eval-after-load 'flycheck
+	(unless (display-graphic-p)
+		(setq flycheck-indication-mode nil)))
 
 ;; Don't litter the fs with temporary files but put them in a central folder.
 (setq
