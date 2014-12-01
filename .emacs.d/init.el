@@ -29,12 +29,12 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 ;; Indentation galore!
-(setq-default tab-width 2)
-(setq-default js-indent-level tab-width)
-(setq-default js2-basic-offset tab-width)
-(setq-default sh-basic-offset tab-width)
-(setq-default sh-indentation tab-width)
-(setq-default sgml-basic-offset tab-width)
+(setq-default tab-width 2
+							js-indent-level tab-width
+							js2-basic-offset tab-width
+							sh-basic-offset tab-width
+							sh-indentation tab-width
+							sgml-basic-offset tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 ;; Requires the fallowing plugin http://www.emacswiki.org/emacs/RainbowDelimiters
@@ -123,9 +123,8 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
 ;; Fix bug in terminal flycheck with company-mode
-(eval-after-load 'flycheck
-	(unless (display-graphic-p)
-		(setq flycheck-indication-mode nil)))
+(unless (display-graphic-p)
+	(setq flycheck-indication-mode nil))
 
 ;; Don't litter the fs with temporary files but put them in a central folder.
 (setq
