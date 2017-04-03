@@ -42,3 +42,5 @@ alias mu4e="mu index --maildir=~/.cache/mail/; ew -e '(mu4e)'"
 o() { xdg-open "$@" &>/dev/null & }
 
 alias lns="ln -s"
+
+alias clj="java -jar ~/.m2/repository/org/clojure/clojure/1.9.0-alpha15/clojure-1.9.0-alpha15.jar"
