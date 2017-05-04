@@ -194,5 +194,8 @@
 ;; Disable cursor blinking, it was driving me mad!
 (setq visible-cursor nil)
 
+;; Increase the kill ring size.
+(setq kill-ring-max 200)
+
 (provide 'init)
 ;;; init.el ends here
