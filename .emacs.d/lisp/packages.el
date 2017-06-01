@@ -39,7 +39,7 @@
                      php-mode
 										 flyspell-lazy
 										 flyspell-correct-helm
-										 guess-language))
+										 gnuplot-mode))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
