@@ -30,10 +30,6 @@ else
 	sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-se glances
 fi
 
-# In order to add emerge as mergetool run:
-git config --global merge.tool emerge
-git config --global mergetool.emerge.path $HOME/.emacs.d/emerge-for-git
-
 # Fancy pants git log
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
