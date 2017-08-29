@@ -3,11 +3,12 @@
 # Setting up scrolling on laptop
 if synclient &>/dev/null; then
   synclient HorizTwoFingerScroll=1
-  synclient HorizScrollDelta=250
+  synclient HorizScrollDelta=200
+  
   synclient PalmDetect=1
   synclient VertEdgeScroll=0
   synclient TapButton2=2
-  synclient PalmMinWidth=8
+  synclient PalmMinWidth=1
 
   # When on a ThinkPad
   if xinput list | grep -E "TrackPoint"; then
@@ -20,13 +21,15 @@ if synclient &>/dev/null; then
   fi
   # When on a Dell Latitude
   if xinput list | grep -E "DualPoint Stick"; then
+    synclient VertScrollDelta=30
+      
     deviceNumber=$(xinput list | grep -E "DualPoint Stick" | sed -rn 's/.*id=([0-9]+).*/\1/p')
     xinput set-prop $deviceNumber "Device Accel Profile" 2
     xinput set-prop $deviceNumber "Device Accel Constant Deceleration" 1.0
     xinput set-prop $deviceNumber "Device Accel Adaptive Deceleration" 10.0
     xinput set-prop $deviceNumber "Device Accel Velocity Scaling" 2.0
     xinput set-prop $deviceNumber "Evdev Wheel Emulation Inertia" 30
-    xinput set-prop $deviceNumber "Coordinate Transformation Matrix" 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 1.200
+    xinput set-prop $deviceNumber "Coordinate Transformation Matrix" 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 1.500
   fi
 
 
