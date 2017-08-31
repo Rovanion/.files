@@ -1,4 +1,5 @@
 #!/bin/bash
+# -*- compile-command: "configure-mouse-and-keyboard" -*-
 
 # Setting up scrolling on laptop
 if synclient &>/dev/null; then
@@ -24,12 +25,12 @@ if synclient &>/dev/null; then
     synclient VertScrollDelta=30
       
     deviceNumber=$(xinput list | grep -E "DualPoint Stick" | sed -rn 's/.*id=([0-9]+).*/\1/p')
-    xinput set-prop $deviceNumber "Device Accel Profile" 2
+    xinput set-prop $deviceNumber "Device Accel Profile" 3
     xinput set-prop $deviceNumber "Device Accel Constant Deceleration" 1.0
-    xinput set-prop $deviceNumber "Device Accel Adaptive Deceleration" 10.0
-    xinput set-prop $deviceNumber "Device Accel Velocity Scaling" 2.0
+    xinput set-prop $deviceNumber "Device Accel Adaptive Deceleration" 2.0
+    xinput set-prop $deviceNumber "Device Accel Velocity Scaling" 6.0
     xinput set-prop $deviceNumber "Evdev Wheel Emulation Inertia" 30
-    xinput set-prop $deviceNumber "Coordinate Transformation Matrix" 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 1.500
+    xinput set-prop $deviceNumber "Coordinate Transformation Matrix" 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 2.000
   fi
 
 
@@ -37,3 +38,5 @@ fi
 # Set the keymap and set caps to be a windows key.
 setxkbmap qq dvorak
 setxkbmap -option caps:super
+
+
