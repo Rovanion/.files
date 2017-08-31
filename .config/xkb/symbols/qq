@@ -81,6 +81,10 @@ key <AC09> { [ n, N, asciitilde ] };
 key <AC10> { [ s, S, ssharp, section ] };
 key <AC11> { [ minus, underscore, dead_belowdot, dead_abovedot ] };
 
+// Make the < to the lower left part of the keyboard a ctrl key.
+replace key <LSGT> { [ Control_L, Control_L ] };
+modifier_map Control { <LCTL>, <LSGT> };
+
 key <AB01> { [ period, colon, bar, dead_abovedot ] };
 key <AB02> { [ q, Q, equal, Greek_OMEGA ] };
 key <AB03> { [ j, J, at ] };
