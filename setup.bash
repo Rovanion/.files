@@ -5,7 +5,7 @@
 
 if [[ ! $1 == nox ]]; then
 	# Install my own keymap
-	sudo cp ~/.config/egenSkit/qq /usr/share/X11/xkb/symbols/
+	sudo cp ~/.config/xkb/qq /usr/share/X11/xkb/symbols/
 
 	# Make nautilus not search through all files when you type anything
 	gsettings set org.gnome.nautilus.preferences enable-interactive-search true
