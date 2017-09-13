@@ -5,6 +5,13 @@
 
 ;;; Code:
 ;; Load files from here.
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; Automatically download packages requiered for this conf.
@@ -196,6 +203,10 @@
 
 ;; Increase the kill ring size.
 (setq kill-ring-max 200)
+
+;; Mac OSX is wierd
+(setq mac-command-key-is 'super)
+
 
 (provide 'init)
 ;;; init.el ends here
