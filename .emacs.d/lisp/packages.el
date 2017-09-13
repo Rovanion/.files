@@ -37,9 +37,10 @@
                      helm-gtags
                      clj-refactor
                      php-mode
-										 flyspell-lazy
-										 flyspell-correct-helm
-										 gnuplot-mode))
+		     flyspell-lazy
+		     flyspell-correct-helm
+		     gnuplot-mode
+		     browse-kill-ring))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
