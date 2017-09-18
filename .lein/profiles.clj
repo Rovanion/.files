@@ -1,3 +1,3 @@
-{:repl {:plugins [[refactor-nrepl "2.2.0"]
-                  [cider/cider-nrepl "0.14.0"]]
-        :dependencies [[org.clojure/clojure "1.9.0-alpha14"]]}}
+{:repl {:plugins [[refactor-nrepl "2.3.1"]
+                  [cider/cider-nrepl "0.15.1"]]}
+ :user {:plugins [[lein-nevam "0.1.2"]]}}
