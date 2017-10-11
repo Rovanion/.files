@@ -9,8 +9,8 @@
   "/usr/bin/python3 -i")
 
 (setq jedi:environment-root "jedi-virtualenv")
-(setq jedi:environment-virtualenv
-      (list "virtualenv" "--system-site-packages -p /usr/bin/python3"))
+;; (setq jedi:environment-virtualenv
+;;       (list "virtualenv" "--system-site-packages" "ENV" "-p" "/usr/bin/python3"))
 
 ;; Set up the python interpretern needed for company.
 (defun run-python-once ()
