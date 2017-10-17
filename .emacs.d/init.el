@@ -35,8 +35,10 @@
 (require 'keybinds)
 ;; Code which tries to make *compile* show only on errorcodes != 0
 (require 'only-display-compile-on-error)
-;; Tell emacs "customizations" to write to another file.
+;; Tell emacs "customizations" to write to the appropriate folder.
 (setq custom-file "~/.emacs.d/lisp/custom.el")
+;; Project specific settings.
+(require 'editorconfig)
 
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
