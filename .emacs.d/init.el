@@ -1,4 +1,4 @@
- ;;; init --- Initialises emacs.
+;;; init --- Initialises emacs.
 
 ;;; Commentary:
 ;; The init.el for Rovanion.  It is split into a couple of different files.
@@ -26,6 +26,7 @@
 (require 'clojure-conf)
 (require 'nginx-conf)
 (require 'markdown-conf)
+(require 'web-js-conf)
 ;; Load conf for mail client.
 (require 'mu4e-conf)
 ;; Conf for directory listing mode.
@@ -109,10 +110,6 @@
 (add-hook 'js2-mode-hook  'skewer-mode)
 (add-hook 'css-mode-hook  'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
-
-;; make js2-mode the mode for javascript files
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; Should be a fix for <dead-acute> is undefined.
 (require 'iso-transl)

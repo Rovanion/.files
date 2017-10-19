@@ -41,7 +41,8 @@
                      flyspell-correct-helm
                      gnuplot-mode
                      browse-kill-ring
-                     editorconfig))
+                     editorconfig
+										 less-css-mode))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
