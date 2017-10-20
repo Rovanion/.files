@@ -190,10 +190,6 @@
 ;; Tabs for indentation, spaces for alignment.
 (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'nxml 'ruby)
 
-;; Automatically deal with parentheses
-(require 'smartparens-config)
-(smartparens-global-mode)
-
 ;; We can handle it!
 (put 'upcase-region 'disabled nil)
 
@@ -206,6 +202,8 @@
 ;; Mac OSX is wierd
 (setq mac-command-key-is 'super)
 
+;; Make CamelCased subwords count as words.
+(add-hook 'prog-mode-hook #'subword-mode)
 
 (provide 'init)
 ;;; init.el ends here
