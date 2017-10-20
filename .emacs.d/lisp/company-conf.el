@@ -14,6 +14,7 @@
 (add-hook 'emacs-lisp-mode-hook 'company-mode)
 (add-hook 'go-mode-hook         'company-mode)
 (add-hook 'python-mode-hook     'company-mode)
+(add-hook 'js2-mode-hook        'company-mode)
 
 
 ;; Make jedi the company backend for python-mode.

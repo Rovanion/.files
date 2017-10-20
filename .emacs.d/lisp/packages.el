@@ -3,6 +3,7 @@
 ;;;;
 ;; list the packages you want
 (setq package-list '(js2-mode
+										 ac-js2
                      skewer-mode
                      flycheck
                      pos-tip
