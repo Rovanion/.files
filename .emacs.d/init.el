@@ -1,10 +1,17 @@
- ;;; init --- Initialises emacs.
+;;; init --- Initialises emacs.
 
 ;;; Commentary:
 ;; The init.el for Rovanion.  It is split into a couple of different files.
 
 ;;; Code:
 ;; Load files from here.
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; Automatically download packages requiered for this conf.
@@ -19,6 +26,7 @@
 (require 'clojure-conf)
 (require 'nginx-conf)
 (require 'markdown-conf)
+(require 'web-js-conf)
 ;; Load conf for mail client.
 (require 'mu4e-conf)
 ;; Conf for directory listing mode.
@@ -28,8 +36,10 @@
 (require 'keybinds)
 ;; Code which tries to make *compile* show only on errorcodes != 0
 (require 'only-display-compile-on-error)
-;; Tell emacs "customizations" to write to another file.
+;; Tell emacs "customizations" to write to the appropriate folder.
 (setq custom-file "~/.emacs.d/lisp/custom.el")
+;; Project specific settings.
+(require 'editorconfig)
 
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
@@ -100,10 +110,6 @@
 (add-hook 'js2-mode-hook  'skewer-mode)
 (add-hook 'css-mode-hook  'skewer-css-mode)
 (add-hook 'html-mode-hook 'skewer-html-mode)
-
-;; make js2-mode the mode for javascript files
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; Should be a fix for <dead-acute> is undefined.
 (require 'iso-transl)
@@ -184,10 +190,6 @@
 ;; Tabs for indentation, spaces for alignment.
 (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'nxml 'ruby)
 
-;; Automatically deal with parentheses
-(require 'smartparens-config)
-(smartparens-global-mode)
-
 ;; We can handle it!
 (put 'upcase-region 'disabled nil)
 
@@ -196,6 +198,12 @@
 
 ;; Increase the kill ring size.
 (setq kill-ring-max 200)
+
+;; Mac OSX is wierd
+(setq mac-command-key-is 'super)
+
+;; Make CamelCased subwords count as words.
+(add-hook 'prog-mode-hook #'subword-mode)
 
 (provide 'init)
 ;;; init.el ends here

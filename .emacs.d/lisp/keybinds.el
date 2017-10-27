@@ -74,13 +74,24 @@ the current position of point, then move it to the beginning of the line."
 (define-key jedi-mode-map (kbd "M-ä") 'helm-jedi-related-names)
 
 (require 'multiple-cursors)
-(global-set-key (kbd "C-c c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c c")   'mc/edit-lines)
+(global-set-key (kbd "C->")     'mc/mark-next-like-this)
+(global-set-key (kbd "C-<")     'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (require 'flyspell-correct-helm)
 (define-key flyspell-mode-map (kbd "M-ö") 'flyspell-correct-previous-word-generic)
+
+;; Pair oriented navigation
+(require 'smartparens-config)
+(smartparens-global-mode)
+
+(define-key smartparens-mode-map (kbd "C-M-n") 'sp-next-sexp)
+(define-key smartparens-mode-map (kbd "C-M-p") 'sp-previous-sexp)
+(define-key smartparens-mode-map (kbd "M-)")   'sp-forward-slurp-sexp)
+(define-key smartparens-mode-map (kbd "M-(")   'sp-backward-slurp-sexp)
+(define-key smartparens-mode-map (kbd "M-}")   'sp-forward-barf-sexp)
+(define-key smartparens-mode-map (kbd "M-{")   'sp-backward-barf-sexp)
 
 (provide 'keybinds)
 ;;; keybinds.el ends here
