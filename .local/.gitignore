@@ -3,8 +3,4 @@
 
 # Except the folders we explicitly want to follow.
 !.gitignore
-!Thunar
-!awesome
-!egenSkit
-!fish
-!volumeicon
+!bin
