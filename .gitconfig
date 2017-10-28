@@ -4,11 +4,11 @@
 [merge]
 	tool = ew-merge
 [mergetool "ew-merge"]
-        prompt = false
+	prompt = false
 	cmd = ew-merge "$LOCAL" "$REMOTE" "$BASE" "$MERGED"
 	trustExitCode = true
 [difftool]
-        prompt = false
+	prompt = false
 [core]
 	editor = emacsclient -t -a=\\\"\\\"
 [alias]
