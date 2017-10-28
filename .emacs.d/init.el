@@ -6,6 +6,9 @@
 ;;; Code:
 ;; Load files from here.
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+;; Expand path to binaries installed in home folder.
+(setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
+(setq exec-path (append exec-path '("~/.local/bin")))
 
 ;; Automatically download packages requiered for this conf.
 (require 'packages)
@@ -21,6 +24,7 @@
 (require 'nginx-conf)
 (require 'markdown-conf)
 (require 'web-js-conf)
+(require 'elisp-conf)
 ;; Load conf for mail client.
 (require 'mu4e-conf)
 ;; Conf for directory listing mode.
@@ -37,17 +41,17 @@
 
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
-(defun graphical-fixes (dummy)
+(defun graphical-fixes (_)
   (menu-bar-mode -1)
-	(set-scroll-bar-mode 'right)
-	(tool-bar-mode -1))
+  (set-scroll-bar-mode 'right)
+  (tool-bar-mode -1))
 (add-to-list 'after-make-frame-functions #'graphical-fixes)
 
 
-;; Make scrolling by mouse linear
-(setq mouse-wheel-progressive-speed nil)
-;; And then scroll only one line per scroll event. Great for laptops.
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+;; ;; Make scrolling by mouse linear
+;; (setq mouse-wheel-progressive-speed nil)
+;; ;; And then scroll only one line per scroll event. Great for laptops.
+;; (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 
 ;; Indentation galore!
@@ -61,7 +65,7 @@
               python-indent tab-width
               web-mode-markup-indent-offset tab-width
               nginx-indent-level tab-width
-							css-indent-offset tab-width)
+              css-indent-offset tab-width)
 
 ;; Color paranthesis in all the colors of the rainbow!
 (require 'rainbow-delimiters)
@@ -175,11 +179,6 @@
             'append 'local)) ; buffer-local
 
 (add-hook 'toml-mode-hook 'auto-reload-firefox-on-after-save-hook)
-
-
-;; Expand path to binaries installed in home folder.
-(setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
-(setq exec-path (append exec-path '("~/.local/bin")))
 
 ;; Tabs for indentation, spaces for alignment.
 (smart-tabs-insinuate 'c 'c++ 'java 'javascript 'cperl 'nxml 'ruby)
