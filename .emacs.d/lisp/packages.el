@@ -3,7 +3,7 @@
 ;;;;
 ;; list the packages you want
 (setq package-list '(js2-mode
-										 ac-js2
+                     ac-js2
                      skewer-mode
                      flycheck
                      pos-tip
@@ -11,7 +11,7 @@
                      go-mode
                      company-go
                      ace-window
-										 ace-jump-mode
+                     ace-jump-mode
                      gitignore-mode
                      cmake-mode
                      yasnippet
@@ -44,7 +44,7 @@
                      gnuplot-mode
                      browse-kill-ring
                      editorconfig
-										 less-css-mode))
+                     less-css-mode))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
