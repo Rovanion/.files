@@ -23,9 +23,6 @@ alias gc="git commit -v"
 # Shorthand for upgrading debian/ubuntu
 alias upg="sudo apt-get update && sudo apt-get autoremove && sudo apt-get dist-upgrade"
 
-# The nodejs cli is named nodejs on Debian of name collision reasons, though everyone expects it to be named node.
-alias node=nodejs
-
 alias fuck=sl
 
 alias agi="sudo apt-get install"
@@ -43,4 +40,4 @@ o() { xdg-open "$@" &>/dev/null & }
 
 alias lns="ln -s"
 
-alias clj="rlwrap java -jar ~/.m2/repository/org/clojure/clojure/1.9.0-alpha15/clojure-1.9.0-alpha15.jar"
+alias clj="rlwrap java -jar ~/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar"
