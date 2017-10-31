@@ -30,8 +30,6 @@
 ;; Conf for directory listing mode.
 (require 'dired-conf)
 (require 'spelling)
-;; Collection of keybinding customizations
-(require 'keybinds)
 ;; Code which tries to make *compile* show only on errorcodes != 0
 (require 'only-display-compile-on-error)
 ;; Tell emacs "customizations" to write to the appropriate folder.
@@ -197,6 +195,10 @@
 
 ;; Make CamelCased subwords count as words.
 (add-hook 'prog-mode-hook #'subword-mode)
+
+;; Collection of keybinding customizations.
+;; Should be the last thing requiered in init.el.
+(require 'keybinds)
 
 (provide 'init)
 ;;; init.el ends here
