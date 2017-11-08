@@ -6,6 +6,7 @@
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+
 (require 'less-css-mode)
 
 (require 'web-mode)
@@ -20,6 +21,10 @@
 
 (setq web-mode-enable-auto-pairing t)
 (setq web-mode-enable-auto-closing t)
+
+(defun pretty-print-json (&optional b e)
+  (interactive "r")
+  (shell-command-on-region b e "python -m json.tool" (current-buffer) t))
 
 (provide 'web-js-conf)
 ;;; web-mode-conf.el ends here
