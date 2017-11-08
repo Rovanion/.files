@@ -34,9 +34,9 @@
 (require 'only-display-compile-on-error)
 ;; Tell emacs "customizations" to write to the appropriate folder.
 (setq custom-file "~/.emacs.d/lisp/custom.el")
-;; Project specific settings.
+;; Import project specific settings from the .editorconfig file.
 (require 'editorconfig)
-
+(editorconfig-mode 1)
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (_)
