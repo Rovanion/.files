@@ -10,6 +10,17 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
+-- Battery level indicator
+local battery_widget = require("battery-widget")
+local battery = battery_widget({adapter = "BAT0",
+																ac_prefix = "🔌",
+																battery_prefix = "🔋",
+																widget_text = "  ${AC_BAT} ${color_on}${percent}%${color_off} ",
+																limits = {
+																	 {10, "red"   },
+																	 {25, "orange"},
+																	 {50, "white" }
+}})
 -- Load Debian menu entries
 local debian = require("debian.menu")
 
@@ -197,7 +208,8 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(mytextclock)
+		right_layout:add(battery.widget)
+		right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
     -- Now bring it all together (with the tasklist in the middle)
