@@ -16,6 +16,7 @@ local battery = battery_widget({adapter = "BAT0",
 																ac_prefix = "🔌",
 																battery_prefix = "🔋",
 																widget_text = "  ${AC_BAT} ${color_on}${percent}%${color_off} ",
+																listen = true,
 																limits = {
 																	 {10, "red"   },
 																	 {25, "orange"},

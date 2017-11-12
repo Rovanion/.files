@@ -3,5 +3,5 @@
 	url = https://github.com/AndreaCrotti/yasnippet-snippets.git
 
 [submodule ".config/awesome/battery-widget"]
-	path = ".config/awesome/battery-widget"
-	url = "https://github.com/deficient/battery-widget.git"
+	path = .config/awesome/battery-widget
+	url = https://github.com/deficient/battery-widget.git
