@@ -30,15 +30,13 @@
 ;; Conf for directory listing mode.
 (require 'dired-conf)
 (require 'spelling)
-;; Collection of keybinding customizations
-(require 'keybinds)
 ;; Code which tries to make *compile* show only on errorcodes != 0
 (require 'only-display-compile-on-error)
 ;; Tell emacs "customizations" to write to the appropriate folder.
 (setq custom-file "~/.emacs.d/lisp/custom.el")
-;; Project specific settings.
+;; Import project specific settings from the .editorconfig file.
 (require 'editorconfig)
-
+(editorconfig-mode 1)
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (_)
@@ -197,6 +195,10 @@
 
 ;; Make CamelCased subwords count as words.
 (add-hook 'prog-mode-hook #'subword-mode)
+
+;; Collection of keybinding customizations.
+;; Should be the last thing requiered in init.el.
+(require 'keybinds)
 
 (provide 'init)
 ;;; init.el ends here
