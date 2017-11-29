@@ -44,7 +44,9 @@
                      gnuplot-mode
                      browse-kill-ring
                      editorconfig
-                     less-css-mode))
+                     less-css-mode
+                     jdee
+                     rust-mode))
 
 ;; list the repositories containing them
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
