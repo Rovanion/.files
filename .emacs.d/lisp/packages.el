@@ -1,7 +1,7 @@
 ;;;;
 ;; Automatically download the required packages for emacs
 ;;;;
-;; list the packages you want
+
 (setq package-list '(js2-mode
                      ac-js2
                      skewer-mode
@@ -48,19 +48,22 @@
                      jdee
                      rust-mode))
 
-;; list the repositories containing them
+;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")))
+                         ("gnu-elpa"     . "http://elpa.gnu.org/packages/")
+                         ("melpa"        . "https://melpa.org/packages/"))
+      package-archive-priorities '(("melpa-stable" . 10)
+                                   ("gnu-elpa"     . 5)
+                                   ("melpa"        . 0)))
 
-;; activate all the packages (in particular autoloads)
+;; Activate all the packages (in particular autoloads).
 (package-initialize)
 
-;; fetch the list of packages available
+;; Fetch the list of packages available.
 (unless package-archive-contents
 	(package-refresh-contents))
 
-;; install the missing packages
+;; Install the missing packages.
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
