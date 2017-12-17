@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # -*- compile-command: "configure-mouse-and-keyboard" -*-
 
 # Setting up scrolling on laptop
@@ -32,9 +32,7 @@ if synclient &>/dev/null; then
     xinput set-prop $deviceNumber "Evdev Wheel Emulation Inertia" 30
     xinput set-prop $deviceNumber "Coordinate Transformation Matrix" 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 2.000
   fi
-
-
 fi
-# Set the keymap and set caps to be a windows key.
-setxkbmap qq dvorak
-setxkbmap -option caps:super
+
+setxkbmap -I ~/.config/xkb qq dvorak -print | xkbcomp -I$HOME/.config/xkb - $DISPLAY
+
