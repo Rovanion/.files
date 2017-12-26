@@ -27,7 +27,7 @@ if [[ ! $1 == nox ]]; then
 	sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
 	sudo update-alternatives --set x-www-browser /usr/bin/firefox
 else
-	sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-se glances
+	sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-sv glances
 fi
 
 # Fancy pants git log
