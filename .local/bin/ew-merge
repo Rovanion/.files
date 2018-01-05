@@ -7,6 +7,6 @@ remote=$(readlink -f "$2")
 base=$(readlink -f "$3")
 merged=$(readlink -f "$4")
 
-emacsclient -nw --eval "(emerge-files-with-ancestor nil \"$local\" \"$remote\" \"$base\" \"$merged\")"
+emacsclient -t --eval "(emerge-files-with-ancestor nil \"$local\" \"$remote\" \"$base\" \"$merged\")"
 
 ! egrep -q '^(<<<<<<<|=======|>>>>>>>|####### Ancestor)' "$merged"
