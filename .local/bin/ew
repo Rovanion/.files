@@ -1,2 +1,2 @@
 #!/bin/sh
-emacsclient -t $2 $1
+emacsclient -t $2 "$1"
