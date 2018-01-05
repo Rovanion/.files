@@ -46,7 +46,8 @@
                      editorconfig
                      less-css-mode
                      jdee
-                     rust-mode))
+                     rust-mode
+                     atomic-chrome))
 
 ;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
