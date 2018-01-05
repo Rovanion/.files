@@ -88,6 +88,8 @@ the current position of point, then move it to the beginning of the line."
 
 (define-key smartparens-mode-map (kbd "C-M-n") 'sp-next-sexp)
 (define-key smartparens-mode-map (kbd "C-M-p") 'sp-previous-sexp)
+(define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
+(define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
 (define-key smartparens-mode-map (kbd "M-)")   'sp-forward-slurp-sexp)
 (define-key smartparens-mode-map (kbd "M-(")   'sp-backward-slurp-sexp)
 (define-key smartparens-mode-map (kbd "M-}")   'sp-forward-barf-sexp)
