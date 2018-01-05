@@ -23,16 +23,16 @@ local battery = battery_widget({adapter = "BAT0",
 																	 {50, "white" }
 }})
 -- Load Debian menu entries
-local debian = require("debian.menu")
+-- local debian = require("debian.menu")
 
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
-	 naughty.notify({ preset = naughty.config.presets.critical,
-										title = "Oops, there were errors during startup!",
-										text = awesome.startup_errors })
+   naughty.notify({ preset = naughty.config.presets.critical,
+                    title = "Oops, there were errors during startup!",
+                    text = awesome.startup_errors })
 end
 
 -- Handle runtime errors after startup
@@ -60,7 +60,7 @@ end
 
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -112,7 +112,7 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                             { "Debian", debian.Debian_menu.Debian },
+--                             { "Debian", debian.Debian_menu.Debian },
                              { "Open terminal", terminal }}
                        })
 
@@ -123,7 +123,7 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = awful.widget.textclock(" %y-%m-%d  %H:%M ", 1)
+mytextclock = wibox.widget.textclock(" %y-%m-%d  %H:%M ", 1)
 
 -- Create a systray
 mysystray = wibox.widget.systray()
@@ -198,7 +198,7 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibox({ position = "bottom", screen = s })
+    mywibox[s] = awful.wibar({ position = "bottom", screen = s })
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()

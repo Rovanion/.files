@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # -*- compile-command: "configure-mouse-and-keyboard" -*-
 
 # Setting up scrolling on laptop
@@ -33,9 +33,7 @@ if synclient &>/dev/null; then
 			syndaemon -i 0.4 -K -t &
 		fi
   fi
-
-
 fi
-# Set the keymap and set caps to be a windows key.
-setxkbmap qq dvorak
-setxkbmap -option caps:super
+
+setxkbmap -I ~/.config/xkb qq dvorak -print | xkbcomp -I$HOME/.config/xkb - $DISPLAY
+

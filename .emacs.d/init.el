@@ -40,9 +40,10 @@
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (_)
-  (menu-bar-mode -1)
-  (set-scroll-bar-mode 'right)
-  (tool-bar-mode -1))
+  (when (display-graphic-p)
+    (menu-bar-mode -1)
+    (set-scroll-bar-mode 'right)
+    (tool-bar-mode -1))
 (add-to-list 'after-make-frame-functions #'graphical-fixes)
 
 
