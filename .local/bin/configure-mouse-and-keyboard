@@ -25,12 +25,13 @@ if synclient &>/dev/null; then
     synclient VertScrollDelta=30
 
     deviceNumber=$(xinput list | grep -E "DualPoint Stick" | sed -rn 's/.*id=([0-9]+).*/\1/p')
-    xinput set-prop $deviceNumber "Device Accel Profile" 3
-    xinput set-prop $deviceNumber "Device Accel Constant Deceleration" 1.0
-    xinput set-prop $deviceNumber "Device Accel Adaptive Deceleration" 2.0
-    xinput set-prop $deviceNumber "Device Accel Velocity Scaling" 6.0
+    xinput set-prop $deviceNumber "libinput Accel Speed" 0.5
     xinput set-prop $deviceNumber "Evdev Wheel Emulation Inertia" 30
     xinput set-prop $deviceNumber "Coordinate Transformation Matrix" 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 2.000
+    # Seemingly there is no built in palm detection
+    if ! pidof syndaemon >/dev/null; then
+			syndaemon -i 0.4 -K -t &
+		fi
   fi
 
 
