@@ -123,7 +123,13 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 -- {{{ Wibox
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock(" %y-%m-%d  %H:%M ", 1)
+major_version = awesome.version:sub(2, 2)
+
+if major_version == "3" then
+   mytextclock = awful.widget.textclock(" %y-%m-%d  %H:%M ", 1)
+else 
+   mytextclock = wibox.widget.textclock(" %y-%m-%d  %H:%M ", 1)
+end
 
 -- Create a systray
 mysystray = wibox.widget.systray()
@@ -198,7 +204,13 @@ for s = 1, screen.count() do
     mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
-    mywibox[s] = awful.wibar({ position = "bottom", screen = s })
+    if major_version == "3" then
+       mywibox[s] = awful.wibox({ position = "bottom", screen = s })
+    else 
+       mywibox[s] = awful.wibar({ position = "bottom", screen = s })
+    end
+
+
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
