@@ -35,5 +35,5 @@ if synclient &>/dev/null; then
   fi
 fi
 
-setxkbmap -I ~/.config/xkb qq dvorak -print | xkbcomp -I$HOME/.config/xkb - $DISPLAY
+setxkbmap -I ~/.config/xkb qq dvorak -option -print | xkbcomp -I$HOME/.config/xkb - $DISPLAY
 
