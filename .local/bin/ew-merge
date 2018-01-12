@@ -9,4 +9,4 @@ merged=$(readlink -f "$4")
 
 emacsclient -t --eval "(emerge-files-with-ancestor nil \"$local\" \"$remote\" \"$base\" \"$merged\")"
 
-! egrep -q '^(<<<<<<<|=======|>>>>>>>|####### Ancestor)' "$merged"
+! egrep -q '^(<<<<<<<|=======$|>>>>>>>|####### Ancestor)' "$merged"
