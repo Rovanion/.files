@@ -16,9 +16,6 @@ alias l='ls -CFh'
 # Always show the diffs at the bottom of the commits
 alias gc="git commit -v"
 
-# Shorthand for upgrading debian/ubuntu
-alias upg="sudo apt-get update && sudo apt-get autoremove && sudo apt-get dist-upgrade"
-
 alias fuck=sl
 
 alias agi="sudo apt-get install"

@@ -1,0 +1,10 @@
+#!/bin/sh
+# Upgrade your system
+
+if command -v apt-get; then 
+  sudo apt-get update
+  sudo apt-get autoremove --yes
+  sudo apt-get upgrade --yes
+elif command -v nixos-rebuild
+  sudo nixos-rebuild switch --upgrade
+fi
