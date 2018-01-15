@@ -43,7 +43,7 @@
   (when (display-graphic-p)
     (menu-bar-mode -1)
     (set-scroll-bar-mode 'right)
-    (tool-bar-mode -1))
+    (tool-bar-mode -1)))
 (add-to-list 'after-make-frame-functions #'graphical-fixes)
 
 
