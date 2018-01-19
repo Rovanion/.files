@@ -52,7 +52,7 @@ key <AD07> { [ g, G, question, ENG ] };
 key <AD08> { [ c, C, ampersand, copyright ] };
 key <AD09> { [ r, R, less, registered ] };
 key <AD10> { [ l, L, greater, Lstroke ] };
-key <AD11> { [ comma, semicolon, dead_tilde, dead_ogonek ] };
+key <AD11> { [ comma, semicolon, dead_acute, dead_tilde ] };
 key <AD12> { [ dead_diaeresis, dead_circumflex, dead_tilde, asciicircum ] };
 
 key <AC01> { [ a, A, semicolon, AE ] };
@@ -88,4 +88,3 @@ replace key <CAPS> { [ Super_L, Super_L ] };
 modifier_map Mod4  { <CAPS>, <LWIN>};
 
 };
-
