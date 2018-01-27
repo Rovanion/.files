@@ -139,7 +139,7 @@ major_version = awesome.version:sub(2, 2)
 
 if major_version == "3" then
    mytextclock = awful.widget.textclock(" %y-%m-%d  %H:%M ", 1)
-else 
+else
    mytextclock = wibox.widget.textclock(" %y-%m-%d  %H:%M ", 1)
 end
 
@@ -271,7 +271,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "m",     function () mymainmenu:show({keygrabber=true}) end),
+    awful.key({ modkey,   "Shift" }, "m",     function () mymainmenu:show({keygrabber=true}) end),
 
     -- Move window in the stack
     awful.key({ modkey,   }, "aring",         function () awful.client.swap.byidx(  1)    end),
@@ -336,7 +336,7 @@ clientkeys = awful.util.table.join(
             -- minimized, since minimized clients can't have the focus.
             c.minimized = true
         end),
-    awful.key({ modkey, "Shift"   }, "m",
+    awful.key({ modkey,           }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
