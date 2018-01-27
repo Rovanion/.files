@@ -4,15 +4,18 @@
 ;; The init.el for Rovanion.  It is split into a couple of different files.
 
 ;;; Code:
-;; Load files from here.
-(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; Added by Package.el. Cannot be moved it seems.
+(package-initialize)
+
 ;; Expand path to binaries installed in home folder.
 (setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
 (setq exec-path (append exec-path '("~/.local/bin")))
 
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
 ;; Automatically download packages requiered for this conf.
 (require 'packages)
-
 ;; Load text auto complete configuration.
 (require 'company-conf)
 ;; Helm auto completion of emacs actions.
@@ -26,7 +29,7 @@
 (require 'web-js-conf)
 (require 'elisp-conf)
 ;; Load conf for mail client.
-(require 'mu4e-conf)
+;(require 'mu4e-conf)
 ;; Conf for directory listing mode.
 (require 'dired-conf)
 (require 'spelling)
