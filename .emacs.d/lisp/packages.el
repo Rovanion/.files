@@ -20,7 +20,6 @@
                      web-mode
                      rainbow-delimiters
                      nginx-mode
-                     dired+
                      lua-mode
                      omnisharp
                      yaml-mode
