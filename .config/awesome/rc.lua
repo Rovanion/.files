@@ -306,7 +306,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Mod1" }, "n",        awful.client.restore),
     -- Power management
     awful.key({ }, "XF86Launch1",             function () awful.util.spawn('xset dpms force off') end),
-    awful.key({ modkey, "Shift" }, "s", function ()
+    awful.key({ modkey,      }, "s",          function () awful.util.spawn('xscreensaver-command --lock') end),
+		awful.key({ modkey, "Shift" }, "s",
+			        function ()
                  awful.util.spawn('xscreensaver-command --lock')
                  awful.util.spawn('dbus-send --print-reply --system --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true')
                                           end),
