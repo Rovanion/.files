@@ -3,7 +3,7 @@
 ;;;;
 
 ;; Reuse buffer when browsing.
-(toggle-diredp-find-file-reuse-dir 1)
+;(toggle-diredp-find-file-reuse-dir 1) 
 
 ;; Use trashcan instead of deleting directly.
 (setq delete-by-moving-to-trash t)
