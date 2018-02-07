@@ -46,7 +46,9 @@
                      less-css-mode
                      jdee
                      rust-mode
-                     atomic-chrome))
+                     atomic-chrome
+                     dockerfile-mode
+                     tide))
 
 ;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
@@ -61,7 +63,7 @@
 
 ;; Fetch the list of packages available.
 (unless package-archive-contents
-	(package-refresh-contents))
+  (package-refresh-contents))
 
 ;; Install the missing packages.
 (dolist (package package-list)
