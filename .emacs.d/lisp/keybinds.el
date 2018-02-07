@@ -73,6 +73,11 @@ the current position of point, then move it to the beginning of the line."
 (define-key jedi-mode-map (kbd "M-.") 'jedi:goto-definition-pop-marker)
 (define-key jedi-mode-map (kbd "M-ä") 'helm-jedi-related-names)
 
+;; Binds like the helm-gtags ones for Tide
+(require 'tide)
+(define-key tide-mode-map (kbd "M-å") 'tide-jump-to-definition)
+(define-key tide-mode-map (kbd "M-.") 'tide-jump-back)
+
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c c")   'mc/edit-lines)
 (global-set-key (kbd "C->")     'mc/mark-next-like-this)

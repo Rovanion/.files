@@ -27,6 +27,7 @@
 (require 'nginx-conf)
 (require 'markdown-conf)
 (require 'web-js-conf)
+(require 'typescript-conf)
 (require 'elisp-conf)
 ;; Load conf for mail client.
 ;(require 'mu4e-conf)

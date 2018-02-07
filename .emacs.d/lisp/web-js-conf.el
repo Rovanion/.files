@@ -18,6 +18,7 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'"   . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'"     . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'"        . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'"        . web-mode))
 
 (setq web-mode-enable-auto-pairing t)
 (setq web-mode-enable-auto-closing t)
@@ -25,6 +26,16 @@
 (defun pretty-print-json (&optional b e)
   (interactive "r")
   (shell-command-on-region b e "python -m json.tool" (current-buffer) t))
+
+;; Start tide-mode when editing a typescript tsx file.
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+
+(require 'flycheck)
+;; Enable typescript-tslint checker.
+(flycheck-add-mode 'typescript-tslint 'web-mode)
 
 (provide 'web-js-conf)
 ;;; web-mode-conf.el ends here
