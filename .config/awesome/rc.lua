@@ -198,12 +198,12 @@ mytasklist.buttons = awful.util.table.join(
 )
 
 for s = 1, screen.count() do
-    -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt()
-    -- Create an imagebox widget which will contains an icon indicating which layout we're using.
-    -- We need one layoutbox per screen.
-    mylayoutbox[s] = awful.widget.layoutbox(s)
-    mylayoutbox[s]:buttons(
+		-- Create a promptbox for each screen
+		mypromptbox[s] = awful.widget.prompt()
+		-- Create an imagebox widget which will contains an icon indicating which layout we're using.
+		-- We need one layoutbox per screen.
+		mylayoutbox[s] = awful.widget.layoutbox(s)
+		mylayoutbox[s]:buttons(
 			 awful.util.table.join(
 					awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
 					awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
@@ -218,7 +218,7 @@ for s = 1, screen.count() do
     -- Create the wibox
     if major_version == "3" then
        mywibox[s] = awful.wibox({ position = "bottom", screen = s })
-    else 
+    else
        mywibox[s] = awful.wibar({ position = "bottom", screen = s })
     end
 
@@ -313,7 +313,7 @@ globalkeys = awful.util.table.join(
                  awful.util.spawn('dbus-send --print-reply --system --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true')
                                           end),
     -- Prompt
-    awful.key({ modkey },            "r",      function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "r",      function () mypromptbox[1]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
@@ -339,7 +339,8 @@ clientkeys = awful.util.table.join(
             c.minimized = true
         end),
     awful.key({ modkey,           }, "m",
-        function (c)
+			 function (c)
+					c.maximized = false
             c.maximized_horizontal = not c.maximized_horizontal
             c.maximized_vertical   = not c.maximized_vertical
         end)
