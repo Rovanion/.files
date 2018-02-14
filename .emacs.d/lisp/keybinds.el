@@ -81,6 +81,8 @@ the current position of point, then move it to the beginning of the line."
 (require 'tide)
 (define-key tide-mode-map (kbd "M-å") 'tide-jump-to-definition)
 (define-key tide-mode-map (kbd "M-.") 'tide-jump-back)
+(define-key tide-mode-map (kbd "M-ä") 'tide-find-next-error)
+(define-key tide-mode-map (kbd "M-ö") 'tide-fix)
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c c")   'mc/edit-lines)
