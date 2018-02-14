@@ -54,6 +54,10 @@ the current position of point, then move it to the beginning of the line."
 ;; Remove word backwards with C-BSPC
 (global-set-key "\C-h" 'backward-kill-word)
 
+;; Company
+(require 'company)
+(define-key company-mode-map (kbd "<backtab>") 'company-complete)
+
 ;; Helm
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
