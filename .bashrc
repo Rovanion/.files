@@ -111,3 +111,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
+
+export TERM=xterm-256color
