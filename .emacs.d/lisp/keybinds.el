@@ -62,26 +62,25 @@ the current position of point, then move it to the beginning of the line."
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "M-å") 'helm-gtags-dwim)
-(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-pop-stack)
+(define-key helm-gtags-mode-map (kbd "M-ä") 'helm-gtags-pop-stack)
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
 ;; Binds like the helm-gtags ones for CIDER
 (require 'cider-mode)
 (define-key cider-mode-map (kbd "M-å") 'cider-find-dwim)
-(define-key cider-mode-map (kbd "M-.") 'cider-pop-back)
+(define-key cider-mode-map (kbd "M-å") 'cider-pop-back)
 
 ;; Binds like the helm-gtags ones for JEDI
 (require 'jedi)
 (define-key jedi-mode-map (kbd "M-å") 'jedi:goto-definition)
-(define-key jedi-mode-map (kbd "M-.") 'jedi:goto-definition-pop-marker)
-(define-key jedi-mode-map (kbd "M-ä") 'helm-jedi-related-names)
+(define-key jedi-mode-map (kbd "M-ä") 'jedi:goto-definition-pop-marker)
+(define-key jedi-mode-map (kbd "M-ö") 'helm-jedi-related-names)
 
 ;; Binds like the helm-gtags ones for Tide
 (require 'tide)
 (define-key tide-mode-map (kbd "M-å") 'tide-jump-to-definition)
-(define-key tide-mode-map (kbd "M-.") 'tide-jump-back)
-(define-key tide-mode-map (kbd "M-ä") 'tide-find-next-error)
+(define-key tide-mode-map (kbd "M-ä") 'tide-jump-back)
 (define-key tide-mode-map (kbd "M-ö") 'tide-fix)
 
 (require 'multiple-cursors)
