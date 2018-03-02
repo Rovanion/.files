@@ -18,4 +18,6 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
+(setq tide-alphabets '(?a ?o ?e ?u ?h ?t ?n ?s))
+
 (provide 'typescript-conf)
