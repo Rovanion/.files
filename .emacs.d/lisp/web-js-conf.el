@@ -33,6 +33,9 @@
             (when (string-equal "tsx" (file-name-extension buffer-file-name))
               (setup-tide-mode))))
 
+(fset 'align-javascript-object-literal
+   "\C-u\C-[xalig\C-i-r\C-i\C-m\C-a:\C-m\C-m\C-mn")
+
 (require 'flycheck)
 ;; Enable typescript-tslint checker.
 (flycheck-add-mode 'typescript-tslint 'web-mode)
