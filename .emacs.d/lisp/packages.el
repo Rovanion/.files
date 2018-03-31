@@ -48,7 +48,8 @@
                      rust-mode
                      atomic-chrome
                      dockerfile-mode
-                     tide))
+                     tide
+                     groovy-mode))
 
 ;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
