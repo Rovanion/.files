@@ -104,6 +104,7 @@ the current position of point, then move it to the beginning of the line."
 (define-key smartparens-mode-map (kbd "M-(")   'sp-backward-slurp-sexp)
 (define-key smartparens-mode-map (kbd "M-}")   'sp-forward-barf-sexp)
 (define-key smartparens-mode-map (kbd "M-{")   'sp-backward-barf-sexp)
+(define-key smartparens-mode-map (kbd "C-j")   'sp-unwrap-sexp)
 
 ;; Binds like the helm-gtags ones for js2-mode
 
