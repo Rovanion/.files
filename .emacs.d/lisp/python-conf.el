@@ -18,8 +18,11 @@
   (run-python))
 (add-hook 'python-mode-hook 'run-python-once)
 
-;; Run Jedi when we edit python files.
+(elpy-enable)
+
+;; Run Jedi and Elpy when we edit python files.
 (add-hook 'python-mode-hook #'jedi-mode)
+(add-hook 'python-mode-hook #'elpy-mode)
 
 (provide 'python-conf)
 ;;; python-conf.el ends here

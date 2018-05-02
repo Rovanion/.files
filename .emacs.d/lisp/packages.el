@@ -49,7 +49,8 @@
                      atomic-chrome
                      dockerfile-mode
                      tide
-                     groovy-mode))
+                     groovy-mode
+                     elpy))
 
 ;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
