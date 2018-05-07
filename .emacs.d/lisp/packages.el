@@ -50,7 +50,10 @@
                      dockerfile-mode
                      tide
                      groovy-mode
-                     elpy))
+                     elpy
+                     eval-sexp-fu
+                     highlight ; An unlisted dependency of eval-sexp-fu
+                     ))
 
 ;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
