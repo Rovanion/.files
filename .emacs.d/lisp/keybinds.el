@@ -58,7 +58,8 @@ the current position of point, then move it to the beginning of the line."
 (require 'company)
 (define-key company-mode-map (kbd "<backtab>") 'company-complete)
 
-;; Helm
+;;;
+;; Bindings for going to the definition of symbols and back for a bunch of modes
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "M-å") 'helm-gtags-dwim)
@@ -66,22 +67,22 @@ the current position of point, then move it to the beginning of the line."
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
-;; Binds like the helm-gtags ones for CIDER
 (require 'cider-mode)
 (define-key cider-mode-map (kbd "M-å") 'cider-find-dwim)
 (define-key cider-mode-map (kbd "M-å") 'cider-pop-back)
 
-;; Binds like the helm-gtags ones for JEDI
-(require 'jedi)
-(define-key jedi-mode-map (kbd "M-å") 'jedi:goto-definition)
-(define-key jedi-mode-map (kbd "M-ä") 'jedi:goto-definition-pop-marker)
-(define-key jedi-mode-map (kbd "M-ö") 'helm-jedi-related-names)
-
-;; Binds like the helm-gtags ones for Tide
 (require 'tide)
 (define-key tide-mode-map (kbd "M-å") 'tide-jump-to-definition)
 (define-key tide-mode-map (kbd "M-ä") 'tide-jump-back)
 (define-key tide-mode-map (kbd "M-ö") 'tide-fix)
+
+(require 'elpy)
+(define-key elpy-mode-map (kbd "M-å") 'elpy-goto-definition)
+(define-key elpy-mode-map (kbd "M-ä") 'pop-tag-mark)
+(define-key elpy-mode-map (kbd "M-ä") 'elpy-rpc-get-names)
+(define-key elpy-mode-map (kbd "C-c C-c") 'elpy-shell-send-group)
+(define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer)
+
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c c")   'mc/edit-lines)
