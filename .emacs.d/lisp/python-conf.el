@@ -24,9 +24,10 @@
 
 ;; Use ipython with elpy to enable autoreloading of modules,
 ;; see: https://emacs.stackexchange.com/questions/13476
-(setq
- python-shell-interpreter "ipython3"
- python-shell-interpreter-args "--simple-prompt --pprint")
+(if (executable-find "ipython3")
+    (setq
+     python-shell-interpreter "ipython3"
+     python-shell-interpreter-args "--simple-prompt --pprint"))
 
 ;; To enable flashing of the sent region in the code buffer
 (require 'eval-sexp-fu)
