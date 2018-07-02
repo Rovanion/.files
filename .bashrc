@@ -116,3 +116,7 @@ export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 if ! [[ $(lsb_release --id) == *Ubuntu ]]; then
 	export TERM=xterm-256color
 fi
+
+# Make bash readline behave like emacs so that you can copy and paste regions
+stty werase undef
+bind '"\C-w":kill-region'
