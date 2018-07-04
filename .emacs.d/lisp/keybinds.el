@@ -79,7 +79,7 @@ the current position of point, then move it to the beginning of the line."
 (require 'elpy)
 (define-key elpy-mode-map (kbd "M-å") 'elpy-goto-definition)
 (define-key elpy-mode-map (kbd "M-ä") 'pop-tag-mark)
-(define-key elpy-mode-map (kbd "M-ä") 'elpy-rpc-get-names)
+(define-key elpy-mode-map (kbd "M-ö") 'elpy-rpc-get-names)
 (define-key elpy-mode-map (kbd "C-c C-c") 'elpy-shell-send-group)
 (define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer)
 
