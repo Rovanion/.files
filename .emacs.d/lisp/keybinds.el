@@ -83,6 +83,8 @@ the current position of point, then move it to the beginning of the line."
 (define-key elpy-mode-map (kbd "C-c C-c") 'elpy-shell-send-group)
 (define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer)
 
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
+(define-key emacs-lisp-mode-map (kbd "C-c C-r") 'eval-region)
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c c")   'mc/edit-lines)
