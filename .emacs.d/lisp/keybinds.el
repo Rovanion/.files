@@ -11,6 +11,10 @@ the current position of point, then move it to the beginning of the line."
     (when (eq pt (point))
       (beginning-of-line))))
 
+;; Rotate different naming conventions,
+(global-unset-key (kbd "C-t"))
+(global-set-key (kbd "C-t") 'string-inflection-all-cycle)
+
 (define-key prog-mode-map (kbd "RET") 'newline-and-indent)
 (define-key prog-mode-map (kbd "C-j") 'newline)
 (define-key prog-mode-map (kbd "C-a") 'smart-line-beginning)
