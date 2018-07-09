@@ -71,15 +71,18 @@ the current position of point, then move it to the beginning of the line."
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
+;; Clojure
 (require 'cider-mode)
 (define-key cider-mode-map (kbd "M-å") 'cider-find-dwim)
 (define-key cider-mode-map (kbd "M-å") 'cider-pop-back)
 
+;; TypeScript
 (require 'tide)
 (define-key tide-mode-map (kbd "M-å") 'tide-jump-to-definition)
 (define-key tide-mode-map (kbd "M-ä") 'tide-jump-back)
 (define-key tide-mode-map (kbd "M-ö") 'tide-fix)
 
+;; Python
 (require 'elpy)
 (define-key elpy-mode-map (kbd "M-å") 'elpy-goto-definition)
 (define-key elpy-mode-map (kbd "M-ä") 'pop-tag-mark)
