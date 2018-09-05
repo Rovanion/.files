@@ -1,0 +1,107 @@
+[
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/94145.json",
+		"md5Url": "https://update.userstyles.org/94145.md5",
+		"url": "http://userstyles.org/styles/94145",
+		"originalMd5": "a7b5edd86c36c9c67175e41f2fdc8e79",
+		"sections": [
+			{
+				"code": "@namespace url(http://www.w3.org/1999/xhtml);\ntd.Bu.y3{\r\n        display: none;\r\n    }\r\n    div.nH.if{\r\n        margin: 3px;\r\n    }\r\n    .aeJ {\r\n        padding-right: 0;\r\n    }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"mail.google.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Hide right hand pane in Gmail",
+		"originalDigest": "84e51d7279c9af4769218d3cf2b25afa50c39a31",
+		"id": 1
+	},
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/108483.json",
+		"md5Url": "https://update.userstyles.org/108483.md5",
+		"url": "http://userstyles.org/styles/108483",
+		"originalMd5": "8783cd6148471b2534da16ae84c44c0f",
+		"sections": [
+			{
+				"code": "@namespace url(http://www.w3.org/1999/xhtml);\n#masthead-container.ytd-app {\r\n        position: static;\r\n    }\r\n    #page-manager.ytd-app {\r\n        margin-top: 0;\r\n    }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"youtube.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Make fixed youtube header static",
+		"originalDigest": "eba12ab0001994c143d0b7ecc825594e527db6d1",
+		"id": 2
+	},
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/100316.json",
+		"md5Url": "https://update.userstyles.org/100316.md5",
+		"url": "http://userstyles.org/styles/100316",
+		"originalMd5": "61d1bc8c5fcd8763e2ff4fbdc37fadf8",
+		"sections": [
+			{
+				"code": "@namespace url(http://www.w3.org/1999/xhtml);\n#content{\r\n        padding-right: 12em;\r\n    }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"tyda.se"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Search results on tyda.se span whole page",
+		"originalDigest": "c064f630570c1b6fd4722003b29af98e25a74580",
+		"id": 3
+	},
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/99618.json",
+		"md5Url": "https://update.userstyles.org/99618.md5",
+		"url": "http://userstyles.org/styles/99618",
+		"originalMd5": "d5688b9c40959f5f9003f00e58762ff9",
+		"sections": [
+			{
+				"code": "@namespace url(http://www.w3.org/1999/xhtml);\n.navbar-fixed-top{\r\n        position: static;\r\n    }\r\n.version-flyer{\r\n        position: static;\r\n    }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"docker.io"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Unstatic menu on docker.io",
+		"originalDigest": "d94070300841195dff5e807e429b3e17d883c943",
+		"id": 4
+	},
+	{
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/94996.json",
+		"md5Url": "https://update.userstyles.org/94996.md5",
+		"url": "http://userstyles.org/styles/94996",
+		"originalMd5": "812f561d8d0fcff7c876a99b806ad775",
+		"sections": [
+			{
+				"code": "@namespace url(http://www.w3.org/1999/xhtml);\n.Cooking-popup,#lcol,#rcol{\r\n        visibility: hidden;\r\n    }\r\n    #ccol{\r\n        width: 950px !important;\r\n    }\r\n    #page{\r\n        width: 90%;\r\n    }",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"alltommat.se"
+				],
+				"regexps": []
+			}
+		],
+		"name": "Ta bort skit på alltommat.se - Remove crap from *",
+		"originalDigest": "f02b79b0feba26d32c50def4da4a6c00d80855b2",
+		"id": 5
+	}
+]
