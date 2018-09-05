@@ -103,5 +103,27 @@
 		"name": "Ta bort skit på alltommat.se - Remove crap from *",
 		"originalDigest": "f02b79b0feba26d32c50def4da4a6c00d80855b2",
 		"id": 5
+	},
+    {
+		"enabled": true,
+		"updateUrl": "https://userstyles.org/styles/chrome/161390.json",
+		"md5Url": "https://update.userstyles.org/161390.md5",
+		"url": "http://userstyles.org/styles/161390",
+		"originalMd5": "d686a4f9ee0d833682428206c8b8df03",
+		"installDate": 1536150207172,
+		"sections": [
+			{
+				"code": "#left-sidebar {\n    display: none;\n}\n#content {\n    width: 100%;\n}",
+				"urls": [],
+				"urlPrefixes": [],
+				"domains": [
+					"stackoverflow.com"
+				],
+				"regexps": []
+			}
+		],
+		"name": "StackOverflow - Remove left sidebar",
+		"originalDigest": "5f7a6ff2330ef1685da44e8185b3d83b40f492e7",
+		"id": 6
 	}
 ]
