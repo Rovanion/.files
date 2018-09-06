@@ -95,9 +95,9 @@ the current position of point, then move it to the beginning of the line."
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c c")   'mc/edit-lines)
-(global-set-key (kbd "C->")     'mc/mark-next-like-this)
-(global-set-key (kbd "C-<")     'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c a")   'mc/mark-all-like-this)
 
 (require 'flyspell-correct-helm)
 (define-key flyspell-mode-map (kbd "M-ö") 'flyspell-correct-previous-word-generic)
