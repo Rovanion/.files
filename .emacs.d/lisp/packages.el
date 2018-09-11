@@ -54,6 +54,7 @@
                      eval-sexp-fu
                      highlight ; An unlisted dependency of eval-sexp-fu
                      string-inflection
+                     docker-tramp
                      ))
 
 ;; Repositories

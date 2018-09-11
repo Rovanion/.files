@@ -215,6 +215,9 @@
           (rename-file filename new-name t)
                     (set-visited-file-name new-name t t)))))))
 
+;; Tramp into alpine docker containers: https://github.com/emacs-pe/docker-tramp.el#troubleshooting
+(require 'docker-tramp-compat)
+
 ;; Collection of keybinding customizations.
 ;; Should be the last thing requiered in init.el.
 (require 'keybinds)
