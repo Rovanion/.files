@@ -36,3 +36,5 @@ alias lns="ln -s"
 alias clj="rlwrap java -jar ~/.m2/repository/org/clojure/clojure/1.8.0/clojure-1.8.0.jar"
 
 alias digg="dig +nocmd any +multiline +noall +answer"
+
+alias calc="ipython3 --InteractiveShellApp.exec_lines=[\'from\ math\ import\ *\']"
