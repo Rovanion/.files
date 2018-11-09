@@ -1,4 +1,5 @@
 require 'compat'
+require 'awful'
 local naughty = require "naughty"
 utils = {}
 
@@ -40,15 +41,20 @@ function utils.memoize(func)
 end
 
 local function _string_lambda(f)
-		if f:find '^|' or f:find '_' then
+		if f:find '^|' or f:find '@' then
         local args,body = f:match '|([^|]*)|(.+)'
-        if f:find '_' then
-            args = '_'
-            body = f
+        if f:find '@' then
+            args = '__arg__'
+            body = f:gsub('@','__arg__')
         else
             if not args then return utils.error 'bad string lambda' end
         end
-        local fstr = 'return function('..args..') return '..body..' end'
+				local fstr;
+        if f:find('=') then
+					 fstr = 'return function('..args..') '..body..' end'
+				else
+					 fstr = 'return function('..args..') return '..body..' end'
+				end
         local fn,err = compat.load(fstr)
         if not fn then return utils.error(err) end
         fn = fn()
@@ -65,5 +71,19 @@ end
 -- @usage string_lambda '_+1' (2) == 3
 -- @function string_lambda
 utils.string_lambda = utils.memoize(_string_lambda)
+
+
+function utils.run_if_not_running(program, arguments)
+	 awful.spawn.easy_async(
+			"pgrep " .. program,
+			function(stdout, stderr, reason, exit_code)
+				 if exit_code ~= 0 then
+						naughty.notify { text = exit_code .. " spawning " .. program}
+						awful.spawn(program .. " " .. arguments)
+				 end
+
+	 end)
+
+end
 
 return utils

@@ -156,8 +156,8 @@ myawesomemenu = {
 
 local menu_awesome  = { "awesome", myawesomemenu, beautiful.awesome_icon }
 local menu_terminal = { "open terminal", terminal }
-local menu_dvorak   = { "Dvorak", terminal .. " -e configure-mouse-and-keyboard"}
-local menu_qwerty   = { "qwerty", terminal .. " -e setxkbmap se"}
+local menu_dvorak   = { "Dvorak", "configure-mouse-and-keyboard"}
+local menu_qwerty   = { "qwerty", "setxkbmap se"}
 
 mymainmenu = awful.menu({
 			items = {
@@ -245,8 +245,10 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
+		local ls = awful.layout.layouts;
+		local layout_map = { ls[2], ls[2], ls[2], ls[2], ls[1], ls[1], ls[2], ls[2], ls[2], ls[2] }
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "web", "work", "prog", "music", "float", "6", "7", "8", "9" }, s, layout_map)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -265,7 +267,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -314,8 +316,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "aring",      fn'||awful.client.swap.byidx( 1)',              {description = "move window up stack",      group = "client"}),
     awful.key({ modkey,         }, "odiaeresis", fn'||awful.client.swap.byidx(-1)',              {description = "move window down stack",    group = "client"}),
     -- Switch screens
-		awful.key({ modkey, "Mod1"  }, "p",          fn'awful.screen.focus_relative( 1)',            {description = "focus the next screen",     group = "screen"}),
-    awful.key({ modkey, "Mod1"  }, "u",          fn'awful.screen.focus_relative(-1)',            {description = "focus the previous screen", group = "screen"}),
+		awful.key({ modkey, "Mod1"  }, "p",          fn'||awful.screen.focus_relative( 1)',          {description = "focus the next screen",     group = "screen"}),
+    awful.key({ modkey, "Mod1"  }, "u",          fn'||awful.screen.focus_relative(-1)',          {description = "focus the previous screen", group = "screen"}),
 		-- Launching programs
     awful.key({ modkey,         }, "Return",     fn'||awful.spawn(terminal)',                    {description = "open a terminal",           group = "launcher"}),
     -- Window size
@@ -336,21 +338,21 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Mod1"  }, "q",          awesome.quit,                                   {description = "quit awesome",              group = "awesome"}),
     -- Power management
     awful.key({                 }, "XF86Launch1",fn'||awful.util.spawn("xset dpms force off")',  {description = "turn off screen",           group = "power"}),
-		awful.key({ modkey,         }, "s",          fn'||awful.util.spawn("xscreensaver-command --lock")', {description = "lock screen",        group = "power"}),
+		awful.key({ modkey,         }, "s",          fn'||awful.util.spawn("xscreensaver-command -l")', {description = "lock screen",            group = "power"}),
 		awful.key({ modkey, "Shift" }, "s",          lock_screen,                                    {description = "suspend machine",           group = "power"}),
     -- Prompt
-    awful.key({ modkey, "Shift" }, "r",          fn'||awful.screen.focused().mypromptbox:run()', {description = "run prompt",                group = "launcher"}),
-    awful.key({ modkey          }, "r",          function() menubar.show() end,                  {description = "show the menubar",          group = "launcher"}),
-    awful.key({ modkey          }, "x",          open_lua_prompt,                                {description = "lua execute prompt",        group = "awesome"})
+    awful.key({ modkey,         }, "r",          fn'||awful.screen.focused().mypromptbox:run()', {description = "run prompt",                group = "launcher"}),
+    awful.key({ modkey, "Shift" }, "r",          function() menubar.show() end,                  {description = "show the menubar",          group = "launcher"}),
+    awful.key({ modkey,         }, "x",          open_lua_prompt,                                {description = "lua execute prompt",        group = "awesome"})
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey,           }, "f",        toggle_fullscreen,                              {description = "toggle fullscreen",       group = "client"}),
-    awful.key({ modkey, "Shift"   }, "q",        fn'|c|c:kill()',                                {description = "close",                     group = "client"}),
+    awful.key({ modkey,           }, ".",        toggle_fullscreen,                              {description = "toggle fullscreen",         group = "client"}),
+    awful.key({ modkey,           }, "q",        fn'@:kill()',                                   {description = "close",                     group = "client"}),
     awful.key({ modkey, "Mod1"    }, "space",    awful.client.floating.toggle,                   {description = "toggle floating",           group = "client"}),
-    awful.key({ modkey, "Mod1"    }, "Return",   fn'|c|c:swap(awful.client.getmaster())',        {description = "move to master",            group = "client"}),
-    awful.key({ modkey,           }, "o",        function(c) c:move_to_screen() end,             {description = "move to screen",            group = "client"}),
-    awful.key({ modkey,           }, "t",        function(c) c.ontop = not c.ontop end,          {description = "toggle keep on top",        group = "client"}),
+    awful.key({ modkey, "Mod1"    }, "Return",   fn'@:swap(awful.client.getmaster())',           {description = "move to master",            group = "client"}),
+    awful.key({ modkey,           }, "o",        fn'@:move_to_screen()',                         {description = "move to screen",            group = "client"}),
+    awful.key({ modkey,           }, "t",        fn'@.ontop = not @.ontop',                      {description = "toggle keep on top",        group = "client"}),
     awful.key({ modkey,           }, "m",        unmaximize_client,                              {description = "minimize",                  group = "client"})
 )
 
@@ -456,13 +458,13 @@ awful.rules.rules = {
       }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+    { rule_any = {type = { "normal", "dialog" }},
+			properties = { titlebars_enabled = false }
     },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    -- Set Audacious to always map on the tag named "music" on screen 1.
+    { rule = { class = "Audacious" },
+      properties = { screen = 1, tag = "music" } },
 }
 -- }}}
 
@@ -471,11 +473,11 @@ awful.rules.rules = {
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
-    -- if not awesome.startup then awful.client.setslave(c) end
+    if not awesome.startup then awful.client.setslave(c) end
 
     if awesome.startup and
-      not c.size_hints.user_position
-      and not c.size_hints.program_position then
+		  not c.size_hints.user_position and
+		  not c.size_hints.program_position then
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
@@ -534,3 +536,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Run my autostart script
+dofile(awful.util.getdir("config") .. "/" .. "autostart.lua")
