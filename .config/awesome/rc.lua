@@ -18,14 +18,14 @@ require("awful.hotkeys_popup.keys")
 -- Battery level indicator
 local battery_widget = require("battery-widget")
 local battery = battery_widget({adapter = "BAT0",
-																ac_prefix = "🔌",
-																battery_prefix = "🔋",
-																widget_text = "  ${AC_BAT} ${color_on}${percent}%${color_off} ",
-																listen = true,
-																limits = {
-																	 {10, "red"   },
-																	 {25, "orange"},
-																	 {50, "white" }}})
+                                ac_prefix = "🔌",
+                                battery_prefix = "🔋",
+                                widget_text = "  ${AC_BAT} ${color_on}${percent}%${color_off} ",
+                                listen = true,
+                                limits = {
+                                   {10, "red"   },
+                                   {25, "orange"},
+                                   {50, "white" }}})
 -- Load Debian menu entries
 -- local debian = require("debian.menu")
 -- Utility functions
@@ -34,37 +34,37 @@ local fn = utils.string_lambda
 local prn = utils.recursive_print
 
 function lock_screen ()
-	 awful.util.spawn('xscreensaver-command --lock')
-	 awful.util.spawn('dbus-send --print-reply --system --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true')
+  awful.util.spawn('xscreensaver-command --lock')
+  awful.util.spawn('dbus-send --print-reply --system --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true')
 end
 
 function restore_minimized_window()
-	 local c = awful.client.restore()
-	 -- Focus restored client
-	 if c then
-			client.focus = c
-			c:raise()
-	 end
+   local c = awful.client.restore()
+   -- Focus restored client
+   if c then
+      client.focus = c
+      c:raise()
+   end
 end
 
 function open_lua_prompt()
-	 awful.prompt.run {
-			prompt       = "Run Lua code: ",
-			textbox      = awful.screen.focused().mypromptbox.widget,
-			exe_callback = awful.util.eval,
-			history_path = awful.util.get_cache_dir() .. "/history_eval"
-	 }
+   awful.prompt.run {
+      prompt       = "Run Lua code: ",
+      textbox      = awful.screen.focused().mypromptbox.widget,
+      exe_callback = awful.util.eval,
+      history_path = awful.util.get_cache_dir() .. "/history_eval"
+   }
 end
 
 function minimize_client(c)
-	 c.minimized = false
-	 c.maximized_horizontal = not c.maximized_horizontal
-	 c.maximized_vertical   = not c.maximized_vertical
+   c.minimized = false
+   c.maximized_horizontal = not c.maximized_horizontal
+   c.maximized_vertical   = not c.maximized_vertical
 end
 
 function toggle_fullscreen(c)
-	 c.fullscreen = not c.fullscreen
-	 c:raise()
+   c.fullscreen = not c.fullscreen
+   c:raise()
 end
 
 -- {{{ Error handling
@@ -160,12 +160,12 @@ local menu_dvorak   = { "Dvorak", "configure-mouse-and-keyboard"}
 local menu_qwerty   = { "qwerty", "setxkbmap se"}
 
 mymainmenu = awful.menu({
-			items = {
-				 menu_awesome,
-				 -- { "Debian", debian.menu.Debian_menu.Debian },
-				 menu_terminal,
-				 menu_dvorak,
-				 menu_qwerty}})
+      items = {
+         menu_awesome,
+         -- { "Debian", debian.menu.Debian_menu.Debian },
+         menu_terminal,
+         menu_dvorak,
+         menu_qwerty}})
 
 
 
@@ -245,8 +245,8 @@ awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
-		local ls = awful.layout.layouts;
-		local layout_map = { ls[2], ls[2], ls[2], ls[2], ls[1], ls[1], ls[2], ls[2], ls[2], ls[2] }
+    local ls = awful.layout.layouts;
+    local layout_map = { ls[2], ls[2], ls[2], ls[2], ls[1], ls[1], ls[2], ls[2], ls[2], ls[2] }
     -- Each screen has its own tag table.
     awful.tag({ "web", "work", "prog", "music", "float", "6", "7", "8", "9" }, s, layout_map)
 
@@ -280,12 +280,12 @@ awful.screen.connect_for_each_screen(function(s)
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
-					 layout = wibox.layout.fixed.horizontal,
-					 battery.widget,
-					 mykeyboardlayout,
-					 wibox.widget.systray(),
-					 mytextclock,
-					 s.mylayoutbox,
+           layout = wibox.layout.fixed.horizontal,
+           battery.widget,
+           mykeyboardlayout,
+           wibox.widget.systray(),
+           mytextclock,
+           s.mylayoutbox,
         },
     }
 end)
@@ -310,36 +310,36 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "Escape",     awful.tag.history.restore,                      {description = "go back",                   group = "tag"}),
     awful.key({ modkey,         }, "n",          fn'||awful.client.focus.byidx( 1)',             {description = "next window",               group = "client"}),
     awful.key({ modkey,         }, "p",          fn'||awful.client.focus.byidx(-1)',             {description = "previous window",           group = "client"}),
-		awful.key({ modkey, "Mod1"  }, "n",          restore_minimized_window,                       {description = "restore minimized",         group = "client"}),
+    awful.key({ modkey, "Mod1"  }, "n",          restore_minimized_window,                       {description = "restore minimized",         group = "client"}),
     awful.key({ modkey,         }, "w",          fn'||mymainmenu:show()',                        {description = "show main menu",            group = "awesome"}),
-		-- Move window in the stack
+    -- Move window in the stack
     awful.key({ modkey,         }, "aring",      fn'||awful.client.swap.byidx( 1)',              {description = "move window up stack",      group = "client"}),
     awful.key({ modkey,         }, "odiaeresis", fn'||awful.client.swap.byidx(-1)',              {description = "move window down stack",    group = "client"}),
     -- Switch screens
-		awful.key({ modkey, "Mod1"  }, "p",          fn'||awful.screen.focus_relative( 1)',          {description = "focus the next screen",     group = "screen"}),
+    awful.key({ modkey, "Mod1"  }, "p",          fn'||awful.screen.focus_relative( 1)',          {description = "focus the next screen",     group = "screen"}),
     awful.key({ modkey, "Mod1"  }, "u",          fn'||awful.screen.focus_relative(-1)',          {description = "focus the previous screen", group = "screen"}),
-		-- Launching programs
+    -- Launching programs
     awful.key({ modkey,         }, "Return",     fn'||awful.spawn(terminal)',                    {description = "open a terminal",           group = "launcher"}),
     -- Window size
-		awful.key({ modkey,         }, "a",          fn'||awful.tag.incmwfact( 0.05)',               {description = "increase main width",       group = "layout"}),
+    awful.key({ modkey,         }, "a",          fn'||awful.tag.incmwfact( 0.05)',               {description = "increase main width",       group = "layout"}),
     awful.key({ modkey,         }, "e",          fn'||awful.tag.incmwfact(-0.05)',               {description = "decrease main width",       group = "layout"}),
-		awful.key({ modkey,         }, "adiaeresis", fn'||awful.tag.incmwfact( 0.05)',               {description = "increase main width",       group = "layout"}),
+    awful.key({ modkey,         }, "adiaeresis", fn'||awful.tag.incmwfact( 0.05)',               {description = "increase main width",       group = "layout"}),
     awful.key({ modkey,         }, "o",          fn'||awful.tag.incmwfact(-0.05)',               {description = "decrease main width",       group = "layout"}),
-		-- Window juggling
-		awful.key({ modkey, "Shift" }, "a",          fn'||awful.tag.incnmaster( 1, nil, true)',      {description = "more main windows",         group = "layout"}),
+    -- Window juggling
+    awful.key({ modkey, "Shift" }, "a",          fn'||awful.tag.incnmaster( 1, nil, true)',      {description = "more main windows",         group = "layout"}),
     awful.key({ modkey, "Shift" }, "e",          fn'||awful.tag.incnmaster(-1, nil, true)',      {description = "fewer main windows",        group = "layout"}),
     awful.key({ modkey, "Mod1"  }, "a",          fn'||awful.tag.incncol( 1, nil, true)',         {description = "more columns",              group = "layout"}),
     awful.key({ modkey, "Mod1"  }, "e",          fn'||awful.tag.incncol(-1, nil, true)',         {description = "fewer columns",             group = "layout"}),
     -- Switch layout
-		awful.key({ modkey,         }, "space",      fn'||awful.layout.inc( 1)',                     {description = "select next",               group = "layout"}),
+    awful.key({ modkey,         }, "space",      fn'||awful.layout.inc( 1)',                     {description = "select next",               group = "layout"}),
     awful.key({ modkey, "Shift" }, "space",      fn'||awful.layout.inc(-1)',                     {description = "select previous",           group = "layout"}),
-		-- Lifecycle
+    -- Lifecycle
     awful.key({ modkey, "Mod1"  }, "r",          awesome.restart,                                {description = "reload awesome",            group = "awesome"}),
     awful.key({ modkey, "Mod1"  }, "q",          awesome.quit,                                   {description = "quit awesome",              group = "awesome"}),
     -- Power management
     awful.key({                 }, "XF86Launch1",fn'||awful.util.spawn("xset dpms force off")',  {description = "turn off screen",           group = "power"}),
-		awful.key({ modkey,         }, "s",          fn'||awful.util.spawn("xscreensaver-command -l")', {description = "lock screen",            group = "power"}),
-		awful.key({ modkey, "Shift" }, "s",          lock_screen,                                    {description = "suspend machine",           group = "power"}),
+    awful.key({ modkey,         }, "s",          fn'||awful.util.spawn("xscreensaver-command -l")', {description = "lock screen",            group = "power"}),
+    awful.key({ modkey, "Shift" }, "s",          lock_screen,                                    {description = "suspend machine",           group = "power"}),
     -- Prompt
     awful.key({ modkey,         }, "r",          fn'||awful.screen.focused().mypromptbox:run()', {description = "run prompt",                group = "launcher"}),
     awful.key({ modkey, "Shift" }, "r",          function() menubar.show() end,                  {description = "show the menubar",          group = "launcher"}),
@@ -459,7 +459,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }},
-			properties = { titlebars_enabled = false }
+      properties = { titlebars_enabled = false }
     },
 
     -- Set Audacious to always map on the tag named "music" on screen 1.
@@ -476,8 +476,8 @@ client.connect_signal("manage", function (c)
     if not awesome.startup then awful.client.setslave(c) end
 
     if awesome.startup and
-		  not c.size_hints.user_position and
-		  not c.size_hints.program_position then
+      not c.size_hints.user_position and
+      not c.size_hints.program_position then
         -- Prevent clients from being unreachable after screen count changes.
         awful.placement.no_offscreen(c)
     end
