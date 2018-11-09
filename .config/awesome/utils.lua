@@ -1,6 +1,5 @@
 require 'compat'
 local naughty = require "naughty"
-awful = require("awful")
 utils = {}
 
 function utils.error(message)
