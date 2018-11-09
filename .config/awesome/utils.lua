@@ -4,8 +4,8 @@ local naughty = require "naughty"
 utils = {}
 
 function utils.error(message)
-	 naughty.notify({preset = naughty.config.presets.critical,
-									 text   = message})
+   naughty.notify({preset = naughty.config.presets.critical,
+                   text   = message})
 end
 
 function utils.recursive_print(s, l, i) -- recursive Print (structure, limit, indent)
@@ -29,38 +29,38 @@ end
 -- @param func a function of at least one argument
 -- @return a function with at least one argument, which is used as the key.
 function utils.memoize(func)
-    local cache = {}
-    return function(k)
-        local res = cache[k]
-        if res == nil then
-            res = func(k)
-            cache[k] = res
-        end
-        return res
-    end
+   local cache = {}
+   return function(k)
+      local res = cache[k]
+      if res == nil then
+         res = func(k)
+         cache[k] = res
+      end
+      return res
+   end
 end
 
 local function _string_lambda(f)
-		if f:find '^|' or f:find '@' then
-        local args,body = f:match '|([^|]*)|(.+)'
-        if f:find '@' then
-            args = '__arg__'
-            body = f:gsub('@','__arg__')
-        else
-            if not args then return utils.error 'bad string lambda' end
-        end
-				local fstr;
-        if f:find('=') then
-					 fstr = 'return function('..args..') '..body..' end'
-				else
-					 fstr = 'return function('..args..') return '..body..' end'
-				end
-        local fn,err = compat.load(fstr)
-        if not fn then return utils.error(err) end
-        fn = fn()
-        return fn
-    else return utils.error(f .. 'is not a string lambda')
-    end
+   if f:find '^|' or f:find '@' then
+      local args,body = f:match '|([^|]*)|(.+)'
+      if f:find '@' then
+         args = '__arg__'
+         body = f:gsub('@','__arg__')
+      else
+         if not args then return utils.error 'bad string lambda' end
+      end
+      local fstr;
+      if f:find('=') then
+         fstr = 'return function('..args..') '..body..' end'
+      else
+         fstr = 'return function('..args..') return '..body..' end'
+      end
+      local fn,err = compat.load(fstr)
+      if not fn then return utils.error(err) end
+      fn = fn()
+      return fn
+   else return utils.error(f .. 'is not a string lambda')
+   end
 end
 
 --- an anonymous function as a string. This string is either of the form
@@ -74,15 +74,15 @@ utils.string_lambda = utils.memoize(_string_lambda)
 
 
 function utils.run_if_not_running(program, arguments)
-	 awful.spawn.easy_async(
-			"pgrep " .. program,
-			function(stdout, stderr, reason, exit_code)
-				 if exit_code ~= 0 then
-						naughty.notify { text = exit_code .. " spawning " .. program}
-						awful.spawn(program .. " " .. arguments)
-				 end
+   awful.spawn.easy_async(
+      "pgrep " .. program,
+      function(stdout, stderr, reason, exit_code)
+         if exit_code ~= 0 then
+            naughty.notify { text = exit_code .. " spawning " .. program}
+            awful.spawn(program .. " " .. arguments)
+         end
 
-	 end)
+   end)
 
 end
 
