@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper = "~/Dropbox/Photos/Backgrounds/blabar.jpg"
+theme.wallpaper = "~/Dropbox/Photos/Backgrounds/andromeda.png"
 -- }}}
 
 -- {{{ Styles

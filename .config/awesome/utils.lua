@@ -1,6 +1,8 @@
-require 'compat'
-require 'awful'
-local naughty = require "naughty"
+local compat    = require 'compat'
+local awful     = require 'awful'
+local beautiful = require 'beautiful'
+local naughty   = require 'naughty'
+local wibox     = require 'wibox'
 utils = {}
 
 function utils.error(message)
@@ -84,6 +86,20 @@ function utils.run_if_not_running(program, arguments)
 
    end)
 
+end
+
+
+function utils.create_titlebar(c, titlebar_buttons, titlebar_position, titlebar_size)
+  awful.titlebar(c, {font = beautiful.titlebar_font, position = titlebar_position, size = titlebar_size}) :
+    setup {
+      { buttons = titlebar_buttons,
+        layout  = wibox.layout.fixed.horizontal },
+      { buttons = titlebar_buttons,
+        layout  = wibox.layout.fixed.horizontal },
+      { buttons = titlebar_buttons,
+        layout = wibox.layout.fixed.horizontal },
+      layout = wibox.layout.align.horizontal
+    }
 end
 
 return utils
