@@ -76,11 +76,14 @@ utils.string_lambda = utils.memoize(_string_lambda)
 
 
 function utils.run_if_not_running(program, arguments)
+  if arguments == nil then
+    arguments = ""
+  end
    awful.spawn.easy_async(
       "pgrep " .. program,
       function(stdout, stderr, reason, exit_code)
          if exit_code ~= 0 then
-            naughty.notify { text = exit_code .. " spawning " .. program}
+            naughty.notify({ text = exit_code .. " spawning " .. program .. " " .. arguments })
             awful.spawn(program .. " " .. arguments)
          end
 
