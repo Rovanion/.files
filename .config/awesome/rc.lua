@@ -56,10 +56,10 @@ function open_lua_prompt()
    }
 end
 
-function minimize_client(c)
-   c.minimized = false
-   c.maximized_horizontal = not c.maximized_horizontal
-   c.maximized_vertical   = not c.maximized_vertical
+function unmaximize_client(c)
+   c.maximized = false
+   c.maximized_horizontal = false
+   c.maximized_vertical   = false
 end
 
 function toggle_fullscreen(c)
