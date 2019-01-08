@@ -26,5 +26,8 @@
 		(accept-process-output cider-diet-process)
 		    (cider-connect "localhost" 7888)))
 
+;; Don't open up a prompt each time M-å is used.
+(setq cider-prompt-for-symbol nil)
+
 (provide 'clojure-conf)
 ;;; clojure-conf.el ends here
