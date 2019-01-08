@@ -74,7 +74,7 @@ the current position of point, then move it to the beginning of the line."
 ;; Clojure
 (require 'cider-mode)
 (define-key cider-mode-map (kbd "M-å") 'cider-find-dwim)
-(define-key cider-mode-map (kbd "M-å") 'cider-pop-back)
+(define-key cider-mode-map (kbd "M-ä") 'cider-pop-back)
 
 ;; TypeScript
 (require 'tide)
