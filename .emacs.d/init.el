@@ -215,6 +215,10 @@
           (rename-file filename new-name t)
                     (set-visited-file-name new-name t t)))))))
 
+;; Fonts for non-terminal emacs
+(set-face-font 'menu    "-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*")
+(set-face-font 'default "-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*")
+
 ;; Tramp into alpine docker containers: https://github.com/emacs-pe/docker-tramp.el#troubleshooting
 (require 'docker-tramp-compat)
 ;; Faster than the default, which is scp.
