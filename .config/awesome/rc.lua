@@ -316,8 +316,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "aring",      fn'||awful.client.swap.byidx( 1)',              {description = "move window up stack",      group = "client"}),
     awful.key({ modkey,         }, "odiaeresis", fn'||awful.client.swap.byidx(-1)',              {description = "move window down stack",    group = "client"}),
     -- Switch screens
-    awful.key({ modkey, "Mod1"  }, "p",          fn'||awful.screen.focus_relative( 1)',          {description = "focus the next screen",     group = "screen"}),
-    awful.key({ modkey, "Mod1"  }, "u",          fn'||awful.screen.focus_relative(-1)',          {description = "focus the previous screen", group = "screen"}),
+    awful.key({ modkey,         }, "adiaeresis", fn'||awful.screen.focus_relative( 1)',          {description = "focus the next screen",     group = "screen"}),
+    awful.key({ modkey,         }, "o",          fn'||awful.screen.focus_relative(-1)',          {description = "focus the previous screen", group = "screen"}),
     -- Launching programs
     awful.key({ modkey,         }, "Return",     fn'||awful.spawn(terminal)',                    {description = "open a terminal",           group = "launcher"}),
     awful.key({ modkey, "Shift" }, "f",          fn'||awful.spawn("firefox")',                   {description = "open firefox",              group = "launcher"}),
@@ -325,10 +325,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "n",          fn'||awful.spawn("nautilus")',                  {description = "open nautilus",             group = "launcher"}),
     awful.key({ modkey, "Shift" }, "odiaeresis", fn'||awful.spawn("evince")',                    {description = "open evince",               group = "launcher"}),
     -- Window size
-    awful.key({ modkey,         }, "a",          fn'||awful.tag.incmwfact( 0.05)',               {description = "increase main width",       group = "layout"}),
-    awful.key({ modkey,         }, "e",          fn'||awful.tag.incmwfact(-0.05)',               {description = "decrease main width",       group = "layout"}),
-    awful.key({ modkey,         }, "adiaeresis", fn'||awful.tag.incmwfact( 0.05)',               {description = "increase main width",       group = "layout"}),
-    awful.key({ modkey,         }, "o",          fn'||awful.tag.incmwfact(-0.05)',               {description = "decrease main width",       group = "layout"}),
+    awful.key({ modkey,         }, "a",          fn'||awful.tag.incmwfact(-0.05)',               {description = "increase main width",       group = "layout"}),
+    awful.key({ modkey,         }, "e",          fn'||awful.tag.incmwfact( 0.05)',               {description = "decrease main width",       group = "layout"}),
     -- Window juggling
     awful.key({ modkey, "Shift" }, "a",          fn'||awful.tag.incnmaster( 1, nil, true)',      {description = "more main windows",         group = "layout"}),
     awful.key({ modkey, "Shift" }, "e",          fn'||awful.tag.incnmaster(-1, nil, true)',      {description = "fewer main windows",        group = "layout"}),
