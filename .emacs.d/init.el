@@ -45,12 +45,12 @@
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (_)
   (when (display-graphic-p)
-    (set-scroll-bar-mode 'right)
-    (tool-bar-mode -1)))
+    (set-scroll-bar-mode 'right)))
 (add-to-list 'after-make-frame-functions #'graphical-fixes)
 
 ;; We never want that menu bar visible.
 (menu-bar-mode -1)
+(tool-bar-mode -1)
 
 ;; ;; Make scrolling by mouse linear
 ;; (setq mouse-wheel-progressive-speed nil)
