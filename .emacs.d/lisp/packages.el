@@ -55,6 +55,7 @@
                      highlight ; An unlisted dependency of eval-sexp-fu
                      string-inflection
                      docker-tramp
+                     reason-mode
                      ))
 
 ;; Repositories

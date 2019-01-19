@@ -29,6 +29,7 @@
 (require 'web-js-conf)
 (require 'typescript-conf)
 (require 'elisp-conf)
+(require 'reason-conf)
 ;; Load conf for mail client.
 ;(require 'mu4e-conf)
 ;; Conf for directory listing mode.
@@ -223,6 +224,11 @@
 (require 'docker-tramp-compat)
 ;; Faster than the default, which is scp.
 (setq tramp-default-method "ssh")
+
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
+
 
 ;; Collection of keybinding customizations.
 ;; Should be the last thing requiered in init.el.
