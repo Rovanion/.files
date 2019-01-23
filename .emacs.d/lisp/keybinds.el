@@ -73,8 +73,10 @@ the current position of point, then move it to the beginning of the line."
 
 ;; Clojure
 (require 'cider-mode)
-(define-key cider-mode-map (kbd "M-å") 'cider-find-dwim)
-(define-key cider-mode-map (kbd "M-ä") 'cider-pop-back)
+(define-key cider-mode-map   (kbd "M-å") 'cider-find-dwim)
+(define-key cider-mode-map   (kbd "M-ä") 'cider-pop-back)
+(define-key clojure-mode-map (kbd "M-;") #'comment-or-uncomment-sexp)
+
 
 ;; TypeScript
 (require 'tide)
@@ -94,6 +96,7 @@ the current position of point, then move it to the beginning of the line."
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key emacs-lisp-mode-map (kbd "C-c C-r") 'eval-region)
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'eval-last-sexp)
+(define-key emacs-lisp-mode-map (kbd "M-;") #'comment-or-uncomment-sexp)
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c c")   'mc/edit-lines)
