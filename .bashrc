@@ -89,11 +89,11 @@ export VISUAL="emacsclient -a=\"\""
 # Fixing not being able to type dead keys in emacs
 XMODIFIERS="emacs"
 
-# Tell golang where my workspace is
-export GOPATH=$HOME/source/go
+# Tell golang where my workspace is.
+export GOPATH=$HOME/.local/go
 
-# Assume that we have administrative privileges and also add the gopath.
-export PATH="$PATH:/usr/sbin:$HOME/source/go/bin:$HOME/.local/bin:/usr/local/heroku/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
+# Assume that we have administrative privileges.
+export PATH="$HOME/.local/bin:$PATH:/usr/sbin:$HOME/.local/go/bin:/usr/local/heroku/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
 
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
