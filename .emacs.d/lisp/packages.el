@@ -56,6 +56,7 @@
                      string-inflection
                      docker-tramp
                      reason-mode
+                     merlin
                      ))
 
 ;; Repositories
