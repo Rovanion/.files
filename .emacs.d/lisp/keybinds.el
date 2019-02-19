@@ -132,5 +132,8 @@ the current position of point, then move it to the beginning of the line."
 (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z")   #'helm-select-action)
 
+;; Dired
+(define-key dired-mode-map (kbd "p") #'dired-up-directory)
+
 (provide 'keybinds)
 ;;; keybinds.el ends here
