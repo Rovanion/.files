@@ -21,6 +21,8 @@ the current position of point, then move it to the beginning of the line."
 (define-key prog-mode-map (kbd "C-o") 'split-line)
 (define-key prog-mode-map (kbd "C-M-o") 'open-line)
 
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
 (require 'cc-mode)
 (define-key c-mode-map (kbd "RET") 'newline-and-indent)
 (define-key c-mode-map (kbd "C-j") 'newline)
@@ -129,11 +131,15 @@ the current position of point, then move it to the beginning of the line."
 ;; to retrain my brain, my brain has not been retrained after five
 ;; years of use.
 (define-key helm-map (kbd "TAB")   #'helm-execute-persistent-action)
-(define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z")   #'helm-select-action)
 
 ;; Dired
 (define-key dired-mode-map (kbd "p") #'dired-up-directory)
+
+;; Puppet
+(require 'puppet-mode)
+(define-key puppet-mode-map (kbd "TAB") #'puppet-align-block)
+
 
 (provide 'keybinds)
 ;;; keybinds.el ends here
