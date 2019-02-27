@@ -134,7 +134,12 @@ the current position of point, then move it to the beginning of the line."
 (define-key helm-map (kbd "C-z")   #'helm-select-action)
 
 ;; Dired
-(define-key dired-mode-map (kbd "p") #'dired-up-directory)
+(require 'dired)
+(define-key dired-mode-map (kbd "p")   #'dired-single-up-directory)
+(define-key dired-mode-map (kbd "^")   #'dired-single-up-directory)
+(define-key dired-mode-map (kbd "RET") #'dired-single-buffer)
+(define-key dired-mode-map [mouse-1]   #'dired-single-buffer-mouse)
+
 
 ;; Puppet
 (require 'puppet-mode)

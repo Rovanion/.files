@@ -57,6 +57,7 @@
                      docker-tramp
                      reason-mode
                      merlin
+                     dired-single
                      ))
 
 ;; Repositories
