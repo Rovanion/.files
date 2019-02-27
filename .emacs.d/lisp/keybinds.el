@@ -143,7 +143,8 @@ the current position of point, then move it to the beginning of the line."
 
 ;; Puppet
 (require 'puppet-mode)
-(define-key puppet-mode-map (kbd "TAB") #'puppet-align-block)
+(define-key puppet-mode-map (kbd "<backtab>") #'puppet-align-block)
+(define-key puppet-mode-map (kbd "TAB") #'puppet-indent-line)
 
 
 (provide 'keybinds)
