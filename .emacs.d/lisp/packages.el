@@ -2,63 +2,64 @@
 ;; Automatically download the required packages for emacs
 ;;;;
 
-(setq package-list '(js2-mode
-                     ac-js2
-                     skewer-mode
-                     flycheck
-                     pos-tip
-                     iy-go-to-char
-                     go-mode
-                     company-go
-                     ace-window
-                     ace-jump-mode
-                     gitignore-mode
-                     cmake-mode
-                     yasnippet
-                     glsl-mode
-                     puppet-mode
-                     web-mode
-                     rainbow-delimiters
-                     nginx-mode
-                     lua-mode
-                     omnisharp
-                     yaml-mode
-                     visual-regexp
-                     markdown-mode
-                     markdown-toc
-                     recompile-on-save
-                     jedi
-                     company-jedi
-                     toml-mode
-                     mu4e-maildirs-extension
-                     smart-tabs-mode
-                     cider
-                     smartparens
-                     helm
-                     helm-gtags
-                     clj-refactor
-                     php-mode
-                     flyspell-lazy
-                     flyspell-correct-helm
-                     gnuplot-mode
-                     browse-kill-ring
-                     editorconfig
-                     less-css-mode
-                     jdee
-                     rust-mode
-                     atomic-chrome
-                     dockerfile-mode
-                     tide
-                     groovy-mode
-                     elpy
-                     eval-sexp-fu
-                     highlight ; An unlisted dependency of eval-sexp-fu
-                     string-inflection
-                     docker-tramp
-                     reason-mode
-                     merlin
-                     dired-single
-                     ))
+(setq package-list
+      '(js2-mode
+        ac-js2
+        skewer-mode
+        flycheck
+        pos-tip
+        iy-go-to-char
+        go-mode
+        company-go
+        ace-window
+        ace-jump-mode
+        gitignore-mode
+        cmake-mode
+        yasnippet
+        glsl-mode
+        puppet-mode
+        web-mode
+        rainbow-delimiters
+        nginx-mode
+        lua-mode
+        omnisharp
+        yaml-mode
+        visual-regexp
+        markdown-mode
+        markdown-toc
+        recompile-on-save
+        jedi
+        company-jedi
+        toml-mode
+        mu4e-maildirs-extension
+        smart-tabs-mode
+        cider
+        smartparens
+        helm
+        helm-gtags
+        clj-refactor
+        php-mode
+        flyspell-lazy
+        flyspell-correct-helm
+        gnuplot-mode
+        browse-kill-ring
+        editorconfig
+        less-css-mode
+        jdee
+        rust-mode
+        atomic-chrome
+        dockerfile-mode
+        tide
+        groovy-mode
+        elpy
+        eval-sexp-fu
+        highlight              ; An unlisted dependency of eval-sexp-fu
+        string-inflection      ; Switching BETWEEN different_variable-namingConventions.
+        docker-tramp           ; Tramp into docker containers.
+        reason-mode            ; An OCaml dialect for JS transpilation.
+        merlin                 ; OCaml auto completion.
+        dired-single
+        ))
 
 ;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
