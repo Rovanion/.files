@@ -1,12 +1,5 @@
 ;;; Code.
 
-(require 'js2-mode)
-
-;; make js2-mode the mode for javascript files
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-
-
 (require 'less-css-mode)
 
 (require 'web-mode)

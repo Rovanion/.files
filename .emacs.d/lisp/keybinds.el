@@ -124,9 +124,6 @@ the current position of point, then move it to the beginning of the line."
 (define-key smartparens-mode-map (kbd "M-{")   'sp-backward-barf-sexp)
 (define-key smartparens-mode-map (kbd "C-j")   'sp-unwrap-sexp)
 
-;; Binds like the helm-gtags ones for js2-mode
-(define-key js2-mode-map (kbd "M-å") 'js2-jump-to-definition)
-
 ;; Bind completion to tab in helm. Because as much as its author wants
 ;; to retrain my brain, my brain has not been retrained after five
 ;; years of use.

@@ -43,6 +43,8 @@
 (require 'editorconfig)
 (editorconfig-mode 1)
 
+(projectile-mode +1)
+
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (_)
   (when (display-graphic-p)
@@ -63,7 +65,6 @@
 (setq-default tab-width 2
               indent-tabs-mode t
               js-indent-level tab-width
-              js2-basic-offset tab-width
               sh-basic-offset tab-width
               sh-indentation tab-width
               sgml-basic-offset tab-width
@@ -108,11 +109,6 @@
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-
-;; Lets try out skewer mode.
-(add-hook 'js2-mode-hook  'skewer-mode)
-(add-hook 'css-mode-hook  'skewer-css-mode)
-(add-hook 'html-mode-hook 'skewer-html-mode)
 
 ;; Should be a fix for <dead-acute> is undefined.
 (require 'iso-transl)

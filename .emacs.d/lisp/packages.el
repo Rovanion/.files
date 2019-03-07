@@ -3,10 +3,7 @@
 ;;;;
 
 (setq package-list
-      '(js2-mode
-        ac-js2
-        skewer-mode
-        flycheck
+      '(flycheck
         pos-tip
         iy-go-to-char
         go-mode
