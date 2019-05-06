@@ -90,7 +90,7 @@ export VISUAL="emacsclient -a=\"\""
 XMODIFIERS="emacs"
 
 # Tell golang where my workspace is.
-export GOPATH=$HOME/.local/go
+export GOPATH=$HOME/.local/share/go
 
 # Assume that we have administrative privileges.
 export PATH="$HOME/.local/bin:$PATH:/usr/sbin:$HOME/.local/go/bin:/usr/local/heroku/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
