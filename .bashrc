@@ -9,7 +9,7 @@ green='\e[0;32m'
 red='\e[0;31m'
 blue='\e[0;34m'
 cyan='\e[0;36m'
-NC='\e[0m'
+clear='\e[0m'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -22,36 +22,36 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+
+# Are we connected from a remote host?
+[ ! -z $(who am i | cut -f2 -d\( | cut -f1 -d: | cut -f1 -d\)) ] && ssh_info="[${cyan}ssh${clear}]"
+
+# Root?
+if (( $(id -u) == 0 )); then
+  user_colour=$red
+  prompt_character="#"
+else
+  user_colour=$green
+  prompt_character="$"
 fi
 
-# Are we on a ssh connection?
-[ -n "$SSH_CLIENT" ] && ps1_informer="[${cyan}ssh${NC}]"
-
-function newPrompt {
+function new-prompt {
   # Look for Git status
   if result=$(git diff-files 2>/dev/null) ; then
     branch=$(git branch --color=never | sed -ne 's/* //p')
     if [[ $result != "" ]]; then
-      branch=[$red$branch$NC]
+      branch=[$red$branch$clear]
     else
-      branch=[$blue$branch$NC]
+      branch=[$blue$branch$clear]
     fi
   else
     unset branch
   fi
 
-  #Are we root? Set the prompt either way.
-  if (( $(id -u) == 0 )); then
-    PS1="┌[${debian_chroot:+($debian_chroot)}${red}\u${NC}][\h]${branch:+$branch}$ps1_informer:\[\e[0;32;49m\]\w\[\e[0m \n└# "
-  else
-    PS1="┌[${debian_chroot:+($debian_chroot)}${green}\u${NC}][\h]${branch:+$branch}$ps1_informer:\[\e[0;32;49m\]\w\[\e[0m \n└$ "
-  fi
+ PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${ssh_info}:\[\e[0;32;49m\]\w\[\e[0m \n└${prompt_character} "
 }
 
-newPrompt
+new-prompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -103,7 +103,7 @@ export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it.
 shopt -s histappend
 # After each command, append to the history file.
-PROMPT_COMMAND="newPrompt; history -a; $PROMPT_COMMAND"
+PROMPT_COMMAND="new-prompt; history -a; $PROMPT_COMMAND"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
