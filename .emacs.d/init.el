@@ -43,6 +43,7 @@
 (require 'editorconfig)
 (editorconfig-mode 1)
 
+
 (projectile-mode +1)
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
@@ -213,8 +214,8 @@
                     (set-visited-file-name new-name t t)))))))
 
 ;; Fonts for non-terminal emacs
-(set-face-font 'menu    "-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*")
-(set-face-font 'default "-*-terminus-medium-r-*-*-14-*-*-*-*-*-*-*")
+(add-to-list 'default-frame-alist
+             '(font . "Terminus-10"))
 
 ;; Tramp into alpine docker containers: https://github.com/emacs-pe/docker-tramp.el#troubleshooting
 (require 'docker-tramp-compat)
