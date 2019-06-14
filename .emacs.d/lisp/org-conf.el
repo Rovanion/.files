@@ -13,12 +13,7 @@
    (ruby    . t)
    (clojure . t)))
 
-(defun my-org-confirm-babel-evaluate (lang body)
-  (not (member lang '("sh"
-                      "bash"
-                      "shell"
-                      "clojure"))))
-
-(setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+;; Never prompt whether or not to run code
+(setq org-confirm-babel-evaluate (lambda (lang body) nil))
 
 (provide 'org-conf)
