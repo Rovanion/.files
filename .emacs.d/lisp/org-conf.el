@@ -2,7 +2,13 @@
 
 ;;; Code:
 
-(require 'org-install)
+
+(require 'org)
+;; To enable the easy templates
+(require 'org-tempo)
+(require 'ob-clojure)
+(setq org-babel-clojure-backend 'cider)
+(require 'cider)
 
 ;; Active Babel languages
 (org-babel-do-load-languages
