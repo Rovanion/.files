@@ -24,7 +24,7 @@ shopt -s checkwinsize
 
 
 # Are we connected from a remote host?
-[ ! -z $(who am i | cut -f2 -d\( | cut -f1 -d: | cut -f1 -d\)) ] && ssh_info="[${cyan}ssh${clear}]"
+[ ! -z "$(who am i | cut -f2 -d\( | cut -f1 -d: | cut -f1 -d\))" ] && ssh_info="[${cyan}ssh${clear}]"
 
 # Root?
 if (( $(id -u) == 0 )); then
