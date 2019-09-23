@@ -36,6 +36,7 @@ else
 fi
 
 function new-prompt {
+	user_exit_code="$?"
   # Look for Git status
   if result=$(git diff-files 2>/dev/null) ; then
     branch=$(git branch --color=never | sed -ne 's/* //p')
@@ -47,8 +48,13 @@ function new-prompt {
   else
     unset branch
   fi
+  if [[ $user_exit_code == 0 ]]; then
+    path_colour=${green}
+  else
+    path_colour=${red}
+  fi
 
- PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${ssh_info}:\[\e[0;32;49m\]\w\[\e[0m \n└${prompt_character} "
+  PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
 }
 
 new-prompt
