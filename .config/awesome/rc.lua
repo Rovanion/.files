@@ -62,6 +62,8 @@ function unmaximize_client(c)
    c.maximized_vertical   = false
    c.fullscreen           = false
    c.floating             = false
+   c.ontop                = false
+   c:lower()
 end
 
 function toggle_fullscreen(c)
