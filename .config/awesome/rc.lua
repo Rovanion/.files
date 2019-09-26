@@ -66,7 +66,7 @@ end
 
 function toggle_fullscreen(c)
    c.fullscreen = not c.fullscreen
-   c:raise()
+   if c.fullscreen then c:raise() else c:lower() end
 end
 
 -- {{{ Error handling
