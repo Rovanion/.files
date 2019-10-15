@@ -109,7 +109,7 @@ export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it.
 shopt -s histappend
 # After each command, append to the history file.
-PROMPT_COMMAND="new-prompt; history -a; $PROMPT_COMMAND"
+PROMPT_COMMAND="new-prompt; history -a;"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
