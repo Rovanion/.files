@@ -1,0 +1,10 @@
+#!/bin/bash
+
+machines=${machines:=$*}
+
+for machine in $machines; do
+  echo $machine
+	urxvt -e ssh "$machine" &
+	# Sleep for 10ms so that the terminals hopefully end up in order in the window manager.
+	sleep 0.01
+done;
