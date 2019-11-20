@@ -37,17 +37,18 @@ fi
 
 function new-prompt {
 	user_exit_code="$?"
-  # Look for Git status
-  if result=$(git diff-files 2>/dev/null) ; then
+  # Are we in a git tree and has it been modified?
+  if git_diff=$(git diff-files --no-ext-diff 2>/dev/null) ; then
     branch=$(git branch --color=never | sed -ne 's/* //p')
-    if [[ $result != "" ]]; then
-      branch=[$red$branch$clear]
-    else
+    if [ -z "$git_diff" ]; then
       branch=[$blue$branch$clear]
+    else
+      branch=[$red$branch$clear]
     fi
   else
     unset branch
   fi
+
   if [[ $user_exit_code == 0 ]]; then
     path_colour=${green}
   else
