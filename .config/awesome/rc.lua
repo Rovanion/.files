@@ -316,8 +316,8 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Mod1"  }, "n",          restore_minimized_window,                       {description = "restore minimized",         group = "client"}),
     awful.key({ modkey,         }, "w",          fn'||mymainmenu:show()',                        {description = "show main menu",            group = "awesome"}),
     -- Move window in the stack
-    awful.key({ modkey,         }, "aring",      fn'||awful.client.swap.byidx( 1)',              {description = "move window up stack",      group = "client"}),
-    awful.key({ modkey,         }, "odiaeresis", fn'||awful.client.swap.byidx(-1)',              {description = "move window down stack",    group = "client"}),
+    awful.key({ modkey,         }, "aring",      fn'||awful.client.swap.byidx(-1)',              {description = "move window up stack",      group = "client"}),
+    awful.key({ modkey,         }, "odiaeresis", fn'||awful.client.swap.byidx( 1)',              {description = "move window down stack",    group = "client"}),
     -- Switch screens
     awful.key({ modkey,         }, "adiaeresis", fn'||awful.screen.focus_relative( 1)',          {description = "focus the next screen",     group = "screen"}),
     awful.key({ modkey,         }, "o",          fn'||awful.screen.focus_relative(-1)',          {description = "focus the previous screen", group = "screen"}),
