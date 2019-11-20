@@ -12,15 +12,15 @@
 
 (defadvice compilation-start
   (around inhibit-display
-      (command &optional mode name-function highlight-regexp)) 
+      (command &optional mode name-function highlight-regexp))
   (if (not (string-match "^\\(find\\|grep\\)" command))
-      (flet ((display-buffer)
+      (cl-flet ((display-buffer)
          (set-window-point)
-         (goto-char)) 
+         (goto-char))
     (fset 'display-buffer 'ignore)
     (fset 'goto-char 'ignore)
     (fset 'set-window-point 'ignore)
-    (save-window-excursion 
+    (save-window-excursion
       ad-do-it))
     ad-do-it))
 
