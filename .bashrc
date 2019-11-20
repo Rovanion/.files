@@ -120,9 +120,9 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export ANDROID_SDK_ROOT="$HOME/Android/Sdk"
 
 # Some systems don't know of urxvt
-if ! [[ $(lsb_release --id) == *Ubuntu ]]; then
-	export TERM=xterm-256color
-fi
+# if ! [[ $(lsb_release --id) == *Ubuntu ]]; then
+export TERM=xterm-256color
+#fi
 
 # Make bash readline behave like emacs so that you can copy and paste regions
 stty werase undef
