@@ -15,6 +15,7 @@
  'org-babel-load-languages
  '((R       . t)
    (js      . t)
+   (sh      . t)
    (ruby    . t)
    (shell   . t)
    (python  . t)
