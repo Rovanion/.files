@@ -96,6 +96,8 @@ the current position of point, then move it to the beginning of the line."
 (define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer)
 
 ;; Emacs lisp, elisp
+(define-key emacs-lisp-mode-map (kbd "M-å")     'xref-find-definitions)
+(define-key emacs-lisp-mode-map (kbd "M-ä")     'xref-pop-marker-stack)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-defun)
 (define-key emacs-lisp-mode-map (kbd "C-c C-r") 'eval-region)
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'eval-last-sexp)
