@@ -30,6 +30,7 @@
 (require 'typescript-conf)
 (require 'elisp-conf)
 (require 'reason-conf)
+(require 'shell-conf)
 ;; Load conf for mail client.
 ;(require 'mu4e-conf)
 ;; Conf for directory listing mode.

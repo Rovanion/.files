@@ -103,6 +103,9 @@ the current position of point, then move it to the beginning of the line."
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'eval-last-sexp)
 (define-key emacs-lisp-mode-map (kbd "M-;") #'comment-or-uncomment-sexp)
 
+;; Shell mode
+(define-key sh-mode-map (kbd "C-c C-e") 'sh-send-line-or-region)
+
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c c")   'mc/edit-lines)
 (global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
