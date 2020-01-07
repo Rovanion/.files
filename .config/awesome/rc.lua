@@ -66,6 +66,13 @@ function unmaximize_client(c)
    c:lower()
 end
 
+function switch_between_two_clients()
+  awful.client.focus.history.previous()
+  if client.focus then
+    client.focus:raise()
+  end
+end
+
 function toggle_fullscreen(c)
    c.fullscreen = not c.fullscreen
    if c.fullscreen then c:raise() else c:lower() end
@@ -305,8 +312,7 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-   awful.key({ modkey,           }, "Tab",       function () awful.client.focus.history.previous() if client.focus then client.focus:raise() end end,
-                                                                                                 {description = "go back",                   group = "client"}),
+    awful.key({ modkey,         }, "Tab",        switch_between_two_clients,                     {description = "go back",                   group = "client"}),
     awful.key({ modkey,         }, "h",          hotkeys_popup.show_help,                        {description = "show help",                 group = "awesome"}),
     awful.key({ modkey,         }, "Left",       awful.tag.viewprev,                             {description = "previous tag",              group = "tag"}),
     awful.key({ modkey,         }, "Right",      awful.tag.viewnext,                             {description = "previous tag",              group = "tag"}),
