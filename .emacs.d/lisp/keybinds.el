@@ -104,6 +104,7 @@ the current position of point, then move it to the beginning of the line."
 (define-key emacs-lisp-mode-map (kbd "M-;") #'comment-or-uncomment-sexp)
 
 ;; Shell mode
+(require 'sh-script) ; https://repo.or.cz/w/emacs.git/blob/HEAD:/lisp/progmodes/sh-script.el
 (define-key sh-mode-map (kbd "C-c C-e") 'sh-send-line-or-region)
 
 (require 'multiple-cursors)
