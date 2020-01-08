@@ -1,0 +1,4 @@
+#!/bin/bash
+paste=$(xsel --clipboard)
+xsel --primary | xsel --input --clipboard
+echo $paste | xsel --input --primary

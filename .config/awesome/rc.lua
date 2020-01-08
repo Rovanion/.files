@@ -359,8 +359,10 @@ globalkeys = gears.table.join(
     -- Prompt
     awful.key({ modkey,         }, "r",          fn'||awful.screen.focused().mypromptbox:run()', {description = "run prompt",                group = "launcher"}),
     awful.key({ modkey, "Shift" }, "r",          function() menubar.show() end,                  {description = "show the menubar",          group = "launcher"}),
-    awful.key({ modkey,         }, "x",          open_lua_prompt,                                {description = "lua execute prompt",        group = "awesome"})
-)
+    awful.key({ modkey,         }, "x",          open_lua_prompt,                                {description = "lua execute prompt",        group = "awesome"}),
+    -- Clipboard manipulation
+    awful.key({ modkey,         }, "u",          fn'||awful.spawn("swap-copy-buffers")',         {description = "swap primary and clipboard",group = "clipboard"})
+    )
 
 clientkeys = gears.table.join(
     awful.key({ modkey,           }, ".",        toggle_fullscreen,                              {description = "toggle fullscreen",         group = "client"}),
