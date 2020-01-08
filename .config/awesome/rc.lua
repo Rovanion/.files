@@ -78,6 +78,10 @@ function toggle_fullscreen(c)
    if c.fullscreen then c:raise() else c:lower() end
 end
 
+function take_screenshot()
+  awful.spawn("scrot --select Pictures/scrot/%Y-%m-%dT%H:%M:%S.png")
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -313,7 +317,7 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey,         }, "Tab",        switch_between_two_clients,                     {description = "go back",                   group = "client"}),
-    awful.key({ modkey,         }, "h",          hotkeys_popup.show_help,                        {description = "show help",                 group = "awesome"}),
+    awful.key({ modkey, "Shift" }, "h",          hotkeys_popup.show_help,                        {description = "show help",                 group = "awesome"}),
     awful.key({ modkey,         }, "Left",       awful.tag.viewprev,                             {description = "previous tag",              group = "tag"}),
     awful.key({ modkey,         }, "Right",      awful.tag.viewnext,                             {description = "previous tag",              group = "tag"}),
     awful.key({ modkey,         }, "Escape",     awful.tag.history.restore,                      {description = "go back",                   group = "tag"}),
@@ -321,6 +325,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "p",          fn'||awful.client.focus.byidx(-1)',             {description = "previous window",           group = "client"}),
     awful.key({ modkey, "Mod1"  }, "n",          restore_minimized_window,                       {description = "restore minimized",         group = "client"}),
     awful.key({ modkey,         }, "w",          fn'||mymainmenu:show()',                        {description = "show main menu",            group = "awesome"}),
+    awful.key({                 }, "Print",      nil, take_screenshot,                           {description = "take screenshot",           group = "launcher"}),
     -- Move window in the stack
     awful.key({ modkey,         }, "aring",      fn'||awful.client.swap.byidx(-1)',              {description = "move window up stack",      group = "client"}),
     awful.key({ modkey,         }, "odiaeresis", fn'||awful.client.swap.byidx( 1)',              {description = "move window down stack",    group = "client"}),
