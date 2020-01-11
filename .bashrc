@@ -127,3 +127,7 @@ export TERM=xterm-256color
 # Make bash readline behave like emacs so that you can copy and paste regions
 stty werase undef
 bind '"\C-w":kill-region'
+
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
+	source $HOME/.nix-profile/etc/profile.d/nix.sh
+fi
