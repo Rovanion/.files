@@ -33,7 +33,7 @@ local utils = require("utils")
 local fn = utils.string_lambda
 local prn = utils.recursive_print
 
-function lock_screen ()
+function suspend_machine ()
   awful.util.spawn('xscreensaver-command --lock')
   awful.util.spawn('dbus-send --print-reply --system --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true')
 end
@@ -355,7 +355,7 @@ globalkeys = gears.table.join(
     -- Power management
     awful.key({                 }, "XF86Launch1",fn'||awful.util.spawn("xset dpms force off")',  {description = "turn off screen",           group = "power"}),
     awful.key({ modkey,         }, "s",          fn'||awful.util.spawn("xscreensaver-command -l")', {description = "lock screen",            group = "power"}),
-    awful.key({ modkey, "Shift" }, "s",          lock_screen,                                    {description = "suspend machine",           group = "power"}),
+    awful.key({ modkey, "Shift" }, "s",          suspend_machine,                                {description = "suspend machine",           group = "power"}),
     -- Prompt
     awful.key({ modkey,         }, "r",          fn'||awful.screen.focused().mypromptbox:run()', {description = "run prompt",                group = "launcher"}),
     awful.key({ modkey, "Shift" }, "r",          function() menubar.show() end,                  {description = "show the menubar",          group = "launcher"}),
