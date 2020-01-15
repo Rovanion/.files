@@ -326,6 +326,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Mod1"  }, "n",          restore_minimized_window,                       {description = "restore minimized",         group = "client"}),
     awful.key({ modkey,         }, "w",          fn'||mymainmenu:show()',                        {description = "show main menu",            group = "awesome"}),
     awful.key({                 }, "Print",      nil, take_screenshot,                           {description = "take screenshot",           group = "launcher"}),
+    awful.key({ modkey,         }, "c",          nil, take_screenshot,                           {description = "take screenshot",           group = "launcher"}),
     -- Move window in the stack
     awful.key({ modkey,         }, "aring",      fn'||awful.client.swap.byidx(-1)',              {description = "move window up stack",      group = "client"}),
     awful.key({ modkey,         }, "odiaeresis", fn'||awful.client.swap.byidx( 1)',              {description = "move window down stack",    group = "client"}),
