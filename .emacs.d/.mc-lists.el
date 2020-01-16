@@ -3,7 +3,10 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        artist-backward-char
+        artist-next-line
         comment-dwim
+        end-of-buffer
         handle-switch-frame
         indent-for-tab-command
         isearch-printing-char
@@ -21,6 +24,8 @@
         org-return
         org-self-insert-command
         org-yank
+        picture-clear-column
+        picture-self-insert
         puppet-indent-line
         puppet-interpolate
         smart-line-beginning
