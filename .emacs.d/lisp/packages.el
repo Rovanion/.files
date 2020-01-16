@@ -57,6 +57,7 @@
         merlin                 ; OCaml auto completion.
         dired-single           ; To reuse the same dired buffer while browsing.
         org                    ; Document format for organizing your life.
+        nix-mode               ; A functionally pure package management system with a dedicated language.
         ))
 
 ;; Repositories
