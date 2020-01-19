@@ -121,7 +121,7 @@ URxvt*keysym.C-adiaeresis:              ^Ä
 URxvt*keysym.C-odiaeresis:              ^Ö
 
 !!
-! Color theme derived from Numix Darkest
+! Color theme derived from
 !!
 
 ! special
@@ -129,34 +129,6 @@ URxvt*keysym.C-odiaeresis:              ^Ö
 *.background:   #000000
 *.cursorColor:  #ffffff
 
-! black
-*.color0:       #1e1e1e
-*.color8:       #535353
-
-! red
-*.color1:       #9c3528
-*.color9:       #d64937
-
-! green
-*.color2:       #72de46
-*.color10:      #8af25b
-
-! yellow
-*.color3:       #ffbd3d
-*.color11:      #fdd75a
-
 ! blue
-*.color4:       #0d68a8
-*.color12:      #0f75bd
-
-! magenta
-*.color5:       #744560
-*.color13:      #9e5e83
-
-! cyan
-*.color6:       #288e9c
-*.color14:      #37c3d6
-
-! white
-*.color7:       #f1f1f1
-*.color15:      #f9f9f9
+*.color4:       #0d38cc
+*.color12:      #0f75ff
