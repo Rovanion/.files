@@ -33,24 +33,6 @@ URxvt*scrollWithBuffer:               true
 ! URxvt*cursorUnderline:                boolean
 URxvt*cursorBlink:                    false
 ! URxvt*pointerBlank:                   boolean
-URxvt*background:                     black
-URxvt*foreground:                     white
-! URxvt*color0:                         color
-! URxvt*color1:                         color
-! URxvt*color2:                         color
-! URxvt*color3:                         color
-! URxvt*color4:                         color
-! URxvt*color5:                         color
-! URxvt*color6:                         color
-! URxvt*color7:                         color
-! URxvt*color8:                         color
-! URxvt*color9:                         color
-! URxvt*color10:                        color
-! URxvt*color11:                        color
-! URxvt*color12:                        color
-! URxvt*color13:                        color
-! URxvt*color14:                        color
-! URxvt*color15:                        color
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
 ! URxvt*colorUL:                        color
@@ -137,3 +119,16 @@ URxvt*url-launcher:                     /usr/bin/xdg-open
 URxvt*keysym.C-aring:                   \001
 URxvt*keysym.C-adiaeresis:              ^Ä
 URxvt*keysym.C-odiaeresis:              ^Ö
+
+!!
+! Color theme derived from
+!!
+
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
+
+! blue
+*.color4:       #0d38cc
+*.color12:      #0f75ff
