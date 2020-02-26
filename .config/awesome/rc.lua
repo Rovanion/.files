@@ -342,8 +342,8 @@ globalkeys = gears.table.join(
     -- Window size
     awful.key({ modkey,         }, "a",          fn'||awful.tag.incmwfact(-0.05)',               {description = "increase main width",       group = "layout"}),
     awful.key({ modkey,         }, "e",          fn'||awful.tag.incmwfact( 0.05)',               {description = "decrease main width",       group = "layout"}),
-    awful.key({ modkey, "Shift" }, "ä",          fn'||awful.client.incwfact( 0.05)',                {description = "increase window height",    group = "layout"}),
-    awful.key({ modkey, "Shift" }, "o",          fn'||awful.client.incwfact(-0.05)',                {description = "decrease window height",    group = "layout"}),
+    awful.key({ modkey, "Shift" }, "ä",          fn'||awful.client.incwfact( 0.05)',             {description = "increase window height",    group = "layout"}),
+    awful.key({ modkey, "Shift" }, "o",          fn'||awful.client.incwfact(-0.05)',             {description = "decrease window height",    group = "layout"}),
     -- Window juggling
     awful.key({ modkey, "Shift" }, "a",          fn'||awful.tag.incnmaster( 1, nil, true)',      {description = "more main windows",         group = "layout"}),
     awful.key({ modkey, "Shift" }, "e",          fn'||awful.tag.incnmaster(-1, nil, true)',      {description = "fewer main windows",        group = "layout"}),
