@@ -15,24 +15,29 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
--- Battery level indicator
-local battery_widget = require("battery-widget")
-local battery = battery_widget({adapter = "BAT0",
-                                ac_prefix = "🔌",
-                                battery_prefix = "🔋",
-                                widget_text = "  ${AC_BAT} ${color_on}${percent}%${color_off} ",
-                                listen = true,
-                                limits = {
-                                   {10, "red"   },
-                                   {25, "orange"},
-                                   {50, "white" }}})
--- Load Debian menu entries
--- local debian = require("debian.menu")
+
 -- Utility functions
 local utils = require("utils")
 local fn = utils.string_lambda
 local prn = utils.recursive_print
 
+-- Battery level indicator
+if gears.filesystem.dir_readable('/sys/class/power_supply/BAT0') then
+  battery = require("battery-widget")(
+    {adapter = "BAT0",
+     ac_prefix = "🔌",
+     battery_prefix = "🔋",
+     widget_text = "  ${AC_BAT} ${color_on}${percent}%${color_off} ",
+     listen = true,
+     limits = {
+       {10, "red"   },
+       {25, "orange"},
+       {50, "white" }}})
+else
+  battery = {}
+end
+
+-- Window management functions
 function suspend_machine ()
   awful.util.spawn('xscreensaver-command --lock')
   awful.util.spawn('dbus-send --print-reply --system --dest=org.freedesktop.login1 /org/freedesktop/login1 org.freedesktop.login1.Manager.Suspend boolean:true')
