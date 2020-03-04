@@ -23,4 +23,15 @@
                              subset)))
      (mapconcat #'identity pruned-subset "\n"))))
 
+(define-advice elisp-get-fnsym-args-string (:around (orig-fun sym &rest r) docstring)
+  "If SYM is a function, append its docstring."
+  (concat
+   (apply orig-fun sym r)
+   (let* ((doc     (and (fboundp sym) (documentation sym 'raw)))
+          (oneline (and doc (substring doc 0 (string-match "\n" doc)))))
+     (and oneline
+          (stringp oneline)
+          (not (string= "" oneline))
+          (concat "  |  " (propertize oneline 'face 'italic))))))
+
 (provide 'elisp-conf)
