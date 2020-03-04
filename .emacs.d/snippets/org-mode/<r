@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Repeat last source block without content
+# key: <r
+# --
+#+begin_src `(org-previous-source-block-headers-string)`
+$1
+#+end_src
