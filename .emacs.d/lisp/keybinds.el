@@ -103,7 +103,7 @@ the current position of point, then move it to the beginning of the line."
 (define-key emacs-lisp-mode-map (kbd "C-c C-r") 'eval-region)
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'eval-last-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'elisp-showdoc)
-(define-key emacs-lisp-mode-map (kbd "M-;") #'comment-or-uncomment-sexp)
+(define-key emacs-lisp-mode-map (kbd "M-;")     'comment-or-uncomment-sexp)
 
 ;; Shell mode
 (require 'sh-script) ; https://repo.or.cz/w/emacs.git/blob/HEAD:/lisp/progmodes/sh-script.el
