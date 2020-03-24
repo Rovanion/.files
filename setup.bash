@@ -30,6 +30,11 @@ else
 	sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-sv aspell-en glances
 fi
 
+# Fix GNU ELPA GPG keys being out of date in Ubuntu 18.04
+if lsb_release --id | grep -q Ubuntu && lsb_release --release | grep -q 18.04; then
+	gpg --homedir ~/.emacs.d/elpa/gnupg/ --receive-keys 066DAFCB81E42C40
+fi
+
 # Fancy pants git log
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
 
