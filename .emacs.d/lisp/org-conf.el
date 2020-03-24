@@ -11,14 +11,15 @@
 (require 'cider)
 
 ;; Active Babel languages.
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((R       . t)
-   (js      . t)
-   (ruby    . t)
-   (shell   . t)
-   (python  . t)
-   (clojure . t)))
+(with-eval-after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((R       . t)
+     (js      . t)
+     (ruby    . t)
+     (shell   . t)
+     (python  . t)
+     (clojure . t))))
 
 ;; Never prompt whether or not to run code.
 (setq org-confirm-babel-evaluate (lambda (lang body) nil))
