@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# First symlink in all the config
-./symlinker.bash
-
 if [[ ! $1 == nox ]]; then
 	# Install my own keymap
 	sudo cp ~/.config/xkb/symbols/qq /usr/share/X11/xkb/symbols/
@@ -48,3 +45,6 @@ git config --global core.editor 'emacsclient -t -a=\"\"'
 
 # Set emacs as the default editor
 sudo update-alternatives --set editor /usr/bin/emacs25
+
+# Lastly symlink in all the config
+./symlinker.bash
