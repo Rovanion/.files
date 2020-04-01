@@ -14,11 +14,20 @@ if synclient &>/dev/null; then
   # When on a ThinkPad
   if xinput list | grep -E "TrackPoint"; then
     deviceNumber=$(xinput list | grep -E "TrackPoint" | sed -rn 's/.*id=([0-9]+).*/\1/p')
-    xinput set-prop $deviceNumber "Device Accel Profile" 6
-    xinput set-prop $deviceNumber "Device Accel Constant Deceleration" 2
-    xinput set-prop $deviceNumber "Device Accel Adaptive Deceleration" 1
-    xinput set-prop $deviceNumber "Device Accel Velocity Scaling" 200.0
-    xinput set-prop $deviceNumber "Evdev Wheel Emulation Inertia" 5
+		# Using libinput rather than evdev?
+		if xinput list-props $deviceNumber | grep -q libinput; then
+			xinput set-prop $deviceNumber "libinput Accel Profile Enabled" 0, 1
+			xinput set-prop $deviceNumber "libinput Accel Speed" 0.1
+			xinput set-prop $deviceNumber "Coordinate Transformation Matrix" 1.000, 0.000, 0.000, 0.000, 1.000, 0.000, 0.000, 0.000, 1.000
+			echo 255 > /sys/devices/platform/i8042/serio1/serio2/speed
+			echo 255 > /sys/devices/platform/i8042/serio1/serio2/sensitivity
+		else
+			xinput set-prop $deviceNumber "Device Accel Profile" 6
+			xinput set-prop $deviceNumber "Device Accel Constant Deceleration" 2
+			xinput set-prop $deviceNumber "Device Accel Adaptive Deceleration" 1
+			xinput set-prop $deviceNumber "Device Accel Velocity Scaling" 200.0
+			xinput set-prop $deviceNumber "Evdev Wheel Emulation Inertia" 5
+		fi
   fi
   # When on a Dell Latitude
   if xinput list | grep -E "DualPoint Stick"; then
@@ -36,4 +45,3 @@ if synclient &>/dev/null; then
 fi
 
 setxkbmap -I ~/.config/xkb qq dvorak -option -print | xkbcomp -I$HOME/.config/xkb - $DISPLAY
-
