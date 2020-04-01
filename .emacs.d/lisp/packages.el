@@ -60,6 +60,7 @@
         nix-mode               ; A functionally pure package management system with a dedicated language.
         projectile             ; Operating within the context of a source code repository.
         guix                   ; Another functionally pure package management system.
+        gcmh                   ; Makes emacs only collect garbage when idling.
         ))
 
 ;; Repositories

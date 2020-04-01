@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; Avoid collecting garbage during startup, reset later by enabling `gcmh-mode'.
+(setq gc-cons-threshold most-positive-fixnum)
+
 ;; Added by Package.el. Cannot be moved it seems.
 (package-initialize)
 
@@ -224,8 +227,12 @@
 (require 'interactive-commands)
 
 ;; Collection of keybinding customizations.
-;; Should be the last thing requiered in init.el.
+;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
+
+;; Make emacs only collect garbage when idling.
+(require 'gcmh)
+(gcmh-mode 1)
 
 (provide 'init)
 ;;; init.el ends here
