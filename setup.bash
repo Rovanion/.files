@@ -11,6 +11,8 @@ if [[ ! $1 == nox ]]; then
 	gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 	gconftool-2 --type=string --set /desktop/gnome/interface/gtk_key_theme Emacs
 
+	# Make sure that the screen shot directory exists
+	mkdir -p ~/Pictures/scrot
 
 	# Debian dependency list:
 	sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa xscreensaver file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en glances mosh global apt-file openjdk-8-jdk chromium-browser pavucontrol thunar xsel rxvt-unicode emacs leafpad ipython3 virtualenv python-pip scrot
