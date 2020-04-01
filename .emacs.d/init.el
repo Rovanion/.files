@@ -45,8 +45,8 @@
 (require 'editorconfig)
 (editorconfig-mode 1)
 
-
 (projectile-mode +1)
+
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (_)
@@ -64,10 +64,10 @@
 (hide-toolbars nil)
 
 
-;; ;; Make scrolling by mouse linear
-;; (setq mouse-wheel-progressive-speed nil)
-;; ;; And then scroll only one line per scroll event. Great for laptops.
-;; (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+;; Make scrolling by mouse linear
+(setq mouse-wheel-progressive-speed nil)
+;; And then scroll only one line per scroll event. Great for laptops.
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 
 ;; Indentation galore!
