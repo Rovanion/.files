@@ -59,6 +59,7 @@
         org                    ; Document format for organizing your life.
         nix-mode               ; A functionally pure package management system with a dedicated language.
         projectile             ; Operating within the context of a source code repository.
+        guix                   ; Another functionally pure package management system.
         ))
 
 ;; Repositories
