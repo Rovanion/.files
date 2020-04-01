@@ -55,8 +55,14 @@
 (add-to-list 'after-make-frame-functions #'graphical-fixes)
 
 ;; We never want that menu bar visible.
-(menu-bar-mode -1)
-(tool-bar-mode -1)
+(defun hide-toolbars (_)
+  (menu-bar-mode -1)
+  (tool-bar-mode -1))
+;; Run when new windows/frames are created with emacsclient.
+(add-hook 'after-make-frame-functions 'hide-toolbars)
+;; And also if we start normal emacs.
+(hide-toolbars nil)
+
 
 ;; ;; Make scrolling by mouse linear
 ;; (setq mouse-wheel-progressive-speed nil)
