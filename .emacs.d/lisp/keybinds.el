@@ -13,13 +13,15 @@
 (define-key prog-mode-map (kbd "C-o") 'split-line)
 (define-key prog-mode-map (kbd "C-M-o") 'open-line)
 
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(with-eval-after-load 'projectile
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 
-(require 'cc-mode)
-(define-key c-mode-map (kbd "RET") 'newline-and-indent)
-(define-key c-mode-map (kbd "C-a") 'smart-line-beginning)
-(define-key c-mode-map (kbd "C-o") 'split-line)
-(define-key c-mode-map (kbd "C-M-o") 'open-line)
+;; C, C++, Objective-C, Java
+(with-eval-after-load 'cc-mode
+  (define-key c-mode-map (kbd "RET") 'newline-and-indent)
+  (define-key c-mode-map (kbd "C-a") 'smart-line-beginning)
+  (define-key c-mode-map (kbd "C-o") 'split-line)
+  (define-key c-mode-map (kbd "C-M-o") 'open-line))
 
 
 (require 'visual-regexp)
@@ -52,8 +54,8 @@
 (global-set-key "\C-h" 'backward-kill-word)
 
 ;; Company
-(require 'company)
-(define-key company-mode-map (kbd "<backtab>") 'company-complete)
+(with-eval-after-load 'company
+  (define-key company-mode-map (kbd "<backtab>") 'company-complete))
 
 ;;;
 ;; Bindings for going to the definition of symbols and back for a bunch of modes
@@ -65,27 +67,27 @@
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
 ;; Clojure
-(require 'cider-mode)
-(define-key cider-mode-map   (kbd "M-å")     'cider-find-dwim)
-(define-key cider-mode-map   (kbd "M-ä")     'cider-pop-back)
-(define-key cider-mode-map   (kbd "C-c C-r") 'cider-eval-region)
-(define-key clojure-mode-map (kbd "M-;")     'comment-or-uncomment-sexp)
+(with-eval-after-load 'cider-mode
+  (define-key cider-mode-map   (kbd "M-å")     'cider-find-dwim)
+  (define-key cider-mode-map   (kbd "M-ä")     'cider-pop-back)
+  (define-key cider-mode-map   (kbd "C-c C-r") 'cider-eval-region)
+  (define-key clojure-mode-map (kbd "M-;")     'comment-or-uncomment-sexp))
 
 
 ;; TypeScript
-(require 'tide)
-(define-key tide-mode-map (kbd "M-å") 'tide-jump-to-definition)
-(define-key tide-mode-map (kbd "M-ä") 'tide-jump-back)
-(define-key tide-mode-map (kbd "M-ö") 'tide-fix)
+(with-eval-after-load 'tide
+  (define-key tide-mode-map (kbd "M-å") 'tide-jump-to-definition)
+  (define-key tide-mode-map (kbd "M-ä") 'tide-jump-back)
+  (define-key tide-mode-map (kbd "M-ö") 'tide-fix))
 
 ;; Python
-(require 'elpy)
-(define-key elpy-mode-map (kbd "M-å") 'elpy-goto-definition)
-(define-key elpy-mode-map (kbd "M-ä") 'pop-tag-mark)
-(define-key elpy-mode-map (kbd "M-ö") 'elpy-rpc-get-names)
-(define-key elpy-mode-map (kbd "C-c C-c") 'elpy-shell-send-group)
-(define-key elpy-mode-map (kbd "C-c C-e") 'elpy-shell-send-statement)
-(define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer)
+(with-eval-after-load 'elpy
+  (define-key elpy-mode-map (kbd "M-å") 'elpy-goto-definition)
+  (define-key elpy-mode-map (kbd "M-ä") 'pop-tag-mark)
+  (define-key elpy-mode-map (kbd "M-ö") 'elpy-rpc-get-names)
+  (define-key elpy-mode-map (kbd "C-c C-c") 'elpy-shell-send-group)
+  (define-key elpy-mode-map (kbd "C-c C-e") 'elpy-shell-send-statement)
+  (define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer))
 
 ;; Emacs lisp, elisp
 (define-key emacs-lisp-mode-map (kbd "M-å")     'xref-find-definitions)
@@ -97,8 +99,8 @@
 (define-key emacs-lisp-mode-map (kbd "M-;")     'comment-or-uncomment-sexp)
 
 ;; Shell mode
-(require 'sh-script) ; https://repo.or.cz/w/emacs.git/blob/HEAD:/lisp/progmodes/sh-script.el
-(define-key sh-mode-map (kbd "C-c C-e") 'sh-send-line-or-region)
+(with-eval-after-load 'sh-script  ; https://repo.or.cz/w/emacs.git/blob/HEAD:/lisp/progmodes/sh-script.el
+  (define-key sh-mode-map (kbd "C-c C-e") 'sh-send-line-or-region))
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-c c")   'mc/edit-lines)
@@ -106,8 +108,9 @@
 (global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c a")   'mc/mark-all-like-this)
 
-(require 'flyspell-correct-helm)
-(define-key flyspell-mode-map (kbd "M-ö") 'flyspell-correct-previous-word-generic)
+(with-eval-after-load 'flyspell
+  (require 'flyspell-correct-helm)
+  (define-key flyspell-mode-map (kbd "M-ö") 'flyspell-correct-previous-word-generic))
 
 ;; Pair oriented navigation
 (require 'smartparens-config)
@@ -130,17 +133,17 @@
 (define-key helm-map (kbd "C-z")   #'helm-select-action)
 
 ;; Dired
-(require 'dired)
-(define-key dired-mode-map (kbd "p")   #'dired-single-up-directory)
-(define-key dired-mode-map (kbd "^")   #'dired-single-up-directory)
-(define-key dired-mode-map (kbd "RET") #'dired-single-buffer)
-(define-key dired-mode-map [mouse-1]   #'dired-single-buffer-mouse)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "p")   #'dired-single-up-directory)
+  (define-key dired-mode-map (kbd "^")   #'dired-single-up-directory)
+  (define-key dired-mode-map (kbd "RET") #'dired-single-buffer)
+  (define-key dired-mode-map [mouse-1]   #'dired-single-buffer-mouse))
 
 
 ;; Puppet
-(require 'puppet-mode)
-(define-key puppet-mode-map (kbd "<backtab>") #'puppet-align-block)
-(define-key puppet-mode-map (kbd "TAB") #'puppet-indent-line)
+(with-eval-after-load 'puppet-mode
+  (define-key puppet-mode-map (kbd "<backtab>") #'puppet-align-block)
+  (define-key puppet-mode-map (kbd "TAB") #'puppet-indent-line))
 
 
 (provide 'keybinds)
