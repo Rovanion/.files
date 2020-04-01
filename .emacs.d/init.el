@@ -208,19 +208,6 @@
 ;; Make CamelCased subwords count as words.
 (add-hook 'prog-mode-hook #'subword-mode)
 
-(defun rename-file-and-buffer ()
-  "Rename the current buffer and file it is visiting."
-  (interactive)
-  (let ((filename (buffer-file-name)))
-    (if (not (and filename (file-exists-p filename)))
-        (message "Buffer is not visiting a file!")
-      (let ((new-name (read-file-name "New name: " filename)))
-        (cond
-         ((vc-backend filename) (vc-rename-file filename new-name))
-         (t
-          (rename-file filename new-name t)
-                    (set-visited-file-name new-name t t)))))))
-
 ;; Fonts for non-terminal emacs
 (add-to-list 'default-frame-alist
              '(font . "Terminus-10"))
@@ -234,6 +221,7 @@
 (require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
 ;; ## end of OPAM user-setup addition for emacs / base ## keep this line
 
+(require 'interactive-commands)
 
 ;; Collection of keybinding customizations.
 ;; Should be the last thing requiered in init.el.
