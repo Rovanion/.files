@@ -50,3 +50,6 @@ sudo update-alternatives --set editor /usr/bin/emacs25
 
 # Lastly symlink in all the config
 ./symlinker.bash
+
+# Really ignore changes to htoprc, even though we carry a baseline conf in the repo
+git update-index --assume-unchanged .config/htop/htoprc
