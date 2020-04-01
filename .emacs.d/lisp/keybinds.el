@@ -9,7 +9,6 @@
 (global-set-key (kbd "C-t") 'string-inflection-all-cycle)
 
 (define-key prog-mode-map (kbd "RET") 'newline-and-indent)
-(define-key prog-mode-map (kbd "C-j") 'newline)
 (define-key prog-mode-map (kbd "C-a") 'smart-line-beginning)
 (define-key prog-mode-map (kbd "C-o") 'split-line)
 (define-key prog-mode-map (kbd "C-M-o") 'open-line)
@@ -18,7 +17,6 @@
 
 (require 'cc-mode)
 (define-key c-mode-map (kbd "RET") 'newline-and-indent)
-(define-key c-mode-map (kbd "C-j") 'newline)
 (define-key c-mode-map (kbd "C-a") 'smart-line-beginning)
 (define-key c-mode-map (kbd "C-o") 'split-line)
 (define-key c-mode-map (kbd "C-M-o") 'open-line)
