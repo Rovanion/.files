@@ -1,5 +1,4 @@
-;; Code which tries to make *compile* on errorcodes != 0
-(provide 'only-display-compile-on-error)
+;; Code which tries to hide *compile* on errorcodes != 0
 
 (defun brian-compile-finish (buffer outstr)
   (unless (string-match "finished" outstr)
@@ -8,20 +7,17 @@
 
 (setq compilation-finish-functions 'brian-compile-finish)
 
-(require 'cl)
-
 (defadvice compilation-start
   (around inhibit-display
       (command &optional mode name-function highlight-regexp))
   (if (not (string-match "^\\(find\\|grep\\)" command))
-      (cl-flet ((display-buffer)
-         (set-window-point)
-         (goto-char))
-    (fset 'display-buffer 'ignore)
-    (fset 'goto-char 'ignore)
-    (fset 'set-window-point 'ignore)
-    (save-window-excursion
-      ad-do-it))
+      (cl-letf ((display-buffer   #'ignore)
+                (set-window-point #'ignoreco)
+                (goto-char        #'ignore))
+        (save-window-excursion
+          ad-do-it))
     ad-do-it))
 
 (ad-activate 'compilation-start)
+
+(provide 'only-display-compile-on-error)
