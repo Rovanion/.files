@@ -16,6 +16,7 @@
 ;; Use company in clojure-mode
 (add-hook 'clojure-mode-hook #'company-mode)
 
+;; Cider diet was some sort of experiment I used in 2017, remove it if you haven't used it by 2021.
 (setq cider-diet-path
 			(expand-file-name (concat (getenv "HOME") "/.local/bin/cider-diet.jar")))
 
@@ -114,6 +115,16 @@ With a prefix argument N, (un)comment that many sexps."
       (uncomment-sexp n)
     (dotimes (_ (or n 1))
       (comment-sexp--raw))))
+
+
+;;;; Babashka is clojure for scripting, Graal compiled Clojure with
+;;;; help. As of 2020-04-03 it has no NREPL implementation and thus
+;;;; not CIDER, but we can use inf-clojure for it.
+(add-to-list 'auto-mode-alist '("\\.bb\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.bb\\'" . inf-clojure-minor-mode))
+
+;; Show function signatures down in the echo area.
+(add-hook 'inf-clojure-mode-hook #'eldoc-mode)
 
 (provide 'clojure-conf)
 ;;; clojure-conf.el ends here
