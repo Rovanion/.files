@@ -132,6 +132,7 @@
 (define-key smartparens-mode-map (kbd "M-}")   'sp-forward-barf-sexp)
 (define-key smartparens-mode-map (kbd "M-{")   'sp-backward-barf-sexp)
 (define-key smartparens-mode-map (kbd "C-j")   'sp-unwrap-sexp)
+(define-key smartparens-mode-map (kbd "M-k")   'kill-sexp)
 
 ;; Bind completion to tab in helm. Because as much as its author wants
 ;; to retrain my brain, my brain has not been retrained after five
