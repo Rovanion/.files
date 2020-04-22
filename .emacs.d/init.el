@@ -226,6 +226,10 @@
 
 (require 'interactive-commands)
 
+;; Make shell-mode, inf-clojure and other comint derivative
+;; automatically remove history from the scrollback after 1024 lines.
+(add-hook 'comint-output-filter-functions #'comint-truncate-buffer)
+
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
