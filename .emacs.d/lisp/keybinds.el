@@ -65,12 +65,20 @@
 (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
 (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
 
-;; Clojure
+;;; Clojure
+(with-eval-after-load 'clojure-mode
+  (define-key clojure-mode-map (kbd "M-;") 'comment-or-uncomment-sexp))
+
+;; CIDER and inf-clojure are two alternative IDE-like environments
 (with-eval-after-load 'cider-mode
-  (define-key cider-mode-map   (kbd "M-å")     'cider-find-dwim)
-  (define-key cider-mode-map   (kbd "M-ä")     'cider-pop-back)
-  (define-key cider-mode-map   (kbd "C-c C-r") 'cider-eval-region)
-  (define-key clojure-mode-map (kbd "M-;")     'comment-or-uncomment-sexp))
+  (define-key cider-mode-map (kbd "M-å")     'cider-find-dwim)
+  (define-key cider-mode-map (kbd "M-ä")     'cider-pop-back)
+  (define-key cider-mode-map (kbd "C-c C-r") 'cider-eval-region))
+
+;; inf-clojure is the inferior of the both.
+(with-eval-after-load 'inf-clojure
+  (define-key inf-clojure-minor-mode-map (kbd "M-å") 'inf-clojure-symbol-at-point)
+  (define-key inf-clojure-minor-mode-map (kbd "C-c C-e") 'inf-clojure-eval-last-sexp))
 
 
 ;; TypeScript
