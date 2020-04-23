@@ -6,7 +6,7 @@
 
 ;; Rotate different naming conventions,
 (global-unset-key (kbd "C-t"))
-(global-set-key (kbd "C-t") 'string-inflection-all-cycle)
+(global-set-key (kbd "C-t C-t") 'string-inflection-all-cycle)
 
 (define-key prog-mode-map (kbd "RET") 'newline-and-indent)
 (define-key prog-mode-map (kbd "C-a") 'smart-line-beginning)
@@ -111,10 +111,12 @@
   (define-key sh-mode-map (kbd "C-c C-e") 'sh-send-line-or-region))
 
 (require 'multiple-cursors)
-(global-set-key (kbd "C-c c")   'mc/edit-lines)
-(global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c a")   'mc/mark-all-like-this)
+(global-set-key (kbd "C-t l")   'mc/edit-lines)
+(global-set-key (kbd "C-t C-l") 'mc/edit-lines)
+(global-set-key (kbd "C-t C-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-t C-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-t C-a") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-t a")   'mc/mark-all-like-this)
 
 (with-eval-after-load 'flyspell
   (require 'flyspell-correct-helm)
