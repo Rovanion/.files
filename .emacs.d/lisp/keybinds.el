@@ -103,6 +103,7 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-r") 'eval-region)
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'eval-last-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'elisp-showdoc)
+(define-key emacs-lisp-mode-map (kbd "C-c C-b") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "M-;")     'comment-or-uncomment-sexp)
 
 ;; Shell mode
