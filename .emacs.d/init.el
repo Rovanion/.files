@@ -230,6 +230,9 @@
 ;; automatically remove history from the scrollback after 1024 lines.
 (add-hook 'comint-output-filter-functions #'comint-truncate-buffer)
 
+;; Only auto-truncate frames smaller than 20 characters in width
+(setq truncate-partial-width-windows 30)
+
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
