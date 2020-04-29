@@ -18,7 +18,7 @@
 [credential]
 	helper = cache --timeout=3600
 [push]
-	default = simple
+	default = current
 [color]
 	ui = auto
 [sendemail]
@@ -28,3 +28,5 @@
 	smtpuser = rovanion.luckey@gmail.com
 	smtpserverport = 587
 	chainreplyto = false
+[branch]
+	sort = -committerdate
