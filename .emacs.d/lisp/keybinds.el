@@ -8,6 +8,8 @@
 (global-unset-key (kbd "C-t"))
 (global-set-key (kbd "C-t C-t") 'string-inflection-all-cycle)
 
+(global-set-key (kbd "C-t C-s") 'windows-to-posix-posix-path)
+
 (define-key prog-mode-map (kbd "RET") 'newline-and-indent)
 (define-key prog-mode-map (kbd "C-a") 'smart-line-beginning)
 (define-key prog-mode-map (kbd "C-o") 'split-line)
