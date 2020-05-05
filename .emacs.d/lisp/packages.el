@@ -19,7 +19,6 @@
         rainbow-delimiters
         nginx-mode
         lua-mode
-        omnisharp
         yaml-mode
         visual-regexp
         markdown-mode

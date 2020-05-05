@@ -174,11 +174,6 @@
 ;; Use diff-mode in commit messages.
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 
-;; Troll coworkers - use Emacs at work for csharp!
-(add-hook 'csharp-mode-hook 'omnisharp-mode)
-(setq omnisharp-server-executable-path '~/source/OmniSharp/OmniSharp/bin/Debug/OmniSharp.exe)
-
-
 ;; Reload Firefox page through MozRepl.
 (require 'moz)
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
