@@ -167,7 +167,7 @@
 
 ;; Auto wrap comments
 (require 'newcomment)
-(setq fill-column 66)
+(setq fill-column 100)
 (setq comment-auto-fill-only-comments t)
 (auto-fill-mode t)
 
