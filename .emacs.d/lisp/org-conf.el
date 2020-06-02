@@ -74,4 +74,13 @@ the block, into the buffer."
       (insert result)
       (previous-line 2)))
 
+(setq org-startup-truncated nil)
+
+;; Enable export to jira syntax
+(with-eval-after-load 'org
+  (require 'ox-jira))
+
+(with-eval-after-load 'org
+  (require 'ox-md))
+
 (provide 'org-conf)
