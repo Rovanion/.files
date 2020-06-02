@@ -61,6 +61,9 @@
         guix                   ; Another functionally pure package management system.
         gcmh                   ; Makes emacs only collect garbage when idling.
         inf-clojure            ; Inferior Clojure mode for babashka.
+        org-jira               ; Integrate org with Jira
+        which-key              ; Shows help text after prefix-key is pressed.
+        dash                   ; Utility functions/macros like -> and ->>
         ))
 
 ;; Repositories
