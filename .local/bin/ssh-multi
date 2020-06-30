@@ -15,7 +15,9 @@ starttmux() {
 		# Create an array from the string in $HOSTS.
     local hosts=( $HOSTS )
 
-		tmux new-session -s ssh-multi -A -d
+		if [ -z "$TMUX" ]; then
+			tmux new-session -s ssh-multi -A -d
+		fi
     tmux new-window "ssh ${hosts[0]}"
     unset hosts[0];
     for i in "${hosts[@]}"; do
