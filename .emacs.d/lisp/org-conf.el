@@ -39,6 +39,20 @@
 ;; Enable auto-fill-mode when editing org-files.
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
+(defun org-previous-source-block ()
+  "Returns the previous source block in its entirety."
+  (save-excursion
+    (org-babel-previous-src-block)
+    (let ((element (org-element-at-point)))
+      (when (eq (car element) 'src-block)
+        (let* ((content  (cadr element))
+               (lang     (plist-get content :language))
+               (switches (plist-get content :switches))
+               (parms    (plist-get content :parameters))
+               (value    (plist-get content :value)))
+          (delq nil (list lang switches parms "\n" )))
+        ))))
+
 (defun org-previous-source-block-headers ()
   "Returns the previous source block's headers."
   (save-excursion
