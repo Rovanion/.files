@@ -10,7 +10,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Alias some handy ls commands
 alias ll='ls -lFh'
-alias la='ls -lAh'
+alias la='ls -lah'
 alias l='ls -CFh'
 
 # Always show the diffs at the bottom of the commits
