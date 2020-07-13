@@ -228,6 +228,12 @@
 ;; Only auto-truncate frames smaller than 20 characters in width
 (setq truncate-partial-width-windows 30)
 
+(add-hook 'calendar-load-hook
+          (lambda ()
+            (calendar-set-date-style 'european)))
+
+(which-key-setup-side-window-right-bottom)
+
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
