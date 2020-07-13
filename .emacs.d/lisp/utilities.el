@@ -13,7 +13,7 @@ the current position of point, then move it to the beginning of the line."
 
 (defconst path-characters "a-zA-Z0-9:\\\\_./\\-\\+")
 
-(defun windows-to-posix-posix-path ()
+(defun windows-to-posix-path ()
   "Rewrites a Windows formatted path to be of POSIX style. "
   (interactive)
   (let* ((start     (if mark-active

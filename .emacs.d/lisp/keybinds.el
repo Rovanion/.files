@@ -1,14 +1,13 @@
 ;;;;
 ;; Custom keybindings.
 ;;;;
-
 (require 'utilities)
 
 ;; Rotate different naming conventions,
 (global-unset-key (kbd "C-t"))
 (global-set-key (kbd "C-t C-t") 'string-inflection-all-cycle)
 
-(global-set-key (kbd "C-t C-s") 'windows-to-posix-posix-path)
+(global-set-key (kbd "C-t C-s") 'windows-to-posix-path)
 
 (define-key prog-mode-map (kbd "RET") 'newline-and-indent)
 (define-key prog-mode-map (kbd "C-a") 'smart-line-beginning)
