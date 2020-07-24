@@ -8,5 +8,8 @@ if command -v apt-get; then
 elif command -v nixos-rebuild; then
   sudo nixos-rebuild switch --upgrade
 elif command -v yum; then
-	sudo yum update
+  sudo yum update
+elif command -v guix; then
+  guix pull
+  sudo guix system reconfigure /etc/config.scm
 fi
