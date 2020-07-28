@@ -106,9 +106,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Some systems don't know of urxvt
-# if ! [[ $(lsb_release --id) == *Ubuntu ]]; then
-export TERM=xterm-256color
-#fi
+if !command -v urxvt > /dev/null; then
+  export TERM=xterm-256color
+fi
 
 # Make bash readline behave like emacs so that you can copy and paste regions
 stty werase undef
