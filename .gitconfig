@@ -30,3 +30,5 @@
 	chainreplyto = false
 [branch]
 	sort = -committerdate
+[pull]
+	rebase = true
