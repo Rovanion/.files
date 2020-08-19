@@ -105,8 +105,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Some systems don't know of urxvt
-if !command -v urxvt > /dev/null; then
+# Different systems have different names for the terminfofile.
+if [ -f /usr/share/terminfo/r/rxvt-unicode-256color ]; then
+  export TERM=rxvt-unicode-256color
+elif [ -f /usr/share/terminfo/r/rxvt-256color ]; then
+  export TERM=rxvt-256color
+elif [ -f /usr/share/terminfo/x/xterm-256color ]; then
   export TERM=xterm-256color
 fi
 
