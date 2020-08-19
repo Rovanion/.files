@@ -9,7 +9,6 @@ utils.run_if_not_running("configure-mouse-and-keyboard")
 utils.run_if_not_running("firefox")
 utils.run_if_not_running("volumeicon")
 utils.run_if_not_running("nm-applet")
-utils.run_if_not_running("xscreensaver", "-no-splash")
 utils.run_if_not_running("audacious", "-m")
 utils.run_if_not_running("emacs", "--daemon");
 utils.run_if_not_running("urxvt", "-e mosh --ssh='ssh -p 9001' rovanion.se -- screen -rd weechat")
