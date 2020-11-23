@@ -36,7 +36,7 @@ else
 fi
 
 function new-prompt {
-	user_exit_code="$?"
+  user_exit_code="$?"
   # Are we in a git tree and has it been modified?
   if git_diff=$(git diff-files --no-ext-diff 2>/dev/null) ; then
     branch=$(git branch --color=never | sed -ne 's/* //p')
@@ -119,5 +119,5 @@ stty werase undef
 bind '"\C-w":kill-region'
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-	source $HOME/.nix-profile/etc/profile.d/nix.sh
+  source $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
