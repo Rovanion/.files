@@ -48,14 +48,18 @@ function new-prompt {
   else
     unset branch
   fi
-
+  if [ -n "$GUIX_ENVIRONMENT" ]; then
+    guix_env="[${cyan}guix${clear}]"
+	else
+		unset guix_env
+	fi
   if [[ $user_exit_code == 0 ]]; then
     path_colour=${green}
   else
     path_colour=${red}
   fi
 
-  PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
+  PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
 }
 
 new-prompt
