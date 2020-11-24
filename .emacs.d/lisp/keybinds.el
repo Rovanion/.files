@@ -158,6 +158,14 @@
   (define-key puppet-mode-map (kbd "<backtab>") #'puppet-align-block)
   (define-key puppet-mode-map (kbd "TAB") #'puppet-indent-line))
 
+;; Scheme
+(with-eval-after-load 'scheme-mode
+  (define-key geiser-mode-map (kbd "C-c C-e") #'geiser-eval-last-sexp)
+  (define-key geiser-mode-map (kbd "C-c C-r") #'geiser-eval-region)
+  (define-key geiser-mode-map (kbd "C-c C-b") #'geiser-eval-buffer)
+  ;; Remember that you have to compile the buffer with C-c C-k before the below start working.
+  (define-key geiser-mode-map (kbd "M-å")     #'geiser-edit-symbol-at-point)
+  (define-key geiser-mode-map (kbd "M-ä")     #'geiser-pop-symbol-stack))
 
 (provide 'keybinds)
 ;;; keybinds.el ends here

@@ -64,7 +64,8 @@
         org-jira               ; Integrate org with Jira.
         ox-jira                ; Export org-files to jira syntax.
         which-key              ; Shows help text after prefix-key is pressed.
-        dash                   ; Utility functions/macros like -> and ->>
+        dash                   ; Elisp utility functions/macros like -> and ->>.
+        geiser                 ; Scheme IDE.
         ))
 
 ;; Repositories
