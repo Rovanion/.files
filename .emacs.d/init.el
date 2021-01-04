@@ -235,6 +235,9 @@
 
 (which-key-setup-side-window-right-bottom)
 
+;; Always show the column number of the pointer down in the modeline.
+(column-number-mode)
+
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
