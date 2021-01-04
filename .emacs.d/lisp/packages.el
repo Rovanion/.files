@@ -66,6 +66,7 @@
         which-key              ; Shows help text after prefix-key is pressed.
         dash                   ; Elisp utility functions/macros like -> and ->>.
         geiser                 ; Scheme IDE.
+        powershell             ; Editing and inferior mode.
         ))
 
 ;; Repositories
