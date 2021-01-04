@@ -1,0 +1,4 @@
+# name: Repeat last source block with content
+# key: <rc
+# --
+`(org-previous-source-block)`
