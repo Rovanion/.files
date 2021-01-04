@@ -194,6 +194,7 @@
 
 ;; We can handle it!
 (put 'upcase-region 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;; Disable cursor blinking, it was driving me mad!
 (setq visible-cursor nil)
