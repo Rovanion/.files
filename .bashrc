@@ -118,6 +118,8 @@ elif [ -f /usr/share/terminfo/x/xterm-256color ]; then
   export TERM=xterm-256color
 fi
 
+eval "$(direnv hook bash)"
+
 # Make bash readline behave like emacs so that you can copy and paste regions
 stty werase undef
 bind '"\C-w":kill-region'
