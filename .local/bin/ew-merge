@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
-local=$(readlink -f "$1")
-remote=$(readlink -f "$2")
-base=$(readlink -f "$3")
-merged=$(readlink -f "$4")
+local=`readlink -f "$1"`
+remote=`readlink -f "$2"`
+base=`readlink -f "$3"`
+merged=`readlink -f "$4"`
 
 emacsclient -t --eval "(emerge-files-with-ancestor nil \"$local\" \"$remote\" \"$base\" \"$merged\")"
 
