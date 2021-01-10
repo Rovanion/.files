@@ -5,7 +5,6 @@
 (setq package-list
       '(flycheck
         pos-tip
-        iy-go-to-char
         go-mode
         company-go
         ace-window
