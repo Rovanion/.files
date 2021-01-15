@@ -235,6 +235,7 @@
             (calendar-set-date-style 'european)))
 
 (which-key-setup-side-window-right-bottom)
+(which-key-mode)
 
 ;; Always show the column number of the pointer down in the modeline.
 (column-number-mode)
