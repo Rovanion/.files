@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/run/current-system/profile/bin/bash
 
 if [[ ! $1 == nox ]]; then
 	# Install my own keymap

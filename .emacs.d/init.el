@@ -52,6 +52,7 @@
 
 (projectile-mode +1)
 
+(direnv-mode)
 
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (_)

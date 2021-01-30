@@ -66,6 +66,7 @@
         dash                   ; Elisp utility functions/macros like -> and ->>.
         geiser                 ; Scheme IDE.
         powershell             ; Editing and inferior mode.
+        direnv                 ; Applying direnv directives based on file location.
         ))
 
 ;; Repositories
