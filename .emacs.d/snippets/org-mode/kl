@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: kl
+# key: kl
+# --
+**** `(format-time-string "%Y-%m-%d %A")`
