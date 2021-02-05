@@ -8,9 +8,6 @@
 ;; Avoid collecting garbage during startup, reset later by enabling `gcmh-mode'.
 (setq gc-cons-threshold most-positive-fixnum)
 
-;; Added by Package.el. Cannot be moved it seems.
-(package-initialize)
-
 ;; Expand path to binaries installed in home folder.
 (setenv "PATH" (concat (getenv "PATH") ":~/.local/bin"))
 (setq exec-path (append exec-path '("~/.local/bin")))
