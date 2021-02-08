@@ -15,7 +15,7 @@ if [[ ! $1 == nox ]]; then
 	mkdir -p ~/Pictures/scrot
 
 	# Debian dependency list:
-	sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en glances mosh global apt-file openjdk-8-jdk chromium-browser pavucontrol thunar xsel rxvt-unicode emacs leafpad ipython3 virtualenv python-pip scrot tmux physlock
+	sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en glances mosh global apt-file openjdk-8-jdk chromium-browser pavucontrol thunar xsel rxvt-unicode emacs ipython3 virtualenv python-pip scrot tmux physlock
 	if lsb_release -i | grep -q Ubuntu; then
 		sudo apt-get install ubuntu-restricted-extras
 	else
