@@ -2,7 +2,7 @@
 # -*- compile-command: "configure-mouse-and-keyboard" -*-
 
 # Setting up scrolling on laptop
-if synclient &>/dev/null; then
+if command -v synclient; then
   synclient HorizTwoFingerScroll=1
   synclient HorizScrollDelta=200
 
