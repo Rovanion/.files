@@ -1,4 +1,4 @@
-#!/run/current-system/profile/bin/bash
+#!/bin/bash
 
 ###
 # Script which symlinks the contents of it's folder into the parent folder.
