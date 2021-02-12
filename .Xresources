@@ -115,13 +115,14 @@ URxvt*matcher.button:                 1
 URxvt*url-launcher:                     /usr/bin/xdg-open
 
 
-! Make C-å, C-ä and C-ö produce ^Å, ^Ä and ^Ö like all the other keys.
+! Make C-å, C-ä and C-ö do something.
 URxvt*keysym.C-aring:                   \001
 URxvt*keysym.C-adiaeresis:              ^Ä
 URxvt*keysym.C-odiaeresis:              ^Ö
 
+
 !!
-! Color theme derived from
+! Color theme
 !!
 
 ! special
