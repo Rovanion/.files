@@ -116,6 +116,8 @@ elif [ -f /usr/share/terminfo/r/rxvt-256color ]; then
   export TERM=rxvt-256color
 elif [ -f /usr/share/terminfo/x/xterm-256color ]; then
   export TERM=xterm-256color
+else  # In the end we give up and hope xterm exists.
+	export TERM=xterm
 fi
 
 eval "$(direnv hook bash)"
