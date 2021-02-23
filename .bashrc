@@ -92,9 +92,6 @@ XMODIFIERS="emacs"
 # Tell golang where my workspace is.
 export GOPATH=$HOME/.local/share/go
 
-# Assume that we have administrative privileges.
-export PATH="$HOME/.local/bin:$PATH:/usr/sbin:$HOME/.local/go/bin:/usr/local/heroku/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
-
 # For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=10000
 HISTFILESIZE=20000
@@ -129,3 +126,11 @@ bind '"\C-w":kill-region'
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
   source $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
+
+export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+if [ -e "$HOME/.guix-profile/bin" ]; then
+	export PATH="$HOME/.guix-profile/bin:$PATH"
+fi
+
+# Assume that we have administrative privileges.
+export PATH="$HOME/.local/bin:$PATH:/usr/sbin:$HOME/.local/go/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
