@@ -136,6 +136,7 @@ bind '"\C-w":kill-region'
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
   source $HOME/.nix-profile/etc/profile.d/nix.sh
 fi
+export NIXPKGS=$HOME/source/nix/nixpkgs
 
 export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 if [ -e "$HOME/.guix-profile/bin" ]; then
