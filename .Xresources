@@ -114,6 +114,9 @@ URxvt*matcher.button:                 3
 ! URxvt*tabbar-fg:                      colour
 URxvt*url-launcher:                    xdg-open
 
+! Colors should be changeable during runtime.
+xterm*dynamicColors: true
+urxvt*dynamicColors: on
 
 ! Make C-å, C-ä and C-ö do something.
 URxvt*keysym.C-aring:                   \001
