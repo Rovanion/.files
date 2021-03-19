@@ -1,2 +1,2 @@
 #!/bin/sh
-emacsclient -n -c "$@" -a ""
+emacsclient --create-frame "$@" --alternate-editor ""
