@@ -23,8 +23,6 @@
         markdown-mode
         markdown-toc
         recompile-on-save
-        jedi
-        company-jedi
         toml-mode
         mu4e-maildirs-extension
         smart-tabs-mode
@@ -46,7 +44,6 @@
         dockerfile-mode
         tide
         groovy-mode
-        elpy
         eval-sexp-fu
         highlight              ; An unlisted dependency of eval-sexp-fu
         string-inflection      ; Switching BETWEEN different_variable-namingConventions.
@@ -67,6 +64,8 @@
         geiser                 ; Scheme IDE.
         powershell             ; Editing and inferior mode.
         direnv                 ; Applying direnv directives based on file location.
+        lsp-mode               ; Language server protocol client; fat servers, thin modes.
+        lsp-ui                 ; Overlays, peeking, documentation.
         ))
 
 ;; Repositories
