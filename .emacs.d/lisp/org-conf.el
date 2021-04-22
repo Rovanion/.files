@@ -89,10 +89,14 @@ the block, into the buffer."
 
 (setq org-startup-truncated nil)
 
-;; Enable export to jira syntax
+;; Export only the current subtree by default rather than the whole buffer.
+(setq org-export-initial-scope 'subtree)
+
+;; Enable export to jira syntax.
 (with-eval-after-load 'org
   (require 'ox-jira))
 
+;; And export to markdown.
 (with-eval-after-load 'org
   (require 'ox-md))
 
