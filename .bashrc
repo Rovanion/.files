@@ -58,13 +58,18 @@ function new-prompt {
 	else
 		unset nix_env
 	fi
+	if [ -n "$PIPENV_ACTIVE" ]; then
+    pipenv="[${cyan}pipenv${clear}]"
+	else
+		unset pipenv
+	fi
   if [[ $user_exit_code == 0 ]]; then
     path_colour=${green}
   else
     path_colour=${red}
   fi
 
-  PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
+  PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
 }
 
 new-prompt
