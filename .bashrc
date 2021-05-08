@@ -63,13 +63,19 @@ function new-prompt {
 	else
 		unset pipenv
 	fi
+	if [ -n "$VIRTUAL_ENV" ]; then
+    python_venv="[${cyan}venv${clear}]"
+	else
+		unset python_venv
+	fi
+
   if [[ $user_exit_code == 0 ]]; then
     path_colour=${green}
   else
     path_colour=${red}
   fi
 
-  PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
+  PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
 }
 
 new-prompt
