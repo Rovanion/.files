@@ -62,6 +62,7 @@
         direnv                 ; Applying direnv directives based on file location.
         lsp-mode               ; Language server protocol client; fat servers, thin modes.
         lsp-ui                 ; Overlays, peeking, documentation.
+        elpy                   ; Python IDE. Kept here until you get lsp up working.
         ))
 
 ;; Repositories
