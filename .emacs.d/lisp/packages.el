@@ -34,7 +34,6 @@
         gnuplot-mode
         browse-kill-ring
         editorconfig
-        less-css-mode
         jdee
         rust-mode
         atomic-chrome
