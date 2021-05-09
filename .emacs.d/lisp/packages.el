@@ -6,8 +6,6 @@
       '(flycheck
         go-mode
         company-go
-        ace-window
-        ace-jump-mode
         gitignore-mode
         cmake-mode
         yasnippet

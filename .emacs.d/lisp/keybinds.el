@@ -44,12 +44,6 @@
 (setq iy-go-to-char-key-forward '¨)
 (setq iy-go-to-char-key-backward '^)
 
-;; Set up ace-window
-(setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
-(setq ace-jump-mode-move-keys '(?a ?o ?e ?u ?i ?d ?h ?t ?n ?s))
-(global-set-key (kbd "C-c C-SPC") 'ace-window)
-(global-set-key (kbd "M-SPC") 'ace-jump-mode)
-
 ;; Remove word backwards with C-BSPC
 (global-set-key "\C-h" 'backward-kill-word)
 
