@@ -4,12 +4,14 @@
 
 ;; To enable the easy templates, with it enabled "<s" followed by TAB
 ;; will insert a source block. This behaviour was disabled by default in 9.2.
-(if (version< "9.1" org-version)
-    (require 'org-tempo))
+(with-eval-after-load 'org
+  (if (version< "9.1" org-version)
+      (require 'org-tempo)))
 
-(require 'ob-clojure)
-(setq org-babel-clojure-backend 'cider)
-(require 'cider)
+;; Enable Clojure as a language in Org source blocks.
+(with-eval-after-load 'org
+  (require 'ob-clojure)
+  (setq org-babel-clojure-backend 'cider))
 
 ;; Active Babel languages.
 (with-eval-after-load 'org
@@ -29,15 +31,15 @@
 ;; Avoid accidentally editing folded regions, say by adding text after an Org “⋯”.
 (setq org-catch-invisible-edits 'show)
 
-;; Cache results by default.
-(setq org-babel-default-header-args
-      (cons '(:cache . "yes")
-            (assq-delete-all :cache org-babel-default-header-args)))
-
-;; Export both code and its output by default.
-(setq org-babel-default-header-args
-      (cons '(:exports . "both")
-            (assq-delete-all :exports org-babel-default-header-args)))
+(with-eval-after-load 'org
+  ;; Cache results by default.
+  (setq org-babel-default-header-args
+        (cons '(:cache . "yes")
+              (assq-delete-all :cache org-babel-default-header-args)))
+  ;; Export both code and its output by default.
+  (setq org-babel-default-header-args
+        (cons '(:exports . "both")
+              (assq-delete-all :exports org-babel-default-header-args))))
 
 ;; Enable auto-fill-mode when editing org-files.
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
@@ -90,6 +92,7 @@ the block, into the buffer."
       (insert result)
       (previous-line 2)))
 
+;; Do wrap lines.
 (setq org-startup-truncated nil)
 
 ;; Export only the current subtree by default rather than the whole buffer.
