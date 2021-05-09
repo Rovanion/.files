@@ -1,9 +1,12 @@
 ;;;org-conf -- Personal configuration for Org-mode.
 
 ;;; Code:
-(require 'org)
-;; To enable the easy templates.
-;(require 'org-tempo)
+
+;; To enable the easy templates, with it enabled "<s" followed by TAB
+;; will insert a source block. This behaviour was disabled by default in 9.2.
+(if (version< "9.1" org-version)
+    (require 'org-tempo))
+
 (require 'ob-clojure)
 (setq org-babel-clojure-backend 'cider)
 (require 'cider)
