@@ -25,10 +25,11 @@
     (setq refmt-command refmt-bin)))
 
 (require 'reason-mode)
-(require 'merlin)
-(add-hook 'reason-mode-hook (lambda ()
-                              (add-hook 'before-save-hook 'refmt-before-save)
-                              (merlin-mode)))
+
+(add-hook 'reason-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'refmt-before-save)
+            (merlin-mode)))
 
 (setq merlin-ac-setup t)
 
