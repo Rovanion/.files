@@ -1,7 +1,8 @@
 ;;; Code:
 
-(require 'elpy)
-(elpy-enable)
+(with-eval-after-load 'python-mode
+  (require 'elpy)
+  (elpy-enable))
 
 ;; Use ipython with elpy to enable autoreloading of modules,
 ;; see: https://emacs.stackexchange.com/questions/13476
