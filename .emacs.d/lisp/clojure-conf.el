@@ -116,6 +116,12 @@ With a prefix argument N, (un)comment that many sexps."
     (dotimes (_ (or n 1))
       (comment-sexp--raw))))
 
+(defun comment-or-uncomment-sexp-or-region (&optional n)
+  (interactive "P")
+  (if (use-region-p)
+      (comment-or-uncomment-region (region-beginning) (region-end) n)
+      (comment-or-uncomment-sexp n)))
+
 
 ;;;; Babashka is clojure for scripting, Graal compiled Clojure with
 ;;;; help. As of 2020-04-03 it has no NREPL implementation and thus

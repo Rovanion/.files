@@ -62,7 +62,7 @@
 
 ;;; Clojure
 (with-eval-after-load 'clojure-mode
-  (define-key clojure-mode-map (kbd "M-;") 'comment-or-uncomment-sexp))
+  (define-key clojure-mode-map (kbd "M-;") 'comment-or-uncomment-sexp-or-region))
 
 ;; CIDER and inf-clojure are two alternative IDE-like environments
 (with-eval-after-load 'cider-mode
@@ -100,7 +100,7 @@
 (define-key emacs-lisp-mode-map (kbd "C-c C-e") 'eval-last-sexp)
 (define-key emacs-lisp-mode-map (kbd "C-c C-d") 'elisp-showdoc)
 (define-key emacs-lisp-mode-map (kbd "C-c C-b") 'eval-buffer)
-(define-key emacs-lisp-mode-map (kbd "M-;")     'comment-or-uncomment-sexp)
+(define-key emacs-lisp-mode-map (kbd "M-;")     'comment-or-uncomment-sexp-or-region)
 
 ;; Shell mode
 (with-eval-after-load 'sh-script  ; https://repo.or.cz/w/emacs.git/blob/HEAD:/lisp/progmodes/sh-script.el
