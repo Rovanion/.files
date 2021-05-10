@@ -73,17 +73,19 @@
                                    ("gnu-elpa"     . 5)
                                    ("melpa"        . 0)))
 
-;; Activate all the packages (in particular autoloads).
-(package-initialize)
+;; In Emacs 27 package-activate-all is run by emacs itself before the user init.el.
+(when (version< emacs-version "27")
+  (message "Initializing packages")
+  (package-initialize)
 
-;; Fetch the list of packages available.
-(unless package-archive-contents
-  (package-refresh-contents))
+  ;; Fetch the list of packages available.
+  (unless package-archive-contents
+    (package-refresh-contents))
 
-;; Install the missing packages.
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
+  ;; Install the missing packages.
+  (dolist (package package-list)
+    (unless (package-installed-p package)
+      (package-install package))))
 
 (provide 'packages)
 ;;; packages.el ends here
