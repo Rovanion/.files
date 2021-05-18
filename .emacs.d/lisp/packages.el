@@ -27,7 +27,6 @@
         smartparens
         helm
         helm-gtags
-        clj-refactor
         php-mode
         flyspell-lazy
         flyspell-correct-helm
