@@ -27,6 +27,8 @@
 
 ;; Never prompt whether or not to run code.
 (setq org-confirm-babel-evaluate (lambda (lang body) nil))
+;; Don't automatically indent files
+(setq org-adapt-indentation nil)
 
 ;; Avoid accidentally editing folded regions, say by adding text after an Org “⋯”.
 (setq org-catch-invisible-edits 'show)
