@@ -31,7 +31,5 @@
             (add-hook 'before-save-hook 'refmt-before-save)
             (merlin-mode)))
 
-(setq merlin-ac-setup t)
-
 (provide 'reason-conf)
 ;;; reason-conf.el ends here
