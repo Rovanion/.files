@@ -56,7 +56,8 @@
         ox-jira                ; Export org-files to jira syntax.
         which-key              ; Shows help text after prefix-key is pressed.
         dash                   ; Elisp utility functions/macros like -> and ->>.
-        geiser                 ; Scheme IDE.
+        geiser                 ; Scheme IDE and REPL.
+        geiser-guile           ; Guile Scheme specifics for Geiser.
         powershell             ; Editing and inferior mode.
         direnv                 ; Applying direnv directives based on file location.
         lsp-mode               ; Language server protocol client; fat servers, thin modes.
