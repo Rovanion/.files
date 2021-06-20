@@ -29,7 +29,7 @@
 (add-hook 'mu4e-compose-mode-hook
         (defun my-do-compose-stuff ()
            "My settings for message composition."
-           (set-fill-column 80)
+           (setq-local fill-column 100)
            (flyspell-mode)))
 
 
