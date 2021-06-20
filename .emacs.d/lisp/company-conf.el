@@ -23,9 +23,8 @@
 ;; Only use company-go in go-mode
 (add-hook 'go-mode-hook (lambda ()
   (set (make-local-variable 'company-backends) '(company-go))
-    (company-mode)))
+  (company-mode)))
 
 (require 'company-go)
-
 
 (provide 'company-conf)

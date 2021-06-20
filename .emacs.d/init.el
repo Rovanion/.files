@@ -227,7 +227,7 @@
 ;; automatically remove history from the scrollback after 1024 lines.
 (add-hook 'comint-output-filter-functions #'comint-truncate-buffer)
 
-;; Only auto-truncate frames smaller than 20 characters in width
+;; Only auto-truncate frames smaller than 30 characters in width
 (setq truncate-partial-width-windows 30)
 
 (add-hook 'calendar-load-hook
