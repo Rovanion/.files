@@ -94,6 +94,15 @@ the block, into the buffer."
       (insert result)
       (previous-line 2)))
 
+(defun toggle-org-pdf-export-on-save ()
+  (interactive)
+  (if (memq ''org-latex-export-to-pdf after-save-hook)
+      (progn
+        (remove-hook 'after-save-hook 'org-latex-export-to-pdf t)
+        (message "Disabled org pdf export on save for current buffer..."))
+    (add-hook 'after-save-hook 'org-latex-export-to-pdf nil t)
+    (message "Enabled org pdf export on save for current buffer...")))
+
 ;; Do wrap lines.
 (setq org-startup-truncated nil)
 
