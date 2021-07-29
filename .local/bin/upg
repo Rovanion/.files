@@ -12,4 +12,5 @@ elif command -v yum; then
 elif command -v guix; then
   guix pull
   sudo guix system reconfigure /etc/config.scm
+  sudo guix system delete-generations 1m
 fi
