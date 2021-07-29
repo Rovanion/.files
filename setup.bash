@@ -37,8 +37,10 @@ fi
 # Set emacs as the default editor
 sudo update-alternatives --set editor /usr/bin/emacs-nox
 
-# Lastly symlink in all the config
-./symlinker.bash
+# Lastly symlink in all the config if not already done
+if [[ ! -f .gitconfig ]]; then
+	./symlinker.bash
+fi
 
 # Really ignore changes to htoprc, even though we carry a baseline conf in the repo
 git update-index --assume-unchanged .config/htop/htoprc
