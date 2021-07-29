@@ -369,7 +369,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "r",          function() menubar.show() end,                  {description = "show the menubar",          group = "launcher"}),
     awful.key({ modkey,         }, "x",          open_lua_prompt,                                {description = "lua execute prompt",        group = "awesome"}),
     -- Clipboard manipulation
-    awful.key({ modkey,         }, "u",          fn'||awful.spawn("swap-copy-buffers")',         {description = "swap primary and clipboard",group = "clipboard"})
+    awful.key({ modkey,         }, "u",          fn'||awful.spawn("swap-copy-buffers")',         {description = "swap primary and clipboard",group = "clipboard"}),
+    -- Emacs
+    awful.key({ modkey,         }, "j",          fn'||awful.spawn("emacsclient -e \'(emacs-everywhere)\'")', {description = "edit text with emacs",   group = "launcher"})
     )
 
 clientkeys = gears.table.join(
