@@ -60,8 +60,7 @@
 ;; We never want that menu bar visible.
 (defun hide-toolbars (_)
   (menu-bar-mode -1)
-  (if (window-system)
-      (tool-bar-mode -1)))
+  (tool-bar-mode -1))
 ;; Run when new windows/frames are created with emacsclient.
 (add-hook 'after-make-frame-functions 'hide-toolbars)
 ;; And also if we start normal emacs.
