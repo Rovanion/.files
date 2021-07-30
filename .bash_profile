@@ -1,2 +1,2 @@
-# Load our actual bash rc.
-. ~/.bashrc
+# Load our actual bash run control file.
+source ~/.bashrc
