@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export PATH="$HOME/.local/bin:$PATH"
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -150,4 +152,4 @@ if [ -e "$HOME/.guix-profile/bin" ]; then
 fi
 
 # Assume that we have administrative privileges.
-export PATH="$HOME/.local/bin:$PATH:/usr/sbin:$HOME/.local/go/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
+export PATH="$PATH:/usr/sbin:$HOME/.local/go/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
