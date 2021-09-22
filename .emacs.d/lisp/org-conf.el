@@ -33,6 +33,8 @@
 (setq org-confirm-babel-evaluate (lambda (lang body) nil))
 ;; Don't automatically indent files
 (setq org-adapt-indentation nil)
+;;; And don't indent source blocks.
+(setq org-edit-src-content-indentation 0)
 
 ;; Avoid accidentally editing folded regions, say by adding text after an Org “⋯”.
 (setq org-catch-invisible-edits 'show)
