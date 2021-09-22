@@ -20,10 +20,14 @@
    '((R          . t)
      (js         . t)
      (ruby       . t)
+     (ditaa      . t)
      (shell      . t)
      (python     . t)
      (clojure    . t)
      (emacs-lisp . t))))
+
+;; The below path will not work on non-Debian machines, but I don't care right now.
+(setq org-ditaa-jar-path "/usr/bin/ditaa")
 
 ;; Never prompt whether or not to run code.
 (setq org-confirm-babel-evaluate (lambda (lang body) nil))
