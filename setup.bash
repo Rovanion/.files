@@ -34,17 +34,6 @@ if lsb_release --id | grep -q Ubuntu && lsb_release --release | grep -q 18.04; t
 	gpg --homedir ~/.emacs.d/elpa/gnupg/ --receive-keys 066DAFCB81E42C40
 fi
 
-# Fancy pants git log
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
-
-# Additional setup for git
-git config --global user.name "Rovanion Luckey"
-git config --global user.email "rovanion.luckey@gmail.com"
-git config --global credential.helper cache
-git config --global credential.helper 'cache --timeout=3600'
-git config --global push.default simple
-git config --global core.editor 'emacsclient -t -a=\"\"'
-
 # Set emacs as the default editor
 sudo update-alternatives --set editor /usr/bin/emacs-nox
 
