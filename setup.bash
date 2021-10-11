@@ -15,7 +15,7 @@ if [[ ! $1 == nox ]]; then
 	mkdir -p ~/Pictures/scrot
 
 	# Debian dependency list:
-	sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en mosh global apt-file openjdk-8-jdk chromium-browser pavucontrol thunar xsel rxvt-unicode emacs ipython3 virtualenv python3-pip scrot tmux physlock
+	sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en mosh global apt-file openjdk-8-jdk chromium-browser pavucontrol thunar xsel rxvt-unicode emacs ipython3 virtualenv python3-pip scrot tmux physlock direnv
 	if lsb_release -i | grep -q Ubuntu; then
 		sudo apt-get install ubuntu-restricted-extras
 	else
@@ -26,7 +26,7 @@ if [[ ! $1 == nox ]]; then
 	sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
 	sudo update-alternatives --set x-www-browser /usr/bin/firefox
 else
-	sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-sv aspell-en tmux
+	sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-sv aspell-en tmux direnv
 fi
 
 # Fix GNU ELPA GPG keys being out of date in Ubuntu 18.04
