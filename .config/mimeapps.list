@@ -14,3 +14,7 @@ x-scheme-handler/magnet=transmission-gtk.desktop
 application/pdf=evince.desktop
 default-url-scheme-handler=firefox.desktop
 default-web-browser=firefox.desktop
+
+[Added Associations]
+application/pdf=org.gnome.Evince.desktop;
+video/mp4=vlc.desktop;mpv.desktop;
