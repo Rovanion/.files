@@ -63,6 +63,7 @@
         lsp-mode               ; Language server protocol client; fat servers, thin modes.
         lsp-ui                 ; Overlays, peeking, documentation.
         elpy                   ; Python IDE. Kept here until you get lsp up working.
+        multiple-cursors       ; Allows edits to multiple points in a buffer at the same time.
         ))
 
 ;; Repositories
