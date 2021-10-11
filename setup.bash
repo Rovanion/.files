@@ -46,7 +46,7 @@ git config --global push.default simple
 git config --global core.editor 'emacsclient -t -a=\"\"'
 
 # Set emacs as the default editor
-sudo update-alternatives --set editor /usr/bin/emacs25
+sudo update-alternatives --set editor /usr/bin/emacs-nox
 
 # Lastly symlink in all the config
 ./symlinker.bash
