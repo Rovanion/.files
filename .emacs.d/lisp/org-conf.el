@@ -5,7 +5,7 @@
 ;; To enable the easy templates, with it enabled "<s" followed by TAB
 ;; will insert a source block. This behaviour was disabled by default in 9.2.
 (with-eval-after-load 'org
-  (if (version< "9.1" org-version)
+  (if (version< "9.2" org-version)
       (require 'org-tempo)))
 
 ;; Enable Clojure as a language in Org source blocks.
