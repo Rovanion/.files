@@ -14,5 +14,5 @@ utils.run_if_not_running("emacs", "--daemon");
 utils.run_if_not_running("urxvt", "-e mosh --ssh='ssh -p 9001' rovanion.se -- screen -rd weechat")
 utils.run_if_not_running("conky")
 utils.run_if_not_running("redshift", "-m vidmode -l 50:16")
-utils.run_if_not_running("dropbox start")
+utils.run_if_not_running("syncthing", "-no-browser")
 --}}}
