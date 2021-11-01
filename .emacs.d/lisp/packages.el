@@ -6,7 +6,6 @@
       '(flycheck
         go-mode
         company-go
-        gitignore-mode
         cmake-mode
         yasnippet
         glsl-mode
@@ -66,6 +65,7 @@
         multiple-cursors       ; Allows edits to multiple points in a buffer at the same time.
         zig-mode               ; Zig, the programming language.
         elixir-mode            ; Elixir, the programming language.
+        git-modes              ; Superseeds gitignore-mode. Also provides gitattributes- and gitconfig-mode.
         ))
 
 ;; Repositories
