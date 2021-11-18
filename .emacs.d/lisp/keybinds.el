@@ -162,5 +162,9 @@
   (define-key geiser-mode-map (kbd "M-å")     #'geiser-edit-symbol-at-point)
   (define-key geiser-mode-map (kbd "M-ä")     #'geiser-pop-symbol-stack))
 
+;; SQL
+(with-eval-after-load 'sql-mode
+  (define-key sql-mode-map (kbd "C-c C-e") #'sql-send-paragraph))
+
 (provide 'keybinds)
 ;;; keybinds.el ends here
