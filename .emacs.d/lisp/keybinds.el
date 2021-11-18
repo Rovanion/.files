@@ -68,7 +68,8 @@
 (with-eval-after-load 'cider-mode
   (define-key cider-mode-map (kbd "M-å")     'cider-find-dwim)
   (define-key cider-mode-map (kbd "M-ä")     'cider-pop-back)
-  (define-key cider-mode-map (kbd "C-c C-r") 'cider-eval-region))
+  (define-key cider-mode-map (kbd "C-c C-r") 'cider-eval-region)
+  (define-key cider-mode-map (kbd "C-c C-b") 'cider-eval-buffer))
 
 ;; inf-clojure is the inferior of the both.
 (with-eval-after-load 'inf-clojure
