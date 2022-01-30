@@ -164,7 +164,8 @@
 
 ;; SQL
 (with-eval-after-load 'sql-mode
-  (define-key sql-mode-map (kbd "C-c C-e") #'sql-send-paragraph))
+  (define-key sql-mode-map (kbd "C-c C-e") #'sql-send-paragraph)
+  (define-key sql-mode-map (kbd "TAB") (lambda () (interactive)(insert "\t"))))
 
 (provide 'keybinds)
 ;;; keybinds.el ends here
