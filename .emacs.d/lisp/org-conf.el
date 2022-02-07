@@ -29,6 +29,9 @@
 ;; The below path will not work on non-Debian machines, but I don't care right now.
 (setq org-ditaa-jar-path "/usr/bin/ditaa")
 
+;; Always use python3
+(setq org-babel-python-command "python3")
+
 ;; Never prompt whether or not to run code.
 (setq org-confirm-babel-evaluate (lambda (lang body) nil))
 ;; Don't automatically indent files
