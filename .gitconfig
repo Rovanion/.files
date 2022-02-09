@@ -33,3 +33,5 @@
 	sort = -committerdate
 [pull]
 	rebase = true
+[diff "clojure"]
+	xfuncname = "^(\\((def|ns)([^\\[])*).*$"
