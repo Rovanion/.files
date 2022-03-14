@@ -43,8 +43,8 @@ name[Group1]="Sweden - Dvorak A5";
 include "qq(basic)"
 
 key <AD01> { [ aring, Aring, braceleft ] };
-key <AD02> { [ adiaeresis, Adiaeresis, braceright, bracketleft ] };
-key <AD03> { [ odiaeresis, Odiaeresis, bracketleft, bracketright ] };
+key <AD02> { [ adiaeresis, Adiaeresis, braceright, ae ] };
+key <AD03> { [ odiaeresis, Odiaeresis, bracketleft, oe ] };
 key <AD04> { [ p, P, bracketright, THORN ] };
 key <AD05> { [ y, Y, dollar, yen ] };
 key <AD06> { [ f, F, quotedbl, ordfeminine ] };
