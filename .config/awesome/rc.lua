@@ -326,6 +326,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "Left",       awful.tag.viewprev,                             {description = "previous tag",              group = "tag"}),
     awful.key({ modkey,         }, "Right",      awful.tag.viewnext,                             {description = "previous tag",              group = "tag"}),
     awful.key({ modkey,         }, "Escape",     awful.tag.history.restore,                      {description = "go back",                   group = "tag"}),
+    -- Switching window focus
     awful.key({ modkey,         }, "n",          fn'||awful.client.focus.byidx( 1)',             {description = "next window",               group = "client"}),
     awful.key({ modkey,         }, "p",          fn'||awful.client.focus.byidx(-1)',             {description = "previous window",           group = "client"}),
     awful.key({ modkey, "Mod1"  }, "n",          restore_minimized_window,                       {description = "restore minimized",         group = "client"}),
