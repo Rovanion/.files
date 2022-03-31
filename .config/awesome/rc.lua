@@ -330,6 +330,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "p",          fn'||awful.client.focus.byidx(-1)',             {description = "previous window",           group = "client"}),
     awful.key({ modkey, "Mod1"  }, "n",          restore_minimized_window,                       {description = "restore minimized",         group = "client"}),
     awful.key({ modkey,         }, "w",          fn'||mymainmenu:show()',                        {description = "show main menu",            group = "awesome"}),
+    -- Screenshot
     awful.key({                 }, "Print",      nil, take_screenshot,                           {description = "take screenshot",           group = "launcher"}),
     awful.key({ modkey,         }, "c",          nil, take_screenshot,                           {description = "take screenshot",           group = "launcher"}),
     -- Move window in the stack
@@ -381,7 +382,7 @@ clientkeys = gears.table.join(
     awful.key({ modkey, "Mod1"    }, "Return",   fn'@:swap(awful.client.getmaster())',           {description = "move to master",            group = "client"}),
     awful.key({ modkey,           }, "o",        fn'@:move_to_screen()',                         {description = "move to screen",            group = "client"}),
     awful.key({ modkey,           }, "t",        fn'@.ontop = not @.ontop',                      {description = "toggle keep on top",        group = "client"}),
-    awful.key({ modkey,           }, "m",        unmaximize_client,                              {description = "minimize",                  group = "client"})
+    awful.key({ modkey,           }, "m",        unmaximize_client,                              {description = "unmaximize",                group = "client"})
 )
 
 -- Bind all key numbers to tags.
