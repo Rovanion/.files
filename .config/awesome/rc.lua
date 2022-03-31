@@ -329,7 +329,6 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "n",          fn'||awful.client.focus.byidx( 1)',             {description = "next window",               group = "client"}),
     awful.key({ modkey,         }, "p",          fn'||awful.client.focus.byidx(-1)',             {description = "previous window",           group = "client"}),
     awful.key({ modkey, "Mod1"  }, "n",          restore_minimized_window,                       {description = "restore minimized",         group = "client"}),
-    awful.key({ modkey,         }, "w",          fn'||mymainmenu:show()',                        {description = "show main menu",            group = "awesome"}),
     -- Screenshot
     awful.key({                 }, "Print",      nil, take_screenshot,                           {description = "take screenshot",           group = "launcher"}),
     awful.key({ modkey,         }, "c",          nil, take_screenshot,                           {description = "take screenshot",           group = "launcher"}),
@@ -369,6 +368,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "r",          fn'||awful.screen.focused().mypromptbox:run()', {description = "run prompt",                group = "launcher"}),
     awful.key({ modkey, "Shift" }, "r",          function() menubar.show() end,                  {description = "show the menubar",          group = "launcher"}),
     awful.key({ modkey,         }, "x",          open_lua_prompt,                                {description = "lua execute prompt",        group = "awesome"}),
+    awful.key({ modkey,         }, "w",          fn'||mymainmenu:show()',                        {description = "show main menu",            group = "awesome"}),
     -- Clipboard manipulation
     awful.key({ modkey,         }, "u",          fn'||awful.spawn("swap-copy-buffers")',         {description = "swap primary and clipboard",group = "clipboard"}),
     -- Emacs
