@@ -495,7 +495,12 @@ awful.rules.rules = {
     },
 
     -- Set Audacious to always map on the tag named "music" on screen 1.
+    -- Use xprop to get the class of a window.
     { rule = { class = "Audacious" },
+      properties = { screen = 1, tag = "music" } },
+    { rule = { class = "Signal" },
+      properties = { screen = 1, tag = "music" } },
+    { rule = { class = "spotify" },
       properties = { screen = 1, tag = "music" } },
 }
 -- }}}
