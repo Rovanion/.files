@@ -35,7 +35,7 @@ if lsb_release --id | grep -q Ubuntu && lsb_release --release | grep -q 18.04; t
 fi
 
 # Set emacs as the default editor
-sudo update-alternatives --set editor /usr/bin/emacs-nox
+sudo update-alternatives --set editor /usr/bin/emacs
 
 # Lastly symlink in all the config if not already done
 if [[ ! -f .gitconfig ]]; then
