@@ -76,10 +76,8 @@
                                    ("gnu-elpa"     . 5)
                                    ("melpa"        . 0)))
 
-;; In Emacs 27 package-activate-all is run by emacs itself before the user init.el.
-(when (version< emacs-version "27")
-  (message "Initializing packages")
-  (package-initialize))
+;; The following line was previously on emacs 27+. Shit will probably break on some computer.
+(package-initialize)
 
 ;; Fetch the list of packages available.
 (unless package-archive-contents
