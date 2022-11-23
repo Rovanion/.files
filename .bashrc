@@ -149,6 +149,9 @@ fi
 if [ -e "$HOME/.config/guix/current/bin" ]; then
 	export PATH="$HOME/.config/guix/current/bin:$HOME/.guix-profile/bin:$PATH"
 	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+	# The below is supposedly doing some good and sourcing the profile is apparently "the way".
+	export GUIX_PROFILE="$HOME/.guix-profile"
+	source "$GUIX_PROFILE/etc/profile"
 fi
 
 # Assume that we have administrative privileges.
