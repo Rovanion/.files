@@ -146,8 +146,8 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
 	export NIXPKGS=$HOME/source/nix/nixpkgs
 fi
 
-if [ -e "$HOME/.guix-profile/bin" ]; then
-	export PATH="$HOME/.guix-profile/bin:$PATH"
+if [ -e "$HOME/.config/guix/current/bin" ]; then
+	export PATH="$HOME/.config/guix/current/bin:$HOME/.guix-profile/bin:$PATH"
 	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 fi
 
