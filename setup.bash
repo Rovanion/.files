@@ -16,7 +16,7 @@ if [[ ! $1 == nox ]]; then
 
 	# Debian dependency list:
 	sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en mosh global apt-file openjdk-8-jdk chromium-browser pavucontrol thunar xsel rxvt-unicode emacs ipython3 virtualenv python3-pip scrot tmux physlock direnv syncthing light
-	if lsb_release -i | grep -q Ubuntu; then
+	if lsb_release -i | grep -q -E "Ubuntu|Linuxmint"; then
 		sudo apt-get install ubuntu-restricted-extras
 	else
 		sudo apt-get install gstreamer0.10-plugins-good gstreamer0.10-plugins-bad gstreamer1.0-plugins-ugly
