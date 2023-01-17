@@ -33,7 +33,7 @@
 (require 'shell-conf)
 (require 'scheme-conf)
 ;; Load conf for mail client.
-;(require 'mu4e-conf)
+(require 'mu4e-conf)
 ;; Conf for directory listing mode.
 (require 'dired-conf)
 (require 'org-conf)
