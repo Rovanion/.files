@@ -1,0 +1,3 @@
+#!/bin/sh
+# Yubikey enabled ssh shortcut.
+ssh -I /usr/lib/x86_64-linux-gnu/libykcs11.so "$@"
