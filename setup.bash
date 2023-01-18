@@ -9,7 +9,9 @@ if [[ ! $1 == nox ]]; then
 	sudo cp "$gitroot/.config/xkb/symbols/qq" /usr/share/X11/xkb/symbols/
 
 	# Make nautilus not search through all files when you type anything
-	gsettings set org.gnome.nautilus.preferences enable-interactive-search true
+	if ! gsettings set org.gnome.nautilus.preferences enable-interactive-search true; then
+	    echo "The installed version of Nautilus does not support non-recursive search."
+	fi
 
 	# Set the gtk controls to behave like emacs
 	gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
