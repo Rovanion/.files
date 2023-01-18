@@ -42,7 +42,7 @@ fi
 sudo update-alternatives --set editor /usr/bin/emacs
 
 # Lastly symlink in all the config if not already done
-if [[ ! -f .gitconfig ]]; then
+if [[ ! -f "$HOME/.gitconfig" ]]; then
 	./symlinker.bash
 fi
 
