@@ -18,7 +18,7 @@ conky.config = {
 	default_color = 'white',
 	default_shade_color = 'grey',
 	default_outline_color = 'green',
-	alignment = 'top_left',
+	alignment = 'bottom_left',
 	no_buffers = true,
 	uppercase = false,
 	cpu_avg_samples = 1,
@@ -28,7 +28,7 @@ conky.config = {
 
 -- Adjust the distance from the screen edge
 	gap_x = 50,
-	gap_y = 700,
+	gap_y = 80,
 
 };
 
