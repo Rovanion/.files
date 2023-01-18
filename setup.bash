@@ -1,4 +1,9 @@
-#!/bin/bash
+#!/bin/bash -e
+
+# Keep track of the last executed command.
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# Print an error message before exiting.
+trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
 
 scriptdir=$(dirname -- $(readlink -e "$0"))
 cd $scriptdir
@@ -49,3 +54,8 @@ fi
 
 # Really ignore changes to htoprc, even though we carry a baseline conf in the repo
 git update-index --assume-unchanged .config/htop/htoprc
+
+
+# Clear traps.
+trap - DEBUG
+trap - EXIT
