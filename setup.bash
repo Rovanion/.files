@@ -15,7 +15,6 @@ if [[ ! $1 == nox ]]; then
 
 	# Set the gtk controls to behave like emacs
 	gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
-	gconftool-2 --type=string --set /desktop/gnome/interface/gtk_key_theme Emacs
 
 	# Make sure that the screen shot directory exists
 	mkdir -p ~/Pictures/scrot
