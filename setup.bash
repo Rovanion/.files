@@ -9,6 +9,9 @@ scriptdir=$(dirname -- $(readlink -e "$0"))
 cd $scriptdir
 gitroot=$(git rev-parse --show-toplevel)
 
+git submodule init
+git submodule update
+
 if [[ ! $1 == nox ]]; then
 	# Install my own keymap
 	sudo cp "$gitroot/.config/xkb/symbols/qq" /usr/share/X11/xkb/symbols/
