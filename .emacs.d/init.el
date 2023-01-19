@@ -239,6 +239,9 @@
 ;; Always show the column number of the pointer down in the modeline.
 (column-number-mode)
 
+;; Avoid performance issues in files with very long lines.
+(global-so-long-mode 1)
+
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
