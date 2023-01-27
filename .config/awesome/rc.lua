@@ -338,7 +338,6 @@ globalkeys = gears.table.join(
     awful.key({ modkey,         }, "aring",      fn'||awful.client.swap.byidx(-1)',              {description = "move window up stack",      group = "client"}),
     awful.key({ modkey,         }, "odiaeresis", fn'||awful.client.swap.byidx( 1)',              {description = "move window down stack",    group = "client"}),
     -- Switch screens
-    awful.key({ modkey,         }, "adiaeresis", fn'||awful.screen.focus_relative( 1)',          {description = "focus the next screen",     group = "screen"}),
     awful.key({ modkey,         }, "o",          fn'||awful.screen.focus_relative(-1)',          {description = "focus the previous screen", group = "screen"}),
     -- Launching programs
     awful.key({ modkey,         }, "Return",     fn'||awful.spawn(terminal)',                    {description = "open a terminal",           group = "launcher"}),
@@ -382,7 +381,7 @@ clientkeys = gears.table.join(
     awful.key({ modkey,           }, "q",        fn'@:kill()',                                   {description = "close",                     group = "client"}),
     awful.key({ modkey, "Mod1"    }, "space",    awful.client.floating.toggle,                   {description = "toggle floating",           group = "client"}),
     awful.key({ modkey, "Mod1"    }, "Return",   fn'@:swap(awful.client.getmaster())',           {description = "move to master",            group = "client"}),
-    awful.key({ modkey,           }, "o",        fn'@:move_to_screen()',                         {description = "move to screen",            group = "client"}),
+    awful.key({ modkey,         }, "adiaeresis", fn'@:move_to_screen()',                         {description = "move to next screen",       group = "client"}),
     awful.key({ modkey,           }, "t",        fn'@.ontop = not @.ontop',                      {description = "toggle keep on top",        group = "client"}),
     awful.key({ modkey,           }, "m",        unmaximize_client,                              {description = "unmaximize",                group = "client"}),
     awful.key({ modkey,           }, "z",        fn'@.minimized = true',                         {description = "minimize window",           group = "client"})
