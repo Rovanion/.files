@@ -499,7 +499,7 @@ awful.rules.rules = {
       properties = { screen = 1, tag = "music" } },
     { rule = { class = "Signal" },
       properties = { screen = 1, tag = "music" } },
-    { rule = { class = "spotify" },
+    { rule = { class = "Spotify" },
       properties = { screen = 1, tag = "music" } },
 }
 -- }}}
@@ -537,6 +537,21 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- If a client, i.e. Spotify, starts without a class, minimize it until it sets a class.
+-- Otherwise our tag assignment rules won't work.
+client.connect_signal("manage", function (c)
+    -- Some applications (like Spotify) does not respect ICCCM rules correctly
+    -- and redefine the window class property.
+    -- This leads to having window which does *NOT* follow the user rules
+    -- defined in the table `awful.rules.rules`.
+    c:connect_signal("property::class", awful.rules.apply)
+
+    awful.rules.apply(c)
+end)
+client.connect_signal("unmanage", function (c)
+    c:disconnect_signal("property::class", awful.rules.apply)
+end)
 
 -- Run my autostart script
 dofile(awful.util.getdir("config") .. "/" .. "autostart.lua")
