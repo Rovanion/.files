@@ -153,3 +153,8 @@ fi
 
 # Assume that we have administrative privileges.
 export PATH="$PATH:/usr/sbin:$HOME/.local/go/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
+
+# Depends on ssh-agent process started in ~/.config/awesome/autostart.lua.
+if [ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]; then
+	export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi

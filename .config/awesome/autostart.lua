@@ -17,4 +17,5 @@ utils.run_if_not_running("redshift", "-m vidmode -l 50:16")
 utils.run_if_not_running("syncthing", "-no-browser")
 utils.run_if_not_running("signal-desktop")
 utils.run_if_not_running("spotify")
+utils.run_if_not_running("ssh-agent", "-a " .. os.getenv("XDG_RUNTIME_DIR") .. "/ssh-agent.socket")
 --}}}
