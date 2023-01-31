@@ -35,3 +35,5 @@
 	rebase = true
 [diff "clojure"]
 	xfuncname = "^(\\((def|ns)([^\\[])*).*$"
+[includeIf "gitdir:~/source/nsc/"]
+    path = ~/source/nsc/.gitconfig
