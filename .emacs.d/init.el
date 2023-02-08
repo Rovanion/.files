@@ -38,6 +38,7 @@
 (require 'dired-conf)
 (require 'org-conf)
 (require 'jira-conf)
+(require 'magit-conf)
 (require 'spelling)
 ;; Code which tries to make *compile* show only on errorcodes != 0
 (require 'only-display-compile-on-error)
