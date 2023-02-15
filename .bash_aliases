@@ -39,29 +39,29 @@ alias calc="PYTHONSTARTUP=<(echo \"from math import *\") python3"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto -h'
-  alias dir='dir --color=auto'
+	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	alias ls='ls --color=auto -h'
+	alias dir='dir --color=auto'
 
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
 
 countdown() {
-  stop="$(( $(date '+%s') + $1))"
+	stop="$(( $(date '+%s') + $1 ))"
 	term_width=$(tput cols)
 	counter_width=10
-  while [ $stop -ge $(date +%s) ]; do
-    delta="$(( $stop - $(date +%s) ))"
+	while [ $stop -ge $(date +%s) ]; do
+		delta="$(( $stop - $(date +%s) ))"
 		complete_percent=$(( 100 - ($delta * 100) / $1))
 		bar_width=$(($complete_percent * ($term_width - $counter_width) / 100))
 		printf '\r'
 		printf '%s ' "$(date -u -d "@$delta" +%H:%M:%S)"
 		printf '%0.s-' $(seq 1 $bar_width)
-    sleep 0.5
-  done
+		sleep 0.5
+	done
 	printf '\n'
 	notify-send --expire-time 10000 "Dags För rast!" "Släpp allt din dumme jävel."
 }
