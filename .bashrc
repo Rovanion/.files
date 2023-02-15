@@ -3,6 +3,7 @@
 # for examples
 
 export PATH="$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
