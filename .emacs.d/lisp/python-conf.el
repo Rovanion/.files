@@ -1,8 +1,7 @@
 ;;; Code:
 
 (with-eval-after-load 'python-mode
-  (require 'elpy)
-  (elpy-enable))
+  (eglot-ensure))
 
 ;; Use ipython with elpy to enable autoreloading of modules,
 ;; see: https://emacs.stackexchange.com/questions/13476
@@ -14,10 +13,6 @@
 ;; To enable flashing of the sent region in the code buffer
 (require 'eval-sexp-fu)
 (setq elpy-shell-echo-output t)
-
-;; Run Jedi and Elpy when we edit python files.
-;; (add-hook 'python-mode-hook #'jedi-mode)
-(add-hook 'python-mode-hook #'elpy-mode)
 
 (setq python-guess-indent t)
 

@@ -168,5 +168,10 @@
   (define-key sql-mode-map (kbd "C-c C-e") #'sql-send-paragraph)
   (define-key sql-mode-map (kbd "TAB") (lambda () (interactive)(insert "\t"))))
 
+;; Eglot/LSP, used for Python now
+(with-eval-after-load 'eglot
+  (define-key eglot-mode-map (kbd "M-å")     'xref-find-definitions)
+  (define-key eglot-mode-map (kbd "M-ä")     'xref-pop-marker-stack))
+
 (provide 'keybinds)
 ;;; keybinds.el ends here

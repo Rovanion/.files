@@ -59,13 +59,11 @@
         dash                   ; Elisp utility functions/macros like -> and ->>.
         powershell             ; Editing and inferior mode.
         direnv                 ; Applying direnv directives based on file location.
-        lsp-mode               ; Language server protocol client; fat servers, thin modes.
-        lsp-ui                 ; Overlays, peeking, documentation.
-        elpy                   ; Python IDE. Kept here until you get lsp up working.
         multiple-cursors       ; Allows edits to multiple points in a buffer at the same time.
         zig-mode               ; Zig, the programming language.
         elixir-mode            ; Elixir, the programming language.
         git-modes              ; Superseeds gitignore-mode. Also provides gitattributes- and gitconfig-mode.
+        eglot                  ; Language server client.
         ))
 
 ;; Repositories
