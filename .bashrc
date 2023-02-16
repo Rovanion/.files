@@ -4,6 +4,7 @@
 
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
+export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
