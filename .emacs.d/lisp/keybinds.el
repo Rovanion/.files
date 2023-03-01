@@ -105,6 +105,7 @@
 
 ;; Shell mode
 (with-eval-after-load 'sh-script  ; https://repo.or.cz/w/emacs.git/blob/HEAD:/lisp/progmodes/sh-script.el
+  (define-key sh-mode-map (kbd "C-c C-b") 'sh-send-buffer)
   (define-key sh-mode-map (kbd "C-c C-e") 'sh-send-line-or-region)
   (define-key sh-mode-map (kbd "C-c C-r") 'sh-send-line-or-region))
 

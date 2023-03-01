@@ -1,3 +1,22 @@
+(defun sh-send-buffer ()
+  (interactive ())
+  (let ((proc (get-process "shell"))
+        pbuf command)
+    (unless proc
+      (let ((currbuff (current-buffer)))
+        (shell)
+        (switch-to-buffer currbuff)
+        (setq proc (get-process "shell"))))
+    (setq pbuff (process-buffer proc))
+    (setq command (concat (buffer-substring (point-min) (point-max)) "\n"))
+    (with-current-buffer pbuff
+      (goto-char (process-mark proc))
+      (insert command)
+      (move-marker (process-mark proc) (point))
+      ) ;;pop-to-buffer does not work with save-current-buffer -- bug?
+    (process-send-string proc command)
+    (display-buffer (process-buffer proc) t)))
+
 (defun sh-send-line-or-region (&optional step)
   (interactive ())
   (let ((proc (get-process "shell"))
