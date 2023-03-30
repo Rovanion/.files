@@ -248,6 +248,13 @@
 ;; Avoid performance issues in files with very long lines.
 (global-so-long-mode 1)
 
+;; Reuse ssh connections started by other invocations of ssh.
+(customize-set-variable
+ 'tramp-ssh-controlmaster-options
+ (concat
+   "-o ControlPath=~/.ssh/controlmaster-%%r@%%h:%%p "
+   "-o ControlMaster=auto -o ControlPersist=2h"))
+
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
