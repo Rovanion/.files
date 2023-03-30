@@ -64,6 +64,7 @@
         elixir-mode            ; Elixir, the programming language.
         git-modes              ; Superseeds gitignore-mode. Also provides gitattributes- and gitconfig-mode.
         eglot                  ; Language server client.
+        jump-char              ; Jump to next character X.
         ))
 
 ;; Repositories

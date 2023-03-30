@@ -39,10 +39,8 @@
 (browse-kill-ring-default-keybindings)
 
 ;; Bind keys for moving to the next char of some type.
-(global-set-key (kbd "M-n") 'iy-go-up-to-char)
-(global-set-key (kbd "M-p") 'iy-go-to-char-backward)
-(setq iy-go-to-char-key-forward '¨)
-(setq iy-go-to-char-key-backward '^)
+(global-set-key (kbd "M-n") 'jump-char-forward)
+(global-set-key (kbd "M-p") 'jump-char-backward)
 
 ;; Remove word backwards with C-BSPC
 (global-set-key "\C-h" 'backward-kill-word)
