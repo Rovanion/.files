@@ -255,6 +255,9 @@
    "-o ControlPath=~/.ssh/controlmaster-%%r@%%h:%%p "
    "-o ControlMaster=auto -o ControlPersist=2h"))
 
+;; Indent wrapped lines to the same level as the original line.
+(add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
+
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
