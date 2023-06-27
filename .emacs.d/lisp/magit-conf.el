@@ -8,4 +8,8 @@
  '(magit-diff-removed-highlight ((((type tty)) (:foreground "IndianRed"))))
  '(magit-section-highlight ((((type tty)) nil))))
 
+(add-hook 'git-commit-setup-hook
+          (lambda ()
+            (setq fill-column 72)))
+
 (provide 'magit-conf)
