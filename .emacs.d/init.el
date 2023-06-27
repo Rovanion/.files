@@ -257,6 +257,9 @@
 
 ;; Indent wrapped lines to the same level as the original line.
 (add-hook 'visual-line-mode-hook #'adaptive-wrap-prefix-mode)
+(setq adaptive-wrap-extra-indent 1)
+;; Enable visual-line-mode in specific major modes.
+(add-hook 'puppet-mode-hook #'visual-line-mode)
 
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
