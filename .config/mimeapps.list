@@ -18,3 +18,4 @@ default-web-browser=firefox.desktop
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
 video/mp4=vlc.desktop;mpv.desktop;
+image/jpeg=nomacs.desktop;
