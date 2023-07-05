@@ -1,3 +1,4 @@
 #!/bin/sh
 # Set the URXVT font to the given size in pixels.
-exec printf "\\033]710;-*-terminus-medium-*-*-*-$1-*-*-*-*-*-iso10646-*\\007"
+printf "\\033]710;-*-terminus-medium-*-*-*-$1-*-*-*-*-*-iso10646-*\\007"
+exec printf "\\033]711;-*-terminus-bold-*-*-*-$1-*-*-*-*-*-iso10646-*\\007"
