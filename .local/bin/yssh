@@ -3,4 +3,4 @@ if ! ssh-add -L | grep -q 'Public key for PIV Authentication'; then
 	ssh-add -s /usr/lib/x86_64-linux-gnu/libykcs11.so
 fi
 
-ssh $@
+exec ssh $@

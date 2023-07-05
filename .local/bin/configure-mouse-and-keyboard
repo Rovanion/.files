@@ -44,4 +44,4 @@ if command -v synclient; then
   fi
 fi
 
-setxkbmap -I ~/.config/xkb qq dvorak -option -print | xkbcomp -I$HOME/.config/xkb - $DISPLAY
+exec setxkbmap -I ~/.config/xkb qq dvorak -option -print | xkbcomp -I$HOME/.config/xkb - $DISPLAY

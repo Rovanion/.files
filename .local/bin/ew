@@ -1,2 +1,2 @@
 #!/bin/sh
-emacsclient -t $2 "$1" -a ""
+exec emacsclient -t $2 "$1" -a ""

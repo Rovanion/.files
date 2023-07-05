@@ -4,13 +4,13 @@
 if command -v apt-get; then
   sudo apt-get update
   sudo apt-get autoremove --yes
-  sudo apt-get upgrade --yes
+  exec sudo apt-get upgrade --yes
 elif command -v nixos-rebuild; then
-  sudo nixos-rebuild switch --upgrade
+  exec sudo nixos-rebuild switch --upgrade
 elif command -v yum; then
-  sudo yum update
+  exec sudo yum update
 elif command -v guix; then
   guix pull
   sudo guix system reconfigure /etc/config.scm
-  sudo guix system delete-generations 1m 2>/dev/null
+  exec sudo guix system delete-generations 1m 2>/dev/null
 fi
