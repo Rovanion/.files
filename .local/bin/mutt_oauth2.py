@@ -47,6 +47,8 @@ import subprocess
 ENCRYPTION_PIPE = ['cat']
 DECRYPTION_PIPE = ['cat']
 
+tenant = '913f18ec-7f26-4c5f-a816-784fe9a58edd'
+
 registrations = {
     'google': {
         'authorize_endpoint': 'https://accounts.google.com/o/oauth2/auth',
@@ -62,11 +64,11 @@ registrations = {
         'client_secret': '',
     },
     'microsoft': {
-        'authorize_endpoint': 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
-        'devicecode_endpoint': 'https://login.microsoftonline.com/common/oauth2/v2.0/devicecode',
-        'token_endpoint': 'https://login.microsoftonline.com/common/oauth2/v2.0/token',
-        'redirect_uri': 'https://login.microsoftonline.com/common/oauth2/nativeclient',
-        'tenant': 'common',
+        'authorize_endpoint': f'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize',
+        'devicecode_endpoint': f'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode',
+        'token_endpoint': f'https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token',
+        'redirect_uri': f'',
+        'tenant': f'{tenant}',
         'imap_endpoint': 'outlook.office365.com',
         'pop_endpoint': 'outlook.office365.com',
         'smtp_endpoint': 'smtp.office365.com',
@@ -74,7 +76,7 @@ registrations = {
         'scope': ('offline_access https://outlook.office.com/IMAP.AccessAsUser.All '
                   'https://outlook.office.com/POP.AccessAsUser.All '
                   'https://outlook.office.com/SMTP.Send'),
-        'client_id': '',
+        'client_id': 'e4fcf1e9-1a77-4b94-9e15-937b957a05d1',
         'client_secret': '',
     },
 }
@@ -291,6 +293,8 @@ if args.authorize:
             if args.debug:
                 print(response)
             response = json.loads(response)
+            if args.debug:
+                print(response)
             if 'error' not in response:
                 break
             if response['error'] == 'authorization_declined':
