@@ -64,4 +64,5 @@ countdown() {
 	done
 	printf '\n'
 	notify-send --expire-time 10000 "Dags För rast!" "Släpp allt din dumme jävel."
+	physlock
 }
