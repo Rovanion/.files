@@ -15,6 +15,8 @@
         isearch-printing-char
         iy-go-to-char--command
         iy-go-up-to-char
+        jump-char-forward
+        jump-char-process-char
         kill-region
         kill-sexp
         matlab-electric-comment
