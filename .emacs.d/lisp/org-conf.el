@@ -122,5 +122,11 @@ the block, into the buffer."
   (require 'ox-md)     ; Export to markdown
   (require 'ox-jira))  ; and Jira.
 
+;; Custom PATH to GPFS binaries on NSC machines.
+(connection-local-set-profile-variables 'remote-path-with-gpfs
+ '((tramp-remote-path . ("/usr/lpp/mmfs/bin/" tramp-default-remote-path))))
+;; In actuality applied to all connections, see: https://emacs.stackexchange.com/questions/78846/
+(connection-local-set-profiles
+ '(:application tramp) 'remote-path-with-gpfs)
 
 (provide 'org-conf)
