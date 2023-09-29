@@ -47,11 +47,6 @@ up."
 (with-eval-after-load 'python-mode
   (eglot-ensure))
 
-
-;; To enable flashing of the sent region in the code buffer
-(require 'eval-sexp-fu)
-(setq elpy-shell-echo-output t)
-
 (setq python-guess-indent t)
 
 (provide 'python-conf)

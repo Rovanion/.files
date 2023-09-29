@@ -81,16 +81,6 @@
   (define-key tide-mode-map (kbd "M-ä") 'tide-jump-back)
   (define-key tide-mode-map (kbd "M-ö") 'tide-fix))
 
-;; Python
-(with-eval-after-load 'elpy
-  (define-key elpy-mode-map (kbd "M-å") 'elpy-goto-definition)
-  (define-key elpy-mode-map (kbd "M-ä") 'pop-tag-mark)
-  (define-key elpy-mode-map (kbd "M-ö") 'elpy-rpc-get-names)
-  (define-key elpy-mode-map (kbd "C-c C-c") 'elpy-shell-send-group)
-  (define-key elpy-mode-map (kbd "C-c C-e") 'elpy-shell-send-statement)
-  (define-key elpy-mode-map (kbd "C-c C-b") 'elpy-shell-send-buffer)
-  (define-key elpy-mode-map (kbd "C-c C-r") 'elpy-shell-send-region-or-buffer))
-
 ;; Emacs lisp, elisp
 (define-key emacs-lisp-mode-map (kbd "M-å")     'xref-find-definitions)
 (define-key emacs-lisp-mode-map (kbd "M-ä")     'xref-pop-marker-stack)
