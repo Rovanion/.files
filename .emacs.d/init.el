@@ -261,6 +261,8 @@
 ;; Enable visual-line-mode in specific major modes.
 (add-hook 'puppet-mode-hook #'visual-line-mode)
 
+(setq require-final-newline t)
+
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
 (require 'keybinds)
