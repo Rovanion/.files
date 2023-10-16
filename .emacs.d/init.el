@@ -260,6 +260,7 @@
 (setq adaptive-wrap-extra-indent 1)
 ;; Enable visual-line-mode in specific major modes.
 (add-hook 'puppet-mode-hook #'visual-line-mode)
+(add-hook 'org-mode-hook #'visual-line-mode)
 
 (setq require-final-newline t)
 
