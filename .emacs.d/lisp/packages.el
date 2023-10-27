@@ -66,6 +66,7 @@
         eglot                  ; Language server client.
         jump-char              ; Jump to next character X.
         adaptive-wrap          ; Indent wrapped lines for reduced visual clutter.
+        pytest                 ; Python py.test wrapper.
         ))
 
 ;; Repositories
