@@ -125,8 +125,12 @@ the block, into the buffer."
 ;; Custom PATH to GPFS binaries on NSC machines.
 (connection-local-set-profile-variables 'remote-path-with-gpfs
  '((tramp-remote-path . ("/usr/lpp/mmfs/bin/" tramp-default-remote-path))))
+(connection-local-set-profile-variables 'remote-path-with-root-bin
+ '((tramp-remote-path . ("/root/bin/" tramp-default-remote-path))))
 ;; In actuality applied to all connections, see: https://emacs.stackexchange.com/questions/78846/
 (connection-local-set-profiles
  '(:application tramp) 'remote-path-with-gpfs)
+(connection-local-set-profiles
+ '(:application tramp) 'remote-path-with-root-bin)
 
 (provide 'org-conf)
