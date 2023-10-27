@@ -19,6 +19,7 @@
         jump-char-process-char
         kill-region
         kill-sexp
+        kill-visual-line
         matlab-electric-comment
         mouse-yank-primary
         org-beginning-of-line
