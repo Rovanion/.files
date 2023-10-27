@@ -345,6 +345,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "t",          fn'||awful.spawn("thunar")',                    {description = "open thunar",               group = "launcher"}),
     awful.key({ modkey, "Shift" }, "n",          fn'||awful.spawn("nautilus")',                  {description = "open nautilus",             group = "launcher"}),
     awful.key({ modkey, "Shift" }, "odiaeresis", fn'||awful.spawn("evince")',                    {description = "open evince",               group = "launcher"}),
+    awful.key({ modkey, "Shift" }, "d",          fn'||awful.spawn("dolphin")',                   {description = "open dolphin",              group = "launcher"}),
     -- Window size
     awful.key({ modkey,         }, "a",          fn'||awful.tag.incmwfact(-0.05)',               {description = "increase main width",       group = "layout"}),
     awful.key({ modkey,         }, "e",          fn'||awful.tag.incmwfact( 0.05)',               {description = "decrease main width",       group = "layout"}),
