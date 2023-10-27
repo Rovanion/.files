@@ -194,7 +194,7 @@
 (add-hook 'toml-mode-hook 'auto-reload-firefox-on-after-save-hook)
 
 ;; Tabs for indentation, spaces for alignment.
-(smart-tabs-insinuate 'c 'c++ 'java 'cperl 'nxml 'ruby)
+(smart-tabs-insinuate 'c 'c++ 'java 'cperl 'nxml 'ruby 'python)
 
 ;; We can handle it!
 (put 'upcase-region 'disabled nil)

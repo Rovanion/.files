@@ -47,7 +47,12 @@ up."
 (with-eval-after-load 'python-mode
   (eglot-ensure))
 
-(setq python-guess-indent t)
+;; Python mode hardcodes tab-width to 8 spaces, for some ungodly reason.
+(defun set-tab-width ()
+  (setq-local tab-width 2)
+  (setq-local python-indent-offset tab-width))
+
+(add-hook 'python-mode-hook #'set-tab-width)
 
 (provide 'python-conf)
 ;;; python-conf.el ends here
