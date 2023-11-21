@@ -12,8 +12,8 @@ fi
 echo "Creating links in $dest"
 
 for file in $(ls -a); do
-	# If the file is ., .., .git, this script or README then do nothing.
-	if [[ $file =~ ^.$|^..$|^.git$|^symlinker.bash$|^setup.bash$|^README|^mailconf$ ]]; then
+	# If the file is ., .., .git, etc. this script or README then do nothing.
+	if [[ $file =~ ^.$|^..$|^.git$|^.ssh$|^symlinker.bash$|^setup.bash$|^README|^mailconf$ ]]; then
 		continue
 	fi
 
@@ -23,3 +23,6 @@ for file in $(ls -a); do
 	fi
 	ln -s $currentDir/$file $dest/$file
 done
+
+# Special case for .ssh since some systems (RHEL) does not allow for ~/.ssh to be a symlink.
+ln -s $currentDir/.ssh/config $dest/.ssh/config
