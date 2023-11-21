@@ -137,7 +137,9 @@ else  # In the end we give up and hope xterm exists.
 	export TERM=xterm
 fi
 
-eval "$(direnv hook bash)"
+if command -v direnv >/dev/null; then
+	eval "$(direnv hook bash)"
+fi
 
 # Make bash readline behave like emacs so that you can copy and paste regions
 stty werase undef
