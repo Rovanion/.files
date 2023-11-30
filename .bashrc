@@ -25,7 +25,7 @@ timestamp='┌[\A]'
 timestamp_placeholder='┌'
 
 move_cursor_to_start_of_ps1() {
-	command=$(fc -l -n -0)
+	command=$(fc -l -n -0 -0)
 	echo "$command" >/tmp/lol
 	echo $(declare -p command) >>/tmp/lol
 	if [ ${#command[@]} -gt 1 ]; then
@@ -77,47 +77,47 @@ if [[ $TERM == 'rxvt-unicode-256color' ]]; then
 fi
 
 function new-prompt {
-  user_exit_code="$?"
-  # Are we in a git tree and has it been modified?
-  if git_diff=$(git diff-files --no-ext-diff 2>/dev/null) ; then
-    branch=$(git branch --color=never | sed -ne 's/* //p')
-    if [ -z "$git_diff" ]; then
-      branch=[$blue$branch$clear]
-    else
-      branch=[$red$branch$clear]
-    fi
-  else
-    unset branch
-  fi
-  if [ -n "$GUIX_ENVIRONMENT" ]; then
-    guix_env="[${cyan}guix${clear}]"
+	user_exit_code="$?"
+	# Are we in a git tree and has it been modified?
+	if git_diff=$(git diff-files --no-ext-diff 2>/dev/null) ; then
+		branch=$(git branch --color=never | sed -ne 's/* //p')
+		if [ -z "$git_diff" ]; then
+			branch=[$blue$branch$clear]
+		else
+			branch=[$red$branch$clear]
+		fi
+	else
+		unset branch
+	fi
+	if [ -n "$GUIX_ENVIRONMENT" ]; then
+		guix_env="[${cyan}guix${clear}]"
 	else
 		unset guix_env
 	fi
-  if [ -n "$IN_NIX_SHELL" ]; then
-    nix_env="[${cyan}nix-${IN_NIX_SHELL}${clear}]"
+	if [ -n "$IN_NIX_SHELL" ]; then
+		nix_env="[${cyan}nix-${IN_NIX_SHELL}${clear}]"
 	else
 		unset nix_env
 	fi
 	if [ -n "$PIPENV_ACTIVE" ]; then
-    pipenv="[${cyan}pipenv${clear}]"
+		pipenv="[${cyan}pipenv${clear}]"
 	else
 		unset pipenv
 	fi
 	if [ -n "$VIRTUAL_ENV" ]; then
-    python_venv="[${cyan}venv${clear}]"
+		python_venv="[${cyan}venv${clear}]"
 	else
 		unset python_venv
 	fi
 
-  if [[ $user_exit_code == 0 ]]; then
-    path_colour=${green}
-  else
-    path_colour=${red}
-  fi
+	if [[ $user_exit_code == 0 ]]; then
+		path_colour=${green}
+	else
+		path_colour=${red}
+	fi
 
 	# PS stands for Prompt statement.
-  PS1="${timestamp_placeholder}[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
+	PS1="${timestamp_placeholder}[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
 }
 
 new-prompt
@@ -127,14 +127,14 @@ new-prompt
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+	source ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+	source /etc/bash_completion
 fi
 
 # Allow <C-s> to pass through to shell and programs
@@ -173,7 +173,7 @@ stty werase undef
 bind '"\C-w":kill-region'
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
-  source $HOME/.nix-profile/etc/profile.d/nix.sh
+	source $HOME/.nix-profile/etc/profile.d/nix.sh
 	export NIXPKGS=$HOME/source/nix/nixpkgs
 fi
 

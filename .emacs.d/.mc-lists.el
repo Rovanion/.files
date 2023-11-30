@@ -22,6 +22,7 @@
         kill-visual-line
         matlab-electric-comment
         mouse-yank-primary
+        mu4e-headers-view-message
         org-beginning-of-line
         org-cycle
         org-delete-char
