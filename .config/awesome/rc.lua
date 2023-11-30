@@ -268,7 +268,7 @@ awful.screen.connect_for_each_screen(function(s)
     local ls = awful.layout.layouts;
     local layout_map = { ls[2], ls[2], ls[2], ls[2], ls[1], ls[1], ls[2], ls[2], ls[2], ls[2] }
     -- Each screen has its own tag table.
-    awful.tag({ "web", "work", "prog", "music", "float", "6", "7", "8", "9" }, s, layout_map)
+    awful.tag({ "web", "work", "prog", "music", "float", "6", "pass", "8", "9" }, s, layout_map)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -502,6 +502,8 @@ awful.rules.rules = {
       properties = { screen = 1, tag = "music" } },
     { rule = { class = "Spotify" },
       properties = { screen = 1, tag = "music" } },
+    { rule = { class = "KeePassXC" },
+      properties = { screen = 1, tag = "pass" } }
 }
 -- }}}
 
