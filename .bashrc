@@ -1,12 +1,8 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
-# If not running interactively, don't do anything
+# If not running interactively, don't do anything.
 [ -z "$PS1" ] && return
 
 green='\e[0;32m'
