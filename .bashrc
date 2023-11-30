@@ -11,6 +11,35 @@ blue='\e[0;34m'
 cyan='\e[0;36m'
 clear='\e[0m'
 
+# Root?
+if (( $(id -u) == 0 )); then
+	user_colour=$red
+	prompt_character='#'
+else
+	user_colour=$green
+	prompt_character='$'
+fi
+restore_cursor_position='\e[u'
+save_cursor_position='\e[s'
+timestamp='┌[\A]'
+timestamp_placeholder='┌'
+
+move_cursor_to_start_of_ps1() {
+	command=$(fc -l -n -0)
+	echo "$command" >/tmp/lol
+	echo $(declare -p command) >>/tmp/lol
+	if [ ${#command[@]} -gt 1 ]; then
+		let vertical_movement=$command_rows+1
+	else
+		command_length=${#command}
+		ps1_prompt_length=${#prompt_character}
+		let total_length=$command_length+$ps1_prompt_length
+		let lines=$total_length/${COLUMNS}+1
+		let vertical_movement=$lines+1
+	fi
+	tput cuu $vertical_movement
+}
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -29,13 +58,22 @@ shopt -s histverify
 # Are we connected from a remote host?
 [ ! -z "$(who am i | cut -f2 -d\( | cut -f1 -d: | cut -f1 -d\))" ] && ssh_info="[${cyan}ssh${clear}]"
 
-# Root?
-if (( $(id -u) == 0 )); then
-  user_colour=$red
-  prompt_character="#"
-else
-  user_colour=$green
-  prompt_character="$"
+PS0_elements=( "${save_cursor_position}" "\$(move_cursor_to_start_of_ps1)"
+               "${timestamp}" "${restore_cursor_position}")
+
+# Only enable our fancy new PS0 rewriting PS1 timestamp thingomabob in urxvt.
+if [[ $TERM == 'rxvt-unicode-256color' ]]; then
+	PS0=$(IFS=; echo "${PS0_elements[*]}")
+	timestamp_placeholder='┌[--:--]'
+
+	# Different systems have different names for the terminfofile.
+	if [ -f /usr/share/terminfo/r/rxvt-unicode-256color ]; then
+		export TERM=rxvt-unicode-256color
+	elif [ -f /usr/share/terminfo/r/rxvt-256color ]; then
+		export TERM=rxvt-256color
+	elif [ -f /usr/share/terminfo/x/xterm-256color ]; then
+		export TERM=xterm-256color
+	fi # Give up and use whatever the terminal says.
 fi
 
 function new-prompt {
@@ -78,7 +116,8 @@ function new-prompt {
     path_colour=${red}
   fi
 
-  PS1="┌[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
+	# PS stands for Prompt statement.
+  PS1="${timestamp_placeholder}[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
 }
 
 new-prompt
@@ -124,17 +163,6 @@ PROMPT_COMMAND="new-prompt; history -a;"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Different systems have different names for the terminfofile.
-if [ -f /usr/share/terminfo/r/rxvt-unicode-256color ]; then
-  export TERM=rxvt-unicode-256color
-elif [ -f /usr/share/terminfo/r/rxvt-256color ]; then
-  export TERM=rxvt-256color
-elif [ -f /usr/share/terminfo/x/xterm-256color ]; then
-  export TERM=xterm-256color
-else  # In the end we give up and hope xterm exists.
-	export TERM=xterm
-fi
 
 if command -v direnv >/dev/null; then
 	eval "$(direnv hook bash)"
