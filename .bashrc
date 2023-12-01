@@ -14,10 +14,10 @@ clear='\e[0m'
 # Root?
 if (( $(id -u) == 0 )); then
 	user_colour=$red
-	prompt_character='#'
+	prompt_characters='└#'
 else
 	user_colour=$green
-	prompt_character='$'
+	prompt_characters='└$'
 fi
 restore_cursor_position='\e[u'
 save_cursor_position='\e[s'
@@ -25,15 +25,15 @@ timestamp='┌[\A]'
 timestamp_placeholder='┌'
 
 move_cursor_to_start_of_ps1() {
-	command=$(fc -l -n -0 -0)
-	echo "$command" >/tmp/lol
-	echo $(declare -p command) >>/tmp/lol
-	if [ ${#command[@]} -gt 1 ]; then
+	fc_out=$(fc -l -n -0)
+	IFS=$'\n' command=(${fc_out/$'\t '/})
+	command_rows=${#command[@]}
+	if (( $command_rows > 1 )); then
 		let vertical_movement=$command_rows+1
 	else
 		command_length=${#command}
-		ps1_prompt_length=${#prompt_character}
-		let total_length=$command_length+$ps1_prompt_length
+		ps1_last_row_length=${#prompt_characters}
+		let total_length=$command_length+$ps1_last_row_length
 		let lines=$total_length/${COLUMNS}+1
 		let vertical_movement=$lines+1
 	fi
@@ -117,7 +117,7 @@ function new-prompt {
 	fi
 
 	# PS stands for Prompt statement.
-	PS1="${timestamp_placeholder}[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${ssh_info}:${path_colour}\w${clear}\n└${prompt_character} "
+	PS1="${timestamp_placeholder}[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${ssh_info}:${path_colour}\w${clear}\n${prompt_characters} "
 }
 
 new-prompt
