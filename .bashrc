@@ -59,7 +59,7 @@ shopt -s histverify
 [ ! -z "$(who am i | cut -f2 -d\( | cut -f1 -d: | cut -f1 -d\))" ] && ssh_info="[${cyan}ssh${clear}]"
 
 # Only enable our fancy new PS0 rewriting PS1 timestamp thingomabob in urxvt.
-if [[ $TERM == 'rxvt-unicode-256color' ]]; then
+if [[ $TERM =~ 'rxvt-unicode' ]]; then
 	# PS0 was introduced in Bash 4.4.
 	if (( BASH_VERSINFO[0] > 4 || BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] >= 4 )); then
 		 PS0_elements=( "${save_cursor_position}" "\$(move_cursor_to_start_of_ps1)"
