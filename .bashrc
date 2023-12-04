@@ -110,6 +110,11 @@ function new-prompt {
 	else
 		unset python_venv
 	fi
+	if [ -n "$STY" ]; then
+		screen_name="[${STY#*.}]"
+	else
+		unset screen_name
+	fi
 
 	if [[ $user_exit_code == 0 ]]; then
 		path_colour=${green}
@@ -118,7 +123,7 @@ function new-prompt {
 	fi
 
 	# PS stands for Prompt statement.
-	PS1="${timestamp_placeholder}[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${ssh_info}:${path_colour}\w${clear}\n${prompt_characters} "
+	PS1="${timestamp_placeholder}[${user_colour}\u${clear}][\h]${branch:+$branch}${guix_env}${nix_env}${pipenv}${python_venv}${screen_name}${ssh_info}:${path_colour}\w${clear}\n${prompt_characters} "
 }
 
 new-prompt
