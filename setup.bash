@@ -58,6 +58,8 @@ fi
 # Really ignore changes to htoprc, even though we carry a baseline conf in the repo
 git update-index --assume-unchanged .config/htop/htoprc
 
+# Run mailconf setup script.
+./mailconf/setup.sh
 
 # Clear traps.
 trap - DEBUG
