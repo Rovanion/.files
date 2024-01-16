@@ -29,10 +29,15 @@ if [[ ! $1 == nox ]]; then
 	wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
 	cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
 	# 2. Add Signal's repository to your list of repositories:
-	echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
-  sudo tee /etc/apt/sources.list.d/signal-xenial.list
+	sudo bash -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main" > /etc/apt/sources.list.d/signal-xenial.list'
+	## And Spotify
+	curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | \
+		sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
+	sudo bash -c 'echo "deb http://repository.spotify.com stable non-free" > /etc/apt/sources.list.d/spotify.list'
 	# 3. Update your package database and install Signal:
-	sudo apt update && sudo apt install signal-desktop
+	sudo apt update
+	sudo apt install signal-desktop \
+	                 spotify-client
 
 	# Install my own keymap
 	sudo cp "$gitroot/.config/xkb/symbols/qq" /usr/share/X11/xkb/symbols/
