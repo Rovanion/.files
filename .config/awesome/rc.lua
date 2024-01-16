@@ -266,9 +266,9 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     local ls = awful.layout.layouts;
-    local layout_map = { ls[2], ls[2], ls[2], ls[2], ls[1], ls[1], ls[2], ls[2], ls[2], ls[2] }
+    local layout_map = { ls[2], ls[2], ls[2], ls[2], ls[2], ls[1], ls[2], ls[2], ls[2], ls[2] }
     -- Each screen has its own tag table.
-    awful.tag({ "web", "work", "prog", "music", "float", "6", "pass", "8", "9" }, s, layout_map)
+    awful.tag({ "web", "work", "prog", "music", "chat", "float", "pass", "8", "9" }, s, layout_map)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -496,14 +496,11 @@ awful.rules.rules = {
 
     -- Set Audacious to always map on the tag named "music" on screen 1.
     -- Use xprop to get the class of a window.
-    { rule = { class = "Audacious" },
-      properties = { screen = 1, tag = "music" } },
-    { rule = { class = "Signal" },
-      properties = { screen = 1, tag = "music" } },
-    { rule = { class = "Spotify" },
-      properties = { screen = 1, tag = "music" } },
-    { rule = { class = "KeePassXC" },
-      properties = { screen = 1, tag = "pass" } }
+    { rule = { class = "Audacious" },    properties = { screen = 1, tag = "music" } },
+    { rule = { class = "Signal" },       properties = { screen = 1, tag = "chat" } },
+    { rule = { class = "Spotify" },      properties = { screen = 1, tag = "music" } },
+    { rule = { class = "Spotube" },      properties = { screen = 1, tag = "music" } },
+    { rule = { class = "KeePassXC" },    properties = { screen = 1, tag = "pass" } }
 }
 -- }}}
 
