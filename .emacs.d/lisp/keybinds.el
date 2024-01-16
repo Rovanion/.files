@@ -9,6 +9,8 @@
 
 (global-set-key (kbd "C-t C-s") 'windows-to-posix-path)
 
+(global-set-key (kbd "C-c C-w") 'whitespace-mode)
+
 (define-key prog-mode-map (kbd "RET") 'newline-and-indent)
 (define-key prog-mode-map (kbd "C-a") 'smart-line-beginning)
 (define-key prog-mode-map (kbd "C-o") 'split-line)
