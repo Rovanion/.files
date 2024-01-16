@@ -13,6 +13,14 @@ git submodule init
 git submodule update
 
 if [[ ! $1 == nox ]]; then
+	# Debian dependency list:
+	sudo apt-get install git awesome feh conky emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en mosh global apt-file chromium pavucontrol thunar xsel rxvt-unicode emacs ipython3 virtualenv python3-pip scrot tmux physlock direnv syncthing light arandr isync lm-sensors keepassxc isync libsasl2-modules-kdexoauth2 ssh-askpass-gnome default-jdk-headless mpv network-manager
+	if lsb_release -i | grep -q -E "Ubuntu|Linuxmint"; then
+		sudo apt-get install ubuntu-restricted-extras firefox nomacs
+	else
+		sudo apt-get install gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar firefox-esr
+	fi
+
 	# Install my own keymap
 	sudo cp "$gitroot/.config/xkb/symbols/qq" /usr/share/X11/xkb/symbols/
 
@@ -26,14 +34,6 @@ if [[ ! $1 == nox ]]; then
 
 	# Make sure that the screen shot directory exists
 	mkdir -p ~/Pictures/scrot
-
-	# Debian dependency list:
-	sudo apt-get install git awesome feh conky firefox emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en mosh global apt-file openjdk-8-jdk chromium-browser pavucontrol thunar xsel rxvt-unicode emacs ipython3 virtualenv python3-pip scrot tmux physlock direnv syncthing light arandr isync lm-sensors keepassxc mbsync libsasl2-modules-kdexoauth2 nomacs ssh-askpass-gnome
-	if lsb_release -i | grep -q -E "Ubuntu|Linuxmint"; then
-		sudo apt-get install ubuntu-restricted-extras
-	else
-		sudo apt-get install gstreamer0.10-plugins-good gstreamer0.10-plugins-bad gstreamer1.0-plugins-ugly
-	fi
 
 	# Select default x tools on debian
 	sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
