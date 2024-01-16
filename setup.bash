@@ -16,11 +16,12 @@ if [[ ! $1 == nox ]]; then
 	# Debian dependency list:
 	sudo apt-get install git awesome feh conky emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en mosh global apt-file chromium pavucontrol thunar xsel rxvt-unicode emacs ipython3 virtualenv python3-pip scrot tmux physlock direnv syncthing light arandr isync lm-sensors keepassxc isync libsasl2-modules-kdexoauth2 ssh-askpass-gnome default-jdk-headless mpv network-manager ykcs11 alsa-utils dolphin
 	if lsb_release -i | grep -q -E "Ubuntu|Linuxmint"; then
-		sudo apt-get install ubuntu-restricted-extras firefox nomacs
-		sudo update-alternatives --set x-www-browser /usr/bin/firefox
+		firefox_name=firefox
+		sudo apt-get install ubuntu-restricted-extras nomacs ${firefox_name}
+
 	else
-		sudo apt-get install gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar firefox-esr
-		sudo update-alternatives --set x-www-browser /usr/bin/firefox-esr
+		firefox_name=firefox-esr
+		sudo apt-get install gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar ${firefox_name}
 	fi
 
 	## Install Signal
@@ -49,7 +50,9 @@ if [[ ! $1 == nox ]]; then
 
 	# Select default x tools on debian
 	sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
-	sudo update-alternatives --set x-www-browser /usr/bin/firefox
+	sudo update-alternatives --set x-www-browser /usr/bin/${firefox_name}
+	xdg-settings set default-web-browser ${firefox_name}.desktop
+
 else
 	sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-sv aspell-en tmux direnv
 fi
