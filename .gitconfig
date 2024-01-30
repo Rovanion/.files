@@ -40,3 +40,5 @@
 	path = ~/source/nsc/.gitconfig
 [includeIf "hasconfig:remote.*.url:git@gitlab.liu.se:*/**"]
 	path = ~/source/nsc/.gitconfig
+[commit]
+	verbose = true
