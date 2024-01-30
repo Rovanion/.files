@@ -37,4 +37,6 @@
 [diff "clojure"]
 	xfuncname = "^(\\((def|ns)([^\\[])*).*$"
 [includeIf "gitdir:~/source/nsc/"]
-    path = ~/source/nsc/.gitconfig
+	path = ~/source/nsc/.gitconfig
+[includeIf "hasconfig:remote.*.url:git@gitlab.liu.se:*/**"]
+	path = ~/source/nsc/.gitconfig
