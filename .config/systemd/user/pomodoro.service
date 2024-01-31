@@ -1,0 +1,9 @@
+[Unit]
+Description=Pomodoro timer
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/pomodoro
+
+[Install]
+WantedBy=default.target
