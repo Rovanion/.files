@@ -115,9 +115,11 @@
 ;; Remove trailing whitespaces before saving
 (defun delete-trailing-whitespace-unless-whitelisted ()
   "Delete trailing whitespace if not in whitelisted directories."
-  (when (not (string-match "cos-logs" buffer-file-name))
+  (when (not (or (string-match "cos-logs" buffer-file-name)
+                 (string-match "snippets" buffer-file-name)))
     (delete-trailing-whitespace)))
 (add-hook 'before-save-hook 'delete-trailing-whitespace-unless-whitelisted)
+
 
 ;; Surpress emacs init screen
 (setq inhibit-startup-screen t)
