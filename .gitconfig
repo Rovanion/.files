@@ -44,3 +44,5 @@
 	verbose = true
 [rerere]
 	enabled = true
+[diff]
+	noprefix = true
