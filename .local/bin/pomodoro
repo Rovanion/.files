@@ -1,0 +1,6 @@
+#!/bin/sh
+sleep 20m
+if ! pidof physlock >/dev/null; then
+	physlock
+fi
+exec $0
