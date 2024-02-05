@@ -500,7 +500,10 @@ awful.rules.rules = {
     { rule = { class = "Signal" },       properties = { screen = 1, tag = "chat" } },
     { rule = { class = "Spotify" },      properties = { screen = 1, tag = "music" } },
     { rule = { class = "Spotube" },      properties = { screen = 1, tag = "music" } },
-    { rule = { class = "KeePassXC" },    properties = { screen = 1, tag = "pass" } }
+    { rule = { class = "KeePassXC" },    properties = { screen = 1, tag = "pass" } },
+    { rule = { instance = "web" },       properties = { tag = "web" } },
+    { rule = { instance = "work" },      properties = { tag = "work" } },
+    { rule = { instance = "ssh" },       properties = { tag = "ssh" } },
 }
 -- }}}
 
