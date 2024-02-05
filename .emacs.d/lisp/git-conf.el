@@ -1,3 +1,5 @@
+(require 'magit)
+
 (custom-set-faces
  ;; Magit
  '(magit-diff-added ((((type tty)) (:foreground "green"))))
