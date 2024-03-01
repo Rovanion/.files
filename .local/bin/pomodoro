@@ -1,5 +1,7 @@
 #!/bin/sh
 sleep 20m
+notify-send "Låser om 4 sekunder."
+sleep 4
 if ! pidof physlock >/dev/null; then
 	physlock
 fi
