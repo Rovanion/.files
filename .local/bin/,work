@@ -1,6 +1,6 @@
 #!/bin/sh
-urxvt -name web -e ew ~/source/org/anteckningar/arbetsbok-2024.org &
 urxvt -name web -e ew --eval '(mu4e)' &
+urxvt -name web -e ew ~/source/org/anteckningar/arbetsbok-2024.org &
 urxvt -name work -cd ~/nsc/yepu &
 urxvt -name work -cd ~/nsc/yepu &
 urxvt -name work -cd ~/nsc/yepu &
