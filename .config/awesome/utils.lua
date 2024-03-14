@@ -83,8 +83,11 @@ function utils.run_if_not_running(program, arguments)
       "pgrep " .. program,
       function(stdout, stderr, reason, exit_code)
          if exit_code ~= 0 then
-            naughty.notify({ text = exit_code .. " spawning " .. program .. " " .. arguments })
-            awful.spawn(program .. " " .. arguments)
+           naughty.notify({ text = "Spawned " .. program .. " " .. arguments })
+           awful.spawn.easy_async(program .. " " .. arguments,
+           function(stdout, stderr, reason, exit_code)
+             naughty.notify({ text = "Spawned " .. program .. " " .. arguments " with exitcode " .. exit_code .. " and stdout " .. stdout })
+           end)
          end
 
    end)
