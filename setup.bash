@@ -9,22 +9,15 @@ scriptdir=$(dirname -- $(readlink -e "$0"))
 cd $scriptdir
 gitroot=$(git rev-parse --show-toplevel)
 
+command -v git &>/dev/null || { echo 'Git not found, install it first.'; exit 1; }
+
 git submodule init
 git submodule update
 
-if [[ ! $1 == nox ]]; then
-	# Debian dependency list:
-	sudo apt-get install git awesome feh conky emacs audacious nautilus hunspell eog redshift htop ttf-mscorefonts-installer xfonts-terminus xfonts-terminus-dos rxvt-unicode volumeicon-alsa file-roller keepassx mu4e maildir-utils weechat aspell-sv aspell-en mosh global apt-file chromium pavucontrol thunar xsel rxvt-unicode emacs ipython3 virtualenv python3-pip scrot tmux physlock direnv syncthing light arandr isync lm-sensors keepassxc isync libsasl2-modules-kdexoauth2 ssh-askpass-gnome default-jdk-headless mpv network-manager ykcs11 alsa-utils dolphin
-	if lsb_release -i | grep -q -E "Ubuntu|Linuxmint"; then
-		firefox_name=firefox
-		sudo apt-get install ubuntu-restricted-extras nomacs ${firefox_name}
 
-	else
-		firefox_name=firefox-esr
-		sudo apt-get install gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar ${firefox_name}
-	fi
+### Functions
 
-	## Install Signal
+function install-signal-spotify-repos {
 	# 1. Install Signal's official public software signing key:
 	wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
 	cat signal-desktop-keyring.gpg | sudo tee /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
@@ -34,49 +27,160 @@ if [[ ! $1 == nox ]]; then
 	curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | \
 		sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 	sudo bash -c 'echo "deb http://repository.spotify.com stable non-free" > /etc/apt/sources.list.d/spotify.list'
-	# 3. Update your package database and install Signal:
-	sudo apt update
-	sudo apt install signal-desktop \
-	                 spotify-client
+}
 
-	# Install my own keymap
-	sudo cp "$gitroot/.config/xkb/symbols/qq" /usr/share/X11/xkb/symbols/
 
-	# Make nautilus not search through all files when you type anything
-	if ! gsettings set org.gnome.nautilus.preferences enable-interactive-search true; then
+### Package lists.
+
+base_packages=(
+	htop
+	screen
+	tmux
+	## Emacs as mail client.
+	maildir-utils								 	# mu
+	isync													# mbsync
+	mu4e													# Emacs mode.
+	weechat												# Chat.
+	aspell-sv
+	aspell-en
+	hunspell
+	direnv												# Start directory specific environment on cd.
+	clojure												# Also brings in the JVM.
+	rlwrap												# Add GNU readline to any command.
+	bind9-host                    # host
+	augeas-tools									# augtool, configuration editing.
+)
+
+headless_packages=(
+	emacs-nox											# Emacs, duh.
+)
+
+workstation_packages=(
+	ykcs11												# Yubikey SSH integration.
+	yubico-piv-tool								# Yubikey manipulation tools.
+	alsa-utils										# alsamixer
+	shellcheck										# Check bash scripts for errors.
+	pulsemixer										# TUI Pulse Audio mixer. Hopefully superseeded by Pipewire soon.
+)
+
+graphical_packages=(
+	lightdm												# Display manager.
+	awesome												# Window manager.
+	keepassxc											# Password manager.
+	nsxiv													# Image viewer.
+	dolphin												# Filesystem explorer.
+	network-manager-gnome					# nm-applet
+	cups													# Printing.
+	ssh-askpass-gnome							# Graphical "OK to use yubikey?".
+	evince												# PDF viewer.
+	conky													# Clock on desktop that I never see.
+	audacious											# Music player that I never use.
+	mpv														# Movie player that I actually use.
+	redshift											# Tint screen red when the sun goes down.
+	blueman												# Bluetooth, blueman-applet.
+	fluidsynth										# MIDI sound font.
+	qgis													# Always end up editing maps in some way.
+	emacs-gtk											# For x-get-resource function.
+	signal-desktop								# Signal chat.
+	spotify												# Music yao.
+)
+
+
+### Distribution specific code paths.
+
+distributor=$(lsb_release --id --short 2>/dev/null)
+case $distributor in
+	Debian)
+		firefox_name=firefox-esr
+		codec_packages=(gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar)
+		if ! grep -q contrib /etc/apt/sources.list; then
+			read -p "Contrib not found in /etc/apt/sources.list, do you want to enable it along with non-free and non-free-firmware? [Yn]" yesno
+			if [[ ! $yesno =~ "[Nn]*" ]]; then
+					sudo apt install software-properties-common
+					sudo add-apt-repository --yes contrib non-free non-free-firmware
+			fi
+		fi
+		# Debian's LightDM does not come with Xsession integration, for some reason.
+		# https://wiki.debian.org/LightDM#User_configuration
+		# Install the script taken from the Ubuntu 24.04 package.
+		sudo cp --no-clobber "$gitroot/lightdm-session" /usr/sbin/lightdm-session
+		;;
+	Ubuntu)
+		firefox_name=firefox
+		codec_packages=(ubuntu-restricted-extras)
+		;;
+esac
+
+
+### Computer usage specific code paths.
+
+case $1 in
+	workstation|leisure)
+		packages=(${base_packages[@]} ${workstation_packages[@]} ${graphical_packages[@]} ${codec_packages[@]} $firefox_name)
+		systemctl --user enable ssh-agent
+		[ -f /etc/apt/sources.list.d/spotify.list ] || install-signal-spotify-repos
+		# Make nautilus not search through all files when you type anything
+		if ! gsettings set org.gnome.nautilus.preferences enable-interactive-search true; then
 	    echo "The installed version of Nautilus does not support non-recursive search."
-	fi
+		fi
+		# Set the gtk controls to behave like emacs
+		gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+		# Make sure that the screen shot directory exists
+		mkdir -p ~/Pictures/scrot
+		## Select default X tools.
+		sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
+		sudo update-alternatives --set x-www-browser /usr/bin/${firefox_name}
+		xdg-settings set default-web-browser ${firefox_name}.desktop
+		;;& # Resume matching to pick up workstation-only rule.
+	workstation)
+		systemctl --user enable pomodoro;;
+	headless-workstation)
+		packages=(${base_packages[@]} ${workstation_packages[@]} ${headless_packages[@]}) ;;
+	server)
+		packages=(${base_packages[@]} ${headless_packages[@]}) ;;
+	*)
+		echo "First argument should be one of workstation, leisure, headless-workstation or server."
+		exit 2 ;;
+esac
 
-	# Set the gtk controls to behave like emacs
-	gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+case $1 in
+	workstation|leisure)
+		# Allow me to run light as root without password.
+		sudo bash -c 'echo "rovanion ALL=(ALL) NOPASSWD: /usr/bin/light" > /etc/sudoers.d/rovanion'
+		# Configure LightDM.
+		mkdir -p /etc/lightdm/lightdm.conf.d
+		if ! [ -L /etc/lightdm/lightdm.conf.d/01_rovanion.conf ]; then
+			sudo ln -s /etc/lightdm/lightdm.conf.d/01_rovanion.conf "$gitroot/lightdm.conf"
+		fi
+		# Install my own keymap.
+		if ! [ -L /usr/share/X11/xkb/symbols/qq ]; then
+			sudo ln -s /usr/share/X11/xkb/symbols/qq "$gitroot/.config/xkb/symbols/qq"
+		fi
 
-	# Make sure that the screen shot directory exists
-	mkdir -p ~/Pictures/scrot
+	;;
+esac
 
-	# Select default x tools on debian
-	sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
-	sudo update-alternatives --set x-www-browser /usr/bin/${firefox_name}
-	xdg-settings set default-web-browser ${firefox_name}.desktop
 
-else
-	sudo apt-get install git emacs-nox htop screen maildir-utils mu4e weechat aspell-sv aspell-en tmux direnv
-fi
+### Install packages.
 
-# Fix GNU ELPA GPG keys being out of date in Ubuntu 18.04
-if lsb_release --id | grep -q Ubuntu && lsb_release --release | grep -q 18.04; then
-	gpg --homedir ~/.emacs.d/elpa/gnupg/ --receive-keys 066DAFCB81E42C40
-fi
+sudo apt update
+sudo apt install "${packages[@]}"
 
-# Set emacs as the default editor
+
+### Generic setup
+
 sudo update-alternatives --set editor /usr/bin/emacs
+# Really ignore changes to htoprc, even though we carry a baseline conf in the repo
+git update-index --assume-unchanged .config/htop/htoprc
+
+
+
+### Run related setup scripts
 
 # Lastly symlink in all the config if not already done
 if [[ ! -f "$HOME/.gitconfig" ]]; then
 	./symlinker.bash
 fi
-
-# Really ignore changes to htoprc, even though we carry a baseline conf in the repo
-git update-index --assume-unchanged .config/htop/htoprc
 
 # Run mailconf setup script.
 ./mailconf/setup.sh
