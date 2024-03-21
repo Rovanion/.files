@@ -123,6 +123,16 @@ case $1 in
 		if ! gsettings set org.gnome.nautilus.preferences enable-interactive-search true; then
 	    echo "The installed version of Nautilus does not support non-recursive search."
 		fi
+		# Prevent suspend on laptop lid closure.
+		if ! grep -q 'HandleLidSwitch=ignore' /etc/systemd/logind.conf; then
+			cat <<-EOF | sudo tee -a /etc/systemd/logind.conf >/dev/null
+				HandleLidSwitch=ignore
+				HandleLidSwitchDocked=ignore
+				HandleLidSwitchExternalPower=ignore
+			EOF
+			sudo systemctl restart systemd-logind.service
+		fi
+
 		# Set the gtk controls to behave like emacs
 		gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 		# Make sure that the screen shot directory exists
