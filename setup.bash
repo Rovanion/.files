@@ -121,7 +121,7 @@ case $1 in
 		[ -f /etc/apt/sources.list.d/spotify.list ] || install-signal-spotify-repos
 		# Make nautilus not search through all files when you type anything
 		if ! gsettings set org.gnome.nautilus.preferences enable-interactive-search true; then
-	    echo "The installed version of Nautilus does not support non-recursive search."
+			echo "The installed version of Nautilus does not support non-recursive search."
 		fi
 		# Prevent suspend on laptop lid closure.
 		if ! grep -q 'HandleLidSwitch=ignore' /etc/systemd/logind.conf; then
