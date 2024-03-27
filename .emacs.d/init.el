@@ -178,20 +178,6 @@
 (setq comment-auto-fill-only-comments t)
 (auto-fill-mode t)
 
-;; Reload Firefox page through MozRepl.
-(require 'moz)
-(autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
-
-(defun auto-reload-firefox-on-after-save-hook ()
-  (add-hook 'after-save-hook
-            '(lambda ()
-               (interactive)
-               (comint-send-string (inferior-moz-process)
-                                   "setTimeout(BrowserReload, \"100\");"))
-            'append 'local)) ; buffer-local
-
-(add-hook 'toml-mode-hook 'auto-reload-firefox-on-after-save-hook)
-
 ;; Tabs for indentation, spaces for alignment.
 (smart-tabs-insinuate 'c 'c++ 'java 'cperl 'nxml 'ruby 'python)
 
