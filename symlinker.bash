@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###
 # Script which symlinks the contents of it's folder into the parent folder.
@@ -13,7 +13,7 @@ echo "Creating links in $dest"
 
 for file in $(ls -a); do
 	# If the file is ., .., .git, etc. this script or README then do nothing.
-	if [[ $file =~ ^.$|^..$|^.git$|^.ssh$|^symlinker.bash$|^setup.bash$|^README|^mailconf$ ]]; then
+	if [[ $file =~ ^.$|^..$|^.git$|^.ssh$|^.+.bash~?$|^README|^mailconf$|^guix$ ]]; then
 		continue
 	fi
 
