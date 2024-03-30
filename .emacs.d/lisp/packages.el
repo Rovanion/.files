@@ -68,6 +68,7 @@
         adaptive-wrap          ; Indent wrapped lines for reduced visual clutter.
         pytest                 ; Python py.test wrapper.
         magit                  ; Git interface.
+        afternoon-theme        ; Color theme.
         ))
 
 ;; Repositories
