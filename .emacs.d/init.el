@@ -259,7 +259,7 @@
  `(org-level-5              ((t (:background "background"))))
  `(org-level-6              ((t (:background "background"))))
  `(org-checkbox             ((t (:background "background"))))
- `(helm-selection           ((t (:background "darkred"))))
+ `(helm-selection           ((t (:background "brightred"))))
  `(helm-ff-file             ((t (:foreground "foreground"))))
  `(diff-changed-unspecified ((t (:background "background"))))
  `(diff-indicator-changed   ((t (:background "background"))))
