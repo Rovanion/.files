@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: cos-logs-add-entry
+# description: Writes out the commit message for a cos-logs entry based on diff at the bottom of COMMIT_EDITMSG produced by git commit -v.
+# key: cosl
+# --
+${1:`(concat (when (re-search-forward "^--- done_on_\\(\\w+\\)" nil 'noerror)
+						 			 (replace-regexp-in-string "io$" "-I/O" (capitalize (match-string-no-properties 1))))
+						 ": "
+						 (when (re-search-forward "^\\+\\* [0-9]\\{4\\}-[0-9][0-9]-[0-9][0-9] \\(.+\\) / \\w+$" nil 'noerror)
+             			 (match-string-no-properties 1)))`}
+
