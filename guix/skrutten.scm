@@ -51,7 +51,13 @@
                  ;; record as a second argument to 'service' below.
                  (service openssh-service-type)
                  (service dhcp-client-service-type)
-                 (service mumble-server-service-type)
+                 (service mumble-server-service-type
+                          (mumble-server-configuration
+                           (welcome-text
+                            "Welcome, welcome to City 17. You have chosen, or been chosen, to relocate to one of our finest remaining urban centres. I thought so much of City 17 that I elected to establish my Administration here, in the Citadel so thoughtfully provided by Our Benefactors. I have been proud to call City 17 my home. And so, whether you are here to stay or passing through on your way to parts unknown, welcome to City 17. It's safer here.")
+                           (cert-required? #t)
+                           (channel-nesting-limit 2)
+                           (allow-html? #t)))
                  (service ntp-service-type)
                  (service gpm-service-type))
 
