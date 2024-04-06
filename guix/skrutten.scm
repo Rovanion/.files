@@ -11,16 +11,16 @@
 ;; used in this configuration.
 
 (use-modules (gnu))
-(use-service-modules cups desktop networking ssh xorg)
+(use-service-modules cups desktop networking ssh xorg telephony)
 ;; Import nonfree linux module.
-;; (use-modules (nongnu packages linux)    
-;;              (nongnu system linux-initrd))
+(use-modules (nongnu packages linux)
+             (nongnu system linux-initrd))
 
 (operating-system
   ;; Use non-free Linux and firmware.
-  ;; (kernel linux)
-  ;; (initrd microcode-initrd)
-  ;; (firmware (list linux-firmware))
+  (kernel linux)
+  (initrd microcode-initrd)
+  (firmware (list linux-firmware))
 
   (locale "sv_SE.utf8")
   (timezone "Europe/Stockholm")
@@ -51,12 +51,21 @@
                  ;; record as a second argument to 'service' below.
                  (service openssh-service-type)
                  (service dhcp-client-service-type)
+                 (service mumble-server-service-type)
                  (service ntp-service-type)
                  (service gpm-service-type))
 
            ;; This is the default list of services we
            ;; are appending to.
-           %base-services))
+           (modify-services %base-services
+                            (guix-service-type config => (guix-configuration
+               (inherit config)
+               (substitute-urls
+                (append (list "https://substitutes.nonguix.org")
+                  %default-substitute-urls))
+               (authorized-keys
+                (append (list (plain-file "non-guix.pub" "(public-key (ecc (curve Ed25519) (q #C1FD53E5D4CE971933EC50C9F307AE2171A2D3B52C804642A7A35F84F3A4EA98#)))"))
+                  %default-authorized-guix-keys)))))))
   (bootloader (bootloader-configuration
                 (bootloader grub-bootloader)
                 (targets (list "/dev/sdb"))
