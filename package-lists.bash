@@ -19,6 +19,7 @@ base_packages=(
 	augeas-tools									# augtool, configuration editing.
 	shellcheck										# Check bash scripts for errors.
 	ncurses                       # tput, determines terminal capabilities.
+	rsync													# To copy files.
 )
 
 headless_packages=(
