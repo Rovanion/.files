@@ -40,7 +40,7 @@ graphical_packages=(
 	dolphin												# Filesystem explorer.
 	network-manager-gnome					# nm-applet
 	cups													# Printing.
-	ssh-askpass-gnome							# Graphical "OK to use yubikey?".
+	ssh-askpass-fullscreen        # Graphical "OK to use yubikey?" or "OK to use shared SSH connection?".
 	evince												# PDF viewer.
 	conky													# Clock on desktop that I never see.
 	audacious											# Music player that I never use.
