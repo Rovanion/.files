@@ -268,7 +268,7 @@ awful.screen.connect_for_each_screen(function(s)
     local ls = awful.layout.layouts;
     local layout_map = { ls[2], ls[2], ls[2], ls[2], ls[2], ls[1], ls[2], ls[2], ls[2], ls[2] }
     -- Each screen has its own tag table.
-    awful.tag({ "web", "work", "ssh", "music", "chat", "float", "pass", "8", "9" }, s, layout_map)
+    awful.tag({ "web", "work", "remote", "music", "chat", "float", "pass", "8", "9" }, s, layout_map)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -503,14 +503,14 @@ awful.rules.rules = {
     { rule = { class = "KeePassXC" },    properties = { screen = 1, tag = "pass" } },
     { rule = { instance = "web-main" },  properties = { screen = 1, tag = "web" } },
     { rule = { instance = "work-main" }, properties = { screen = 1, tag = "work" } },
-    { rule = { instance = "ssh-main" },  properties = { screen = 1, tag = "ssh" } },
+    { rule = { instance = "remote-main" },properties= { screen = 1, tag = "remote" } },
     { rule = { instance = "music-main" },properties = { screen = 1, tag = "music" } },
     { rule = { instance = "chat-main" }, properties = { screen = 1, tag = "chat" } },
     { rule = { instance = "float-main" },properties = { screen = 1, tag = "float" } },
     { rule = { instance = "pass-main" }, properties = { screen = 1, tag = "pass" } },
     { rule = { instance = "web" },       properties = { tag = "web" } },
     { rule = { instance = "work" },      properties = { tag = "work" } },
-    { rule = { instance = "ssh" },       properties = { tag = "ssh" } },
+    { rule = { instance = "remote" },    properties = { tag = "remote" } },
     { rule = { instance = "music" },     properties = { tag = "music" } },
     { rule = { instance = "chat" },      properties = { tag = "chat" } },
     { rule = { instance = "float" },     properties = { tag = "float" } },
