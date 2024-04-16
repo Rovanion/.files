@@ -32,8 +32,9 @@
 (require 'reason-conf)
 (require 'shell-conf)
 (require 'scheme-conf)
-;; Load conf for mail client.
-(require 'mu4e-conf)
+;; Load conf for mail client if mu4e is installed on the system.
+(when (package-installed-p 'mu4e)
+  (require 'mu4e-conf))
 ;; Conf for directory listing mode.
 (require 'dired-conf)
 (require 'org-conf)
