@@ -130,6 +130,9 @@
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
+;; Enable python-mode when editing easybuild-files. They are evaluated as python code.
+(add-to-list 'auto-mode-alist '("\\.eb$" . python-mode))
+
 ;; Should be a fix for <dead-acute> is undefined.
 (require 'iso-transl)
 
