@@ -20,7 +20,6 @@
         markdown-toc
         recompile-on-save
         toml-mode
-        mu4e-maildirs-extension
         smart-tabs-mode
         cider
         smartparens
