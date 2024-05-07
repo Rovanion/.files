@@ -25,4 +25,5 @@ for file in $(ls -a); do
 done
 
 # Special case for .ssh since some systems (RHEL) does not allow for ~/.ssh to be a symlink.
-ln -s $currentDir/.ssh/config $dest/.ssh/config
+chmod g-rw,o-r $currentDir/.ssh/config
+ln $currentDir/.ssh/config $dest/.ssh/config
