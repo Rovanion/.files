@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: NSC COS-log entry
+# key: *
+# --
+* `(format-time-string "%Y-%m-%d")` $1 / rovanion
