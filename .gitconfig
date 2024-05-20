@@ -14,7 +14,7 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	psed = !sh -c 'git grep --null --full-name --name-only --perl-regexp -e \"$1\" | xargs -0 perl -i -p -e \"s/$1/$2/g\"' -
-	ff = "!f() { old=$PWD; [ -n \"$GIT_PREFIX\" ] && cd \"$GIT_PREFIX\"; git ls-files \"$old\" | grep \"$1\" -; }; f"
+	ff = "!f() { old=$PWD; [ -n \"$GIT_PREFIX\" ] && cd \"$GIT_PREFIX\"; git ls-files \"$old\" | grep -i \"$1\" -; }; f"
 	changes = log --patch --find-renames --follow --stat --
 	re = remote -v
 [credential]
