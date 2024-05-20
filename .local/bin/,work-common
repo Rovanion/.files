@@ -1,0 +1,8 @@
+#!/bin/sh
+urxvt -name web-main -title "mu4e"      -e ew --eval '(mu4e)' &
+urxvt -name web-main -title "Arbetsbok" -e ew ~/source/org/anteckningar/arbetsbok-2024.org &
+urxvt -name work -cd ~/nsc/yepu &
+urxvt -name work -cd ~/nsc/yepu &
+urxvt -name work -cd ~/nsc/yepu &
+urxvt -name ssh -cd ~/nsc/cos-logs &
+urxvt -name ssh -cd ~/nsc/cos-logs &
