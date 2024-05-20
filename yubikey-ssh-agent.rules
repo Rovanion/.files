@@ -1,0 +1,1 @@
+KERNEL=="hidraw2", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", TAG+="uaccess", GROUP="plugdev", MODE="0660", RUN+="/usr/local/bin/yubikey-ssh-agent-attached '%E{ACTION}'"

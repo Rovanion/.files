@@ -1,0 +1,7 @@
+#!/bin/bash -i
+ssh-add -e /usr/lib/x86_64-linux-gnu/libykcs11.so
+# TODO: Perhaps add a timeout with -t 12h ?
+if ! ssh-add -s /usr/lib/x86_64-linux-gnu/libykcs11.so; then
+	echo 'Failed to add Yubikey, is it plugged in?'
+fi
+emacsclient -e "(setenv \"SSH_AUTH_SOCK\" \"$(printf %s "$SSH_AUTH_SOCK")\")"

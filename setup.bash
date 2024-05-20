@@ -150,6 +150,11 @@ fi
 # Run mailconf setup script.
 ./mailconf/setup.sh
 
+
+### Yubikey hardware action
+cp ./yubikey-ssh-agent-attached.bash /usr/local/bin/yubikey-ssh-agent-attached
+cp ./yubikey-ssh-agent.rules         /etc/udev/rules.d/yubikey-ssh-agent.rules
+
 # Clear traps.
 trap - DEBUG
 trap - EXIT

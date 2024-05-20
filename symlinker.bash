@@ -13,7 +13,7 @@ echo "Creating links in $dest"
 
 for file in $(ls -a); do
 	# If the file is ., .., .git, etc. this script or README then do nothing.
-	if [[ $file =~ ^.$|^..$|^.git$|^.ssh$|^.+.bash~?$|^README|^mailconf$|^guix$ ]]; then
+	if [[ $file =~ ^\.$|^\.\.$|^\.git$|^\.ssh$|^.+\.bash~?$|^.+\.rules~?$|^.+\.conf~?$|^README$|^mailconf$|^guix$ ]]; then
 		continue
 	fi
 
