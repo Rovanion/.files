@@ -82,8 +82,8 @@ URxvt*saveLines:                      10000
 ! URxvt*modifier:                       modifier
 ! URxvt*cutchars:                       string
 ! URxvt*answerbackString:               string
-URxvt*secondaryScreen:                1
-URxvt*secondaryScroll:                0
+URxvt*secondaryScreen:                true
+URxvt*secondaryScroll:                true
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
 URxvt*perl-ext-common:                default,matcher
