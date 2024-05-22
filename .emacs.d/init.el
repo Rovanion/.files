@@ -53,6 +53,9 @@
 
 (direnv-mode)
 
+;; Try to detect textfiles as utf-8 first.
+(prefer-coding-system 'utf-8)
+
 ;; Put scroll bar on the right in graphical mode, also remove toolbars.
 (defun graphical-fixes (_)
   (when (display-graphic-p)
