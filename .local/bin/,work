@@ -1,8 +1,9 @@
 #!/bin/sh
 urxvt -name web -e ew --eval '(mu4e)' &
+urxvt -name work -cd ~/nsc/yepu &
+urxvt -name work -cd ~/nsc/yepu &
+urxvt -name work -cd ~/nsc/yepu &
+urxvt -name remote -cd ~/nsc/cos-logs &
+urxvt -name remote -cd ~/nsc/cos-logs &
+sleep 0.2
 urxvt -name web -e ew ~/source/org/anteckningar/arbetsbok-2024.org &
-urxvt -name work -cd ~/nsc/yepu &
-urxvt -name work -cd ~/nsc/yepu &
-urxvt -name work -cd ~/nsc/yepu &
-urxvt -name remote -cd ~/nsc/cos-logs &
-urxvt -name remote -cd ~/nsc/cos-logs &
