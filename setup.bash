@@ -24,7 +24,7 @@ function install-signal-spotify-repos {
 	# 2. Add Signal's repository to your list of repositories:
 	sudo bash -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main" > /etc/apt/sources.list.d/signal-xenial.list'
 	## And Spotify
-	curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | \
+	curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | \
 		sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
 	sudo bash -c 'echo "deb http://repository.spotify.com stable non-free" > /etc/apt/sources.list.d/spotify.list'
 }
@@ -61,7 +61,7 @@ case $distributor in
 		# This is the insane way Guix identifies itself.
 		firefox_name=firefox
 		codec_packages=()
-		
+
 		exit 1
 		;;
 esac
