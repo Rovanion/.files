@@ -86,7 +86,7 @@ function utils.run_if_not_running(program, arguments)
            naughty.notify({ text = "Spawned " .. program .. " " .. arguments })
            awful.spawn.easy_async(program .. " " .. arguments,
            function(stdout, stderr, reason, exit_code)
-             naughty.notify({ text = "Spawned " .. program .. " " .. arguments " with exitcode " .. exit_code .. " and stdout " .. stdout })
+             naughty.notify({ text = "Spawned " .. program .. " " .. arguments .. " with exitcode " .. exit_code  .. ", stdout " .. stdout .. " and stderr " .. stderr})
            end)
          end
 
