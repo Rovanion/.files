@@ -144,7 +144,7 @@ git update-index --assume-unchanged .config/htop/htoprc
 
 # Lastly symlink in all the config if not already done
 if [[ ! -f "$HOME/.gitconfig" ]]; then
-	./symlinker.bash
+	./symlinker.sh
 fi
 
 # Run mailconf setup script.
