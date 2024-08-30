@@ -29,8 +29,6 @@ headless_packages=(
 graphical_workstation_packages=(
 	ykcs11												# Yubikey SSH integration.
 	yubico-piv-tool								# Yubikey manipulation tools.
-	alsa-utils										# alsamixer
-	pulsemixer										# TUI Pulse Audio mixer. Hopefully superseeded by Pipewire soon.
 )
 
 graphical_packages=(
@@ -53,4 +51,7 @@ graphical_packages=(
 	emacs-gtk											# For x-get-resource function.
 	signal-desktop								# Signal chat.
 	spotify												# Music yao.
+	alsa-utils										# alsamixer
+	pulsemixer										# TUI Pulse Audio mixer. Hopefully superseeded by Pipewire soon.
 )
+
