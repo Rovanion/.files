@@ -50,9 +50,11 @@ URxvt*cursorBlink:                    false
 ! URxvt*path:                           search path
 ! URxvt*backgroundPixmap:               file[;geom]
 ! URxvt*iconFile:                       file
+!URxvt*font:                           -*-*-medium-r-*-*-13-*-*-*-*-*-*-*
+!URxvt*font:                           xft:terminus:pixelsize=14
+!URxvt*boldFont:                       xft:terminus:pixelsize=14:style=bold
 URxvt*font:                           -xos4-terminus-medium-r-normal--16-160-72-72-c-80-iso10646-1
 URxvt*boldFont:                       -xos4-terminus-bold-r-normal--16-160-72-72-c-80-iso10646-1
-! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
 ! URxvt*intensityStyles:                boolean
