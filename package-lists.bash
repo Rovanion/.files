@@ -63,3 +63,14 @@ graphical_packages=(
 	mumble 										  # The VoIP client.
 )
 
+case $1 in
+	workstation|leisure)
+		packages=(${base_packages[@]} ${graphical_workstation_packages[@]} ${graphical_packages[@]} ${codec_packages[@]} $firefox_name) ;;
+	headless-workstation)
+		packages=(${base_packages[@]} ${workstation_packages[@]} ${headless_packages[@]}) ;;
+	server)
+		packages=(${base_packages[@]} ${headless_packages[@]}) ;;
+	*)
+		echo "First argument should be one of workstation, leisure, headless-workstation or server."
+		exit 2 ;;
+esac

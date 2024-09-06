@@ -99,10 +99,8 @@ case $1 in
 		;;& # Resume matching to pick up workstation-only rule.
 	workstation)
 		systemctl --user enable pomodoro;;
-	headless-workstation)
-		packages=(${base_packages[@]} ${workstation_packages[@]} ${headless_packages[@]}) ;;
-	server)
-		packages=(${base_packages[@]} ${headless_packages[@]}) ;;
+	headless-workstation) ;;
+	server) ;;
 	*)
 		echo "First argument should be one of workstation, leisure, headless-workstation or server."
 		exit 2 ;;

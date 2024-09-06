@@ -21,16 +21,16 @@ declare -rA guix_package_translations=(
 	[network-manager-gnome]=network-manager-applet
 	[ykcs11]=yubico-piv-tool
 )
-packages=()
-for package in ${base_packages[@]}; do
-	packages+=(${guix_package_translations[$package]:-$package})
+guix_packages=()
+for package in ${packages[@]}; do
+	guix_packages+=(${guix_package_translations[$package]:-$package})
 done
 
 
 ### Package installation
 
 guix pull
-guix install ${packages[@]}
+guix install ${guix_packages[@]}
 
 
 ### Run related setup scripts
