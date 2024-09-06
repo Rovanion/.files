@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+
+scriptdir=$(dirname -- $(readlink -e "$0"))
+cd $scriptdir
+
 source ../package-lists.bash
 
 declare -rA guix_package_translations=(
@@ -37,4 +41,4 @@ if [[ ! -f "$HOME/.gitconfig" ]]; then
 fi
 
 # Run mailconf setup script.
-./mailconf/setup.sh
+../mailconf/setup.sh
