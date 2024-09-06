@@ -9,6 +9,13 @@ declare -rA guix_package_translations=(
 	[bind9-host]=knot:tools
 	[augeas-tools]=augeas
 	[emacs-nox]=emacs-no-x
+	[fonts-terminus]=font-terminus
+	[x11-utils]='xfontsel setxkbmap'
+	[spotify]=spotifyd  	# Technically not a spotify client, instead something a spotify client can connect to.
+	[emacs-gtk]=emacs
+	[ssh-askpass-fullscreen]=x11-ssh-askpass
+	[network-manager-gnome]=network-manager-applet
+	[ykcs11]=yubico-piv-tool
 )
 packages=()
 for package in ${base_packages[@]}; do

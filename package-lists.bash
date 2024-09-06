@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# The main export of this file is the variable $packages.
+
 base_packages=(
 	htop
 	screen
@@ -20,6 +22,10 @@ base_packages=(
 	shellcheck										# Check bash scripts for errors.
 	ncurses                       # tput, determines terminal capabilities.
 	rsync													# To copy files.
+	fonts-terminus									# Terminal monospace font.
+	syncthing		# The decentralized Dropbox.
+	openssh       # The secure shell client.
+	recutils    # recsel, search through text output.
 )
 
 headless_packages=(
@@ -53,5 +59,7 @@ graphical_packages=(
 	spotify												# Music yao.
 	alsa-utils										# alsamixer
 	pulsemixer										# TUI Pulse Audio mixer. Hopefully superseeded by Pipewire soon.
+	x11-utils										# To install xfontsel, the font viewer.
+	mumble 										  # The VoIP client.
 )
 
