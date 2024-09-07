@@ -26,6 +26,7 @@ base_packages=(
 	syncthing		# The decentralized Dropbox.
 	openssh       # The secure shell client.
 	recutils    # recsel, search through text output.
+	python
 )
 
 headless_packages=(
