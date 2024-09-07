@@ -1,6 +1,13 @@
 #!/bin/sh
 # -*- compile-command: "configure-mouse-and-keyboard" -*-
 
+# See: https://unix.stackexchange.com/questions/783122
+# cp -rL /gnu/store/<hash>-fonts-dir/share/fonts/terminus ~/.local/share/fonts/terminus/
+if [ -d ~/.local/share/fonts/terminus/ ]; then
+	xset +fp ~/.local/share/fonts/terminus/
+	xset fp rehash
+fi
+
 # Setting up scrolling on laptop
 if command -v synclient; then
   synclient HorizTwoFingerScroll=1
