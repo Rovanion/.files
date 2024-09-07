@@ -20,6 +20,7 @@ declare -rA guix_package_translations=(
 	[ssh-askpass-fullscreen]=x11-ssh-askpass
 	[network-manager-gnome]=network-manager-applet
 	[ykcs11]=yubico-piv-tool
+	[volumeicon-alsa]=volumeicon
 )
 guix_packages=()
 for package in ${packages[@]}; do
