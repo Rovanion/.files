@@ -187,6 +187,9 @@
 (auto-fill-mode t)
 
 ;; Tabs for indentation, spaces for alignment.
+(defmacro smart-tabs-create-advice-list (advice-list)
+  `(cl-loop for (func . offset) in ,advice-list
+            collect `(smart-tabs-advice ,func ,offset)))
 (smart-tabs-insinuate 'c 'c++ 'java 'cperl 'nxml 'ruby 'python)
 
 ;; We can handle it!
