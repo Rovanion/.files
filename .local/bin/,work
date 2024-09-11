@@ -1,9 +1,10 @@
 #!/bin/sh
-urxvt -name web -e ew --eval '(mu4e)' &
+urxvt -name web-main -e ew --eval '(mu4e)' &
 urxvt -name work -cd ~/nsc/yepu &
 urxvt -name work -cd ~/nsc/yepu &
 urxvt -name work -cd ~/nsc/yepu &
 urxvt -name remote -cd ~/nsc/cos-logs &
 urxvt -name remote -cd ~/nsc/cos-logs &
-sleep 0.2
-urxvt -name web -e ew ~/source/org/anteckningar/arbetsbok-2024.org &
+sleep 0.25
+urxvt -name web-main -e ew ~/source/org/anteckningar/arbetsbok-2024.org &
+# systemctl --user start pomodoro
