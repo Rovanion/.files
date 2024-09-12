@@ -188,6 +188,7 @@
 (auto-fill-mode t)
 
 ;; Tabs for indentation, spaces for alignment.
+;; Ugly patch of smarttabs until https://github.com/jcsalomon/smarttabs/pull/54 is merged.
 (defmacro smart-tabs-create-advice-list (advice-list)
   `(cl-loop for (func . offset) in ,advice-list
             collect `(smart-tabs-advice ,func ,offset)))
