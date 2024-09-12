@@ -98,7 +98,8 @@ case $1 in
 		xdg-settings set default-web-browser ${firefox_name}.desktop
 		;;& # Resume matching to pick up workstation-only rule.
 	workstation)
-		systemctl --user enable pomodoro;;
+		systemctl --user enable pomodoro ;;
+	leisure) ;;
 	headless-workstation) ;;
 	server) ;;
 	*)
