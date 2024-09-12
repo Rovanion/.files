@@ -73,6 +73,6 @@ case $1 in
 	server)
 		packages=(${base_packages[@]} ${headless_packages[@]}) ;;
 	*)
-		echo "First argument should be one of workstation, leisure, headless-workstation or server."
+		echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
 		exit 2 ;;
 esac

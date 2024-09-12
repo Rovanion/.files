@@ -103,7 +103,7 @@ case $1 in
 	headless-workstation) ;;
 	server) ;;
 	*)
-		echo "First argument should be one of workstation, leisure, headless-workstation or server."
+		echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
 		exit 2 ;;
 esac
 
