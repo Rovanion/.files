@@ -161,8 +161,8 @@
 
 ;; Eglot/LSP, used for Python now
 (with-eval-after-load 'eglot
-  (define-key eglot-mode-map  (kbd "M-å")     #'xref-find-definitions)
-  (define-key python-mode-map (kbd "M-ä")     #'xref-pop-marker-stack))
+  (define-key eglot-mode-map (kbd "M-å")      #'xref-find-definitions)
+  (define-key eglot-mode-map (kbd "M-ä")      #'xref-pop-marker-stack))
 
 ;; Python
 (with-eval-after-load 'python-mode
