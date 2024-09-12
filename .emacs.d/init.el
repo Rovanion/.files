@@ -32,6 +32,7 @@
 (require 'reason-conf)
 (require 'shell-conf)
 (require 'scheme-conf)
+(require 'elixir-conf)
 ;; Load conf for mail client if mu4e is installed on the system.
 (when (and (package-installed-p 'mu4e)
            (file-exists-p "lisp/mu4e-conf.el"))
