@@ -114,11 +114,11 @@ case $1 in
 		# Configure LightDM.
 		mkdir -p /etc/lightdm/lightdm.conf.d
 		if ! [ -L /etc/lightdm/lightdm.conf.d/01_rovanion.conf ]; then
-			sudo ln -s /etc/lightdm/lightdm.conf.d/01_rovanion.conf "$gitroot/lightdm.conf"
+			sudo ln -s "$gitroot/lightdm.conf" /etc/lightdm/lightdm.conf.d/01_rovanion.conf
 		fi
 		# Install my own keymap.
 		if ! [ -L /usr/share/X11/xkb/symbols/qq ]; then
-			sudo ln -s /usr/share/X11/xkb/symbols/qq "$gitroot/.config/xkb/symbols/qq"
+			sudo ln -s "$gitroot/.config/xkb/symbols/qq" /usr/share/X11/xkb/symbols/qq
 		fi
 
 	;;
