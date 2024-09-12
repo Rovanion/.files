@@ -7,26 +7,26 @@ base_packages=(
 	screen
 	tmux
 	## Emacs as mail client.
-	maildir-utils								 	# mu
-	isync													# mbsync
-	mu4e													# Emacs mode.
-	weechat												# Chat.
+	maildir-utils                 # mu
+	isync                         # mbsync
+	mu4e                          # Emacs mode.
+	weechat                       # Chat.
 	aspell-sv
 	aspell-en
 	hunspell
-	direnv												# Start directory specific environment on cd.
-	clojure												# Also brings in the JVM.
-	rlwrap												# Add GNU readline to any command.
+	direnv                        # Start directory specific environment on cd.
+	clojure                       # Also brings in the JVM.
+	rlwrap                        # Add GNU readline to any command.
 	bind9-host                    # host
-	augeas-tools									# augtool, configuration editing.
-	shellcheck										# Check bash scripts for errors.
-	ncurses                       # tput, determines terminal capabilities.
-	rsync													# To copy files.
-	fonts-terminus									# Terminal monospace font.
-	syncthing		# The decentralized Dropbox.
-	openssh       # The secure shell client.
-	recutils    # recsel, search through text output.
-	python
+	augeas-tools                  # augtool, configuration editing.
+	shellcheck                    # Check bash scripts for errors.
+	ncurses-bin                   # tput, determines terminal capabilities.
+	rsync                         # To copy files.
+	fonts-terminus                # Terminal monospace font.
+	syncthing                     # The decentralized Dropbox.
+	openssh                       # The secure shell client.
+	recutils                      # recsel, search through text output.
+	python3
 )
 
 headless_packages=(

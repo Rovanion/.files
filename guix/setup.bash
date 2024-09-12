@@ -21,6 +21,9 @@ declare -rA guix_package_translations=(
 	[network-manager-gnome]=network-manager-applet
 	[ykcs11]=yubico-piv-tool
 	[volumeicon-alsa]=volumeicon
+	[python3]=python
+	[ncurses-bin]=ncurses
+	[openssh-client]=openssh-sans-x
 )
 guix_packages=()
 for package in ${packages[@]}; do
