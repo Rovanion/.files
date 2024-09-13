@@ -6,10 +6,11 @@
 
 currentDir=$(pwd)
 dest="$HOME"
-if [ -z $1 ]; then
-	dest=$1
+if [ -n "${1+x}" ]; then
+    dest=$1
+    echo "Explicit destination $1 given."
 fi
-echo "Creating links in $dest"
+echo "Creating links from $currentDir in $dest"
 
 for file in $(ls -a); do
 	# If the file is ., .., .git, this script or README then do nothing.
