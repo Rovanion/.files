@@ -36,6 +36,12 @@
 	rebase = true
 [diff "clojure"]
 	xfuncname = "^(\\((def|ns)([^\\[])*).*$"
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[interactive]
+	diffFilter = diff-highlight
 [includeIf "gitdir:~/source/nsc/"]
 	path = ~/source/nsc/.gitconfig
 [includeIf "hasconfig:remote.*.url:git@gitlab.liu.se:*/**"]
