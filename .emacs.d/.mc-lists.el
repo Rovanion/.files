@@ -8,6 +8,7 @@
         beginning-of-visual-line
         comment-dwim
         end-of-buffer
+        end-of-visual-line
         handle-switch-frame
         indent-for-tab-command
         indent-new-comment-line
