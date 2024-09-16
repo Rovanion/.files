@@ -68,6 +68,7 @@
         pytest                 ; Python py.test wrapper.
         magit                  ; Git interface.
         afternoon-theme        ; Color theme.
+        ement                  ; Matrix client.
         ))
 
 ;; Repositories
