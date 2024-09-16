@@ -133,4 +133,24 @@ the block, into the buffer."
 (connection-local-set-profiles
  '(:application tramp) 'remote-path-with-root-bin)
 
+;;; Enable org's indent by level.
+(setq org-indent-indentation-per-level 1)
+(setq org-startup-indented t)
+
+;;; Remove empty line between source code and results block
+(defun my-remove-line (_a _b)
+  (save-excursion
+    (previous-line)
+    (beginning-of-line)
+    (when (looking-at-p "\n")
+      (kill-line))))
+
+(advice-add 'org-babel--insert-results-keyword :before #'my-remove-line)
+
+(require 'org)
+;;; Allow a possessive s after emphasis charcters, to so that ~datil~s is correctly recognised and translated to `datil`s in Markdown.
+;;; https://emacs.stackexchange.com/a/13828/2325
+(setcar (nthcdr 1 org-emphasis-regexp-components) "-[:space:].,:!?;'\")}\\[s")
+(org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
+
 (provide 'org-conf)
