@@ -17,7 +17,6 @@ default-web-browser=firefox.desktop
 image/x-xcf=gimp.desktop;
 text/html=firefox_firefox.desktop
 x-scheme-handler/about=firefox_firefox.desktop
-x-scheme-handler/ftp=firefox.desktop
 x-scheme-handler/http=firefox_firefox.desktop
 x-scheme-handler/https=firefox_firefox.desktop
 x-scheme-handler/magnet=transmission-gtk.desktop
