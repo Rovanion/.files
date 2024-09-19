@@ -84,7 +84,7 @@ function toggle_fullscreen(c)
 end
 
 function take_screenshot()
-  awful.spawn("scrot --select Pictures/scrot/%Y-%m-%dT%H:%M:%S.png")
+  awful.spawn("scrot --select Pictures/scrot/%Y-%m-%d %H.%M.%S.png")
 end
 
 -- {{{ Error handling
