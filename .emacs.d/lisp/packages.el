@@ -40,7 +40,6 @@
         eval-sexp-fu
         highlight              ; An unlisted dependency of eval-sexp-fu
         string-inflection      ; Switching BETWEEN different_variable-namingConventions.
-        docker-tramp           ; Tramp into docker containers.
         reason-mode            ; An OCaml dialect for JS transpilation.
         merlin                 ; OCaml auto completion.
         dired-single           ; To reuse the same dired buffer while browsing.
