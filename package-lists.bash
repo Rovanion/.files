@@ -63,6 +63,7 @@ graphical_packages=(
 	x11-utils										# To install xfontsel, the font viewer.
 	mumble 										  # The VoIP client.
 	volumeicon-alsa							# Tray icon for adjusting the volume.
+	rxvt-unicode                  # Terminalemulator ju!
 )
 
 case $1 in
