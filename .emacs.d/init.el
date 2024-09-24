@@ -34,8 +34,8 @@
 (require 'scheme-conf)
 (require 'elixir-conf)
 ;; Load conf for mail client if mu4e is installed on the system.
-(when (and (package-installed-p 'mu4e)
-           (file-exists-p "lisp/mu4e-conf.el"))
+(when (and (expand-file-name "lisp/mu4e-conf.el" user-emacs-directory)
+           (package-installed-p 'mu4e))
   (require 'mu4e-conf))
 ;; Conf for directory listing mode.
 (require 'dired-conf)
