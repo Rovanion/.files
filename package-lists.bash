@@ -65,6 +65,8 @@ graphical_packages=(
 	mumble 										  # The VoIP client.
 	volumeicon-alsa							# Tray icon for adjusting the volume.
 	rxvt-unicode                  # Terminalemulator ju!
+	file-roller                   # Archive manager.
+	audacity                      # Sound editor.
 )
 
 case $1 in
