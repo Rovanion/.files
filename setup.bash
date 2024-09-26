@@ -30,17 +30,11 @@ function install-signal-spotify-repos {
 }
 
 
-### Package lists.
-source package-lists.bash
-
-
-### Distribution specific code paths.
+### Distribution specific
 
 distributor=$(lsb_release --id --short 2>/dev/null || cat /etc/issue | tail -n 1)
 case $distributor in
 	Debian)
-		firefox_name=firefox-esr
-		codec_packages=(gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar)
 		if ! grep -q contrib /etc/apt/sources.list; then
 			read -p "Contrib not found in /etc/apt/sources.list, do you want to enable it along with non-free and non-free-firmware? [Yn]" yesno
 			if [[ ! $yesno =~ "[Nn]*" ]]; then
@@ -53,18 +47,15 @@ case $distributor in
 		# Install the script taken from the Ubuntu 24.04 package.
 		sudo cp --no-clobber "$gitroot/lightdm-session" /usr/sbin/lightdm-session
 		;;
-	Ubuntu)
-		firefox_name=firefox
-		codec_packages=(ubuntu-restricted-extras)
-		;;
 	'This is the GNU system.  Welcome.')
-		# This is the insane way Guix identifies itself.
-		firefox_name=firefox
-		codec_packages=()
-
-		exit 1
+		$scriptdir/guix/setup.bash $1
+		exit 0
 		;;
 esac
+
+
+### Package lists.
+source package-lists.bash
 
 
 ### Computer usage specific code paths.

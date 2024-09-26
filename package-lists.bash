@@ -1,6 +1,26 @@
-#!/bin/bash
+#!/bin/bash -eu
 
 # The main export of this file is the variable $packages.
+
+### Distribution specific code paths.
+
+distributor=$(lsb_release --id --short 2>/dev/null || cat /etc/issue | tail -n 1)
+case $distributor in
+	Debian)
+		firefox_name=firefox-esr
+		codec_packages=(gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar)
+		;;
+	Ubuntu)
+		firefox_name=firefox
+		codec_packages=(ubuntu-restricted-extras)
+		;;
+	'This is the GNU system.  Welcome.')
+		# This is the insane way Guix identifies itself.
+		firefox_name=firefox
+		codec_packages=()
+		;;
+esac
+
 
 base_packages=(
 	htop
