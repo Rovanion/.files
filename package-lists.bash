@@ -87,7 +87,8 @@ graphical_packages=(
 	rxvt-unicode                  # Terminalemulator ju!
 	file-roller                   # Archive manager.
 	audacity                      # Sound editor.
-	vlc			      # Media player.
+	vlc                           # Media player.
+	xkbcomp                       # Dependency of configure-mouse-and-keyboard.
 )
 
 case $1 in
