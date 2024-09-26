@@ -87,6 +87,7 @@ graphical_packages=(
 	rxvt-unicode                  # Terminalemulator ju!
 	file-roller                   # Archive manager.
 	audacity                      # Sound editor.
+	vlc			      # Media player.
 )
 
 case $1 in
