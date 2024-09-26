@@ -27,6 +27,7 @@ base_packages=(
 	openssh                       # The secure shell client.
 	recutils                      # recsel, search through text output.
 	python3
+	perl                          # For diff-highlight.
 )
 
 headless_packages=(
