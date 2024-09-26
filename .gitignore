@@ -43,3 +43,7 @@ flycheck_*.el
 ### Ignored folders ###
 # Except for the PAC, Mozilla Firefox settings are synced via the Mozilla account.
 .mozilla
+
+### Global ignores
+# Those pesky rebase and merge conflict files
+*.orig
