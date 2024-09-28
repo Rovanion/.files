@@ -112,4 +112,41 @@ case $1 in
 		exit 2 ;;
 esac
 
+
+
+### Package translation
+
+case $distributor in
+	'This is the GNU system.  Welcome.')
+		# The above is the absolutely insane way Guix identifies itself.
+		declare -rA guix_package_translations=(
+			[maildir-utils]=mu
+			[mu4e]=mu
+			[aspell-sv]=aspell-dict-sv
+			[aspell-en]=aspell-dict-en
+			[bind9-host]=knot:tools
+			[augeas-tools]=augeas
+			[emacs-nox]=emacs-no-x
+			[fonts-terminus]=font-terminus
+			[x11-utils]='xfontsel setxkbmap'
+			[spotify]=spotifyd  	# Technically not a spotify client, instead something a spotify client can connect to.
+			[emacs-gtk]=emacs
+			[ssh-askpass-fullscreen]=x11-ssh-askpass
+			[network-manager-gnome]=network-manager-applet
+			[ykcs11]=yubico-piv-tool
+			[volumeicon-alsa]=volumeicon
+			[python3]=python
+			[ncurses-bin]=ncurses
+			[openssh-client]=openssh-sans-x
+			[locales]=glibc-locales                          # All locales, could be replaced with i.e. ((@ (gnu packages base) make-glibc-utf8-locales) (@ (gnu packages base) glibc) #:locales (list "en_US" "sv_SE") #:name "glibc-utf8-locales-en-se")
+		)
+		guix_packages=()
+		for package in ${packages[@]}; do
+			guix_packages+=(${guix_package_translations[$package]:-$package})
+		done
+		packages=()
+		packages=${guix_packages[@]}
+		;;
+esac
+
 echo ${packages[@]}
