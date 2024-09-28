@@ -31,6 +31,9 @@ base_packages=(
 	isync                         # mbsync
 	mu4e                          # Emacs mode.
 	weechat                       # Chat.
+	## Emacs recommended
+	unzip                         # Unzips compressed archives.
+	zip                           # Makes compressed archives.
 	aspell-sv
 	aspell-en
 	hunspell
