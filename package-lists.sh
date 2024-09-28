@@ -64,7 +64,7 @@ graphical_workstation_packages=(
 )
 
 graphical_packages=(
-	lightdm												# Display manager.
+	lightdm                       # Display manager.
 	awesome												# Window manager.
 	keepassxc											# Password manager.
 	nsxiv													# Image viewer.
@@ -85,9 +85,9 @@ graphical_packages=(
 	spotify												# Music yao.
 	alsa-utils										# alsamixer
 	pulsemixer										# TUI Pulse Audio mixer. Hopefully superseeded by Pipewire soon.
-	x11-utils										# To install xfontsel, the font viewer.
-	mumble 										  # The VoIP client.
-	volumeicon-alsa							# Tray icon for adjusting the volume.
+	x11-utils										  # To install xfontsel, the font viewer.
+	mumble 										    # The VoIP client.
+	volumeicon-alsa							  # Tray icon for adjusting the volume.
 	rxvt-unicode                  # Terminalemulator ju!
 	file-roller                   # Archive manager.
 	audacity                      # Sound editor.
