@@ -52,6 +52,7 @@ base_packages=(
 	recutils                      # recsel, search through text output.
 	python3
 	perl                          # For diff-highlight.
+	ncdu                          # Disk usage in a TUI.
 )
 
 headless_packages=(
