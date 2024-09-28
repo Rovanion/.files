@@ -1,5 +1,5 @@
-#!/bin/bash -e
-
+#!/usr/bin/env bash
+set -e
 # Keep track of the last executed command.
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # Print an error message before exiting.
