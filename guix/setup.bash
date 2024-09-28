@@ -24,6 +24,7 @@ declare -rA guix_package_translations=(
 	[python3]=python
 	[ncurses-bin]=ncurses
 	[openssh-client]=openssh-sans-x
+	[locales]=glibc-locales                          # All locales, could be replaced with i.e. ((@ (gnu packages base) make-glibc-utf8-locales) (@ (gnu packages base) glibc) #:locales (list "en_US" "sv_SE") #:name "glibc-utf8-locales-en-se")
 )
 guix_packages=()
 for package in ${packages[@]}; do
