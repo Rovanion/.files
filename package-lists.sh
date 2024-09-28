@@ -96,6 +96,8 @@ graphical_packages=(
 	libreoffice                   # Office suite.
 	physlock                      # Screen lock.
 	light                         # Control the screen brightness of laptop displays.
+	fonts-wqy-microhei            # Chinese sans-serif font.
+	papirus-icon-theme						# Because symbols good.
 )
 
 case $1 in
