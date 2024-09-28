@@ -4,6 +4,13 @@ set -e
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # Print an error message before exiting.
 trap 'echo "\"${last_command}\" command failed with exit code $?."' EXIT
+# Exit on unbound variables.
+set -u
+
+if [ -z ${1+x} ]; then
+	 echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
+	 exit 2
+fi
 
 scriptdir=$(dirname -- $(readlink -e "$0"))
 cd $scriptdir
@@ -95,8 +102,9 @@ case $1 in
 	headless-workstation) ;;
 	server) ;;
 	*)
-		echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
-		exit 2 ;;
+		echo "Unsupported distribution."
+		exit 3
+		;;
 esac
 
 case $1 in
