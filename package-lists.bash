@@ -93,6 +93,7 @@ graphical_packages=(
 	vlc                           # Media player.
 	xkbcomp                       # Dependency of configure-mouse-and-keyboard.
 	libreoffice                   # Office suite.
+	physlock                      # Screen lock.
 )
 
 case $1 in
