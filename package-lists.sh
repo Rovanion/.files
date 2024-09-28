@@ -129,6 +129,7 @@ case $distributor in
 			[augeas-tools]=augeas
 			[emacs-nox]=emacs-no-x
 			[fonts-terminus]=font-terminus
+			[fonts-wqy-microhei]=font-wqy-microhei
 			[x11-utils]='xfontsel setxkbmap'
 			[spotify]=spotifyd  	# Technically not a spotify client, instead something a spotify client can connect to.
 			[emacs-gtk]=emacs
