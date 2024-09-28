@@ -49,20 +49,21 @@ case $distributor in
 		;;
 	'This is the GNU system.  Welcome.')
 		$scriptdir/guix/setup.bash $1
+		# Reset the trap to avoid error on exit.
+		trap - EXIT
 		exit 0
 		;;
 esac
 
 
 ### Package lists.
-source package-lists.bash
+packages=$(package-lists.sh $1)
 
 
 ### Computer usage specific code paths.
 
 case $1 in
 	workstation|leisure)
-		packages=(${base_packages[@]} ${graphical_workstation_packages[@]} ${graphical_packages[@]} ${codec_packages[@]} $firefox_name)
 		systemctl --user enable ssh-agent
 		[ -f /etc/apt/sources.list.d/spotify.list ] || install-signal-spotify-repos
 		# Make nautilus not search through all files when you type anything

@@ -1,4 +1,4 @@
-#!/bin/bash -eu
+#!/bin/sh -eu
 
 # The main export of this file is the variable $packages.
 
@@ -23,6 +23,7 @@ esac
 
 
 base_packages=(
+	locales                       # Localization and translation.
 	htop
 	screen
 	tmux
@@ -108,3 +109,5 @@ case $1 in
 		echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
 		exit 2 ;;
 esac
+
+echo ${packages[@]}

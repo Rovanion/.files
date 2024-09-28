@@ -3,7 +3,7 @@
 scriptdir=$(dirname -- $(readlink -e "$0"))
 cd $scriptdir
 
-source ../package-lists.bash
+packages=$(../package-lists.sh $1)
 
 declare -rA guix_package_translations=(
 	[maildir-utils]=mu
