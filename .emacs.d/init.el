@@ -215,8 +215,6 @@
 (add-to-list 'default-frame-alist
              '(font . "Terminus-10"))
 
-;; Tramp into alpine docker containers: https://github.com/emacs-pe/docker-tramp.el#troubleshooting
-(require 'docker-tramp-compat)
 ;; Faster than the default, which is scp.
 (setq tramp-default-method "ssh")
 
