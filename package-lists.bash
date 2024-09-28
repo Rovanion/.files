@@ -92,6 +92,7 @@ graphical_packages=(
 	audacity                      # Sound editor.
 	vlc                           # Media player.
 	xkbcomp                       # Dependency of configure-mouse-and-keyboard.
+	libreoffice                   # Office suite.
 )
 
 case $1 in
