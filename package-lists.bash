@@ -94,6 +94,7 @@ graphical_packages=(
 	xkbcomp                       # Dependency of configure-mouse-and-keyboard.
 	libreoffice                   # Office suite.
 	physlock                      # Screen lock.
+	light                         # Control the screen brightness of laptop displays.
 )
 
 case $1 in
