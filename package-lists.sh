@@ -1,6 +1,11 @@
 #!/bin/sh -eu
+# The main export of this file is the variable $packages, written to stdout.
 
-# The main export of this file is the variable $packages.
+## Ensure argument is present.
+if [ -z ${1+x} ]; then
+	 echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
+	 exit 2
+fi
 
 ### Distribution specific code paths.
 
@@ -18,6 +23,10 @@ case $distributor in
 		# This is the insane way Guix identifies itself.
 		firefox_name=firefox
 		codec_packages=()
+		;;
+	*)
+		echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
+		exit 3
 		;;
 esac
 
