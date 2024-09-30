@@ -107,7 +107,7 @@ graphical_packages=(
 	physlock                      # Screen lock.
 	light                         # Control the screen brightness of laptop displays.
 	fonts-wqy-microhei            # Chinese sans-serif font.
-	papirus-icon-theme						# Because symbols good.
+	hicolor-icon-theme						# Base icons used by NetworkManager.
 )
 
 case $1 in
