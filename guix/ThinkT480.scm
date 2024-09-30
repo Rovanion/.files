@@ -1,15 +1,37 @@
-;; This is an operating system configuration generated
-;; by the graphical installer.
-
-(use-modules (gnu)
-             ; (gnu services virtualization)
-             (gnu services databases)
+(use-modules (ice-9 popen)
+             (ice-9 textual-ports) ; for get-string-all
+             (srfi srfi-1)
+             (gnu)
              (gnu packages cups)
-             (gnu packages databases)
-	     (gnu packages linux)
+             (gnu packages linux)
              ((nongnu packages linux) :prefix nongnu:)
              (nongnu system linux-initrd))
 (use-service-modules desktop networking ssh xorg pm cups avahi)
+
+(define package-lists-stdout (open-pipe* OPEN_READ "/home/rovanion/source/.files/package-lists.sh" "leisure"))
+(define package-list (string-tokenize (get-string-all package-lists-stdout)))
+(close-pipe package-lists-stdout)
+
+(define %xorg-libinput-config
+  "Section \"InputClass\"
+  Identifier \"Touchpads\"
+  Driver \"libinput\"
+  MatchDevicePath \"/dev/input/event*\"
+  MatchIsTouchpad \"on\"
+
+  Option \"Tapping\" \"on\"
+  Option \"TappingDrag\" \"on\"
+  Option \"DisableWhileTyping\" \"on\"
+  Option \"MiddleEmulation\" \"on\"
+  Option \"ScrollMethod\" \"twofinger\"
+EndSection
+Section \"InputClass\"
+  Identifier \"Keyboards\"
+  Driver \"libinput\"
+  MatchDevicePath \"/dev/input/event*\"
+  MatchIsKeyboard \"on\"
+EndSection
+")
 
 (define nonguix-desktop-services
   (modify-services %desktop-services
@@ -65,38 +87,25 @@
                 %base-user-accounts))
   (packages
     (append
-     (map specification->package
-          '("awesome"
-            "nss-certs"
-            "gvfs"
-            "cups"
-            "font-wqy-zenhei"
-            "font-wqy-microhei"
-            "font-adobe-source-han-sans"
-            "papirus-icon-theme"
-            "adwaita-icon-theme"
-            "hicolor-icon-theme" ; Only installed to remove the red wrong way roadmarker icon from nm-applet.
-            ))
+     (map (compose list specification->package+output) package-list)
       %base-packages))
   (services
-    (append
-      (list (service openssh-service-type)
-            (set-xorg-configuration
-             (xorg-configuration
-              (keyboard-layout keyboard-layout)))
-            (service cups-service-type
-                     (cups-configuration
-                      (web-interface? #t)
-                      (extensions
-                       (list cups-filters epson-inkjet-printer-escpr hplip-minimal splix))))
-            ;; (service libvirt-service-type
-            ;;           (libvirt-configuration
-            ;;            (unix-sock-group "libvirt")
-            ;;            (tls-port "16555")))
-            (service postgresql-service-type
-                     (postgresql-configuration
-                      (postgresql postgresql-13))))
-      nonguix-desktop-services))
+   (cons*
+    (service openssh-service-type)
+    (service slim-service-type
+             (slim-configuration
+              (xorg-configuration
+               (xorg-configuration
+                (keyboard-layout keyboard-layout)
+                (extra-config (list %xorg-libinput-config))))))
+    (service cups-service-type
+             (cups-configuration
+              (web-interface? #t)
+              (extensions
+               (list cups-filters epson-inkjet-printer-escpr hplip-minimal splix))))
+    (remove (lambda (service)
+              (eq? (service-kind service) gdm-service-type))
+            nonguix-desktop-services)))
   (hosts-file
    (plain-file "hosts"
                (string-append (local-host-aliases host-name)
