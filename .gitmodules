@@ -8,3 +8,6 @@
 [submodule "mailconf"]
 	path = mailconf
 	url = git@github.com:Rovanion/mailconf.git
+[submodule "Keepass"]
+	path = Keepass
+	url = git@github.com:Rovanion/Keepass.git
