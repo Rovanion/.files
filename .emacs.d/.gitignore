@@ -1,7 +1,10 @@
 ac-comphist.dat
 clang-complete
+el-get/
 elpa/
 image-dired/
 irony/
+projectile-bookmarks.eld
+transient/
 tramp
 .python-environments/
