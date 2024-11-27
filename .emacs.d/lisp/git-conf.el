@@ -31,4 +31,7 @@
 ;; Don't show second window with diff. I already add my own with the verbose flag to git commit.
 (setq magit-commit-show-diff nil)
 
+;; Use the only viable option for terminal emacs by default.
+(setq magit-blame-echo-style 'headings)
+
 (provide 'git-conf)
