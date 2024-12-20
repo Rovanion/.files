@@ -24,7 +24,7 @@ local prn = utils.recursive_print
 -- Battery level indicator
 if gears.filesystem.dir_readable('/sys/class/power_supply/BAT0') then
   battery = require("battery-widget")(
-    {adapter = "BAT0",
+    {adapter = "BAT1",
      ac_prefix = "🔌",
      battery_prefix = "🔋",
      widget_text = "  ${AC_BAT} ${color_on}${percent}%${color_off} ",
