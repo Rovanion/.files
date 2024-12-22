@@ -62,6 +62,7 @@ base_packages=(
 	python3
 	perl                          # For diff-highlight.
 	ncdu                          # Disk usage in a TUI.
+	less                          # I've never had to manually install a pager before, but here we are.
 )
 
 headless_packages=(
