@@ -109,6 +109,7 @@ graphical_packages=(
 	light                         # Control the screen brightness of laptop displays.
 	fonts-wqy-microhei            # Chinese sans-serif font.
 	hicolor-icon-theme						# Base icons used by NetworkManager.
+	arandr												# Dynamic display management.
 )
 
 case $1 in
