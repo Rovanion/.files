@@ -6,7 +6,8 @@ function FindProxyForURL(url, host) {
         "berra2": "SOCKS5 localhost:8087",
         "berra3": "SOCKS5 localhost:8087",
         "hype": "SOCKS5 localhost:8085",
-        "berzelius0": "SOCKS5 localhost:8088"
+        "berzelius0": "SOCKS5 localhost:8088",
+        "ce1": "SOCKS5 localhost:8089",
     };
 
     const proxy_aliases = {
@@ -17,6 +18,7 @@ function FindProxyForURL(url, host) {
         "mail.nsc.liu.se": "jump",
         "hype": "hype",
         "192.168.100.2": "berzelius0",
+        "10.126.27.254": "ce1",
     }
 
     if (proxies[proxy_aliases[host]]) {
