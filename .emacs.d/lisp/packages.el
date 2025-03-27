@@ -68,6 +68,7 @@
         magit                  ; Git interface.
         afternoon-theme        ; Color theme.
         ement                  ; Matrix client.
+        mu4e-jump-to-list      ; Function to jump to mailing lists in mu4e.
         ))
 
 ;; Repositories
