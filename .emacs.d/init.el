@@ -198,6 +198,7 @@
 (put 'upcase-region 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
 
 ;; Disable cursor blinking, it was driving me mad!
 (setq visible-cursor nil)
