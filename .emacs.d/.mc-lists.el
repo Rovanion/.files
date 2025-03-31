@@ -16,6 +16,7 @@
         isearch-printing-char
         iy-go-to-char--command
         iy-go-up-to-char
+        jump-char-backward
         jump-char-forward
         jump-char-process-char
         kill-region
@@ -23,6 +24,7 @@
         kill-visual-line
         matlab-electric-comment
         mouse-yank-primary
+        mu4e-fill-paragraph
         mu4e-headers-view-message
         org-beginning-of-line
         org-cycle
@@ -50,12 +52,14 @@
         wdired-downcase-word
         windows-to-posix-path
         xterm-paste
+        yaml-electric-backspace
         ))
 
 (setq mc/cmds-to-run-once
       '(
         helm-M-x
         helm-confirm-and-exit-minibuffer
+        overwrite-mode
         puppet-align-block
         save-buffers-kill-terminal
         suspend-frame
