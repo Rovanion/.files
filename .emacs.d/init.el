@@ -261,22 +261,23 @@
 
 (setq require-final-newline t)
 
-;; (load-theme 'afternoon t)
-;; (custom-set-faces
-;;  `(default                  ((t (:background "background"))))
-;;  '(org-indent               ((t (:background "#111" :foreground "#111"))))
-;;  `(org-checkbox             ((t (:background "background"))))
-;;  `(helm-selection           ((t (:background "brightred"))))
-;;  `(helm-ff-file             ((t (:foreground "foreground"))))
-;;  `(diff-changed-unspecified ((t (:background "background"))))
-;;  `(diff-indicator-changed   ((t (:background "background"))))
-;;  `(diff-indicator-removed   ((t (:background "background"))))
-;;  `(diff-indicator-added     ((t (:background "background"))))
-;;  `(diff-hunk-header         ((t (:background "background"))))
-;;  `(diff-refine-changed      ((t (:background "background"))))
-;;  `(font-lock-string-face    ((t (:foreground "#bfffff"))))
-;;  `(variable-pitch           ((t (:foreground "foreground"))))
-;;  `(sh-heredoc               ((t (:background "background")))))
+(load-theme 'afternoon t)
+(custom-set-faces
+ `(default                  ((t (:background "background"))))
+ '(org-indent               ((t (:background "#111" :foreground "#111"))))
+ `(org-checkbox             ((t (:background "background"))))
+ `(helm-selection           ((t (:background "brightred"))))
+ `(helm-ff-file             ((t (:foreground "foreground"))))
+ `(diff-changed-unspecified ((t (:background "background"))))
+ `(diff-indicator-changed   ((t (:background "background"))))
+ `(diff-indicator-removed   ((t (:background "background"))))
+ `(diff-indicator-added     ((t (:background "background"))))
+ `(diff-hunk-header         ((t (:background "background"))))
+ `(diff-refine-changed      ((t (:background "background"))))
+ `(font-lock-string-face    ((t (:foreground "#bfffff"))))
+ `(variable-pitch           ((t (:foreground "foreground"))))
+ `(sh-heredoc               ((t (:background "background"))))
+ `(magit-blame-highlight    ((t (:background "#111")))))
 
 ;; Collection of keybinding customizations.
 ;; Should be the (almost) last thing requiered in init.el.
