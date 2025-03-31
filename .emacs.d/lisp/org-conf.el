@@ -138,6 +138,8 @@ the block, into the buffer."
 (connection-local-set-profiles
  '(:application tramp) 'remote-path-with-root-bin)
 
+(setq explicit-shell-file-name "/bin/sh")
+
 ;;; Enable org's indent by level.
 (setq org-indent-indentation-per-level 1)
 (setq org-startup-indented t)
