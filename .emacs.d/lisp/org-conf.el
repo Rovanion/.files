@@ -55,19 +55,24 @@
 ;; Enable auto-fill-mode when editing org-files.
 (add-hook 'org-mode-hook 'turn-on-auto-fill)
 
-(defun org-previous-source-block ()
+(defun org-repeat-previous-source-block ()
   "Returns the previous source block in its entirety."
+  (interactive)
   (save-excursion
     (org-babel-previous-src-block)
     (let ((element (org-element-at-point)))
       (when (eq (car element) 'src-block)
-        (let* ((content  (cadr element))
-               (lang     (plist-get content :language))
-               (switches (plist-get content :switches))
-               (parms    (plist-get content :parameters))
-               (value    (plist-get content :value)))
-          (delq nil (list lang switches parms "\n" )))
-        ))))
+        (let* ((content        (cadr element))
+               (lang           (plist-get content :language))
+               (switches       (plist-get content :switches))
+               (params         (plist-get content :parameters))
+               (header-content (mapconcat #'identity (delq nil (list lang switches params)) " "))
+               (code           (plist-get content :value)))
+          (format
+           (concat "#+begin_src %s\n"
+                   "%s"
+                   "#+end_src\n")
+           header-content code))))))
 
 (defun org-previous-source-block-headers ()
   "Returns the previous source block's headers."
@@ -78,8 +83,8 @@
         (let* ((content  (cadr element))
                (lang     (plist-get content :language))
                (switches (plist-get content :switches))
-               (parms    (plist-get content :parameters)))
-          (delq nil (list lang switches parms)))))))
+               (params   (plist-get content :parameters)))
+          (delq nil (list lang switches params)))))))
 
 (defun org-previous-source-block-headers-string ()
   "Returns the previous source block's headers as a string."
