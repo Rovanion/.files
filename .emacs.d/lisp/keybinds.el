@@ -134,14 +134,6 @@
 (define-key helm-map (kbd "TAB")   #'helm-execute-persistent-action)
 (define-key helm-map (kbd "C-z")   #'helm-select-action)
 
-;; Dired
-(with-eval-after-load 'dired
-  (define-key dired-mode-map (kbd "p")   #'dired-single-up-directory)
-  (define-key dired-mode-map (kbd "^")   #'dired-single-up-directory)
-  (define-key dired-mode-map (kbd "RET") #'dired-single-buffer)
-  (define-key dired-mode-map [mouse-1]   #'dired-single-buffer-mouse))
-
-
 ;; Puppet
 (with-eval-after-load 'puppet-mode
   (define-key puppet-mode-map (kbd "<backtab>") #'puppet-align-block)

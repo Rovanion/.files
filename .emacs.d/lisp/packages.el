@@ -42,7 +42,6 @@
         string-inflection      ; Switching BETWEEN different_variable-namingConventions.
         reason-mode            ; An OCaml dialect for JS transpilation.
         merlin                 ; OCaml auto completion.
-        dired-single           ; To reuse the same dired buffer while browsing.
         org                    ; Document format for organizing your life.
         nix-mode               ; A functionally pure package management system with a dedicated language.
         projectile             ; Operating within the context of a source code repository.
