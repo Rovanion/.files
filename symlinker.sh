@@ -14,7 +14,7 @@ echo "Creating links from $currentDir in $dest"
 
 for file in $(ls -a); do
 	# If the file is ., .., .git, this script or README then do nothing.
-	if echo $file | grep -Eq '^\.$|^\.\.$|^\.git$|^\.ssh$|^.+\.bash~?$|^.+\.sh~?$|^.+\.rules~?$|^.+\.conf~?$|^README$|^mailconf$|^guix$'; then
+	if echo $file | grep -Eq '^\.$|^\.\.$|^\.git$|^\.ssh$|^.+\.bash~?$|^.+\.sh~?$|^.+\.rules~?$|^.+\.conf~?$|^README$|^mailconf$|^guix$|^lightdm-session$'; then
 		continue
 	fi
 
