@@ -164,7 +164,7 @@ export GOPATH=$HOME/.local/share/go
 HISTSIZE=10000
 HISTFILESIZE=20000
 # Avoid duplicates
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignorespace:ignoredups
 # When the shell exits, append to the history file instead of overwriting it.
 shopt -s histappend
 # After each command, append to the history file.
