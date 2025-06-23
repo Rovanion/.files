@@ -160,9 +160,8 @@ XMODIFIERS="emacs"
 # Tell golang where my workspace is.
 export GOPATH=$HOME/.local/share/go
 
-# For setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=20000
+# Store all history forever. Lets try this out for a while. HISTFILESIZE inherits the value from HISTSIZE.
+HISTSIZE='INFINITE'
 # Avoid duplicates
 export HISTCONTROL=ignorespace:ignoredups
 # When the shell exits, append to the history file instead of overwriting it.
