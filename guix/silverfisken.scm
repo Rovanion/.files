@@ -158,7 +158,7 @@ EndSection
                         bluez-alsa
                         pipewire
 			awesome
-			xkbcomp             ;; Keymap compiler for configure-mouse-and-keyboard.
+			xkbcomp             ;; Keymap compiler for ,configure-mouse-and-keyboard.
 			arandr              ;; Set resolution and screen composition.
 			htop                ;; Process monitor.
 			firefox             ;; Web browser.

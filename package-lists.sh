@@ -103,7 +103,7 @@ graphical_packages=(
 	file-roller                   # Archive manager.
 	audacity                      # Sound editor.
 	vlc                           # Media player.
-	xkbcomp                       # Dependency of configure-mouse-and-keyboard.
+	xkbcomp                       # Dependency of ,configure-mouse-and-keyboard.
 	libreoffice                   # Office suite.
 	physlock                      # Screen lock.
 	light                         # Control the screen brightness of laptop displays.

@@ -176,7 +176,7 @@ myawesomemenu = {
 
 local menu_awesome  = { "awesome", myawesomemenu, beautiful.awesome_icon }
 local menu_terminal = { "open terminal", terminal }
-local menu_dvorak   = { "Dvorak", "configure-mouse-and-keyboard"}
+local menu_dvorak   = { "Dvorak", ",configure-mouse-and-keyboard"}
 local menu_qwerty   = { "qwerty", "setxkbmap se"}
 
 mymainmenu = awful.menu({

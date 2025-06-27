@@ -1,5 +1,5 @@
 #!/bin/sh
-# -*- compile-command: "configure-mouse-and-keyboard" -*-
+# -*- compile-command: ",configure-mouse-and-keyboard" -*-
 
 # See: https://unix.stackexchange.com/questions/783122
 # cp -rL /gnu/store/<hash>-fonts-dir/share/fonts/terminus ~/.local/share/fonts/terminus/

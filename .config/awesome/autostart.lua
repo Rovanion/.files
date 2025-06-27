@@ -5,7 +5,7 @@ local utils = require("utils")
 -- {{{ Autostart
 --Autostart scripting
 
-utils.run_if_not_running("configure-mouse-and-keyboard")
+utils.run_if_not_running(",configure-mouse-and-keyboard")
 utils.run_if_not_running("firefox")
 utils.run_if_not_running("volumeicon")
 utils.run_if_not_running("nm-applet")
