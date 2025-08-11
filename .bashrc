@@ -72,9 +72,7 @@ if [[ $TERM =~ 'rxvt-unicode' ]]; then
 		 timestamp_placeholder='┌[--:--]'
 	fi
 	# Different systems have different names for the terminfofile.
-	if [ -f /usr/share/terminfo/r/rxvt-unicode-256color ]; then
-		export TERM=rxvt-unicode-256color
-	elif [ -f /usr/share/terminfo/r/rxvt-256color ]; then
+	if [ -f /usr/share/terminfo/r/rxvt-256color ]; then
 		export TERM=rxvt-256color
 	elif [ -f /usr/share/terminfo/x/xterm-256color ]; then
 		export TERM=xterm-256color
