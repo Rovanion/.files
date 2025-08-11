@@ -1,3 +1,4 @@
+// -*- mode: js-mode -*-
 // https://developer.mozilla.org/en-US/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file
 function FindProxyForURL(url, host) {
 	const proxies = {
@@ -31,5 +32,9 @@ function FindProxyForURL(url, host) {
 	if (host.endsWith("mgt.cluster")) {
 		return proxies["berra"]
 	}
+	if (host.startsWith("poppius") && host.endsWith("-management")) {
+		return proxies["ce1"]
+	}
+
 	return proxies[proxy_aliases[host]] || proxies[host]
 }
