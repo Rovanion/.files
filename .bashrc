@@ -62,15 +62,15 @@ shopt -s histverify
 # Are we connected from a remote host?
 [ ! -z "$(who am i | cut -f2 -d\( | cut -f1 -d: | cut -f1 -d\))" ] && ssh_info="[${cyan}ssh${clear}]"
 
-# Only enable our fancy new PS0 rewriting PS1 timestamp thingomabob in urxvt.
+# PS0 was introduced in Bash 4.4.
+if (( BASH_VERSINFO[0] > 4 || BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] >= 4 )); then
+	PS0_elements=( "${save_cursor_position}" "\$(move_cursor_to_start_of_ps1)"
+	               "${timestamp}" "${restore_cursor_position}")
+	PS0=$(IFS=; echo "${PS0_elements[*]}")
+	timestamp_placeholder='┌[--:--]'
+fi
+
 if [[ $TERM =~ 'rxvt-unicode' ]]; then
-	# PS0 was introduced in Bash 4.4.
-	if (( BASH_VERSINFO[0] > 4 || BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] >= 4 )); then
-		 PS0_elements=( "${save_cursor_position}" "\$(move_cursor_to_start_of_ps1)"
-               "${timestamp}" "${restore_cursor_position}")
-		 PS0=$(IFS=; echo "${PS0_elements[*]}")
-		 timestamp_placeholder='┌[--:--]'
-	fi
 	# Different systems have different names for the terminfofile.
 	if [ -f /usr/share/terminfo/r/rxvt-256color ]; then
 		export TERM=rxvt-256color
