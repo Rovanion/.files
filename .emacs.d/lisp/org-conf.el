@@ -61,13 +61,12 @@
   (save-excursion
     (org-babel-previous-src-block)
     (let ((element (org-element-at-point)))
-      (when (eq (car element) 'src-block)
-        (let* ((content        (cadr element))
-               (lang           (plist-get content :language))
-               (switches       (plist-get content :switches))
-               (params         (plist-get content :parameters))
-               (header-content (mapconcat #'identity (delq nil (list lang switches params)) " "))
-               (code           (plist-get content :value)))
+      (when (org-element-type-p element 'src-block)
+        (let* ((lang           (org-element-property :language   element))
+               (switches       (org-element-property :switches   element))
+               (params         (org-element-property :parameters element))
+               (code           (org-element-property :value      element))
+               (header-content (mapconcat #'identity (delq nil (list lang switches params)) " ")))
           (format
            (concat "#+begin_src %s\n"
                    "%s"
@@ -79,11 +78,10 @@
   (save-excursion
     (org-babel-previous-src-block)
     (let ((element (org-element-at-point)))
-      (when (eq (car element) 'src-block)
-        (let* ((content  (cadr element))
-               (lang     (plist-get content :language))
-               (switches (plist-get content :switches))
-               (params   (plist-get content :parameters)))
+      (when (org-element-type-p element 'src-block)
+        (let* ((lang           (org-element-property :language   element))
+               (switches       (org-element-property :switches   element))
+               (params         (org-element-property :parameters element)))
           (delq nil (list lang switches params)))))))
 
 (defun org-previous-source-block-headers-string ()
