@@ -42,6 +42,7 @@
         puppet-interpolate
         smart-line-beginning
         sp-backward-sexp
+        sp-backward-slurp-sexp
         sp-forward-sexp
         sp-forward-slurp-sexp
         sp-remove-active-pair-overlay
@@ -53,6 +54,7 @@
         windows-to-posix-path
         xterm-paste
         yaml-electric-backspace
+        yaml-electric-dash-and-dot
         ))
 
 (setq mc/cmds-to-run-once
