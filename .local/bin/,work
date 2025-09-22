@@ -5,6 +5,8 @@ urxvt -name work -cd ~/nsc/yepu &
 urxvt -name work -cd ~/nsc/yepu &
 urxvt -name remote -cd ~/nsc/cos-logs &
 urxvt -name remote -cd ~/nsc/cos-logs &
+urxvt -name music -cd ~/nsc/kryolith &
+urxvt -name music -cd ~/nsc/kryolith &
 sleep 0.25
 urxvt -name web-main -e ew ~/source/org/anteckningar/arbetsbok-2024.org &
 # systemctl --user start pomodoro
