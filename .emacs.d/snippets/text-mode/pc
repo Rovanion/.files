@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: puppet-class-commit-prefix
+# key: pc
+# --
+`(concat (when (re-search-forward "^.+class \\(\[a-z_:]+\\)" nil 'noerror)
+						 			 (match-string-no-properties 1))
+									 ": ")`
