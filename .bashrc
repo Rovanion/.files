@@ -2,12 +2,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
-# If not running interactively, don't do anything.
-[ -z "$PS1" ] && return
-
-# When in emacs.
-[ -n "$INSIDE_EMACS" ] && return
-
+# If not running interactively, or inside Emacs, just set PS1.
+[ -z "$PS1" -o -n "$INSIDE_EMACS" -o "$TERM" = "dumb" ] && export PS1='$ ' && return
 
 green='\e[0;32m'
 red='\e[0;31m'
