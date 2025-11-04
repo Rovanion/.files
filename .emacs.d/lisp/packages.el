@@ -43,13 +43,11 @@
         reason-mode            ; An OCaml dialect for JS transpilation.
         merlin                 ; OCaml auto completion.
         org                    ; Document format for organizing your life.
-        nix-mode               ; A functionally pure package management system with a dedicated language.
         projectile             ; Operating within the context of a source code repository.
         geiser                 ; Scheme IDE and REPL.
         geiser-guile           ; Guile Scheme specifics for Geiser.
         guix                   ; Another functionally pure package management system.
         gcmh                   ; Makes emacs only collect garbage when idling.
-        inf-clojure            ; Inferior Clojure mode for babashka.
         org-jira               ; Integrate org with Jira.
         ox-jira                ; Export org-files to jira syntax.
         which-key              ; Shows help text after prefix-key is pressed.
@@ -64,11 +62,18 @@
         jump-char              ; Jump to next character X.
         adaptive-wrap          ; Indent wrapped lines for reduced visual clutter.
         pytest                 ; Python py.test wrapper.
-        magit                  ; Git interface.
         afternoon-theme        ; Color theme.
-        ement                  ; Matrix client.
         mu4e-jump-to-list      ; Function to jump to mailing lists in mu4e.
         ))
+
+;; These packages require Emacs 28 or newer.
+(when (version< "28" emacs-version)
+    (add-to-list 'package-list
+    '(magit                  ; Git interface.
+      inf-clojure            ; Inferior Clojure mode for babashka.
+      nix-mode               ; A functionally pure package management system with a dedicated language.
+      ement                  ; Matrix client.
+      )))
 
 ;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
