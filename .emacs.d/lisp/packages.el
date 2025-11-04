@@ -63,7 +63,6 @@
         adaptive-wrap          ; Indent wrapped lines for reduced visual clutter.
         pytest                 ; Python py.test wrapper.
         afternoon-theme        ; Color theme.
-        mu4e-jump-to-list      ; Function to jump to mailing lists in mu4e.
         ))
 
 ;; These packages require Emacs 28 or newer.
@@ -94,6 +93,12 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
+
+;; Special case for mu4e dependencies since we install it through the system package manager.
+(when (package-installed-p 'mu4e)
+  (package-install mu4e-jump-to-list))      ; Function to jump to mailing lists in mu4e.
+
 
 (provide 'packages)
 ;;; packages.el ends here
