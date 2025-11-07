@@ -67,12 +67,15 @@
 
 ;; These packages require Emacs 28 or newer.
 (when (version< "28" emacs-version)
-    (add-to-list 'package-list
-    '(magit                  ; Git interface.
-      inf-clojure            ; Inferior Clojure mode for babashka.
-      nix-mode               ; A functionally pure package management system with a dedicated language.
-      ement                  ; Matrix client.
-      )))
+  (setq package-list
+	(append
+	 package-list
+	 '(magit                  ; Git interface.
+	   inf-clojure            ; Inferior Clojure mode for babashka.
+	   nix-mode               ; A functionally pure package management system with a dedicated language.
+	   ement                  ; Matrix client.
+	   ))))
+
 
 ;; Repositories
 (setq package-archives '(("melpa-stable" . "https://stable.melpa.org/packages/")
@@ -97,7 +100,8 @@
 
 ;; Special case for mu4e dependencies since we install it through the system package manager.
 (when (package-installed-p 'mu4e)
-  (package-install mu4e-jump-to-list))      ; Function to jump to mailing lists in mu4e.
+  (unless (package-installed-p 'mu4e-jump-to-list)
+    (package-install 'mu4e-jump-to-list)))      ; Function to jump to mailing lists in mu4e.
 
 
 (provide 'packages)
