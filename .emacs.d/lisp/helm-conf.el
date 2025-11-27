@@ -8,7 +8,7 @@
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
 
 ;; Maximum length of "file names"/"buffer names" in the buffer list.
-(setq helm-buffer-max-length 50)
+(setq helm-buffer-max-length 40)
 
 ;; Helm-gtags conf
 (setq helm-gtags-ignore-case t
