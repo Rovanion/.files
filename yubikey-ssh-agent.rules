@@ -1,1 +1,7 @@
-KERNEL=="hidraw2", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", TAG+="uaccess", GROUP="plugdev", MODE="0660", RUN+="/usr/local/bin/yubikey-ssh-agent-attached '%E{ACTION}'"
+# Var Yubikey har två underenheter, hoppa över att köra skriptet för ett av dem.
+SUBSYSTEMS=="usb", ATTRS{bInterfaceNumber}!="00", GOTO="yubikey_end"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", ENV{DISPLAY}=":0", ENV{SSH_AUTH_SOCK}="/run/user/1000/ssh-agent.socket", TAG+="uaccess", MODE="0660", RUN+="/usr/local/bin/yubikey-ssh-agent-attached '%E{ACTION}'"
+LABEL="yubikey_end"
+
+# Se `udevadm monitor` för alla event som sker.
+# För att se vilka attribut som finns i en enhets kedja: udevadm info -ap /sökväg/från/udevadm-monitor
