@@ -27,8 +27,6 @@
    "\C-u\C-[xalig\C-i-r\C-i\C-m\C-a:\C-m\C-m\C-mn")
 
 (require 'flycheck)
-;; Enable typescript-tslint checker.
-(flycheck-add-mode 'typescript-tslint 'web-mode)
 
 (provide 'web-js-conf)
 ;;; web-mode-conf.el ends here
