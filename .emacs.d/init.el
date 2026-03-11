@@ -212,9 +212,10 @@
 ;; Make CamelCased subwords count as words.
 (add-hook 'prog-mode-hook #'subword-mode)
 
-;; Fonts for non-terminal emacs
-(add-to-list 'default-frame-alist
-             '(font . "Terminus-10"))
+
+(setq default-frame-alist
+      ;; Fonts for non-terminal emacs
+      '((font . "Terminus-10")))
 
 ;; Faster than the default, which is scp.
 (setq tramp-default-method "ssh")
