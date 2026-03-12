@@ -65,7 +65,7 @@ key <AC07> { [ h, H, asciicircum, Hstroke ] };
 key <AC08> { [ t, T, quotedbl, Tslash ] };
 key <AC09> { [ n, N, asciitilde ] };
 key <AC10> { [ s, S, ssharp, section ] };
-key <AC11> { [ minus, underscore, dead_belowdot, dead_abovedot ] };
+key <AC11> { [ minus, underscore, underscore, dead_abovedot ] };
 
 key <AB01> { [ period, colon, bar, dead_abovedot ] };
 key <AB02> { [ q, Q, equal, Greek_OMEGA ] };
