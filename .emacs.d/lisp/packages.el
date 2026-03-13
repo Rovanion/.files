@@ -85,6 +85,11 @@
                                    ("gnu-elpa"     . 5)
                                    ("melpa"        . 0)))
 
+(setq package-pinned-packages
+      ;; Use the unstable version because the tagged version is ooooold.
+      '((rpm-spec-mode                 . "melpa")))
+
+
 ;; The following line was previously on emacs 27+. Shit will probably break on some computer.
 (package-initialize)
 
