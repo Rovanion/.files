@@ -23,8 +23,13 @@ local prn = utils.recursive_print
 
 -- Battery level indicator
 if gears.filesystem.dir_readable('/sys/class/power_supply/BAT0') then
+  battery_host_map = {
+    ["T14"]    = "BAT0",
+    ["T480"]   = "BAT1",
+  }
+  battery_adapter = battery_host_map[os.getenv("HOSTNAME")] or "BAT0"
   battery = require("battery-widget")(
-    {adapter = "BAT1",
+    {adapter = "BAT0",
      ac_prefix = "🔌",
      battery_prefix = "🔋",
      widget_text = "  ${AC_BAT} ${color_on}${percent}%${color_off} ",
