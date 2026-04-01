@@ -55,7 +55,8 @@
 
 ;;;
 ;; Bindings for going to the definition of symbols and back for a bunch of modes
-(keymap-unset helm-gtags-mode-map "C-t")
+(when (version< "28" emacs-version)
+  (keymap-unset helm-gtags-mode-map "C-t"))
 (define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
 (define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
 (define-key helm-gtags-mode-map (kbd "M-å") 'helm-gtags-dwim)

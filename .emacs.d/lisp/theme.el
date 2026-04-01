@@ -2,8 +2,9 @@
 (set-background-color "black")
 (setq frame-background-mode 'dark)
 
-
-(require-theme 'afternoon t)
+;; require-theme does not exist in Emacs 27.
+(when (version< "28" emacs-version)
+  (require-theme 'afternoon t))
 
 (custom-set-faces
  '(org-indent               ((t (:background "#111" :foreground "#111"))))
