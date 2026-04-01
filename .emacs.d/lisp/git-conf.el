@@ -1,4 +1,5 @@
-(require 'magit)
+(when (package-installed-p 'magit)
+  (require 'magit))
 
 (custom-set-faces
  ;; Magit
