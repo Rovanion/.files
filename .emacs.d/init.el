@@ -53,7 +53,8 @@
 
 (projectile-mode +1)
 
-(direnv-mode)
+(if (file-exists-p "/usr/bin/direnv")
+  (direnv-mode))
 
 ;; Try to detect textfiles as utf-8 first.
 (prefer-coding-system 'utf-8)
