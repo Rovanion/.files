@@ -5,8 +5,10 @@
       '(
         artist-backward-char
         artist-next-line
+        beginning-of-buffer
         beginning-of-visual-line
         comment-dwim
+        down-list
         end-of-buffer
         end-of-visual-line
         handle-switch-frame
@@ -38,6 +40,7 @@
         org-yank
         picture-clear-column
         picture-self-insert
+        prog-fill-reindent-defun
         puppet-indent-line
         puppet-interpolate
         smart-line-beginning
@@ -61,8 +64,10 @@
       '(
         helm-M-x
         helm-confirm-and-exit-minibuffer
+        org-shifttab
         overwrite-mode
         puppet-align-block
         save-buffers-kill-terminal
         suspend-frame
+        undo-redo
         ))
