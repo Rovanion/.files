@@ -2,6 +2,11 @@ export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
+# Depends on ssh-agent process started in ~/.config/awesome/autostart.lua.
+if [ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]; then
+	export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
+fi
+
 # If not running interactively, or inside Emacs, just set PS1.
 [ -z "$PS1" -o -n "$INSIDE_EMACS" -o "$TERM" = "dumb" ] && export PS1='$ ' && return
 
