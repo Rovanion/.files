@@ -19,10 +19,10 @@ clear='\e[0m'
 # Root?
 if (( $(id -u) == 0 )); then
 	user_colour=$red
-	prompt_characters='└#'
+	prompt_characters='└\#'
 else
 	user_colour=$green
-	prompt_characters='└$'
+	prompt_characters='└\$'
 fi
 restore_cursor_position='\e[u'
 save_cursor_position='\e[s'
