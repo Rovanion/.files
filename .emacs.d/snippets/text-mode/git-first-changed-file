@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: git-first-chanded-file
+# key: ä
+# condition: git-commit-mode
+# --
+`(car (magit-staged-files))`: 
