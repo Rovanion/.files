@@ -3,4 +3,4 @@
 # key: ä
 # condition: git-commit-mode
 # --
-`(car (magit-staged-files))`: 
+`(car (or (magit-staged-files) (magit-changed-files "HEAD")))`: 
