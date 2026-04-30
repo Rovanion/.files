@@ -103,6 +103,10 @@ EndSection
               (web-interface? #t)
               (extensions
                (list cups-filters epson-inkjet-printer-escpr hplip-minimal splix))))
+    (extra-special-file "/usr/bin/env"
+                        (file-append coreutils "/bin/env"))
+    (extra-special-file "/bin/bash"
+                        (file-append bash "/bin/bash"))
     (remove (lambda (service)
               (eq? (service-kind service) gdm-service-type))
             nonguix-desktop-services)))
