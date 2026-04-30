@@ -83,7 +83,9 @@ EndSection
                   (group "users")
                   (home-directory "/home/rovanion")
                   (supplementary-groups
-                   '("wheel" "netdev" "audio" "video"))) ;  "kvm" "libvirt"
+                   '("wheel" "netdev" "audio" "video"
+                     "plugdev" ; For yubikey.
+                     ))) ;  "kvm" "libvirt"
                 %base-user-accounts))
   (packages
     (append
@@ -107,6 +109,7 @@ EndSection
                         (file-append coreutils "/bin/env"))
     (extra-special-file "/bin/bash"
                         (file-append bash "/bin/bash"))
+    (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
     (remove (lambda (service)
               (eq? (service-kind service) gdm-service-type))
             nonguix-desktop-services)))

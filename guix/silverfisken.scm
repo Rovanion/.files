@@ -131,6 +131,7 @@ EndSection
                   (supplementary-groups '(
                                           "wheel"     ;; sudo
                                           "netdev"    ;; network devices
+                                          "plugdev"   ; Yubikey.
                                           "kvm"
                                           "tty"
                                           "input"
@@ -188,6 +189,7 @@ EndSection
                       (file-append coreutils "/bin/env"))
                     (extra-special-file "/bin/bash"
                       (file-append bash "/bin/bash"))
+                    (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
                     (service thermald-service-type)
 ;                    (service docker-service-type)
                     (service libvirt-service-type
