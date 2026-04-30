@@ -2,10 +2,10 @@
              (ice-9 textual-ports) ; for get-string-all
              (srfi srfi-1)
              (gnu)
-             (gnu packages cups)
-             (gnu packages linux)
              ((nongnu packages linux) :prefix nongnu:)
              (nongnu system linux-initrd))
+
+(use-package-modules linux cups)
 (use-service-modules desktop networking ssh xorg pm cups avahi)
 
 (define package-lists-stdout (open-pipe* OPEN_READ "/home/rovanion/source/.files/package-lists.sh" "leisure"))
