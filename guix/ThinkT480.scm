@@ -8,9 +8,13 @@
 (use-package-modules linux cups)
 (use-service-modules desktop networking ssh xorg pm cups avahi)
 
-(define package-lists-stdout (open-pipe* OPEN_READ "/home/rovanion/source/.files/package-lists.sh" "leisure"))
-(define package-list (string-tokenize (get-string-all package-lists-stdout)))
-(close-pipe package-lists-stdout)
+
+(define package-list
+  (let* ((package-lists-stdout (open-pipe* OPEN_READ "/home/rovanion/source/.files/package-lists.sh" "leisure"))
+        (package-list (string-tokenize (get-string-all package-lists-stdout))))
+    (close-pipe package-lists-stdout)
+    package-list))
+
 
 (define %xorg-libinput-config
   "Section \"InputClass\"
