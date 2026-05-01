@@ -79,6 +79,8 @@ EndSection
              (device (uuid "960F-1606" 'fat32))
              (type "vfat"))
            %base-file-systems))
+  (swap-devices
+   (list (swap-space (target "/swapfile"))))
   (host-name "ThinkT480")
   (name-service-switch %mdns-host-lookup-nss)
   (users (cons* (user-account
