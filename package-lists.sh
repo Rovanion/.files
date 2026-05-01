@@ -142,7 +142,7 @@ case $distributor in
 			[fonts-terminus]=font-terminus
 			[fonts-wqy-microhei]=font-wqy-microhei
 			[x11-utils]='xfontsel setxkbmap'
-			[spotify]=spotifyd  	# Technically not a spotify client, instead something a spotify client can connect to.
+			[spotify]='hello' # spotifyd did not build last rebuild. # Technically not a spotify client, instead something a spotify client can connect to.
 			[emacs-gtk]=emacs
 			[ssh-askpass-fullscreen]=x11-ssh-askpass
 			[network-manager-gnome]=network-manager-applet
