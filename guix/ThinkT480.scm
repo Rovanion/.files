@@ -109,6 +109,9 @@ EndSection
               (web-interface? #t)
               (extensions
                (list cups-filters epson-inkjet-printer-escpr hplip-minimal splix))))
+    (simple-service 'block-reddit hosts-service-type
+                    (list (host "127.0.0.1" "www.reddit.com")))
+    (service block-facebook-hosts-service-type)
     (extra-special-file "/usr/bin/env"
                         (file-append coreutils "/bin/env"))
     (extra-special-file "/bin/bash"
@@ -117,8 +120,4 @@ EndSection
     (remove (lambda (service)
               (eq? (service-kind service) gdm-service-type))
             nonguix-desktop-services)))
-  (hosts-file
-   (plain-file "hosts"
-               (string-append (local-host-aliases host-name)
-                              %facebook-host-aliases
-                              "#127.0.0.1 www.reddit.com"))))
+  )
