@@ -7,6 +7,7 @@ packages=$(../package-lists.sh $1)
 
 ### Package installation
 
+echo "Installing packages: ${packages}"
 guix pull
 guix install ${packages[@]}
 
@@ -15,7 +16,7 @@ guix install ${packages[@]}
 
 # Lastly symlink in all the config if not already done
 if [[ ! -f "$HOME/.gitconfig" ]]; then
-	./symlinker.sh
+	./../symlinker.sh
 fi
 
 # Run mailconf setup script.
