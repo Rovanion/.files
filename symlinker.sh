@@ -1,16 +1,20 @@
 #!/bin/sh
 
+# Bail on failure.
+set -u
+
 ###
-# Script which symlinks the contents of it's parent folder into $HOME.
+# Script which symlinks the contents of this git project into $HOME.
 ###
 
-currentDir=$(pwd)
+git_root=$(git rev-parse --show-toplevel)
+
 dest="$HOME"
 if [ -n "${1+x}" ]; then
     dest=$1
     echo "Explicit destination $1 given."
 fi
-echo "Creating links from $currentDir in $dest"
+echo "Creating links from $git_dir in $dest"
 
 for file in $(ls -a); do
 	# If the file is ., .., .git, this script or README then do nothing.
@@ -22,9 +26,9 @@ for file in $(ls -a); do
 		echo $file already exists, moving existing to $file.old
 		mv $dest/$file $dest/$file.old
 	fi
-	ln -s $currentDir/$file $dest/$file
+	ln -s $git_dir/$file $dest/$file
 done
 
 # Special case for .ssh since some systems (RHEL) does not allow for ~/.ssh to be a symlink.
-chmod g-rw,o-r $currentDir/.ssh/config
-ln $currentDir/.ssh/config $dest/.ssh/config
+chmod g-rw,o-r $git_dir/.ssh/config
+ln $git_dir/.ssh/config $dest/.ssh/config
