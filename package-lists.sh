@@ -96,6 +96,7 @@ graphical_packages=(
 	spotify												# Music yao.
 	alsa-utils										# alsamixer
 	pulsemixer										# TUI Pulse Audio mixer. Hopefully superseeded by Pipewire soon.
+	pavucontrol                   # The GUI pulse audio mixer.
 	x11-utils										  # To install xfontsel, the font viewer.
 	mumble 										    # The VoIP client.
 	volumeicon-alsa							  # Tray icon for adjusting the volume.
