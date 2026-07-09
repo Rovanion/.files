@@ -111,6 +111,7 @@ graphical_packages=(
 	fonts-wqy-microhei            # Chinese sans-serif font.
 	hicolor-icon-theme						# Base icons used by NetworkManager.
 	arandr												# Dynamic display management.
+	thunar                        # File manager.
 )
 
 case $1 in
