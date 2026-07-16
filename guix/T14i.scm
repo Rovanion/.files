@@ -10,6 +10,7 @@
  cups           ; Printing
  bash           ; Shell
  security-token ; Yubikey.
+ xdisorg        ; Physlock.
  )
 (use-service-modules desktop networking ssh xorg pm cups avahi)
 
@@ -117,6 +118,10 @@ EndSection
               (web-interface? #t)
               (extensions
                (list cups-filters epson-inkjet-printer-escpr hplip-minimal splix))))
+    (service screen-locker-service-type
+             (screen-locker-configuration
+              (name "physlock")
+              (program (file-append physlock "/bin/physlock"))))
     (simple-service 'block-reddit hosts-service-type
                     (list (host "127.0.0.1" "www.reddit.com")))
     (service block-facebook-hosts-service-type)
