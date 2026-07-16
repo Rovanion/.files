@@ -96,7 +96,10 @@ EndSection
                   (group "users")
                   (home-directory "/home/rovanion")
                   (supplementary-groups
-                   '("wheel" "netdev" "audio" "video"
+                   '("wheel"  ; Root access via sudo.
+                     "netdev" ; Manage network devices.
+                     "audio"  ; Sound card access.
+                     "video"  ; Webcam access.
                      "plugdev" ; For yubikey.
                      ))) ;  "kvm" "libvirt"
                 %base-user-accounts))
