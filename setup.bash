@@ -89,8 +89,8 @@ case $1 in
 
 		# Set the gtk controls to behave like emacs
 		gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
-		# Make sure that the screen shot directory exists
-		mkdir -p ~/Pictures/scrot
+		# Make sure that the screen shot directory exists.
+		mkdir -p ~/Bilder/Skärmbilder
 		## Select default X tools.
 		sudo update-alternatives --set x-terminal-emulator /usr/bin/urxvt
 		sudo update-alternatives --set x-www-browser /usr/bin/${firefox_name}
