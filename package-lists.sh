@@ -112,6 +112,7 @@ graphical_packages=(
 	hicolor-icon-theme						# Base icons used by NetworkManager.
 	arandr												# Dynamic display management.
 	thunar                        # File manager.
+	scrot													# Screenshots taker. Bound to PrtSc in Awesome.
 )
 
 case $1 in
