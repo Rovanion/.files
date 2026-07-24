@@ -63,6 +63,7 @@ base_packages=(
 	perl                          # For diff-highlight.
 	ncdu                          # Disk usage in a TUI.
 	less                          # I've never had to manually install a pager before, but here we are.
+	ripgrep                       # Ripgrep is a fast grep replacement.
 )
 
 headless_packages=(
