@@ -126,7 +126,8 @@ EndSection
               (name "physlock")
               (program (file-append physlock "/bin/physlock"))))
     (simple-service 'block-reddit hosts-service-type
-                    (list (host "127.0.0.1" "www.reddit.com")))
+                    (list (host "127.0.0.1" "www.reddit.com")
+                          (host "127.0.0.1" "old.reddit.com")))
     (service block-facebook-hosts-service-type)
     (extra-special-file "/usr/bin/env"
                         (file-append coreutils "/bin/env"))
