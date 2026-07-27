@@ -86,7 +86,7 @@ EndSection
              (type "vfat"))
            %base-file-systems))
   (swap-devices
-   (list (swap-space (target (file-system-label "swap" ))
+   (list (swap-space (target (uuid "a28e535d-694e-444a-8dc2-3a4ca0397576"))
                      (dependencies mapped-devices))))
   (host-name "T14i")
   (name-service-switch %mdns-host-lookup-nss)
