@@ -12,7 +12,7 @@
  security-token ; Yubikey.
  xdisorg        ; Physlock.
  )
-(use-service-modules desktop networking ssh xorg pm cups avahi)
+(use-service-modules desktop networking ssh xorg pm cups avahi sound)
 
 
 (define package-list
@@ -62,7 +62,7 @@ EndSection
   (keyboard-layout (keyboard-layout "se" "dvorak"))
   (kernel nongnu:linux-lts)
   (initrd microcode-initrd)
-  (firmware (list nongnu:linux-firmware))
+  (firmware (list nongnu:linux-firmware nongnu:sof-firmware))
   (bootloader
     (bootloader-configuration
       (bootloader grub-efi-bootloader)
