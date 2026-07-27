@@ -60,7 +60,7 @@ EndSection
   (locale "sv_SE.utf8")
   (timezone "Europe/Stockholm")
   (keyboard-layout (keyboard-layout "se" "dvorak"))
-  (kernel nongnu:linux-lts)
+  (kernel nongnu:linux)
   (initrd microcode-initrd)
   (firmware (list nongnu:linux-firmware nongnu:sof-firmware))
   (bootloader
