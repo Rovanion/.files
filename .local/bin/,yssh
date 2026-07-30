@@ -1,6 +1,17 @@
-#!/bin/sh
+#!/bin/sh -ie
+
+if [ -f ${GUIX_PROFILE}/lib/libykcs11.so ]; then
+	libykcs_path=${GUIX_PROFILE}/lib/libykcs11.so
+elif [ -f /usr/lib/x86_64-linux-gnu/libykcs11.so ]; then
+	libykcs_path=/usr/lib/x86_64-linux-gnu/libykcs11.so
+else
+	echo "Could not find libykcs11.so, bailing."
+	exit 1
+fi
+
+# If key not already present, add it.
 if ! ssh-add -L | grep -q 'Public key for PIV Authentication'; then
-	ssh-add -s /usr/lib/x86_64-linux-gnu/libykcs11.so -c
+	ssh-add -s $libykcs_path -c
 fi
 
 exec ssh $@
