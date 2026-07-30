@@ -12,7 +12,16 @@
  security-token ; Yubikey.
  xdisorg        ; Physlock.
  )
-(use-service-modules desktop networking ssh xorg pm cups avahi sound)
+(use-service-modules
+ desktop
+ networking
+ ssh
+ xorg
+ pm
+ cups
+ avahi
+ sound
+ )
 
 
 (define package-list
