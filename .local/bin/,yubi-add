@@ -1,7 +1,27 @@
-#!/bin/bash -i
-ssh-add -e /usr/lib/x86_64-linux-gnu/libykcs11.so
-# TODO: Perhaps add a timeout with -t 12h ?
-if ! ssh-add -s /usr/lib/x86_64-linux-gnu/libykcs11.so; then
-	echo 'Failed to add Yubikey, is it plugged in?'
+#!/bin/sh -ie
+
+if [ -f ${GUIX_PROFILE}/lib/libykcs11.so ]; then
+	libykcs_path=${GUIX_PROFILE}/lib/libykcs11.so
+elif [ -f /usr/lib/x86_64-linux-gnu/libykcs11.so ]; then
+	libykcs_path=/usr/lib/x86_64-linux-gnu/libykcs11.so
+else
+	echo "Could not find libykcs11.so, bailing."
+	exit 1
 fi
-emacsclient -e "(setenv \"SSH_AUTH_SOCK\" \"$(printf %s "$SSH_AUTH_SOCK")\")"
+# echo "Found libykcs11 in: ${libykcs_path}"
+
+# Remove all keys present, if any.
+if ! [ "$(ssh-add -l)" = "The agent has no identities." ]; then
+	ssh-add -e $libykcs_path
+fi
+
+# -c adds a confirmation prompt before the key is used.
+if ! ssh-add -s $libykcs_path; then
+	echo 'Failed to add Yubikey to SSH agent.'
+	exit 1
+fi
+
+# Pass the environment variable into a running Emacs daemon.
+if pgrep -u $USER emacs 1>/dev/null; then
+	emacsclient -e "(setenv \"SSH_AUTH_SOCK\" \"$(printf %s "$SSH_AUTH_SOCK")\")" 1>/dev/null
+fi
