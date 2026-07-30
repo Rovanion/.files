@@ -21,6 +21,7 @@
  cups
  avahi
  sound
+ security-token    ; For PC/SC Smart Card Daemon Service pcscsd: For the Yubikey.
  )
 
 
@@ -142,7 +143,9 @@ EndSection
                         (file-append coreutils "/bin/env"))
     (extra-special-file "/bin/bash"
                         (file-append bash "/bin/bash"))
+    ;;; For Yubikey.
     (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
+    (service pcscd-service-type)
     (remove (lambda (service)
               (eq? (service-kind service) gdm-service-type))
             nonguix-desktop-services)))
