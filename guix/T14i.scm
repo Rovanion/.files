@@ -146,6 +146,7 @@ EndSection
     ;;; For Yubikey.
     (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
     (service pcscd-service-type)
+    ;; Remove GDM since we want to run Slim.
     (remove (lambda (service)
               (eq? (service-kind service) gdm-service-type))
             nonguix-desktop-services)))
