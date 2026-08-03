@@ -1,0 +1,20 @@
+use_guix() {
+  local cache_dir="./.guix-profile"
+  # delete =.guix-profile= if =manifest.scm= is newer
+  # bash test builtin dereferences links, using =find=
+  if [[ -e $cache_dir && $(find manifest.scm -prune -newer $cache_dir) ]]; then
+    rm $cache_dir
+  fi
+
+	# For some reason the scripts in .guix-profile/etc/profile never redefine $GUIX_PROFILE if it
+	# already exists, and thus does just puts the same path into $PATH over and over again instead of
+	# activating the profile it is in. Therefore, we must either unset it or set it to $cache_dir.
+	GUIX_PROFILE=${cache_dir}
+
+  if [[ -e "$cache_dir/etc/profile" ]]; then
+    source "$cache_dir/etc/profile"
+  else
+    echo "direnvrc: building $cache_dir"
+    eval "$(guix shell -m manifest.scm -r "$cache_dir" "$@" --search-paths)"
+  fi
+}
