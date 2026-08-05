@@ -25,7 +25,7 @@ case $distributor in
 		codec_packages=()
 		;;
 	*)
-		echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
+		echo "$0: This script \"only\" supports Debian, Ubuntu and Guix."
 		exit 3
 		;;
 esac
