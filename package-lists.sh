@@ -67,40 +67,40 @@ base_packages=(
 )
 
 headless_packages=(
-	emacs-nox											# Emacs, duh.
+	emacs-nox                     # Emacs, duh.
 )
 
 graphical_workstation_packages=(
-	ykcs11												# Yubikey SSH integration.
-	yubico-piv-tool								# Yubikey manipulation tools.
+	ykcs11                        # Yubikey SSH integration.
+	yubico-piv-tool               # Yubikey manipulation tools.
 )
 
 graphical_packages=(
 	lightdm                       # Display manager.
-	awesome												# Window manager.
-	keepassxc											# Password manager.
-	nsxiv													# Image viewer.
-	dolphin												# Filesystem explorer.
-	network-manager-gnome					# nm-applet
-	cups													# Printing.
+	awesome                       # Window manager.
+	keepassxc                     # Password manager.
+	nsxiv                         # Image viewer.
+	dolphin                       # Filesystem explorer.
+	network-manager-gnome         # nm-applet
+	cups                          # Printing.
 	ssh-askpass-fullscreen        # Graphical "OK to use yubikey?" or "OK to use shared SSH connection?".
-	evince												# PDF viewer.
-	conky													# Clock on desktop that I never see.
-	audacious											# Music player that I never use.
-	mpv														# Movie player that I actually use.
-	redshift											# Tint screen red when the sun goes down.
-	blueman												# Bluetooth, blueman-applet.
-	fluidsynth										# MIDI sound font.
-	qgis													# Always end up editing maps in some way.
-	emacs-gtk											# For x-get-resource function.
-	signal-desktop								# Signal chat.
-	spotify												# Music yao.
-	alsa-utils										# alsamixer
-	pulsemixer										# TUI Pulse Audio mixer. Hopefully superseeded by Pipewire soon.
+	evince                        # PDF viewer.
+	conky                         # Clock on desktop that I never see.
+	audacious                     # Music player that I never use.
+	mpv                           # Movie player that I actually use.
+	redshift                      # Tint screen red when the sun goes down.
+	blueman                       # Bluetooth, blueman-applet.
+	fluidsynth                    # MIDI sound font.
+	qgis                          # Always end up editing maps in some way.
+	emacs-gtk                     # For x-get-resource function.
+	signal-desktop                # Signal chat.
+	spotify                       # Music yao.
+	alsa-utils                    # alsamixer
+	pulsemixer                    # TUI Pulse Audio mixer. Hopefully superseeded by Pipewire soon.
 	pavucontrol                   # The GUI pulse audio mixer.
-	x11-utils										  # To install xfontsel, the font viewer.
-	mumble 										    # The VoIP client.
-	volumeicon-alsa							  # Tray icon for adjusting the volume.
+	x11-utils                     # To install xfontsel, the font viewer.
+	mumble                        # The VoIP client.
+	volumeicon-alsa               # Tray icon for adjusting the volume.
 	rxvt-unicode                  # Terminalemulator ju!
 	file-roller                   # Archive manager.
 	audacity                      # Sound editor.
@@ -110,12 +110,12 @@ graphical_packages=(
 	physlock                      # Screen lock.
 	light                         # Control the screen brightness of laptop displays.
 	fonts-wqy-microhei            # Chinese sans-serif font.
-	hicolor-icon-theme						# Base icons used by NetworkManager.
-	arandr												# Dynamic display management.
+	hicolor-icon-theme            # Base icons used by NetworkManager.
+	arandr                        # Dynamic display management.
 	xrandr                        # Used in scripts ,screenlayout-*.
 	thunar                        # File manager.
-	scrot													# Screenshots taker. Bound to PrtSc in Awesome.
-	xsel 													# Manipulation of Xorg selection and copy buffers. Copy/Paste.
+	scrot                         # Screenshots taker. Bound to PrtSc in Awesome.
+	xsel                          # Manipulation of Xorg selection and copy buffers. Copy/Paste.
 )
 
 case $1 in
