@@ -146,8 +146,14 @@ EndSection
     ;;; For Yubikey.
     (udev-rules-service 'fido2 libfido2 #:groups '("plugdev"))
     (service pcscd-service-type)
-    ;; Remove GDM since we want to run Slim.
+
     (remove (lambda (service)
               (eq? (service-kind service) gdm-service-type))
             nonguix-desktop-services)))
+  (sudoers-file (plain-file "sudoers"
+                            (string-join
+                             '("root ALL=(ALL) ALL"
+                               "%wheel ALL=(ALL) ALL"
+                               "rovanion ALL=(root) NOPASSWD: /run/current-system/profile/bin/light")
+                             "\n")))
   )
