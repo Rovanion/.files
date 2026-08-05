@@ -1,27 +1,27 @@
 #!/bin/sh -eu
 # The main export of this file is the variable $packages, written to stdout.
 
-## Ensure argument is present.
+
+## Ensure the first argument was given.
 if [ -z ${1+x} ]; then
-	 echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
+	 echo "$0: This command takes one or two positional arguments, 0 were given."
 	 exit 2
 fi
+role=$1
+
 
 ### Distribution specific code paths.
 
 distributor=$(lsb_release --id --short 2>/dev/null || cat /etc/issue | tail -n 1)
 case $distributor in
 	Debian)
-		firefox_name=firefox-esr
 		codec_packages=(gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar)
 		;;
 	Ubuntu)
-		firefox_name=firefox
 		codec_packages=(ubuntu-restricted-extras)
 		;;
 	'This is the GNU system.  Welcome.')
-		# This is the insane way Guix identifies itself.
-		firefox_name=firefox
+		# The above is the insane way Guix identifies itself.
 		codec_packages=()
 		;;
 	*)
@@ -30,6 +30,8 @@ case $distributor in
 		;;
 esac
 
+
+### Package lists.
 
 base_packages=(
 	locales                       # Localization and translation.
@@ -78,6 +80,7 @@ graphical_workstation_packages=(
 graphical_packages=(
 	lightdm                       # Display manager.
 	awesome                       # Window manager.
+	firefox                       # Web browser.
 	keepassxc                     # Password manager.
 	nsxiv                         # Image viewer.
 	dolphin                       # Filesystem explorer.
@@ -118,9 +121,10 @@ graphical_packages=(
 	xsel                          # Manipulation of Xorg selection and copy buffers. Copy/Paste.
 )
 
-case $1 in
+
+case $role in
 	workstation|leisure)
-		packages=(${base_packages[@]} ${graphical_workstation_packages[@]} ${graphical_packages[@]} ${codec_packages[@]} $firefox_name) ;;
+		packages=(${base_packages[@]} ${graphical_workstation_packages[@]} ${graphical_packages[@]} ${codec_packages[@]}) ;;
 	headless-workstation)
 		packages=(${base_packages[@]} ${workstation_packages[@]} ${headless_packages[@]}) ;;
 	server)
@@ -132,12 +136,12 @@ esac
 
 
 
-### Package translation
+### Distribution specific package translation
 
 case $distributor in
 	'This is the GNU system.  Welcome.')
 		# The above is the absolutely insane way Guix identifies itself.
-		declare -rA guix_package_translations=(
+		declare -rA package_translations=(
 			[maildir-utils]=mu
 			[mu4e]=mu
 			[aspell-sv]=aspell-dict-sv
@@ -159,13 +163,20 @@ case $distributor in
 			[openssh-client]=openssh-sans-x
 			[locales]=glibc-locales                          # All locales, could be replaced with i.e. ((@ (gnu packages base) make-glibc-utf8-locales) (@ (gnu packages base) glibc) #:locales (list "en_US" "sv_SE") #:name "glibc-utf8-locales-en-se")
 		)
-		guix_packages=()
-		for package in ${packages[@]}; do
-			guix_packages+=(${guix_package_translations[$package]:-$package})
-		done
-		packages=()
-		packages=${guix_packages[@]}
+		;;
+	'Debian')
+		declare -rA package_translations=(
+			[firefox]=firefox-esr
+		)
 		;;
 esac
 
+translated_packages=()
+for package in ${packages[@]}; do
+	translated_packages+=(${package_translations[$package]:-$package})
+done
+packages=()
+packages=${translated_packages[@]}
+
+# The final output of this script the program is printed here.
 echo ${packages[@]}
