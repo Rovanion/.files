@@ -123,6 +123,7 @@ graphical_packages=(
 	thunar                        # File manager.
 	scrot                         # Screenshots taker. Bound to PrtSc in Awesome.
 	xsel                          # Manipulation of Xorg selection and copy buffers. Copy/Paste.
+	xinput                        # Used in ,configure-mouse-and-keyboard.
 )
 
 # These packages we do not want installed into the users profile on a Guix system.
