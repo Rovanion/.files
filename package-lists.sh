@@ -74,6 +74,7 @@ base_packages=(
 	ncdu                          # Disk usage in a TUI.
 	less                          # I've never had to manually install a pager before, but here we are.
 	ripgrep                       # Ripgrep is a fast grep replacement.
+	tree                          # Shows a folder and its children as a tree.
 )
 
 headless_packages=(
