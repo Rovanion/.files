@@ -112,6 +112,7 @@ graphical_packages=(
 	fonts-wqy-microhei            # Chinese sans-serif font.
 	hicolor-icon-theme						# Base icons used by NetworkManager.
 	arandr												# Dynamic display management.
+	xrandr                        # Used in scripts ,screenlayout-*.
 	thunar                        # File manager.
 	scrot													# Screenshots taker. Bound to PrtSc in Awesome.
 )
