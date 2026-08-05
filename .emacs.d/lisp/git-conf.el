@@ -31,6 +31,15 @@
 
 ;; Don't show second window with diff. I already add my own with the verbose flag to git commit.
 (setq magit-commit-show-diff nil)
+(magit-list-files)
+(setq git-commit-setup-hook
+      (list #'git-commit-ensure-comment-gap
+            #'git-commit-save-message
+            #'git-commit-setup-capf
+            #'git-commit-setup-changelog-support
+            #'git-commit-setup-auto-fill
+            #'git-commit-propertize-diff
+            #'bug-reference-mode))
 
 ;; Use the only viable option for terminal emacs by default.
 (setq magit-blame-echo-style 'headings)
