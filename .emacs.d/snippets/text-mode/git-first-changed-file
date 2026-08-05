@@ -3,4 +3,5 @@
 # key: ä
 # condition: git-commit-mode
 # --
-`(car (or (magit-staged-files) (magit-changed-files "HEAD")))`: 
+`(when (re-search-forward "\\(ändrad\\|changed\\): +\\(.+\\)" nil 'noerror)
+				(match-string-no-properties 2))`: 
