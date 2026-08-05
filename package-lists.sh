@@ -16,12 +16,20 @@ distributor=$(lsb_release --id --short 2>/dev/null || cat /etc/issue | tail -n 1
 case $distributor in
 	Debian)
 		codec_packages=(gstreamer1.0-libav gstreamer1.0-plugins-ugly gstreamer1.0-vaapi unrar)
+		target='system' # There are not per-user package sets on Debian-derived systems.
 		;;
 	Ubuntu)
 		codec_packages=(ubuntu-restricted-extras)
+		target='system'
 		;;
 	'This is the GNU system.  Welcome.')
 		# The above is the insane way Guix identifies itself.
+		# Then we do this insanity on top :D
+		if [ -z ${2+x} ]; then
+			echo "$0: When configuring Guix, this command takes two positional arguments; only one was given."
+			exit 2
+		fi
+		target=$2
 		codec_packages=()
 		;;
 	*)
@@ -78,8 +86,6 @@ graphical_workstation_packages=(
 )
 
 graphical_packages=(
-	lightdm                       # Display manager.
-	awesome                       # Window manager.
 	firefox                       # Web browser.
 	keepassxc                     # Password manager.
 	nsxiv                         # Image viewer.
@@ -110,8 +116,6 @@ graphical_packages=(
 	vlc                           # Media player.
 	xkbcomp                       # Dependency of ,configure-mouse-and-keyboard.
 	libreoffice                   # Office suite.
-	physlock                      # Screen lock.
-	light                         # Control the screen brightness of laptop displays.
 	fonts-wqy-microhei            # Chinese sans-serif font.
 	hicolor-icon-theme            # Base icons used by NetworkManager.
 	arandr                        # Dynamic display management.
@@ -119,6 +123,14 @@ graphical_packages=(
 	thunar                        # File manager.
 	scrot                         # Screenshots taker. Bound to PrtSc in Awesome.
 	xsel                          # Manipulation of Xorg selection and copy buffers. Copy/Paste.
+)
+
+# These packages we do not want installed into the users profile on a Guix system.
+graphical_system_packages=(
+	lightdm                       # Display manager.
+	awesome                       # Window manager.
+	light                         # Control the screen brightness of laptop displays.
+	physlock                      # Screen lock.
 )
 
 
@@ -132,6 +144,19 @@ case $role in
 	*)
 		echo "$0: First argument should be one of workstation, leisure, headless-workstation or server."
 		exit 2 ;;
+esac
+
+case $target in
+	system)
+		case $role in
+			workstation|leisure)
+				packages+=(${graphical_system_packages}) ;;
+		esac
+		;;
+	user)
+		;;
+	*)
+		echo "$0: The second argument should be either system or user."
 esac
 
 

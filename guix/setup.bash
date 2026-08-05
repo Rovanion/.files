@@ -3,7 +3,7 @@
 scriptdir=$(dirname -- $(readlink -e "$0"))
 cd $scriptdir
 
-packages=$(../package-lists.sh $1)
+packages=$(../package-lists.sh $1 user)
 
 ### Package installation
 

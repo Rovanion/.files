@@ -26,7 +26,7 @@
 
 
 (define package-list
-  (let* ((package-lists-stdout (open-pipe* OPEN_READ "/home/rovanion/source/.files/package-lists.sh" "workstation"))
+  (let* ((package-lists-stdout (open-pipe* OPEN_READ "/home/rovanion/source/.files/package-lists.sh" "workstation" "system"))
         (package-list (string-tokenize (get-string-all package-lists-stdout))))
     (close-pipe package-lists-stdout)
     package-list))
