@@ -115,6 +115,7 @@ graphical_packages=(
 	xrandr                        # Used in scripts ,screenlayout-*.
 	thunar                        # File manager.
 	scrot													# Screenshots taker. Bound to PrtSc in Awesome.
+	xsel 													# Manipulation of Xorg selection and copy buffers. Copy/Paste.
 )
 
 case $1 in
