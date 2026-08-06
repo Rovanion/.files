@@ -1,4 +1,8 @@
-export PATH="$HOME/.local/bin:$PATH"
+# Avoid manipulating PATH in development environments.
+if [ -z "${GUIX_ENVIRONMENT}${IN_NIX_SHELL}${PIPENV_ACTIVE}${VIRTUAL_ENV}" ]; then
+	export PATH="$HOME/.local/bin:$PATH"
+fi
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 
@@ -185,7 +189,8 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
 	export NIXPKGS=$HOME/source/nix/nixpkgs
 fi
 
-if [ -e "$HOME/.config/guix/current/bin" ]; then
+# If Guix is installed, but we are not in a Guix shell.
+if [ -e "$HOME/.config/guix/current/bin" -a -z "${GUIX_ENVIRONMENT}"]; then
 	export PATH="$HOME/.config/guix/current/bin:$HOME/.guix-profile/bin:$PATH"
 	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 	# The below is supposedly doing some good and sourcing the profile is apparently "the way".
@@ -193,8 +198,11 @@ if [ -e "$HOME/.config/guix/current/bin" ]; then
 	source "$GUIX_PROFILE/etc/profile"
 fi
 
-# Assume that we have administrative privileges.
-export PATH="$PATH:/usr/sbin:$HOME/.local/go/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
+# Avoid manipulating PATH in development environments.
+if [ -z "${GUIX_ENVIRONMENT}${IN_NIX_SHELL}${PIPENV_ACTIVE}${VIRTUAL_ENV}" ]; then
+	# Assume that we have administrative privileges.
+	export PATH="$PATH:/usr/sbin:$HOME/.local/go/bin:$HOME/.cabal/bin:$HOME/.cargo/bin"
+fi
 
 # Depends on ssh-agent process started in ~/.config/awesome/autostart.lua.
 if [ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]; then
