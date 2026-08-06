@@ -75,6 +75,7 @@ base_packages=(
 	less                          # I've never had to manually install a pager before, but here we are.
 	ripgrep                       # Ripgrep is a fast grep replacement.
 	tree                          # Shows a folder and its children as a tree.
+	file                          # To figure out what type a file is of.
 )
 
 headless_packages=(
