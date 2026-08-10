@@ -208,3 +208,9 @@ fi
 if [ -S "${XDG_RUNTIME_DIR}/ssh-agent.socket" ]; then
 	export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi
+
+# If stinkpot is installed, use it to manage the history. Why? Because I've had it with my history
+# being erased twice a week...
+if command -v stinkpot >/dev/null; then
+	eval "$(stinkpot init)"
+fi
