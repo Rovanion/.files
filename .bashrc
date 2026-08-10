@@ -190,7 +190,7 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then
 fi
 
 # If Guix is installed, but we are not in a Guix shell.
-if [ -e "$HOME/.config/guix/current/bin" -a -z "${GUIX_ENVIRONMENT}"]; then
+if [ -e "$HOME/.config/guix/current/bin" -a -z "${GUIX_ENVIRONMENT}" ]; then
 	export PATH="$HOME/.config/guix/current/bin:$HOME/.guix-profile/bin:$PATH"
 	export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
 	# The below is supposedly doing some good and sourcing the profile is apparently "the way".
