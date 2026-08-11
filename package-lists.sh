@@ -154,7 +154,7 @@ case $target in
 	system)
 		case $role in
 			workstation|leisure)
-				packages+=(${graphical_system_packages}) ;;
+				packages+=(${graphical_system_packages[@]}) ;;
 		esac
 		;;
 	user)
