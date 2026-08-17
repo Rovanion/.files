@@ -76,6 +76,7 @@ base_packages=(
 	ripgrep                       # Ripgrep is a fast grep replacement.
 	tree                          # Shows a folder and its children as a tree.
 	file                          # To figure out what type a file is of.
+	mtr                           # My traceroute, ping and traceroute at the same time!
 )
 
 headless_packages=(
