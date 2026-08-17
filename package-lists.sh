@@ -177,7 +177,7 @@ case $distributor in
 			[mu4e]=mu
 			[aspell-sv]=aspell-dict-sv
 			[aspell-en]=aspell-dict-en
-			[bind9-host]=knot:tools
+			[bind9-host]=bind:utils
 			[augeas-tools]=augeas
 			[emacs-nox]=emacs-no-x
 			[fonts-terminus]=font-terminus
