@@ -128,6 +128,7 @@ graphical_packages=(
 	xsel                          # Manipulation of Xorg selection and copy buffers. Copy/Paste.
 	xinput                        # Used in ,configure-mouse-and-keyboard.
 	xset                          # Used in ,configure-mouse-and-keyboard.
+	make													# As in Makefiles.
 )
 
 # These packages we do not want installed into the users profile on a Guix system.
