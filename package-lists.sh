@@ -77,6 +77,7 @@ base_packages=(
 	tree                          # Shows a folder and its children as a tree.
 	file                          # To figure out what type a file is of.
 	mtr                           # My traceroute, ping and traceroute at the same time!
+	net-tools                     # netstat
 )
 
 headless_packages=(
