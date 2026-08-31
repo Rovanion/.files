@@ -78,6 +78,7 @@ base_packages=(
 	file                          # To figure out what type a file is of.
 	mtr                           # My traceroute, ping and traceroute at the same time!
 	net-tools                     # netstat
+	xdg-utils                     # xdg-open
 )
 
 headless_packages=(
