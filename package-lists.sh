@@ -79,6 +79,7 @@ base_packages=(
 	mtr                           # My traceroute, ping and traceroute at the same time!
 	net-tools                     # netstat
 	make                          # As in Makefiles.
+	binutils                      # For strings, ld.
 )
 
 headless_packages=(
