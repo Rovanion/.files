@@ -134,6 +134,7 @@ graphical_user_packages=(
 	xset                          # Used in ,configure-mouse-and-keyboard.
 	xdg-utils                     # xdg-open
 	gimp                          # The image editor with the interesting name.
+	poppler                       # PDF-rendering, installed for pdffonts.
 )
 
 # These packages we do not want installed into the users profile on a Guix system.
