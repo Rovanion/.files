@@ -126,6 +126,7 @@ graphical_packages=(
 	arandr                        # Dynamic display management.
 	xrandr                        # Used in scripts ,screenlayout-*.
 	thunar                        # File manager.
+	tumbler                       # Thumbnailing daemon for Thunar.
 	scrot                         # Screenshots taker. Bound to PrtSc in Awesome.
 	xsel                          # Manipulation of Xorg selection and copy buffers. Copy/Paste.
 	xinput                        # Used in ,configure-mouse-and-keyboard.
