@@ -85,12 +85,12 @@ headless_packages=(
 	emacs-nox                     # Emacs, duh.
 )
 
-graphical_workstation_packages=(
+workstation_packages=(
 	ykcs11                        # Yubikey SSH integration.
 	yubico-piv-tool               # Yubikey manipulation tools.
 )
 
-graphical_packages=(
+graphical_user_packages=(
 	firefox                       # Web browser.
 	keepassxc                     # Password manager.
 	nsxiv                         # Image viewer.
@@ -146,7 +146,16 @@ graphical_system_packages=(
 
 case $role in
 	workstation|leisure)
-		packages=(${base_packages[@]} ${graphical_workstation_packages[@]} ${graphical_packages[@]} ${codec_packages[@]}) ;;
+		packages=(${base_packages[@]} ${workstation_packages[@]} ${codec_packages[@]})
+		case $target in
+			system)
+				packages+=(${graphical_system_packages[@]}) ;;
+			user)
+				packages+=(${graphical_user_packages[@]}) ;;
+			*)
+				echo "$0: The second argument should be either system or user." ;;
+		esac
+	;;
 	headless-workstation)
 		packages=(${base_packages[@]} ${workstation_packages[@]} ${headless_packages[@]}) ;;
 	server)
@@ -156,18 +165,6 @@ case $role in
 		exit 2 ;;
 esac
 
-case $target in
-	system)
-		case $role in
-			workstation|leisure)
-				packages+=(${graphical_system_packages[@]}) ;;
-		esac
-		;;
-	user)
-		;;
-	*)
-		echo "$0: The second argument should be either system or user."
-esac
 
 
 
