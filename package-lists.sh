@@ -132,6 +132,7 @@ graphical_packages=(
 	xinput                        # Used in ,configure-mouse-and-keyboard.
 	xset                          # Used in ,configure-mouse-and-keyboard.
 	xdg-utils                     # xdg-open
+	gimp                          # The image editor with the interesting name.
 )
 
 # These packages we do not want installed into the users profile on a Guix system.
