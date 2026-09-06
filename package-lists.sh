@@ -78,7 +78,7 @@ base_packages=(
 	file                          # To figure out what type a file is of.
 	mtr                           # My traceroute, ping and traceroute at the same time!
 	net-tools                     # netstat
-	xdg-utils                     # xdg-open
+	make                          # As in Makefiles.
 )
 
 headless_packages=(
@@ -131,7 +131,7 @@ graphical_packages=(
 	xsel                          # Manipulation of Xorg selection and copy buffers. Copy/Paste.
 	xinput                        # Used in ,configure-mouse-and-keyboard.
 	xset                          # Used in ,configure-mouse-and-keyboard.
-	make													# As in Makefiles.
+	xdg-utils                     # xdg-open
 )
 
 # These packages we do not want installed into the users profile on a Guix system.
