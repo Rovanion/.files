@@ -25,13 +25,12 @@
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 
 
-(add-hook 'git-commit-setup-hook
-          (lambda ()
-            (setq fill-column 72)))
+(defun git-commit-set-fill-column ()
+    (setq fill-column 72))
 
 ;; Don't show second window with diff. I already add my own with the verbose flag to git commit.
 (setq magit-commit-show-diff nil)
-(magit-list-files)
+
 (setq git-commit-setup-hook
       (list #'git-commit-ensure-comment-gap
             #'git-commit-save-message
@@ -39,7 +38,8 @@
             #'git-commit-setup-changelog-support
             #'git-commit-setup-auto-fill
             #'git-commit-propertize-diff
-            #'bug-reference-mode))
+            #'bug-reference-mode
+            #'git-commit-set-fill-column))
 
 ;; Use the only viable option for terminal emacs by default.
 (setq magit-blame-echo-style 'headings)
