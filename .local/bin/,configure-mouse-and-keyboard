@@ -1,17 +1,16 @@
 #!/bin/sh
 # -*- compile-command: ",configure-mouse-and-keyboard" -*-
 
-
 distribution=$(lsb_release --id --short 2>/dev/null || cat /etc/issue | tail -n 1)
 # If on Guix.
-if [ "$distribution" == 'This is the GNU system.  Welcome.' ]; then
+if [ "$distribution" = 'This is the GNU system.  Welcome.' ]; then
 	## Fonts do not appear to be available for selection in xfontsel, nor can urxvt see them on a Guix system.
 	## See: https://unix.stackexchange.com/questions/783122
 	## This hack works around the issue.
 	# If the hack has not already run.
 		if ! [ -d "$HOME/.local/share/fonts/terminus/" ]; then
 		# Glob paths with a terminus font in them.
-		matches=(/gnu/store/*fonts-dir/share/fonts/terminus)
+		matches=/gnu/store/*fonts-dir/share/fonts/terminus
 		# If the glob matched anything
 		if [ ${#matches} > 0 ]; then
 			echo "Copying terminus to $HOME/.local/share/fonts/terminus/"
@@ -20,6 +19,8 @@ if [ "$distribution" == 'This is the GNU system.  Welcome.' ]; then
 			cp -rL "${matches[0]}" "$HOME/.local/share/fonts/terminus/"
 		fi
 	fi
+fi
+if [ -d ~/.local/share/fonts/terminus/ ]; then
 	# Select only one of them and enable it.
 	xset +fp "$HOME/.local/share/fonts/terminus/"
 	xset fp rehash
